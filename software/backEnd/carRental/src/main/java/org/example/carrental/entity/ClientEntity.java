@@ -2,6 +2,7 @@ package org.example.carrental.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -52,8 +53,9 @@ public class ClientEntity<T> implements Serializable { //用户信息
         return account;
     }
 
-    public void setAccount(String account) {
+    public Wrapper<ClientEntity> setAccount(String account) {
         this.account = account;
+        return null;
     }
 
     public String getPassword() {
