@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
-@TableName("ordinaryAdministrator")
+@TableName("ordinaryadministrator")
 public class OrdinaryAdministratorEntity<T> implements Serializable { //普通管理员实体类
     private static final long serialVersionUID = 1L;
 

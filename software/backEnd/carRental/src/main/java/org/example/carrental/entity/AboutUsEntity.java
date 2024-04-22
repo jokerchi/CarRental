@@ -11,7 +11,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-@TableName("aboutUs")
+@TableName("aboutus")
 public class AboutUsEntity<T> implements Serializable {
     private static final long serialVersionUID = 1L;//控制序列化版本的兼容性
 

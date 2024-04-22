@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
-@TableName("carInfo")
+@TableName("carinfo")
 public class CarInfoEntity<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
