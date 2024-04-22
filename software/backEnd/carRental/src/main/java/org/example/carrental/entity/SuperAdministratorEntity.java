@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 
-@TableName("superAdministratorEntity")
+@TableName("superadministrator")
 public class SuperAdministratorEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

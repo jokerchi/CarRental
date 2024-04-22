@@ -10,13 +10,13 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
-@TableName("carRentalOrder")
-public class CarRentalOrder<T> implements Serializable {
+@TableName("carrentalorder")
+public class CarRentalOrderEntity<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public CarRentalOrder() { }
+    public CarRentalOrderEntity() { }
 
-    public CarRentalOrder(T t) {
+    public CarRentalOrderEntity(T t) {
         try {
             BeanUtils.copyProperties(this, t);
         } catch (IllegalAccessException | InvocationTargetException e) {

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
-@TableName("clientEntity")
+@TableName("client")
 public class ClientEntity<T> implements Serializable { //用户信息
     private static final long serialVersionUID = 1L;
 
