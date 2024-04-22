@@ -32,7 +32,7 @@ public class ExcitingActivitiesEntity<T> implements Serializable { //精彩活�
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -74,11 +74,7 @@ public class ExcitingActivitiesEntity<T> implements Serializable { //精彩活�
         this.content = content;
     }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public Date getAddTime() { return addTime; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }

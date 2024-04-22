@@ -38,7 +38,7 @@ public class ClientEntity<T> implements Serializable { //用户信息
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -112,11 +112,7 @@ public class ClientEntity<T> implements Serializable { //用户信息
         this.avatar = avatar;
     }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public Date getAddTime() { return addTime; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }

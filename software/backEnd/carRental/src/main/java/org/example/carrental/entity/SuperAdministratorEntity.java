@@ -17,7 +17,7 @@ public class SuperAdministratorEntity implements Serializable {
     private String superAdminAccount;//超级管理员账号
     private String password;//密码
     private String role;//身份
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -47,15 +47,9 @@ public class SuperAdministratorEntity implements Serializable {
         return role;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+    public void setRole(String role) { this.role = role; }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public Date getAddTime() { return addTime; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }

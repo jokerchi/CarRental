@@ -27,18 +27,18 @@ public class CarRentalOrderEntity<T> implements Serializable {
 
     @TableId
     private Long id;
-    private String orderNumber;
-    private String carNumber;
-    private String carModel;
-    private String carBrand;
-    private Float dailyPrice;
-    private Integer leaseTerm;
-    private Float totalPrice;
+    private String orderNumber;//订单编号
+    private String carNumber;//车牌号
+    private String carBrand;//车品牌
+    private Float dailyPrice;//租价
+    private Integer leaseTerm;//租期
+    private Float totalPrice;//总价
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     @DateTimeFormat
     private Date startDate;
 
+    private String remark;//备注
     private String clientAccount;//用户账号
     private String clientName;//用户姓名
     private String phone;//电话
@@ -47,10 +47,10 @@ public class CarRentalOrderEntity<T> implements Serializable {
     private String administratorName;//普通管理员姓名
     private String isReviewed;//是否审核
     private String reviewReply;//审核回复
-    private String ispay;//是否支付
+    private String isPay;//是否支付
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -74,14 +74,6 @@ public class CarRentalOrderEntity<T> implements Serializable {
 
     public void setCarNumber(String carNumber) {
         this.carNumber = carNumber;
-    }
-
-    public String getCarModel() {
-        return carModel;
-    }
-
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
     }
 
     public String getCarBrand() {
@@ -188,19 +180,15 @@ public class CarRentalOrderEntity<T> implements Serializable {
         this.reviewReply = reviewReply;
     }
 
-    public String getIspay() {
-        return ispay;
-    }
+    public String getRemark() { return remark; }
 
-    public void setIspay(String ispay) {
-        this.ispay = ispay;
-    }
+    public void setRemark(String remark) { this.remark = remark; }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public String getIsPay() { return isPay; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setIsPay(String isPay) { this.isPay = isPay; }
+
+    public Date getAddTime() { return addTime; }
+
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }

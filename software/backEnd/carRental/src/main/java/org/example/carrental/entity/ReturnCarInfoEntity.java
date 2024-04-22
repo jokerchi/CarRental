@@ -35,20 +35,20 @@ public class ReturnCarInfoEntity<T> implements Serializable {
     @DateTimeFormat
     private Date returnDate;//还车日期
     private String returnRemarks;//还车备注
-    private String userAccount;//用户账号
-    private String userName;//用户姓名
+    private String clientAccount;//用户账号
+    private String clientName;//用户姓名
     private String phone;//电话
     private String idCard;//身份证号
     private String adminAccount;//普通管理员账号
     private String adminName;//普通管理员姓名
     private Long crossUserId;//跨表用户id-对应用户id
     private Long crossRefId;//跨表主键id-对应租车订单id
-    private String isreviewed;//是否审核
+    private String isReviewed;//是否审核
     private String reviewReply;//审核回复
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -98,20 +98,14 @@ public class ReturnCarInfoEntity<T> implements Serializable {
         this.returnRemarks = returnRemarks;
     }
 
-    public String getUserAccount() {
-        return userAccount;
-    }
+    public String getClientAccount() { return clientAccount; }
 
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
-    }
+    public void setClientAccount(String clientAccount) { this.clientAccount = clientAccount; }
 
-    public String getUserName() {
-        return userName;
-    }
+    public String getClientName() { return clientName; }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
     public String getPhone() {
@@ -162,13 +156,9 @@ public class ReturnCarInfoEntity<T> implements Serializable {
         this.crossRefId = crossRefId;
     }
 
-    public String getIsreviewed() {
-        return isreviewed;
-    }
+    public String getIsReviewed() { return isReviewed; }
 
-    public void setIsreviewed(String isreviewed) {
-        this.isreviewed = isreviewed;
-    }
+    public void setIsReviewed(String isReviewed) { this.isReviewed = isReviewed; }
 
     public String getReviewReply() {
         return reviewReply;
@@ -178,11 +168,7 @@ public class ReturnCarInfoEntity<T> implements Serializable {
         this.reviewReply = reviewReply;
     }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public Date getAddTime() { return addTime; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }
