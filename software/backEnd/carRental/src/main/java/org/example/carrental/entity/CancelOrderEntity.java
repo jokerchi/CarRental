@@ -30,33 +30,33 @@ public class CancelOrderEntity<T> implements Serializable {
     @TableId
     private Long id;
 
-    private String orderNumber;
-    private String carNumber;
-    private String carBrand;
-    private Float price;
-    private Integer leaseTerm;
-    private Float totalPrice;
+    private String orderNumber;//订单编号
+    private String carNumber;//车牌号
+    private String carBrand;//车辆品牌
+    private Float price;//租价
+    private Integer leaseTerm;//租期
+    private Float totalPrice;//总价
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     @DateTimeFormat
-    private Date cancelDate;
+    private Date cancelDate;//取消日期
 
-    private String cancelReason;
-    private String clientAccount;
-    private String clientName;
-    private String phone;
-    private String idCard;
-    private String administratorAccount;
-    private String administratorName;
-    private Long crossUserId;
-    private Long crossRefId;
-    private String isReviewed;
-    private String reviewReply;
-    private String ispay;
+    private String cancelReason;//取消原因
+    private String clientAccount;//用户账号
+    private String clientName;//用户姓名
+    private String phone;//电话号码
+    private String idCard;//身份证号
+    private String administratorAccount;//管理员账号
+    private String administratorName;//管理员姓名
+    private Long crossUserId;//跨表用户id
+    private Long crossRefId;//跨表主键id
+    private String isReviewed;//是否审核
+    private String reviewReply;//审核回复
+    private String isPay;//是否支付
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -210,19 +210,15 @@ public class CancelOrderEntity<T> implements Serializable {
         this.reviewReply = reviewReply;
     }
 
-    public String getIspay() {
-        return ispay;
+    public String getIsPay() {
+        return isPay;
     }
 
-    public void setIspay(String ispay) {
-        this.ispay = ispay;
+    public void setIsPay(String isPay) {
+        this.isPay = isPay;
     }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public Date getAddTime() { return addTime; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }

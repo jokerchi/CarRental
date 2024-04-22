@@ -49,13 +49,13 @@ public class CarInfoEntity<T> implements Serializable {
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date clicktime;//最近点击时间
+    private Date clickTime;//最近点击时间
 
-    private Integer clicknum;//点击次数
+    private Integer clickNum;//点击次数
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -193,27 +193,27 @@ public class CarInfoEntity<T> implements Serializable {
         this.adminName = adminName;
     }
 
-    public Date getClicktime() {
-        return clicktime;
+    public Date getClickTime() {
+        return clickTime;
     }
 
-    public void setClicktime(Date clicktime) {
-        this.clicktime = clicktime;
+    public void setClickTime(Date clickTime) {
+        this.clickTime = clickTime;
     }
 
-    public Integer getClicknum() {
-        return clicknum;
+    public Integer getClickNum() {
+        return clickNum;
     }
 
-    public void setClicknum(Integer clicknum) {
-        this.clicknum = clicknum;
+    public void setClickNum(Integer clickNum) {
+        this.clickNum = clickNum;
     }
 
-    public Date getAddtime() {
-        return addtime;
+    public Date getAddTime() {
+        return addTime;
     }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
     }
 }

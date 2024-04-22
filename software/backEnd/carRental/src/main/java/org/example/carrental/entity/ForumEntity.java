@@ -30,15 +30,15 @@ public class ForumEntity<T> implements Serializable { //租车论坛实体类
 
     private String title;//标题
     private String content;//内容
-    private Long parentid;//父节点id
-    private Long userid;//用户id
-    private String username;//用户名
-    private String avatarurl;//头像url
-    private String isdone;//状态(开放/隐藏)
+    private Long parentId;//父节点id
+    private Long userId;//用户id
+    private String userName;//用户名
+    private String avatarUrl;//头像url
+    private String isDone;//状态(开放/隐藏)
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     @TableField(exist = false)
     private List<ForumEntity> childs;
@@ -67,53 +67,29 @@ public class ForumEntity<T> implements Serializable { //租车论坛实体类
         this.content = content;
     }
 
-    public Long getParentid() {
-        return parentid;
-    }
+    public Long getParentId() { return parentId; }
 
-    public void setParentid(Long parentid) {
-        this.parentid = parentid;
-    }
+    public void setParentId(Long parentId) { this.parentId = parentId; }
 
-    public Long getUserid() {
-        return userid;
-    }
+    public Long getUserId() { return userId; }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
-    }
+    public void setUserId(Long userId) { this.userId = userId; }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUserName() { return userName; }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public void setUserName(String userName) { this.userName = userName; }
 
-    public String getAvatarurl() {
-        return avatarurl;
-    }
+    public String getAvatarUrl() { return avatarUrl; }
 
-    public void setAvatarurl(String avatarurl) {
-        this.avatarurl = avatarurl;
-    }
+    public void setAvatarUrl(String avatarUrl) { this.avatarUrl = avatarUrl; }
 
-    public String getIsdone() {
-        return isdone;
-    }
+    public String getIsDone() { return isDone; }
 
-    public void setIsdone(String isdone) {
-        this.isdone = isdone;
-    }
+    public void setIsDone(String isDone) { this.isDone = isDone; }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public Date getAddTime() { return addTime; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 
     public List<ForumEntity> getChilds() {
         return childs;

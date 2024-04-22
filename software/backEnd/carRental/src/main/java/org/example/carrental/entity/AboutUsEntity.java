@@ -37,7 +37,7 @@ public class AboutUsEntity<T> implements Serializable {
     private String picture3;//图片3url
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
-    private Date addtime;
+    private Date addTime;
 
     public Long getId() {
         return id;
@@ -83,11 +83,7 @@ public class AboutUsEntity<T> implements Serializable {
 
     public void setPicture3(String picture3) { this.picture3 = picture3; }
 
-    public Date getAddtime() {
-        return addtime;
-    }
+    public Date getAddTime() { return addTime; }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
-    }
+    public void setAddTime(Date addTime) { this.addTime = addTime; }
 }
