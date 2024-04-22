@@ -1,4 +1,4 @@
-package com.entity;
+package org.example.carrental.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -10,15 +10,13 @@ import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
-@TableName("cancelOrderEntity")
-public class CancelOrderEntity<T> implements Serializable {
+@TableName("carRentalOrder")
+public class CarRentalOrder<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public CancelOrderEntity() {
+    public CarRentalOrder() { }
 
-    }
-
-    public CancelOrderEntity(T t) {
+    public CarRentalOrder(T t) {
         try {
             BeanUtils.copyProperties(this, t);
         } catch (IllegalAccessException | InvocationTargetException e) {
@@ -29,31 +27,27 @@ public class CancelOrderEntity<T> implements Serializable {
 
     @TableId
     private Long id;
-
     private String orderNumber;
     private String carNumber;
+    private String carModel;
     private String carBrand;
-    private Float price;
+    private Float dailyPrice;
     private Integer leaseTerm;
     private Float totalPrice;
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd")
     @DateTimeFormat
-    private Date cancelDate;
+    private Date startDate;
 
-    private String cancelReason;
-    private String clientAccount;
-    private String clientName;
-    private String phone;
-    private String idCard;
-    private String administratorAccount;
-    private String administratorName;
-    private Long crossUserId;
-    private Long crossRefId;
-    private String isReviewed;
-    private String reviewReply;
-    private String ispay;
-
+    private String clientAccount;//用户账号
+    private String clientName;//用户姓名
+    private String phone;//电话
+    private String idCard;//身份证
+    private String administratorAccount;//普通管理员账号
+    private String administratorName;//普通管理员姓名
+    private String isReviewed;//是否审核
+    private String reviewReply;//审核回复
+    private String ispay;//是否支付
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
     private Date addtime;
@@ -82,6 +76,14 @@ public class CancelOrderEntity<T> implements Serializable {
         this.carNumber = carNumber;
     }
 
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
     public String getCarBrand() {
         return carBrand;
     }
@@ -90,12 +92,12 @@ public class CancelOrderEntity<T> implements Serializable {
         this.carBrand = carBrand;
     }
 
-    public Float getPrice() {
-        return price;
+    public Float getDailyPrice() {
+        return dailyPrice;
     }
 
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setDailyPrice(Float dailyPrice) {
+        this.dailyPrice = dailyPrice;
     }
 
     public Integer getLeaseTerm() {
@@ -114,20 +116,12 @@ public class CancelOrderEntity<T> implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public Date getCancelDate() {
-        return cancelDate;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public void setCancelDate(Date cancelDate) {
-        this.cancelDate = cancelDate;
-    }
-
-    public String getCancelReason() {
-        return cancelReason;
-    }
-
-    public void setCancelReason(String cancelReason) {
-        this.cancelReason = cancelReason;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public String getClientAccount() {
@@ -176,22 +170,6 @@ public class CancelOrderEntity<T> implements Serializable {
 
     public void setAdministratorName(String administratorName) {
         this.administratorName = administratorName;
-    }
-
-    public Long getCrossUserId() {
-        return crossUserId;
-    }
-
-    public void setCrossUserId(Long crossUserId) {
-        this.crossUserId = crossUserId;
-    }
-
-    public Long getCrossRefId() {
-        return crossRefId;
-    }
-
-    public void setCrossRefId(Long crossRefId) {
-        this.crossRefId = crossRefId;
     }
 
     public String getIsReviewed() {

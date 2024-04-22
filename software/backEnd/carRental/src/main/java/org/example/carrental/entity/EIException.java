@@ -1,4 +1,4 @@
-package com.entity;
+package org.example.carrental.entity;
 
 public class EIException extends RuntimeException {
     private static final long serialVersionUID = 1L;
