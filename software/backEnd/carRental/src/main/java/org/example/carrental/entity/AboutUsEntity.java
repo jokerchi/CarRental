@@ -32,7 +32,9 @@ public class AboutUsEntity<T> implements Serializable {
     private String title;//标题
     private String subtitle;//副标题
     private String content;//内容
-    private String picture;//图片url
+    private String picture1;//图片1url
+    private String picture2;//图片2url
+    private String picture3;//图片3url
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
     private Date addtime;
@@ -69,13 +71,17 @@ public class AboutUsEntity<T> implements Serializable {
         this.content = content;
     }
 
-    public String getPicture() {
-        return picture;
-    }
+    public String getPicture1() { return picture1; }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
+    public void setPicture1(String picture1) { this.picture1 = picture1; }
+
+    public String getPicture2() { return picture2; }
+
+    public void setPicture2(String picture2) { this.picture2 = picture2; }
+
+    public String getPicture3() { return picture3; }
+
+    public void setPicture3(String picture3) { this.picture3 = picture3; }
 
     public Date getAddtime() {
         return addtime;
