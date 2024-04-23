@@ -32,12 +32,12 @@ public class SuperAdministratorController {
      */
     @IgnoreAuth
     @PostMapping(value = "/login")
-    public R login(String superAdminAccount, String password, String captcha, HttpServletRequest request) {
-        SuperAdministratorEntity superAdmin = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("superAdminAccount", superAdminAccount));
-        if(superAdmin==null || !superAdmin.getPassword().equals(password)) {
+    public R login(String super_admin_account, String password, String captcha, HttpServletRequest request) {
+        SuperAdministratorEntity super_admin = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin_account));
+        if(super_admin==null || !super_admin.getPassword().equals(password)) {
             return R.error("账号或密码不正确");
         }
-        String token = tokenService.generateToken(superAdmin.getId(),superAdminAccount, "superadministrator", superAdmin.getRole());
+        String token = tokenService.generateToken(super_admin.getId(),super_admin_account, "superadministrator", super_admin.getRole());
         return R.ok().put("token", token);
     }
 
@@ -46,11 +46,11 @@ public class SuperAdministratorController {
      */
     @IgnoreAuth
     @PostMapping(value = "/register")
-    public R register(@RequestBody SuperAdministratorEntity superAdmin){
-        if(superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("superAdminAccount", superAdmin.getSuperAdminAccount())) !=null) {
+    public R register(@RequestBody SuperAdministratorEntity super_admin){
+        if(superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin.getSuperAdminAccount())) !=null) {
             return R.error("用户已存在");
         }
-        superAdministratorService.insert(superAdmin);
+        superAdministratorService.insert(super_admin);
         return R.ok();
     }
 
@@ -68,13 +68,13 @@ public class SuperAdministratorController {
      */
     @IgnoreAuth
     @RequestMapping(value = "/resetPass")
-    public R resetPass(String superAdminAccount, HttpServletRequest request){
-        SuperAdministratorEntity superAdmin = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("superAdminAccount", superAdminAccount));
-        if(superAdmin==null) {
+    public R resetPass(String super_admin_account, HttpServletRequest request){
+        SuperAdministratorEntity super_admin = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin_account));
+        if(super_admin==null) {
             return R.error("账号不存在");
         }
-        superAdmin.setPassword("123456");
-        superAdministratorService.update(superAdmin,null);
+        super_admin.setPassword("123456");
+        superAdministratorService.update(super_admin,null);
         return R.ok("密码已重置为：123456");
     }
 
@@ -82,9 +82,9 @@ public class SuperAdministratorController {
      * 列表
      */
     @RequestMapping("/page")
-    public R page(@RequestParam Map<String, Object> params, SuperAdministratorEntity superAdmin){
+    public R page(@RequestParam Map<String, Object> params, SuperAdministratorEntity super_admin){
         EntityWrapper<SuperAdministratorEntity> ew = new EntityWrapper<SuperAdministratorEntity>();
-        PageUtils page = superAdministratorService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.allLike(ew, superAdmin), params), params));
+        PageUtils page = superAdministratorService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.allLike(ew, super_admin), params), params));
         return R.ok().put("data", page);
     }
 
@@ -92,9 +92,9 @@ public class SuperAdministratorController {
      * 列表
      */
     @RequestMapping("/list")
-    public R list( SuperAdministratorEntity superAdmin){
+    public R list( SuperAdministratorEntity super_admin){
         EntityWrapper<SuperAdministratorEntity> ew = new EntityWrapper<SuperAdministratorEntity>();
-        ew.allEq(MPUtil.allEQMapPre( superAdmin, "superAdmin"));
+        ew.allEq(MPUtil.allEQMapPre( super_admin, "super_admin"));
         return R.ok().put("data", superAdministratorService.selectListView(ew));
     }
 
@@ -103,8 +103,8 @@ public class SuperAdministratorController {
      */
     @RequestMapping("/info/{id}")
     public R info(@PathVariable("id") String id){
-        SuperAdministratorEntity superAdmin = superAdministratorService.selectById(id);
-        return R.ok().put("data", superAdmin);
+        SuperAdministratorEntity super_admin = superAdministratorService.selectById(id);
+        return R.ok().put("data", super_admin);
     }
 
     /**
@@ -112,7 +112,7 @@ public class SuperAdministratorController {
      */
     @RequestMapping("/session")
     public R getCurrUser(HttpServletRequest request){
-        Long id = (Long)request.getSession().getAttribute("userId");
+        Long id = (Long)request.getSession().getAttribute("user_id");
         SuperAdministratorEntity superAdmin = superAdministratorService.selectById(id);
         return R.ok().put("data", superAdmin);
     }
@@ -121,11 +121,11 @@ public class SuperAdministratorController {
      * 保存
      */
     @PostMapping("/save")
-    public R save(@RequestBody SuperAdministratorEntity superAdmin){
-        if(superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("superAdminAccount", superAdmin.getSuperAdminAccount())) !=null) {
+    public R save(@RequestBody SuperAdministratorEntity super_admin){
+        if(superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin.getSuperAdminAccount())) !=null) {
             return R.error("用户已存在");
         }
-        superAdministratorService.insert(superAdmin);
+        superAdministratorService.insert(super_admin);
         return R.ok();
     }
 
@@ -133,12 +133,12 @@ public class SuperAdministratorController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody SuperAdministratorEntity superAdmin){
-        SuperAdministratorEntity u = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("superAdminAccount", superAdmin.getSuperAdminAccount()));
-        if(u!=null && u.getId()!=superAdmin.getId() && u.getSuperAdminAccount().equals(superAdmin.getSuperAdminAccount())) {
+    public R update(@RequestBody SuperAdministratorEntity super_admin){
+        SuperAdministratorEntity u = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin.getSuperAdminAccount()));
+        if(u!=null && u.getId()!=super_admin.getId() && u.getSuperAdminAccount().equals(super_admin.getSuperAdminAccount())) {
             return R.error("用户名已存在。");
         }
-        superAdministratorService.updateById(superAdmin);//全部更新
+        superAdministratorService.updateById(super_admin);//全部更新
         return R.ok();
     }
 
