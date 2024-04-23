@@ -1,54 +1,56 @@
 package org.example.carrental.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.example.carrental.dao.ClientDao;
 import org.example.carrental.entity.ClientEntity;
+import org.example.carrental.entity.view.ClientView;
 import org.example.carrental.service.ClientService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.carrental.utils.PageUtils;
+import org.example.carrental.utils.Query;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
 
 @Service("clientService")
 public class ClientServiceImpl extends ServiceImpl<ClientDao, ClientEntity> implements ClientService {
+    @Override
+    public PageUtils queryPage(Map<String, Object> params) {
+        Page<ClientEntity> page = this.selectPage(
+                new Query<ClientEntity>(params).getPage(),
+                new EntityWrapper<ClientEntity>()
+        );
+        return new PageUtils(page);
+    }
 
-    @Autowired
-    private ClientDao clientDao;
+    @Override
+    public PageUtils queryPage(Map<String, Object> params, Wrapper<ClientEntity> wrapper) {
+        Page<ClientView> page =new Query<ClientView>(params).getPage();
+        page.setRecords(baseMapper.selectListView(page,wrapper));
+        PageUtils pageUtil = new PageUtils(page);
+        return pageUtil;
+    }
 
-        @Override
-        public boolean login(String account, String password) {
-            //判断账户以及密码是否正确
-//            ClientEntity clientEntity = clientDao.select
-//            使用mybatisplus进行查询，根据account查询
-            ClientEntity clientEntity = clientDao.selectOne(new QueryWrapper<ClientEntity>().eq("account", account));
-            if (clientEntity != null && clientEntity.getPassword().equals(password)) {
-                return true;
-            }
-            return false;
-        }
+    @Override
+    public List<ClientEntity> selectListVO(Wrapper<ClientEntity> wrapper) {
+        return baseMapper.selectListVO(wrapper);
+    }
 
-        @Override
-        public boolean register(ClientEntity client) {
-            //注册账户
-            if (clientDao.selectOne(new QueryWrapper<ClientEntity>().eq("account", client.getAccount())) == null) {
-                clientDao.insert(client);
-                return true;
-            }
-            return false;
-        }
+    @Override
+    public ClientEntity selectVO(Wrapper<ClientEntity> wrapper) {
+        return baseMapper.selectVO(wrapper);
+    }
 
-        @Override
-        public boolean update(ClientEntity client) {
-            //更新账户信息
-            if (clientDao.selectById(client.getAccount()) != null) {
-                clientDao.updateById(client);
-                return true;
-            }
-            return false;
-        }
+    @Override
+    public List<ClientView> selectListView(Wrapper<ClientEntity> wrapper) {
+        return baseMapper.selectListView(wrapper);
+    }
 
-        @Override
-        public boolean logout() {
-            //退出登录
-            return true;
-        }
+    @Override
+    public ClientView selectView(Wrapper<ClientEntity> wrapper) {
+        return baseMapper.selectView(wrapper);
+    }
 }

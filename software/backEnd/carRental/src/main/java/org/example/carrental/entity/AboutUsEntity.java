@@ -1,12 +1,13 @@
 package org.example.carrental.entity;
 
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
 
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
