@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `aboutus`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `aboutus` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `title` varchar(200) NOT NULL COMMENT '标题',
   `subtitle` varchar(200) DEFAULT NULL COMMENT '副标题',
   `content` longtext NOT NULL COMMENT '内容',
@@ -54,26 +54,26 @@ DROP TABLE IF EXISTS `cancelorder`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cancelorder` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `orderNumber` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '订单编号',
-  `carNumber` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车牌号',
-  `carBrand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆品牌',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `order_number` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '订单编号',
+  `car_number` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车牌号',
+  `car_brand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆品牌',
   `price` float DEFAULT NULL COMMENT '价格',
-  `leaseTerm` int DEFAULT NULL COMMENT '租期',
-  `totalPrice` float DEFAULT NULL COMMENT '总价',
-  `cancelDate` date DEFAULT NULL COMMENT '取消日期',
-  `cancelReason` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '取消原因',
-  `clientAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '账号',
-  `clientName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '姓名',
+  `lease_term` int DEFAULT NULL COMMENT '租期',
+  `total_price` float DEFAULT NULL COMMENT '总价',
+  `cancel_date` date DEFAULT NULL COMMENT '取消日期',
+  `cancel_reason` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '取消原因',
+  `client_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '账号',
+  `client_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '姓名',
   `phone` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '手机',
-  `idCard` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '身份证',
-  `administratorAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
-  `administratorName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
-  `crossUserId` bigint DEFAULT NULL COMMENT '跨表用户id',
-  `crossRefId` bigint DEFAULT NULL COMMENT '跨表主键id',
-  `isReviewed` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '待审核' COMMENT '是否审核',
-  `reviewReply` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '审核回复',
-  `isPay` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '未支付' COMMENT '是否支付',
+  `id_card` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '身份证',
+  `administrator_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
+  `administrator_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
+  `cross_user_id` bigint DEFAULT NULL COMMENT '跨表用户id',
+  `cross_ref_id` bigint DEFAULT NULL COMMENT '跨表主键id',
+  `is_reviewed` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '待审核' COMMENT '是否审核',
+  `review_reply` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '审核回复',
+  `is_pay` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '未支付' COMMENT '是否支付',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb3 COMMENT='取消订单';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -97,28 +97,27 @@ DROP TABLE IF EXISTS `carinfo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carinfo` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `carNumber` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '车牌号',
-  `carModel` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆型号',
-  `qicheleibie` varchar(200) DEFAULT NULL COMMENT '汽车类别',
-  `carBrand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '车辆品牌',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `car_number` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '车牌号',
+  `car_model` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆型号',
+  `car_brand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '车辆品牌',
   `price` float DEFAULT NULL COMMENT '价格',
   `color` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '颜色',
   `status` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '状态',
-  `transmissionType` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '换挡方式',
-  `carImage` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '车辆照片',
-  `seatNumber` int DEFAULT NULL COMMENT '座位数',
+  `transmission_type` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '换挡方式',
+  `car_image` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '车辆照片',
+  `seat_number` int DEFAULT NULL COMMENT '座位数',
   `displacement` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '汽车排量',
-  `carPrice` float DEFAULT NULL COMMENT '汽车价格',
-  `productionYear` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '出厂年份',
-  `registrationDate` date DEFAULT NULL COMMENT '登记日期',
-  `carDescription` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '汽车简介',
-  `adminAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
-  `adminName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
-  `clickTime` datetime DEFAULT NULL COMMENT '最近点击时间',
-  `clickNum` int DEFAULT '0' COMMENT '点击次数',
+  `car_price` float DEFAULT NULL COMMENT '汽车价格',
+  `production_year` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '出厂年份',
+  `registration_date` date DEFAULT NULL COMMENT '登记日期',
+  `car_description` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '汽车简介',
+  `ordinary_admin_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
+  `ordinary_admin_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
+  `click_time` datetime DEFAULT NULL COMMENT '最近点击时间',
+  `click_num` int DEFAULT '0' COMMENT '点击次数',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `chepaihao` (`carNumber`)
+  UNIQUE KEY `chepaihao` (`car_number`)
 ) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb3 COMMENT='汽车信息';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -128,7 +127,7 @@ CREATE TABLE `carinfo` (
 
 LOCK TABLES `carinfo` WRITE;
 /*!40000 ALTER TABLE `carinfo` DISABLE KEYS */;
-INSERT INTO `carinfo` VALUES (41,'2023-03-08 02:33:51','车牌号1','车辆型号1','汽车类别1','车辆品牌1',1,'颜色1','已出租','手动挡','upload/qichexinxi_cheliangzhaopian1.jpg,upload/qichexinxi_cheliangzhaopian2.jpg,upload/qichexinxi_cheliangzhaopian3.jpg',1,'汽车排量1',1,'出厂年份1','2023-03-08','<p>汽车简介1</p>','管理账号1','管理姓名1','2024-04-21 16:08:40',22),(42,'2023-03-08 02:33:51','车牌号2','车辆型号2','汽车类别2','车辆品牌2',2,'颜色2','已出租','手动挡','upload/qichexinxi_cheliangzhaopian2.jpg,upload/qichexinxi_cheliangzhaopian3.jpg,upload/qichexinxi_cheliangzhaopian4.jpg',2,'汽车排量2',2,'出厂年份2','2023-03-08','汽车简介2','管理账号2','管理姓名2','2024-04-19 14:23:27',3),(43,'2023-03-08 02:33:51','车牌号3','车辆型号3','汽车类别3','车辆品牌3',3,'颜色3','已出租','手动挡','upload/qichexinxi_cheliangzhaopian3.jpg,upload/qichexinxi_cheliangzhaopian4.jpg,upload/qichexinxi_cheliangzhaopian5.jpg',3,'汽车排量3',3,'出厂年份3','2023-03-08','汽车简介3','管理账号3','管理姓名3','2024-04-10 16:49:43',4),(44,'2023-03-08 02:33:51','车牌号4','车辆型号4','汽车类别4','车辆品牌4',4,'颜色4','已出租','手动挡','upload/qichexinxi_cheliangzhaopian4.jpg,upload/qichexinxi_cheliangzhaopian5.jpg,upload/qichexinxi_cheliangzhaopian6.jpg',4,'汽车排量4',4,'出厂年份4','2023-03-08','汽车简介4','管理账号4','管理姓名4','2023-03-08 18:33:51',4),(45,'2023-03-08 02:33:51','车牌号5','车辆型号5','汽车类别5','车辆品牌5',5,'颜色5','已出租','手动挡','upload/qichexinxi_cheliangzhaopian5.jpg,upload/qichexinxi_cheliangzhaopian6.jpg,upload/qichexinxi_cheliangzhaopian7.jpg',5,'汽车排量5',5,'出厂年份5','2023-03-08','汽车简介5','管理账号5','管理姓名5','2023-03-08 18:33:51',5),(46,'2023-03-08 02:33:51','车牌号6','车辆型号6','汽车类别6','车辆品牌6',6,'颜色6','已出租','手动挡','upload/qichexinxi_cheliangzhaopian6.jpg,upload/qichexinxi_cheliangzhaopian7.jpg,upload/qichexinxi_cheliangzhaopian8.jpg',6,'汽车排量6',6,'出厂年份6','2023-03-08','汽车简介6','管理账号6','管理姓名6','2024-04-21 16:08:45',7),(47,'2023-03-08 02:33:51','车牌号7','车辆型号7','汽车类别7','车辆品牌7',7,'颜色7','已出租','手动挡','upload/qichexinxi_cheliangzhaopian7.jpg,upload/qichexinxi_cheliangzhaopian8.jpg,upload/qichexinxi_cheliangzhaopian9.jpg',7,'汽车排量7',7,'出厂年份7','2023-03-08','汽车简介7','管理账号7','管理姓名7','2024-04-09 14:52:26',11),(48,'2023-03-08 02:33:51','车牌号8','车辆型号8','汽车类别8','车辆品牌8',8,'颜色8','已出租','手动挡','upload/qichexinxi_cheliangzhaopian8.jpg,upload/qichexinxi_cheliangzhaopian9.jpg,upload/qichexinxi_cheliangzhaopian10.jpg',8,'汽车排量8',8,'出厂年份8','2023-03-08','汽车简介8','管理账号8','管理姓名8','2024-04-11 21:31:45',10);
+INSERT INTO `carinfo` VALUES (41,'2023-03-08 02:33:51','车牌号1','车辆型号1','车辆品牌1',1,'颜色1','已出租','手动挡','upload/qichexinxi_cheliangzhaopian1.jpg,upload/qichexinxi_cheliangzhaopian2.jpg,upload/qichexinxi_cheliangzhaopian3.jpg',1,'汽车排量1',1,'出厂年份1','2023-03-08','<p>汽车简介1</p>','管理账号1','管理姓名1','2024-04-21 16:08:40',22),(42,'2023-03-08 02:33:51','车牌号2','车辆型号2','车辆品牌2',2,'颜色2','已出租','手动挡','upload/qichexinxi_cheliangzhaopian2.jpg,upload/qichexinxi_cheliangzhaopian3.jpg,upload/qichexinxi_cheliangzhaopian4.jpg',2,'汽车排量2',2,'出厂年份2','2023-03-08','汽车简介2','管理账号2','管理姓名2','2024-04-19 14:23:27',3),(43,'2023-03-08 02:33:51','车牌号3','车辆型号3','车辆品牌3',3,'颜色3','已出租','手动挡','upload/qichexinxi_cheliangzhaopian3.jpg,upload/qichexinxi_cheliangzhaopian4.jpg,upload/qichexinxi_cheliangzhaopian5.jpg',3,'汽车排量3',3,'出厂年份3','2023-03-08','汽车简介3','管理账号3','管理姓名3','2024-04-10 16:49:43',4),(44,'2023-03-08 02:33:51','车牌号4','车辆型号4','车辆品牌4',4,'颜色4','已出租','手动挡','upload/qichexinxi_cheliangzhaopian4.jpg,upload/qichexinxi_cheliangzhaopian5.jpg,upload/qichexinxi_cheliangzhaopian6.jpg',4,'汽车排量4',4,'出厂年份4','2023-03-08','汽车简介4','管理账号4','管理姓名4','2023-03-08 18:33:51',4),(45,'2023-03-08 02:33:51','车牌号5','车辆型号5','车辆品牌5',5,'颜色5','已出租','手动挡','upload/qichexinxi_cheliangzhaopian5.jpg,upload/qichexinxi_cheliangzhaopian6.jpg,upload/qichexinxi_cheliangzhaopian7.jpg',5,'汽车排量5',5,'出厂年份5','2023-03-08','汽车简介5','管理账号5','管理姓名5','2023-03-08 18:33:51',5),(46,'2023-03-08 02:33:51','车牌号6','车辆型号6','车辆品牌6',6,'颜色6','已出租','手动挡','upload/qichexinxi_cheliangzhaopian6.jpg,upload/qichexinxi_cheliangzhaopian7.jpg,upload/qichexinxi_cheliangzhaopian8.jpg',6,'汽车排量6',6,'出厂年份6','2023-03-08','汽车简介6','管理账号6','管理姓名6','2024-04-21 16:08:45',7),(47,'2023-03-08 02:33:51','车牌号7','车辆型号7','车辆品牌7',7,'颜色7','已出租','手动挡','upload/qichexinxi_cheliangzhaopian7.jpg,upload/qichexinxi_cheliangzhaopian8.jpg,upload/qichexinxi_cheliangzhaopian9.jpg',7,'汽车排量7',7,'出厂年份7','2023-03-08','汽车简介7','管理账号7','管理姓名7','2024-04-09 14:52:26',11),(48,'2023-03-08 02:33:51','车牌号8','车辆型号8','车辆品牌8',8,'颜色8','已出租','手动挡','upload/qichexinxi_cheliangzhaopian8.jpg,upload/qichexinxi_cheliangzhaopian9.jpg,upload/qichexinxi_cheliangzhaopian10.jpg',8,'汽车排量8',8,'出厂年份8','2023-03-08','汽车简介8','管理账号8','管理姓名8','2024-04-11 21:31:45',10);
 /*!40000 ALTER TABLE `carinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,26 +140,26 @@ DROP TABLE IF EXISTS `carrentalorder`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `carrentalorder` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `orderNumber` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '订单编号',
-  `carNumber` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车牌号',
-  `carBrand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆品牌',
-  `dailyPrice` float DEFAULT NULL COMMENT '价格',
-  `leaseTerm` int NOT NULL COMMENT '租期',
-  `totalPrice` float DEFAULT NULL COMMENT '总价',
-  `startDate` date DEFAULT NULL COMMENT '出租日期',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `order_number` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '订单编号',
+  `car_number` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车牌号',
+  `car_brand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆品牌',
+  `daily_price` float DEFAULT NULL COMMENT '价格',
+  `lease_term` int NOT NULL COMMENT '租期',
+  `total_price` float DEFAULT NULL COMMENT '总价',
+  `start_date` date DEFAULT NULL COMMENT '出租日期',
   `remark` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '备注',
-  `clientAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '账号',
-  `clientName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '姓名',
+  `client_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '账号',
+  `client_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '姓名',
   `phone` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '手机',
-  `idCard` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '身份证',
-  `administratorAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
-  `administratorName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
-  `isReviewed` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '待审核' COMMENT '是否审核',
-  `reviewReply` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '审核回复',
-  `isPay` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '未支付' COMMENT '是否支付',
+  `id_card` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '身份证',
+  `administrator_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
+  `administrator_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
+  `is_reviewed` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '待审核' COMMENT '是否审核',
+  `review_reply` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '审核回复',
+  `is_pay` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '未支付' COMMENT '是否支付',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `dingdanbianhao` (`orderNumber`)
+  UNIQUE KEY `dingdanbianhao` (`order_number`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1709201124698 DEFAULT CHARSET=utf8mb3 COMMENT='租车订单';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -183,13 +182,13 @@ DROP TABLE IF EXISTS `client`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `client` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '账号',
   `password` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '密码',
   `name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '姓名',
   `age` int DEFAULT NULL COMMENT '年龄',
   `gender` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '性别',
-  `idCard` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '身份证',
+  `id_card` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '身份证',
   `phone` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '手机',
   `avatar` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '头像',
   PRIMARY KEY (`id`),
@@ -241,7 +240,7 @@ DROP TABLE IF EXISTS `excitingactivities`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `excitingactivities` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `title` varchar(200) NOT NULL COMMENT '标题',
   `introduction` longtext COMMENT '简介',
   `picture` longtext NOT NULL COMMENT '图片',
@@ -269,14 +268,14 @@ DROP TABLE IF EXISTS `forum`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `forum` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `title` varchar(200) DEFAULT NULL COMMENT '帖子标题',
   `content` longtext NOT NULL COMMENT '帖子内容',
-  `parentId` bigint DEFAULT NULL COMMENT '父节点id',
-  `userId` bigint NOT NULL COMMENT '用户id',
-  `userName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '用户名',
-  `avatarUrl` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '头像',
-  `isDone` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '状态',
+  `parent_id` bigint DEFAULT NULL COMMENT '父节点id',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `user_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '用户名',
+  `avatar_url` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '头像',
+  `is_done` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1712758990965 DEFAULT CHARSET=utf8mb3 COMMENT='汽车论坛';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -300,16 +299,16 @@ DROP TABLE IF EXISTS `ordinaryadministrator`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ordinaryadministrator` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `ordinaryAdminAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '管理账号',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `ordinary_admin_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '管理账号',
   `password` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '密码',
-  `ordinaryAdminName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '管理姓名',
+  `ordinary_admin_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '管理姓名',
   `gender` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '性别',
   `age` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '年龄',
   `phone` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '联系电话',
   `avatar` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '头像',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `guanlizhanghao` (`ordinaryAdminAccount`)
+  UNIQUE KEY `guanlizhanghao` (`ordinary_admin_account`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb3 COMMENT='普通管理员';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -332,22 +331,22 @@ DROP TABLE IF EXISTS `returncarinfo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `returncarinfo` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `orderNumber` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '订单编号',
-  `carNumber` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车牌号',
-  `carBrand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆品牌',
-  `returnDate` date DEFAULT NULL COMMENT '还车日期',
-  `returnRemarks` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '还车备注',
-  `clientAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '账号',
-  `clientName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '姓名',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `order_number` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '订单编号',
+  `car_number` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车牌号',
+  `car_brand` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '车辆品牌',
+  `return_date` date DEFAULT NULL COMMENT '还车日期',
+  `return_remarks` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '还车备注',
+  `client_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '账号',
+  `client_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '姓名',
   `phone` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '手机',
-  `idCard` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '身份证',
-  `adminAccount` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
-  `adminName` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
-  `crossUserId` bigint DEFAULT NULL COMMENT '跨表用户id',
-  `crossRefId` bigint DEFAULT NULL COMMENT '跨表主键id',
-  `isReviewed` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '待审核' COMMENT '是否审核',
-  `reviewReply` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '审核回复',
+  `id_card` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '身份证',
+  `admin_account` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理账号',
+  `admin_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '管理姓名',
+  `cross_userId` bigint DEFAULT NULL COMMENT '跨表用户id',
+  `cross_ref_id` bigint DEFAULT NULL COMMENT '跨表主键id',
+  `is_reviewed` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT '待审核' COMMENT '是否审核',
+  `review_reply` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci COMMENT '审核回复',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1709201219728 DEFAULT CHARSET=utf8mb3 COMMENT='还车信息';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -363,6 +362,38 @@ INSERT INTO `returncarinfo` VALUES (71,'2023-03-08 02:33:51','订单编号1','�
 UNLOCK TABLES;
 
 --
+-- Table structure for table `storeup`
+--
+
+DROP TABLE IF EXISTS `storeup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `storeup` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `ref_id` bigint DEFAULT NULL COMMENT '商品id',
+  `table_name` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '表名',
+  `name` varchar(200) NOT NULL COMMENT '名称',
+  `picture` longtext NOT NULL COMMENT '图片',
+  `type` varchar(200) DEFAULT '1' COMMENT '类型(1:收藏,21:赞,22:踩,31:竞拍参与,41:关注)',
+  `intel_type` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '推荐类型',
+  `remark` varchar(200) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1712761990475 DEFAULT CHARSET=utf8mb3 COMMENT='收藏表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `storeup`
+--
+
+LOCK TABLES `storeup` WRITE;
+/*!40000 ALTER TABLE `storeup` DISABLE KEYS */;
+INSERT INTO `storeup` VALUES (1712761990474,'2024-04-10 15:13:10',11,41,'qichexinxi','车牌号1','upload/qichexinxi_cheliangzhaopian1.jpg','1','','');
+/*!40000 ALTER TABLE `storeup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `superadministrator`
 --
 
@@ -371,10 +402,10 @@ DROP TABLE IF EXISTS `superadministrator`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `superadministrator` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `superAdminAccount` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '用户名',
+  `super_admin_account` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(100) NOT NULL COMMENT '密码',
   `role` varchar(100) DEFAULT '管理员' COMMENT '角色',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '新增时间',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '新增时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COMMENT='用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -398,13 +429,13 @@ DROP TABLE IF EXISTS `token`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `token` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `userId` bigint NOT NULL COMMENT '用户id',
-  `userName` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '用户名',
-  `tableName` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '表名',
+  `user_id` bigint NOT NULL COMMENT '用户id',
+  `user_name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL COMMENT '用户名',
+  `table_name` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL COMMENT '表名',
   `role` varchar(100) DEFAULT NULL COMMENT '角色',
   `token` varchar(200) NOT NULL COMMENT '密码',
-  `addTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '新增时间',
-  `expiratedTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '过期时间',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '新增时间',
+  `expirated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '过期时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COMMENT='token表';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -415,7 +446,7 @@ CREATE TABLE `token` (
 
 LOCK TABLES `token` WRITE;
 /*!40000 ALTER TABLE `token` DISABLE KEYS */;
-INSERT INTO `token` VALUES (1,1,'java1234','users','管理员','24bo0bt9bo4sj0nhxmbmhplbg80qsx90','2024-02-29 07:52:16','2024-04-20 15:03:03'),(2,11,'账号1','yonghu','用户','h48miw4rfipai0u8rjivslz2f92l0jug','2024-02-29 09:54:40','2024-04-21 09:09:01'),(3,21,'管理账号1','putongguanliyuan','普通管理员','m69bapq79s1nw2abwkfbxhg3ogg6g685','2024-02-29 10:02:03','2024-04-21 03:45:35');
+INSERT INTO `token` VALUES (1,1,'java1234','superadministrator','管理员','09io7f6xspgzhn4l2f98g9tsovq4pdei','2024-02-29 07:52:16','2024-04-23 11:55:05'),(2,11,'账号1','client','用户','nc8o1urgq1ju2nhp0ydkgxbyvxmk0do5','2024-02-29 09:54:40','2024-04-23 11:15:00'),(3,21,'管理账号1','ordinaryadministrator','普通管理员','lvurabf0dvap2z0m354l2l6yt7y96vdd','2024-02-29 10:02:03','2024-04-23 13:38:33');
 /*!40000 ALTER TABLE `token` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -432,4 +463,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-22 19:08:53
+-- Dump completed on 2024-04-23 22:52:18
