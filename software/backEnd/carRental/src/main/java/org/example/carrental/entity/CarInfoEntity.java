@@ -45,8 +45,8 @@ public class CarInfoEntity<T> implements Serializable {
     private Date registrationDate;//登记日期
 
     private String carDescription;//汽车简介
-    private String adminAccount;//管理账号
-    private String adminName;//管理姓名
+    private String ordinaryAdminAccount;//管理账号
+    private String ordinaryAdminName;//管理姓名
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat
@@ -178,21 +178,13 @@ public class CarInfoEntity<T> implements Serializable {
         this.carDescription = carDescription;
     }
 
-    public String getAdminAccount() {
-        return adminAccount;
-    }
+    public String getOrdinaryAdminAccount() { return ordinaryAdminAccount; }
 
-    public void setAdminAccount(String adminAccount) {
-        this.adminAccount = adminAccount;
-    }
+    public void setOrdinaryAdminAccount(String ordinaryAdminAccount) { this.ordinaryAdminAccount = ordinaryAdminAccount; }
 
-    public String getAdminName() {
-        return adminName;
-    }
+    public String getOrdinaryAdminName() { return ordinaryAdminName; }
 
-    public void setAdminName(String adminName) {
-        this.adminName = adminName;
-    }
+    public void setOrdinaryAdminName(String ordinaryAdminName) { this.ordinaryAdminName = ordinaryAdminName; }
 
     public Date getClickTime() {
         return clickTime;
