@@ -14,7 +14,7 @@ export default {
             url: '/index/qichezixun'
         },
         {
-            name: '汽车论坛',
+            name: '租车论坛',
             url: '/index/forum'
         }, 
         {
