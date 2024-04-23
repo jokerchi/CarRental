@@ -4,10 +4,12 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import org.example.carrental.entity.TokenEntity;
 import org.example.carrental.utils.PageUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
+@Service("tokenService")
 public interface TokenService extends IService<TokenEntity> {
     PageUtils queryPage(Map<String, Object> params);
 

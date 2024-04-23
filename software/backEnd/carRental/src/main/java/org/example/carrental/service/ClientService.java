@@ -6,10 +6,12 @@ import org.apache.ibatis.annotations.Param;
 import org.example.carrental.entity.ClientEntity;
 import org.example.carrental.entity.view.ClientView;
 import org.example.carrental.utils.PageUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
+@Service("clientService")
 public interface ClientService extends IService<ClientEntity> {
     PageUtils queryPage(Map<String, Object> params);
 
