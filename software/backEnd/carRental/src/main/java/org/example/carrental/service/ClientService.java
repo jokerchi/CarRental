@@ -1,16 +1,25 @@
 package org.example.carrental.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.service.IService;
+import org.apache.ibatis.annotations.Param;
 import org.example.carrental.entity.ClientEntity;
+import org.example.carrental.entity.view.ClientView;
+import org.example.carrental.utils.PageUtils;
+
+import java.util.List;
+import java.util.Map;
 
 public interface ClientService extends IService<ClientEntity> {
+    PageUtils queryPage(Map<String, Object> params);
 
-    //实现登录判断账户以及密码是否正确
-    boolean login(String account, String password);
+    List<ClientEntity> selectListVO(Wrapper<ClientEntity> wrapper);
 
-    boolean register(ClientEntity client);
+    ClientEntity selectVO(@Param("ew") Wrapper<ClientEntity> wrapper);
 
-    boolean update(ClientEntity client);
+    List<ClientView> selectListView(Wrapper<ClientEntity> wrapper);
 
-    boolean logout();
+    ClientView selectView(@Param("ew") Wrapper<ClientEntity> wrapper);
+
+    PageUtils queryPage(Map<String, Object> params,Wrapper<ClientEntity> wrapper);
 }

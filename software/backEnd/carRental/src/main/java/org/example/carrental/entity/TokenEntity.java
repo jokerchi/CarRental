@@ -1,8 +1,10 @@
 package org.example.carrental.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
+
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -65,4 +67,16 @@ public class TokenEntity implements Serializable {
     public Date getAddTime() { return addTime; }
 
     public void setAddTime(Date addTime) { this.addTime = addTime; }
+
+    public TokenEntity(Long userId, String userName, String tableName,String role, String token, Date expiratedTime) {
+        super();
+        this.userId = userId;
+        this.userName = userName;
+        this.tableName = tableName;
+        this.role = role;
+        this.token = token;
+        this.expiratedTime = expiratedTime;
+    }
+
+    public TokenEntity() { }
 }
