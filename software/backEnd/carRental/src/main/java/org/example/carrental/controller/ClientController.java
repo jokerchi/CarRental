@@ -37,7 +37,9 @@ public class ClientController {
      */
     @IgnoreAuth
     @RequestMapping(value = "/login")
-    public R login(String account, String password, String captcha, HttpServletRequest request) {
+    public R login(@RequestParam("username") String account, String password, String captcha, HttpServletRequest request) {
+        System.out.println("account: "+account+" password: "+password);
+
         ClientEntity u = clientService.selectOne(new EntityWrapper<ClientEntity>().eq("account", account));
         if(u==null || !u.getPassword().equals(password)) {
             return R.error("账号或密码不正确");
