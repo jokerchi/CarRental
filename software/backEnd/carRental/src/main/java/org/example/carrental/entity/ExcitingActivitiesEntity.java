@@ -1,9 +1,5 @@
 package org.example.carrental.entity;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f056652ec0846a49bdb3d4c96ae956011b120f3d
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
