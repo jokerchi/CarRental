@@ -84,11 +84,7 @@
         let params = {page, limit: this.pageSize};
         let searchWhere = {};
         if(this.title != '') searchWhere.title = '%' + this.title + '%';
-<<<<<<< HEAD
         this.$http.get('excitingActivities/list', {params: Object.assign(params, searchWhere)}).then(res => {
-=======
-        this.$http.get('news/list', {params: Object.assign(params, searchWhere)}).then(res => {
->>>>>>> f056652ec0846a49bdb3d4c96ae956011b120f3d
           if (res.data.code == 0) {
             this.newsList = res.data.data.list;
             this.total = res.data.data.total;
