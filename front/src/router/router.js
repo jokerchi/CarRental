@@ -12,7 +12,7 @@ import ForumAdd from '../pages/forum/add'
 import ForumDetail from '../pages/forum/detail'
 import MyForumList from '../pages/forum/myForumList'
 import Storeup from '../pages/storeup/list'
-import News from '../pages/news/news-list'
+import ExcitingActivities from '../pages/news/news-list'
 import NewsDetail from '../pages/news/news-detail'
 import yonghuList from '../pages/yonghu/list'
 import yonghuDetail from '../pages/yonghu/detail'
@@ -91,8 +91,8 @@ export default new VueRouter({
 					component: Storeup
 				},
 				{
-					path: 'news',
-					component: News
+					path: 'excitingActivities',
+					component: ExcitingActivities
 				},
 				{
 					path: 'newsDetail',

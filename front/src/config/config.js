@@ -19,7 +19,7 @@ export default {
             url: '/index/forum'
         }, 
         {
-            name: '公告信息',
+            name: '精彩活动',
             url: '/index/excitingActivities'
         },
         {
