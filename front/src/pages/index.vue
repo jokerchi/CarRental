@@ -31,6 +31,7 @@
 				</el-menu>
 			</div>
 
+      <!-- 轮播图组件 -->
 			<div class="banner-preview" :style='{"width":"100%","margin":"0","height":"auto"}'>
 				<el-carousel :style='{"width":"100%","margin":"0 auto"}' trigger="click" indicator-position="inside" arrow="always" type="default" direction="horizontal" height="500px" :autoplay="true" :interval="3000" :loop="true">
 					<el-carousel-item :style='{"borderRadius":"0","width":"100%","height":"100%"}' v-for="item in carouselList" :key="item.id">

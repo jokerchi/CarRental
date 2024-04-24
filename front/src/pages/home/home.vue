@@ -171,7 +171,7 @@
 	
 	
 	
-	<div @click="moreBtn('news')" :style='{"border":"1px solid #89c2f9","cursor":"pointer","boxShadow":"0px 4px 1px #c7d3de,inset 0px 0px 56px 0px #a0cbf7","margin":"42px auto","borderRadius":"30%","textAlign":"center","left":"47%","background":"none","display":"block","width":"120px","lineHeight":"36px","position":"absolute"}'>
+	<div @click="moreBtn('excitingActivities')" :style='{"border":"1px solid #89c2f9","cursor":"pointer","boxShadow":"0px 4px 1px #c7d3de,inset 0px 0px 56px 0px #a0cbf7","margin":"42px auto","borderRadius":"30%","textAlign":"center","left":"47%","background":"none","display":"block","width":"120px","lineHeight":"36px","position":"absolute"}'>
 		<span :style='{"color":"#0583fc","fontSize":"14px"}'>查看更多</span>
 		<i v-if="true" :style='{"color":"#0583fc","fontSize":"14px"}' class="el-icon-d-arrow-right"></i>
 	</div>
@@ -240,7 +240,7 @@
           })
       },
 		getNewsList() {
-			this.$http.get('news/list', {params: {
+			this.$http.get('excitingActivies/list', {params: {
 				page: 1,
 				limit: 6,
 			order: 'desc'}}).then(res => {
