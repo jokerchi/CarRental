@@ -10,6 +10,7 @@ import org.example.carrental.service.TokenService;
 import org.example.carrental.utils.MPUtil;
 import org.example.carrental.utils.PageUtils;
 import org.example.carrental.utils.R;
+import org.example.carrental.utils.ValidatorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +57,7 @@ public class ClientController {
     @IgnoreAuth
     @RequestMapping("/register")
     public R register(@RequestBody ClientEntity client){
-        //ValidatorUtils.validateEntity(yonghu);
+        ValidatorUtils.validateEntity(client);
         ClientEntity u = clientService.selectOne(new EntityWrapper<ClientEntity>().eq("account", client.getAccount()));
         if(u!=null) {
             return R.error("注册用户已存在");
