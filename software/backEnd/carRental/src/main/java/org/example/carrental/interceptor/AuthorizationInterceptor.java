@@ -58,6 +58,9 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         if(annotation!=null) {
             return true;
         }
+        if(annotation==null) {// 忽略所有拦截逻辑，相当于拦截器失效
+            return true;
+        }
 
         TokenEntity tokenEntity = null;
         if(StringUtils.isNotBlank(token)) {
