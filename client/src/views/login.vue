@@ -17,10 +17,7 @@
         </div>
         <div :style='{"width":"80%","margin":"30px auto","alignItems":"center","justifyContent":"center","display":"flex"}'>
           <el-button v-if="loginType==1" :style='{"border":"0","cursor":"pointer","padding":"0 40px","margin":"5px 0px 0px 0px","outline":"none","color":"#fff","borderRadius":"4px","background":"-webkit-linear-gradient(top,#96d148,#4a7f06)","width":"auto","fontSize":"14px","height":"44px"}' type="primary" @click="login()" class="loginInBt">登录</el-button>
-          <el-button :style='{"border":"0px solid rgba(64, 158, 255, 1)","cursor":"pointer","padding":"0 24px","margin":"0 5px","outline":"none","color":"#333","borderRadius":"4px","background":"#fff","width":"auto","fontSize":"14px","height":"44px"}' type="primary" @click="register('putongguanliyuan')" class="register">注册普通管理员</el-button>
-        </div>
-        <div style="textAlign:center">
-            <a href="http://www.java1234.com/a/bysj/javaweb/" target='_blank'><font color=red>Java1234收藏整理</font></a>
+          <el-button :style='{"border":"0px solid rgba(64, 158, 255, 1)","cursor":"pointer","padding":"0 24px","margin":"0 5px","outline":"none","color":"#333","borderRadius":"4px","background":"#fff","width":"auto","fontSize":"14px","height":"44px"}' type="primary" @click="register('ordinaryadministrator')" class="register">注册普通管理员</el-button>
         </div>
       </el-form>
 
@@ -81,8 +78,7 @@ export default {
   created() {
     this.getRandCode()
   },
-  destroyed() {
-	    },
+  destroyed() { },
   methods: {
 
     //注册
