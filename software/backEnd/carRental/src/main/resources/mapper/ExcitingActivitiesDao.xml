@@ -13,13 +13,13 @@
 
     <select id="selectListVO"
             resultType="com.entity.vo.ExcitingActivitiesVO" >
-        SELECT * FROM news  news
+        SELECT * FROM excitingactivities  excitingactivities
         <where> 1=1 ${ew.sqlSegment}</where>
     </select>
 
     <select id="selectVO"
             resultType="com.entity.vo.ExcitingActivitiesVO" >
-        SELECT  news.* FROM news  news
+        SELECT  news.* FROM excitingactivities  excitingactivities
         <where> 1=1 ${ew.sqlSegment}</where>
     </select>
 
@@ -34,7 +34,7 @@
     </select>
 
     <select id="selectPageListView"
-            resultType="org.example.carrental.entity.view.ExcitingActivitiesView" >
+            resultType="com.entity.view.ExcitingActivitiesView" >
         SELECT  excitingactivities.* FROM excitingactivities
         <where> 1=1 ${ew.sqlSegment}</where>
 <!--        <if test="page != null">-->
