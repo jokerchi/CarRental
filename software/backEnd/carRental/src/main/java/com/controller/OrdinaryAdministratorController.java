@@ -37,7 +37,7 @@ public class OrdinaryAdministratorController {
      */
     @IgnoreAuth
     @RequestMapping(value = "/login")
-    public R login(String ordinary_admin_account, String password, String captcha, HttpServletRequest request) {
+    public R login(@RequestParam("username") String ordinary_admin_account, String password, String captcha, HttpServletRequest request) {
         OrdinaryAdministratorEntity u = ordinaryAdministratorService.selectOne(new EntityWrapper<OrdinaryAdministratorEntity>().eq("ordinary_admin_account", ordinary_admin_account));
         if(u==null || !u.getPassword().equals(password)) {
             return R.error("账号或密码不正确");
