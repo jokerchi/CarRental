@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -50,6 +51,9 @@ public class ExcitingActivitiesController {
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params,ExcitingActivitiesEntity news,
                   HttpServletRequest request){
+        System.out.println("前端列表");
+        System.out.println("Params: " + params);
+        System.out.println("News: " + news);
         EntityWrapper<ExcitingActivitiesEntity> ew = new EntityWrapper<ExcitingActivitiesEntity>();
 
         PageUtils page = excitingActivitiesService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.likeOrEq(ew, news), params), params));
@@ -59,12 +63,12 @@ public class ExcitingActivitiesController {
     /**
      * 列表
      */
-    @RequestMapping("/lists")
-    public R list( ExcitingActivitiesEntity news){
-        EntityWrapper<ExcitingActivitiesEntity> ew = new EntityWrapper<ExcitingActivitiesEntity>();
-        ew.allEq(MPUtil.allEQMapPre( news, "news"));
-        return R.ok().put("data", excitingActivitiesService.selectListView(ew));
-    }
+//    @RequestMapping("/lists")
+//    public R list( ExcitingActivitiesEntity news){
+//        EntityWrapper<ExcitingActivitiesEntity> ew = new EntityWrapper<ExcitingActivitiesEntity>();
+//        ew.allEq(MPUtil.allEQMapPre( news, "news"));
+//        return R.ok().put("data", excitingActivitiesService.selectListView(ew));
+//    }
 
     /**
      * 查询

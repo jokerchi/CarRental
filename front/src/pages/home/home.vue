@@ -243,7 +243,7 @@
           })
       },
 		getNewsList() {
-			this.$http.get('excitingActivties/list', {params: {
+			this.$http.get('excitingActivities/list', {params: {
 				page: 1,
 				limit: 6,
 			order: 'desc'}}).then(res => {

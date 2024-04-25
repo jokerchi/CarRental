@@ -26,9 +26,9 @@
 <select id="selectListView"
         resultType="com.entity.view.AboutUsView" >
 
-    SELECT  aboutus.* FROM aboutus  aboutus
-    <where> 1=1 ${ew.sqlSegment}</where>
-</select>
+        SELECT aboutus.* FROM aboutus
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
 
 <select id="selectView"
         resultType="com.entity.view.AboutUsView" >

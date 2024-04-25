@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
+<mapper namespace="org.example.carrental.dao.ExcitingActivitiesDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="org.example.carrental.entity.ExcitingActivitiesEntity" id="excitingActivitiesMap">
+=======
 <mapper namespace="com.dao.ExcitingActivitiesDao">
 
     <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="com.entity.ExcitingActivitiesEntity" id="excitingActivitiesMap">
+>>>>>>> 20aa204301efc46d92abb18779158cd3ca3fef3e
         <result property="title" column="title"/>
         <result property="introduction" column="introduction"/>
         <result property="picture" column="picture"/>
@@ -12,18 +19,53 @@
     </resultMap>
 
     <select id="selectListVO"
+<<<<<<< HEAD
+            resultType="org.example.carrental.entity.vo.ExcitingActivitiesVO" >
+        SELECT * FROM excitingactivities
+=======
             resultType="com.entity.vo.ExcitingActivitiesVO" >
         SELECT * FROM news  news
+>>>>>>> 20aa204301efc46d92abb18779158cd3ca3fef3e
         <where> 1=1 ${ew.sqlSegment}</where>
     </select>
 
     <select id="selectVO"
+<<<<<<< HEAD
+            resultType="org.example.carrental.entity.vo.ExcitingActivitiesVO" >
+        SELECT  excitingactivities.* FROM excitingactivities
+=======
             resultType="com.entity.vo.ExcitingActivitiesVO" >
         SELECT  news.* FROM news  news
+>>>>>>> 20aa204301efc46d92abb18779158cd3ca3fef3e
         <where> 1=1 ${ew.sqlSegment}</where>
     </select>
 
     <select id="selectListView"
+<<<<<<< HEAD
+            resultType="org.example.carrental.entity.view.ExcitingActivitiesView" >
+
+        SELECT  excitingactivities.* FROM excitingactivities
+        <where> 1=1 ${ew.sqlSegment}</where>
+        <if test="page != null">
+            LIMIT #{page.offset}, #{page.limit}
+        </if>
+    </select>
+
+    <select id="selectPageListView"
+            resultType="org.example.carrental.entity.view.ExcitingActivitiesView" >
+        SELECT  excitingactivities.* FROM excitingactivities
+        <where> 1=1 ${ew.sqlSegment}</where>
+<!--        <if test="page != null">-->
+<!--            LIMIT #{page.offset}, #{page.limit}-->
+<!--        </if>-->
+    </select>
+
+    <select id="selectView"
+            resultType="org.example.carrental.entity.view.ExcitingActivitiesView" >
+        SELECT * FROM excitingactivities <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+=======
             resultType="com.entity.view.ExcitingActivitiesView" >
 
         SELECT  news.* FROM news  news
@@ -36,4 +78,5 @@
     </select>
 
 
+>>>>>>> 20aa204301efc46d92abb18779158cd3ca3fef3e
 </mapper>

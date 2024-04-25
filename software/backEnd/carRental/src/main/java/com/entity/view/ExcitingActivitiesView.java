@@ -7,7 +7,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 
-@TableName("exciting_activities")
+@TableName("excitingactivities")
 public class ExcitingActivitiesView extends ExcitingActivitiesEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

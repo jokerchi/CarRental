@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<<<<<<< HEAD
+<mapper namespace="org.example.carrental.dao.AboutUsDao">
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="org.example.carrental.entity.AboutUsEntity" id="aboutusMap">
+        <result property="title" column="title"/>
+        <result property="subtitle" column="subtitle"/>
+        <result property="content" column="content"/>
+        <result property="picture1" column="picture1"/>
+        <result property="picture2" column="picture2"/>
+        <result property="picture3" column="picture3"/>
+    </resultMap>
+    <select id="selectListVO"
+            resultType="org.example.carrental.entity.vo.AboutUsVO" >
+        SELECT * FROM aboutus
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectVO"
+            resultType="org.example.carrental.entity.vo.AboutUsVO" >
+        SELECT aboutus.* FROM aboutus
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectListView"
+            resultType="org.example.carrental.entity.view.AboutUsView" >
+
+        SELECT aboutus.* FROM aboutus
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+=======
 <mapper namespace="com.dao.AboutUsDao">
 <!-- 可根据自己的需求，是否要使用 -->
 <resultMap type="com.entity.AboutUsEntity" id="aboutUsMap">
@@ -34,6 +64,11 @@
         resultType="com.entity.view.AboutUsView" >
     SELECT * FROM aboutus  aboutus <where> 1=1 ${ew.sqlSegment}</where>
 </select>
+>>>>>>> 20aa204301efc46d92abb18779158cd3ca3fef3e
 
+    <select id="selectView"
+            resultType="org.example.carrental.entity.view.AboutUsView" >
+        SELECT * FROM aboutus <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
 
 </mapper>

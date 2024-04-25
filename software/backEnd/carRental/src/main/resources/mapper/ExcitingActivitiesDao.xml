@@ -26,14 +26,25 @@
     <select id="selectListView"
             resultType="com.entity.view.ExcitingActivitiesView" >
 
-        SELECT  news.* FROM news  news
+        SELECT  excitingactivities.* FROM excitingactivities
         <where> 1=1 ${ew.sqlSegment}</where>
+        <if test="page != null">
+            LIMIT #{page.offset}, #{page.limit}
+        </if>
+    </select>
+
+    <select id="selectPageListView"
+            resultType="org.example.carrental.entity.view.ExcitingActivitiesView" >
+        SELECT  excitingactivities.* FROM excitingactivities
+        <where> 1=1 ${ew.sqlSegment}</where>
+<!--        <if test="page != null">-->
+<!--            LIMIT #{page.offset}, #{page.limit}-->
+<!--        </if>-->
     </select>
 
     <select id="selectView"
             resultType="com.entity.view.ExcitingActivitiesView" >
         SELECT * FROM news  news <where> 1=1 ${ew.sqlSegment}</where>
     </select>
-
 
 </mapper>
