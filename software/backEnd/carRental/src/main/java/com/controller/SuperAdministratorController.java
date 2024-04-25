@@ -32,7 +32,7 @@ public class SuperAdministratorController {
      */
     @IgnoreAuth
     @PostMapping(value = "/login")
-    public R login(String super_admin_account, String password, String captcha, HttpServletRequest request) {
+    public R login(@RequestParam("username") String super_admin_account, String password, String captcha, HttpServletRequest request) {
         SuperAdministratorEntity super_admin = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin_account));
         if(super_admin==null || !super_admin.getPassword().equals(password)) {
             return R.error("账号或密码不正确");
