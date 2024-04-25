@@ -12,13 +12,18 @@ import org.example.carrental.entity.vo.ExcitingActivitiesVO;
 import org.example.carrental.service.ExcitingActivitiesService;
 import org.example.carrental.utils.PageUtils;
 import org.example.carrental.utils.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
-@Service("excitingActivitiesService")
+@Service("excitingactivitiesService")
 public class ExcitingActivitiesServiceImpl extends ServiceImpl<ExcitingActivitiesDao, ExcitingActivitiesEntity> implements ExcitingActivitiesService {
+
+    @Autowired
+    private ExcitingActivitiesDao excitingActivitiesDao;
+
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         Page<ExcitingActivitiesEntity> page = this.selectPage(
@@ -31,29 +36,31 @@ public class ExcitingActivitiesServiceImpl extends ServiceImpl<ExcitingActivitie
     @Override
     public PageUtils queryPage(Map<String, Object> params, Wrapper<ExcitingActivitiesEntity> wrapper) {
         Page<ExcitingActivitiesView> page =new Query<ExcitingActivitiesView>(params).getPage();
-        page.setRecords(baseMapper.selectListView(page,wrapper));
+        System.out.println("testing");
+        page.setRecords(excitingActivitiesDao.selectPageListView(page,wrapper));
         PageUtils pageUtil = new PageUtils(page);
         return pageUtil;
     }
 
     @Override
     public List<ExcitingActivitiesVO> selectListVO(Wrapper<ExcitingActivitiesEntity> wrapper) {
-        return baseMapper.selectListVO(wrapper);
+        return excitingActivitiesDao.selectListVO(wrapper);
     }
 
     @Override
     public ExcitingActivitiesVO selectVO(Wrapper<ExcitingActivitiesEntity> wrapper) {
-        return baseMapper.selectVO(wrapper);
+        return excitingActivitiesDao.selectVO(wrapper);
     }
 
     @Override
     public List<ExcitingActivitiesView> selectListView(Wrapper<ExcitingActivitiesEntity> wrapper) {
-        return baseMapper.selectListView(wrapper);
+//        return excitingActivitiesDao.selectListView(wrapper);
+        return null;
     }
 
     @Override
     public ExcitingActivitiesView selectView(Wrapper<ExcitingActivitiesEntity> wrapper) {
-        return baseMapper.selectView(wrapper);
+        return excitingActivitiesDao.selectView(wrapper);
     }
 
 
