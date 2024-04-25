@@ -318,7 +318,7 @@
         this.$http.get(this.userTableName + '/session', {emulateJSON: true}).then(res => {
           if (res.data.code == 0) {
             this.sessionForm = res.data.data;
-            localStorage.setItem('userid', res.data.data.id);
+            localStorage.setItem('userId', res.data.data.id);
             if(res.data.data.vip) {
                 localStorage.setItem('vip', res.data.data.vip);
             }

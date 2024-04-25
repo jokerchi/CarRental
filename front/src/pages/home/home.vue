@@ -18,26 +18,29 @@
 	  <div :style='{"width":"285px","background":"url(\"http://codegen.caihongy.cn/20201114/7856ba26477849ea828f481fa2773a95.jpg\") 0% 0% / cover no-repeat","display":"none","height":"100px"}' />
 	</div>
 
+<!-- 汽车信息推荐 & 汽车资讯推荐 -->
 <div class="recommend" :style='{"border":"1px solid #dfdfdf","boxShadow":"1px 2px 3px #eee","margin":"20px 0 80px","overflow":"hidden","borderRadius":"16px","background":"#fff","width":"100%","height":"auto","order":"1"}'>
-	<div v-if="false" class="idea recommendIdea" :style='{"padding":"20px","flexWrap":"wrap","background":"#efefef","justifyContent":"space-between","display":"flex"}'>
-		<div class="box1" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-		<div class="box2" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-		<div class="box3" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-		<div class="box4" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-		<div class="box5" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-		<div class="box6" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-		<div class="box7" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-		<div class="box8" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-		<div class="box9" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-		<div class="box10" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-	</div>
-	
+  <!-- 一大段废话
+  <div v-if="false" class="idea recommendIdea" :style='{"padding":"20px","flexWrap":"wrap","background":"#efefef","justifyContent":"space-between","display":"flex"}'>
+    <div class="box1" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
+    <div class="box2" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
+    <div class="box3" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
+    <div class="box4" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
+    <div class="box5" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
+    <div class="box6" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
+    <div class="box7" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
+    <div class="box8" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
+    <div class="box9" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
+    <div class="box10" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
+  </div>
+  -->
+
     <div class="title" :style='{"width":"100%","margin":"24px 0 24px 0","lineHeight":"1.5","textAlign":"center","background":"url(http://codegen.caihongy.cn/20221027/fc985400d2a2484d8d9e17eb893d2c05.png) no-repeat 240px center,url(http://codegen.caihongy.cn/20221027/6602c4fb09df4bd4881cabfef19d2ed3.png) no-repeat 760px center"}'>
-		<span :style='{"fontSize":"24px","color":"#005aad","textShadow":"2px 4px 2px #eee","fontWeight":"bold"}'>汽车信息推荐</span>
-	</div>
-	
-	
-	<!-- 样式一 -->
+    <span :style='{"fontSize":"24px","color":"#005aad","textShadow":"2px 4px 2px #eee","fontWeight":"bold"}'>汽车信息推荐</span>
+  </div>
+
+
+  <!-- 样式一 -->
 	<div class="list list1 index-pv1" :style='{"width":"100%","padding":"0 10px","background":"#fff","height":"auto"}'>
 		<div :style='{"margin":"10px","borderRadius":"8px","background":"none","display":"inline-block","width":"274px","position":"relative","height":"auto"}' v-for="(item,index) in qichexinxiRecommend" :key="index" @click="toDetail('qichexinxiDetail', item)" class="list-item animation-box">
 			<img :style='{"cursor":"pointer","boxShadow":"1px 1px 1px #ddd","objectFit":"cover","borderRadius":"8px","display":"block","width":"274px","height":"274px"}' v-if="preHttp(item.cheliangzhaopian)" :src="item.cheliangzhaopian.split(',')[0]" alt="" />
@@ -240,7 +243,7 @@
           })
       },
 		getNewsList() {
-			this.$http.get('excitingActivies/list', {params: {
+			this.$http.get('excitingActivties/list', {params: {
 				page: 1,
 				limit: 6,
 			order: 'desc'}}).then(res => {
