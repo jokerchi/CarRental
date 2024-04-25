@@ -1,6 +1,6 @@
 <template>
 <div :style='{"border":"1px solid #dfdfdf","padding":"20px","margin":"20px auto 0","borderRadius":"16px","background":"#fff","width":"1200px","position":"relative"}'>
-    <div class="section-title" :style='{"margin":"0px 0","color":"#2087c3","borderRadius":"8px 8px 0 0","textAlign":"center","background":"url(http://codegen.caihongy.cn/20221029/f414ce6eeb09429c9bc4d3d6643d9bd1.png) no-repeat center top","fontSize":"24px","lineHeight":"150px","fontWeight":"bold"}'>汽车论坛</div>
+    <div class="section-title" :style='{"margin":"0px 0","color":"#2087c3","borderRadius":"8px 8px 0 0","textAlign":"center","background":"url(http://codegen.caihongy.cn/20221029/f414ce6eeb09429c9bc4d3d6643d9bd1.png) no-repeat center top","fontSize":"24px","lineHeight":"150px","fontWeight":"bold"}'>租车论坛</div>
     <el-form :inline="true" :model="formSearch" class="list-form-pv">
         <div class="section-btn">
             <el-form-item>
@@ -13,7 +13,7 @@
 	<div class="z-box">
 		<div class="section-content" v-for="item in forumList" :key="item.id" @click="toForumDetail(item)">
 		  <div class="item-style">{{item.title}}（发布人：{{item.username}}）</div>
-		  <div class="item-style">{{item.addtime}}</div>
+		  <div class="item-style">{{item.add_time}}</div>
 		</div>
 	</div>
 	
@@ -56,7 +56,7 @@
     //方法集合
     methods: {
       getForumList(page) {
-        let params = {page, limit: this.pageSize, isdone: '开放', sort: 'addtime', order: 'desc'};
+        let params = {page, limit: this.pageSize, isDone: '开放', sort: 'add_time', order: 'desc'};
         let searchWhere = {};
         if(this.title != '') searchWhere.title = '%' + this.title + '%';
         this.$http.get('forum/flist', {params: Object.assign(params, searchWhere)}).then(res => {
