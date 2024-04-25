@@ -27,9 +27,6 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (System.getProperty("disable.authorization.interceptor") != null) {
-            return true; // 忽略所有拦截逻辑，相当于拦截器失效
-        }
         //支持跨域请求
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
@@ -58,9 +55,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         if(annotation!=null) {
             return true;
         }
-        if(annotation==null) {// 忽略所有拦截逻辑，相当于拦截器失效
-            return true;
-        }
+
 
         TokenEntity tokenEntity = null;
         if(StringUtils.isNotBlank(token)) {

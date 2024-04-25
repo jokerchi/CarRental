@@ -43,8 +43,8 @@ public class TokenServiceImpl extends ServiceImpl<TokenDao, TokenEntity> impleme
     }
 
     @Override
-    public String generateToken(Long user_id,String user_name, String table_name, String role) {
-        TokenEntity tokenEntity = this.selectOne(new EntityWrapper<TokenEntity>().eq("user_id", user_id).eq("role", role));
+    public String generateToken(Long userId,String user_name, String table_name, String role) {
+        TokenEntity tokenEntity = this.selectOne(new EntityWrapper<TokenEntity>().eq("user_id", userId).eq("role", role));
         String token = CommonUtil.getRandomString(32);
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
@@ -54,7 +54,7 @@ public class TokenServiceImpl extends ServiceImpl<TokenDao, TokenEntity> impleme
             tokenEntity.setExpiratedTime(cal.getTime());
             this.updateById(tokenEntity);
         } else {
-            this.insert(new TokenEntity(user_id,user_name, table_name, role, token, cal.getTime()));
+            this.insert(new TokenEntity(userId,user_name, table_name, role, token, cal.getTime()));
         }
         return token;
     }

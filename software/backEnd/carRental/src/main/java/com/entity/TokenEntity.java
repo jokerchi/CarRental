@@ -68,7 +68,7 @@ public class TokenEntity implements Serializable {
 
     public void setAddTime(Date addTime) { this.addTime = addTime; }
 
-    public TokenEntity(Long userId, String userName, String tableName,String role, String token, Date expiratedTime) {
+    public TokenEntity(Long userId, String userName, String tableName, String role, String token, Date expiratedTime) {
         super();
         this.userId = userId;
         this.userName = userName;
