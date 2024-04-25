@@ -11,7 +11,7 @@
       </el-table-column>
       <el-table-column
         label="发布时间"
-        prop="addtime">
+        prop="addTime">
       </el-table-column>
       <el-table-column label="操作" width="150">
         <template slot-scope="scope">
@@ -65,7 +65,7 @@
           this.$router.push('/index/center')
       },
       getMyForumList(page) {
-        this.$http.get('forum/list', {params: {page, limit: this.pageSize, parentid: 0, sort: 'addtime', order: 'desc'}}).then(res => {
+        this.$http.get('forum/list', {params: {page, limit: this.pageSize, parentId: 0, sort: 'addTime', order: 'desc'}}).then(res => {
           if (res.data.code == 0) {
             this.tableData = res.data.data.list;
             this.total = res.data.data.total;
