@@ -53,7 +53,7 @@ export default {
             "buttons": ["新增", "查看", "修改", "删除"],
             "menu": "普通管理员",
             "menuJump": "列表",
-            "tableName": "putongguanliyuan"
+            "tableName": "ordinaryadministrator"
           }], "menu": "普通管理员管理"
         }, {
           "child": [{
@@ -77,7 +77,7 @@ export default {
             "buttons": ["查看", "删除"],
             "menu": "租车订单",
             "menuJump": "列表",
-            "tableName": "zuchedingdan"
+            "tableName": "carrentalorder"
           }], "menu": "租车订单管理"
         }, {
           "child": [{
@@ -85,7 +85,7 @@ export default {
             "buttons": ["查看", "删除"],
             "menu": "取消订单",
             "menuJump": "列表",
-            "tableName": "quxiaodingdan"
+            "tableName": "cancelorder"
           }], "menu": "取消订单管理"
         }, {
           "child": [{
@@ -93,7 +93,7 @@ export default {
             "buttons": ["查看", "删除"],
             "menu": "还车信息",
             "menuJump": "列表",
-            "tableName": "haichexinxi"
+            "tableName": "returncarinfo"
           }], "menu": "还车信息管理"
         }, {
           "child": [{
@@ -114,9 +114,9 @@ export default {
           "child": [{
             "appFrontIcon": "cuIcon-group",
             "buttons": ["查看", "修改", "删除"],
-            "menu": "汽车论坛",
+            "menu": "租车论坛",
             "tableName": "forum"
-          }], "menu": "汽车论坛"
+          }], "menu": "租车论坛"
         }, {
           "child": [{
             "appFrontIcon": "cuIcon-camera",
@@ -137,7 +137,7 @@ export default {
             "appFrontIcon": "cuIcon-news",
             "buttons": ["新增", "查看", "修改", "删除"],
             "menu": "公告信息",
-            "tableName": "news"
+            "tableName": "excitingactivities"
           }], "menu": "系统管理"
         }],
         "frontMenu": [{
@@ -162,7 +162,7 @@ export default {
         "hasFrontLogin": "否",
         "hasFrontRegister": "否",
         "roleName": "管理员",
-        "tableName": "users"
+        "tableName": "superadministrator"
       }, {
         "backMenu": [{
           "child": [{
@@ -170,7 +170,7 @@ export default {
             "buttons": ["查看", "删除", "支付", "归还汽车", "取消订单"],
             "menu": "租车订单",
             "menuJump": "列表",
-            "tableName": "zuchedingdan"
+            "tableName": "carrentalorder"
           }], "menu": "租车订单管理"
         }, {
           "child": [{
@@ -178,7 +178,7 @@ export default {
             "buttons": ["查看", "删除"],
             "menu": "取消订单",
             "menuJump": "列表",
-            "tableName": "quxiaodingdan"
+            "tableName": "cancelorder"
           }], "menu": "取消订单管理"
         }, {
           "child": [{
@@ -186,7 +186,7 @@ export default {
             "buttons": ["删除", "查看"],
             "menu": "还车信息",
             "menuJump": "列表",
-            "tableName": "haichexinxi"
+            "tableName": "returncarorder"
           }], "menu": "还车信息管理"
         }],
         "frontMenu": [{
@@ -227,7 +227,7 @@ export default {
             "buttons": ["查看", "删除", "审核"],
             "menu": "租车订单",
             "menuJump": "列表",
-            "tableName": "zuchedingdan"
+            "tableName": "carrentalorder"
           }], "menu": "租车订单管理"
         }, {
           "child": [{
@@ -235,7 +235,7 @@ export default {
             "buttons": ["查看", "删除", "审核", "支付"],
             "menu": "取消订单",
             "menuJump": "列表",
-            "tableName": "quxiaodingdan"
+            "tableName": "cancelorder"
           }], "menu": "取消订单管理"
         }, {
           "child": [{
@@ -243,7 +243,7 @@ export default {
             "buttons": ["查看", "删除", "审核"],
             "menu": "还车信息",
             "menuJump": "列表",
-            "tableName": "haichexinxi"
+            "tableName": "returncarinfo"
           }], "menu": "还车信息管理"
         }, {
           "child": [{
@@ -276,7 +276,7 @@ export default {
         "hasFrontLogin": "否",
         "hasFrontRegister": "否",
         "roleName": "普通管理员",
-        "tableName": "putongguanliyuan"
+        "tableName": "ordinaryadministrator"
       }],
       loginForm: {
 				username: '',
