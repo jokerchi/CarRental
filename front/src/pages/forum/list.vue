@@ -12,8 +12,8 @@
     </el-form>
 	<div class="z-box">
 		<div class="section-content" v-for="item in forumList" :key="item.id" @click="toForumDetail(item)">
-		  <div class="item-style">{{item.title}}（发布人：{{item.username}}）</div>
-		  <div class="item-style">{{item.add_time}}</div>
+		  <div class="item-style">{{item.title}}（发布人：{{item.userName}}）</div>
+		  <div class="item-style">{{item.addTime}}</div>
 		</div>
 	</div>
 	
@@ -28,7 +28,7 @@
       :hide-on-single-page="true"
       :layout='["total","prev","pager","next","sizes","jumper"].join()'
       :total="total"
-      :style='{"padding":"0","margin":"10px auto","whiteSpace":"nowrap","color":"#333","width":"1200px","fontWeight":"500","order":"4"}'
+      :style='{"padding":"0","margin":"10px auto","whiteSpace":"nowrap","color":"#333333","width":"1200px","fontWeight":"500","order":"4"}'
       @current-change="curChange"
       @prev-click="prevClick"
       @next-click="nextClick"
