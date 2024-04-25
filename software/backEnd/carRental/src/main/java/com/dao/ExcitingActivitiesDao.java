@@ -18,7 +18,7 @@ public interface ExcitingActivitiesDao extends BaseMapper<ExcitingActivitiesEnti
 
     ExcitingActivitiesVO selectVO(@Param("ew") Wrapper<ExcitingActivitiesEntity> wrapper);
 
-    //List<ExcitingActivitiesView> selectListView(@Param("ew") Wrapper<ExcitingActivitiesEntity> wrapper);
+    List<ExcitingActivitiesView> selectListView(@Param("ew") Wrapper<ExcitingActivitiesEntity> wrapper);
 
     ExcitingActivitiesView selectView(@Param("ew") Wrapper<ExcitingActivitiesEntity> wrapper);
 

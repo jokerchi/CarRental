@@ -31,7 +31,7 @@ public class ExcitingActivitiesServiceImpl extends ServiceImpl<ExcitingActivitie
     @Override
     public PageUtils queryPage(Map<String, Object> params, Wrapper<ExcitingActivitiesEntity> wrapper) {
         Page<ExcitingActivitiesView> page =new Query<ExcitingActivitiesView>(params).getPage();
-        page.setRecords(baseMapper.selectListView(page,wrapper));
+        page.setRecords(baseMapper.selectPageListView(page,wrapper));
         PageUtils pageUtil = new PageUtils(page);
         return pageUtil;
     }
