@@ -11,20 +11,20 @@ import UpdatePassword from '@/views/update-password'
 import pay from '@/views/pay'
 import register from '@/views/register'
 import center from '@/views/center'
-    import news from '@/views/modules/news/list'
-    import qichezixun from '@/views/modules/qichezixun/list'
-    import aboutus from '@/views/modules/aboutus/list'
-    import putongguanliyuan from '@/views/modules/putongguanliyuan/list'
-    import haichexinxi from '@/views/modules/haichexinxi/list'
-    import forum from '@/views/modules/forum/list'
-    import qicheleibie from '@/views/modules/qicheleibie/list'
-    import quxiaodingdan from '@/views/modules/quxiaodingdan/list'
-    import systemintro from '@/views/modules/systemintro/list'
-    import yonghu from '@/views/modules/yonghu/list'
-    import qichexinxi from '@/views/modules/qichexinxi/list'
-    import messages from '@/views/modules/messages/list'
-    import zuchedingdan from '@/views/modules/zuchedingdan/list'
-    import config from '@/views/modules/config/list'
+import news from '@/views/modules/news/list'
+import qichezixun from '@/views/modules/qichezixun/list'
+import aboutus from '@/views/modules/aboutus/list'
+import ordinaryadministrator from '@/views/modules/ordinaryadministrator/list'
+import haichexinxi from '@/views/modules/haichexinxi/list'
+import forum from '@/views/modules/forum/list'
+import qicheleibie from '@/views/modules/qicheleibie/list'
+import quxiaodingdan from '@/views/modules/quxiaodingdan/list'
+import systemintro from '@/views/modules/systemintro/list'
+import client from '@/views/modules/client/list'
+import qichexinxi from '@/views/modules/qichexinxi/list'
+import messages from '@/views/modules/messages/list'
+import zuchedingdan from '@/views/modules/zuchedingdan/list'
+import config from '@/views/modules/config/list'
 
 
 //2.配置路由   注意：名字
@@ -70,9 +70,9 @@ const routes = [{
         component: aboutus
       }
       ,{
-	path: '/putongguanliyuan',
+	path: '/ordinaryadministrator',
         name: '普通管理员',
-        component: putongguanliyuan
+        component: ordinaryadministrator
       }
       ,{
 	path: '/haichexinxi',
@@ -100,9 +100,9 @@ const routes = [{
         component: systemintro
       }
       ,{
-	path: '/yonghu',
+	path: '/client',
         name: '用户',
-        component: yonghu
+        component: client
       }
       ,{
 	path: '/qichexinxi',

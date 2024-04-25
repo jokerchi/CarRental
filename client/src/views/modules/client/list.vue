@@ -6,11 +6,11 @@
 				<el-row :style='{"padding":"10px","borderRadius":"3px","background":"#fff","display":"block"}' >
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
 						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">账号</label>
-						<el-input v-model="searchForm.zhanghao" placeholder="账号" clearable></el-input>
+						<el-input v-model="searchForm.account" placeholder="账号" clearable></el-input>
 					</div>
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
 						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">姓名</label>
-						<el-input v-model="searchForm.xingming" placeholder="姓名" clearable></el-input>
+						<el-input v-model="searchForm.name" placeholder="姓名" clearable></el-input>
 					</div>
 					<el-button :style='{"border":"1px solid #5494cb","cursor":"pointer","padding":"0 34px","outline":"none","margin":"0 0px 0 10px","color":"#fff","borderRadius":"4px","background":"-webkit-linear-gradient(top,#66a4d8,#337ab7)","width":"auto","fontSize":"14px","height":"40px"}' type="success" @click="search()">查询</el-button>
 				</el-row>
@@ -29,67 +29,67 @@
 				<el-table class="tables"
 					:stripe='false'
 					:style='{"padding":"0","borderColor":"#eee","borderRadius":"5px","borderWidth":"1px 0 0 1px","background":"#fff","width":"100%","borderStyle":"solid"}' 
-					v-if="isAuth('yonghu','查看')"
+					v-if="isAuth('client','查看')"
 					:data="dataList"
 					v-loading="dataListLoading"
 				@selection-change="selectionChangeHandler">
 					<el-table-column :resizable='true' type="selection" align="center" width="50"></el-table-column>
 					<el-table-column :resizable='true' :sortable='false' label="索引" type="index" width="50" />
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="zhanghao"
+						prop="account"
 					label="账号">
 						<template slot-scope="scope">
-							{{scope.row.zhanghao}}
+							{{scope.row.account}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="xingming"
+						prop="name"
 					label="姓名">
 						<template slot-scope="scope">
-							{{scope.row.xingming}}
+							{{scope.row.name}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="nianling"
+						prop="age"
 					label="年龄">
 						<template slot-scope="scope">
-							{{scope.row.nianling}}
+							{{scope.row.age}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="xingbie"
+						prop="gender"
 					label="性别">
 						<template slot-scope="scope">
-							{{scope.row.xingbie}}
+							{{scope.row.gender}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="shenfenzheng"
+						prop="idCard"
 					label="身份证">
 						<template slot-scope="scope">
-							{{scope.row.shenfenzheng}}
+							{{scope.row.idCard}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="shouji"
+						prop="phone"
 					label="手机">
 						<template slot-scope="scope">
-							{{scope.row.shouji}}
+							{{scope.row.phone}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false' prop="touxiang" width="200" label="头像">
 						<template slot-scope="scope">
-							<div v-if="scope.row.touxiang">
-								<img v-if="scope.row.touxiang.substring(0,4)=='http'" :src="scope.row.touxiang.split(',')[0]" width="100" height="100">
-								<img v-else :src="$base.url+scope.row.touxiang.split(',')[0]" width="100" height="100">
+							<div v-if="scope.row.avatar">
+								<img v-if="scope.row.avatar.substring(0,4)=='http'" :src="scope.row.avatar.split(',')[0]" width="100" height="100">
+								<img v-else :src="$base.url+scope.row.avatar.split(',')[0]" width="100" height="100">
 							</div>
 							<div v-else>无图片</div>
 						</template>
 					</el-table-column>
 					<el-table-column width="300" label="操作">
 						<template slot-scope="scope">
-							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('yonghu','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('yonghu','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('client','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('client','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
 
 

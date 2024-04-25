@@ -5,7 +5,7 @@ import storage from '@/utils/storage'
 const http = axios.create({
     timeout: 1000 * 86400,
     withCredentials: true,
-    baseURL: '/springboot1ma2x',
+    baseUrL: '/springboot1ma2x',            //去掉springboot1ma2x
     headers: {
         'Content-Type': 'application/json; charset=utf-8'
     }
