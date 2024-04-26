@@ -6,11 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="springboot1ma2x" />
         <module name="carRental" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="carRental" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="springboot1ma2x" options="-parameters" />
+    </option>
   </component>
 </project>

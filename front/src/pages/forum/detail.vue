@@ -3,7 +3,7 @@
     <div class="section-title" :style='{"margin":"0px 0","color":"#2087c3","borderRadius":"8px 8px 0 0","textAlign":"center","background":"url(http://codegen.caihongy.cn/20221029/f414ce6eeb09429c9bc4d3d6643d9bd1.png) no-repeat center top","fontSize":"24px","lineHeight":"150px","fontWeight":"bold"}'>汽车论坛</div>
     <div class="section-content">
       <div class="content-title">{{detail.title}}</div>
-      <div class="content-sub-title">发布人：{{detail.username}}&nbsp;&nbsp;发布时间：{{detail.addtime}}</div>
+      <div class="content-sub-title">发布人：{{detail.userName}}&nbsp;&nbsp;发布时间：{{detail.addTime}}</div>
       <el-divider></el-divider>
       <div class="content-detail" v-html="detail.content"></div>
       <el-card class="box-card">
@@ -13,9 +13,9 @@
         </div>
         <span v-for="item in commentList" :key="item.id">
           <div class="header-block">
-            <el-avatar v-if="item.avatarurl" :size="50" :src="baseUrl + item.avatarurl"></el-avatar>
-            <el-avatar v-if="!item.avatarurl" :size="50" :src="require('@/assets/touxiang.png')"></el-avatar>
-            <span class="userinfo">用户：{{item.username}}</span>
+            <el-avatar v-if="item.avatarUrl" :size="50" :src="baseUrl + item.avatarUrl"></el-avatar>
+            <el-avatar v-if="!item.avatarUrl" :size="50" :src="require('@/assets/touxiang.png')"></el-avatar>
+            <span class="userinfo">用户：{{item.userName}}</span>
           </div>
           <div class="content-block-ask">
             {{item.content}}
@@ -49,10 +49,10 @@
         dialogFormVisible: false,
         form: {
           content: '',
-          parentid: '',
-          userid: localStorage.getItem('userid'),
-          username: localStorage.getItem('username'),
-          avatarurl: '',
+          parentId: '',
+          userId: localStorage.getItem('userId'),
+          userName: localStorage.getItem('userName'),
+          avatarUrl: '',
         },
         rules: {
           content: [
@@ -67,7 +67,7 @@
       this.getCommentList();
     },
     mounted() {
-      this.form.parentid = this.detail.id;
+      this.form.parentId = this.detail.id;
     },
     //方法集合
     methods: {
