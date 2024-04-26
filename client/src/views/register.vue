@@ -3,100 +3,100 @@
 		<div class="container" :style='{"minHeight":"100vh","alignItems":"center","background":"url(http://codegen.caihongy.cn/20221011/e8a93776b74f4f60816fea7cb08f0eab.jpg)","display":"flex","width":"100%","backgroundSize":"cover","backgroundPosition":"center center","backgroundRepeat":"no-repeat","justifyContent":"center"}'>
 			<el-form v-if="pageFlag=='register'" :style='{"padding":"40px 20px 20px","boxShadow":"0 1px 6px rgba(64, 158, 255, .8)","margin":"100px 0px 0px","borderRadius":"20px","background":"#fff","width":"750px","height":"auto"}' ref="rgsForm" class="rgs-form" :model="rgsForm">
 				<div v-if="true" :style='{"boxShadow":"1px 3px 4px #98c1ef","padding":"10px 0","margin":"-75px 0 10px 70px","borderColor":"#266bb6","color":"#ffffff","textAlign":"center","borderRadius":"6px 30px","background":"-webkit-linear-gradient(top,#2b84e6,#0b417c)","borderWidth":"0px 2px 2px 0px","width":"580px","fontSize":"20px","position":"absolute","borderStyle":"solid","textShadow":"0px 0px 0px rgba(64, 158, 255, .5)","height":"auto"}' class="title">汽车租赁管理系统注册</div>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">账号</div>
-					<el-input  v-model="ruleForm.zhanghao"  autocomplete="off" placeholder="账号"  type="text"  />
+					<el-input  v-model="ruleForm.account"  autocomplete="off" placeholder="账号"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">密码</div>
-					<el-input  v-model="ruleForm.mima"  autocomplete="off" placeholder="密码"  type="password"  />
+					<el-input  v-model="ruleForm.password"  autocomplete="off" placeholder="密码"  type="password"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">确认密码</div>
-					<el-input  v-model="ruleForm.mima2" autocomplete="off" placeholder="确认密码" type="password" />
+					<el-input  v-model="ruleForm.password2" autocomplete="off" placeholder="确认密码" type="password" />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">姓名</div>
-					<el-input  v-model="ruleForm.xingming"  autocomplete="off" placeholder="姓名"  type="text"  />
+					<el-input  v-model="ruleForm.name"  autocomplete="off" placeholder="姓名"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">年龄</div>
-					<el-input  v-model="ruleForm.nianling"  autocomplete="off" placeholder="年龄"  type="text"  />
+					<el-input  v-model="ruleForm.age"  autocomplete="off" placeholder="年龄"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">性别</div>
-                    <el-select v-model="ruleForm.xingbie" placeholder="请选择性别" >
+                    <el-select v-model="ruleForm.gender" placeholder="请选择性别" >
                         <el-option
-                            v-for="(item,index) in yonghuxingbieOptions"
+                            v-for="(item,index) in clientGenderOptions"
                             v-bind:key="index"
                             :label="item"
                             :value="item">
                         </el-option>
                     </el-select>
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">身份证</div>
-					<el-input  v-model="ruleForm.shenfenzheng"  autocomplete="off" placeholder="身份证"  type="text"  />
+					<el-input  v-model="ruleForm.idCard"  autocomplete="off" placeholder="身份证"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">手机</div>
-					<el-input  v-model="ruleForm.shouji"  autocomplete="off" placeholder="手机"  type="text"  />
+					<el-input  v-model="ruleForm.phone"  autocomplete="off" placeholder="手机"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='yonghu'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='client'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">头像</div>
                     <file-upload
                         tip="点击上传头像"
                         action="file/upload"
                         :limit="3"
                         :multiple="true"
-                        :fileUrls="ruleForm.touxiang?ruleForm.touxiang:''"
-                        @change="yonghutouxiangUploadChange"
+                        :fileUrls="ruleForm.avatar?ruleForm.avatar:''"
+                        @change="clientAvatarUploadChange"
                     ></file-upload>
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">管理账号</div>
-					<el-input  v-model="ruleForm.guanlizhanghao"  autocomplete="off" placeholder="管理账号"  type="text"  />
+					<el-input  v-model="ruleForm.ordinaryAdminAccount"  autocomplete="off" placeholder="管理账号"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">密码</div>
-					<el-input  v-model="ruleForm.mima"  autocomplete="off" placeholder="密码"  type="password"  />
+					<el-input  v-model="ruleForm.password"  autocomplete="off" placeholder="密码"  type="password"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">确认密码</div>
-					<el-input  v-model="ruleForm.mima2" autocomplete="off" placeholder="确认密码" type="password" />
+					<el-input  v-model="ruleForm.password2" autocomplete="off" placeholder="确认密码" type="password" />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">管理姓名</div>
-					<el-input  v-model="ruleForm.guanlixingming"  autocomplete="off" placeholder="管理姓名"  type="text"  />
+					<el-input  v-model="ruleForm.ordinaryAdminName"  autocomplete="off" placeholder="管理姓名"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">性别</div>
-                    <el-select v-model="ruleForm.xingbie" placeholder="请选择性别" >
+                    <el-select v-model="ruleForm.gender" placeholder="请选择性别" >
                         <el-option
-                            v-for="(item,index) in putongguanliyuanxingbieOptions"
+                            v-for="(item,index) in ordinaryAdminGenderOptions"
                             v-bind:key="index"
                             :label="item"
                             :value="item">
                         </el-option>
                     </el-select>
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">年龄</div>
-					<el-input  v-model="ruleForm.nianling"  autocomplete="off" placeholder="年龄"  type="text"  />
+					<el-input  v-model="ruleForm.age"  autocomplete="off" placeholder="年龄"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">联系电话</div>
-					<el-input  v-model="ruleForm.lianxidianhua"  autocomplete="off" placeholder="联系电话"  type="text"  />
+					<el-input  v-model="ruleForm.phone"  autocomplete="off" placeholder="联系电话"  type="text"  />
 				</el-form-item>
-				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='putongguanliyuan'">
+				<el-form-item :style='{"width":"80%","padding":"0","margin":"0 auto 15px","height":"auto"}' class="list-item" v-if="tableName=='ordinaryadministrator'">
 					<div v-if="false" :style='{"width":"64px","lineHeight":"44px","fontSize":"14px","color":"rgba(64, 158, 255, 1)"}' class="lable">头像</div>
                     <file-upload
                         tip="点击上传头像"
                         action="file/upload"
                         :limit="3"
                         :multiple="true"
-                        :fileUrls="ruleForm.touxiang?ruleForm.touxiang:''"
-                        @change="putongguanliyuantouxiangUploadChange"
+                        :fileUrls="ruleForm.avatar?ruleForm.avatar:''"
+                        @change="ordinaryAdminAvatarUploadChange"
                     ></file-upload>
 				</el-form-item>
 				<button :style='{"border":"0","cursor":"pointer","padding":"0 40px","boxShadow":"0px 0px 0px #f9d7b5","margin":"20px auto 5px","color":"#fff","display":"block","outline":"none","borderRadius":"8px","background":"-webkit-linear-gradient(top,#96d148,#4a7f06)","width":"auto","fontSize":"14px","height":"44px"}' type="button" class="r-btn" @click="login()">注册</button>
@@ -113,23 +113,21 @@ export default {
 	data() {
 		return {
 			ruleForm: {
-                xingbie: '',
-                xingbie: '',
+                gender: '',
 			},
-
             pageFlag : '',
 			tableName:"",
 			rules: {},
-            yonghuxingbieOptions: [],
-            putongguanliyuanxingbieOptions: [],
+            clientGenderOptions: [],
+            ordinaryAdminGenderOptions: [],
 		};
 	},
 	mounted(){
         this.pageFlag = this.$storage.get("pageFlag");
 		let table = this.$storage.get("loginTable");
 		this.tableName = table;
-        this.yonghuxingbieOptions = "男,女".split(',')
-        this.putongguanliyuanxingbieOptions = "男,女".split(',')
+        this.clientGenderOptions = "男,女".split(',')
+        this.ordinaryAdminGenderOptions = "男,女".split(',')
 	},
 	created() {
     
@@ -144,11 +142,11 @@ export default {
 		close(){
 			this.$router.push({ path: "/login" });
 		},
-        yonghutouxiangUploadChange(fileUrls) {
-            this.ruleForm.touxiang = fileUrls;
+        clientAvatarUploadChange(fileUrls) {
+            this.ruleForm.avatar = fileUrls;
         },
-        putongguanliyuantouxiangUploadChange(fileUrls) {
-            this.ruleForm.touxiang = fileUrls;
+        ordinaryAdminAvatarUploadChange(fileUrls) {
+            this.ruleForm.avatar = fileUrls;
         },
 
         // 多级联动参数
@@ -157,225 +155,90 @@ export default {
 		// 注册
 		login() {
 			var url=this.tableName+"/register";
-					if((!this.ruleForm.zhanghao) && `yonghu` == this.tableName){
-						this.$message.error(`账号不能为空`);
+
+      if((!this.ruleForm.account) && `client` == this.tableName){
+          this.$message.error(`账号不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if((!this.ruleForm.mima) && `yonghu` == this.tableName){
+      }
+
+      if((!this.ruleForm.password) && `client` == this.tableName){
 						this.$message.error(`密码不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if((this.ruleForm.mima!=this.ruleForm.mima2) && `yonghu` == this.tableName){
+      }
+
+      if((this.ruleForm.password!=this.ruleForm.password2) && `client` == this.tableName){
 						this.$message.error(`两次密码输入不一致`);
 						return
-					}
-					if((!this.ruleForm.xingming) && `yonghu` == this.tableName){
+      }
+
+      if((!this.ruleForm.name) && `client` == this.tableName){
 						this.$message.error(`姓名不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if(`yonghu` == this.tableName && this.ruleForm.nianling&&(!this.$validate.isIntNumer(this.ruleForm.nianling))){
+      }
+
+      if(`client` == this.tableName && this.ruleForm.age&&(!this.$validate.isIntNumer(this.ruleForm.age))){
 						this.$message.error(`年龄应输入整数`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if((!this.ruleForm.shenfenzheng) && `yonghu` == this.tableName){
+      }
+
+      if((!this.ruleForm.idCard) && `client` == this.tableName){
 						this.$message.error(`身份证不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					if(`yonghu` == this.tableName && this.ruleForm.shenfenzheng&&(!this.$validate.checkIdCard(this.ruleForm.shenfenzheng))){
+      }
+
+      if(`client` == this.tableName && this.ruleForm.idCard&&(!this.$validate.checkIdCard(this.ruleForm.idCard))){
 						this.$message.error(`身份证应输入身份证格式`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					if(`yonghu` == this.tableName && this.ruleForm.shouji&&(!this.$validate.isMobile(this.ruleForm.shouji))){
+      }
+
+      if(`client` == this.tableName && this.ruleForm.phone&&(!this.$validate.isMobile(this.ruleForm.phone))){
 						this.$message.error(`手机应输入手机格式`);
 						return
-					}
-					
-					
-					
-					
-            if(this.ruleForm.touxiang!=null) {
-                this.ruleForm.touxiang = this.ruleForm.touxiang.replace(new RegExp(this.$base.url,"g"),"");
-            }
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-				
-					if((!this.ruleForm.guanlizhanghao) && `putongguanliyuan` == this.tableName){
+      }
+
+      if(this.ruleForm.avatar!=null) {
+            this.ruleForm.avatar = this.ruleForm.avatar.replace(new RegExp(this.$base.url,"g"),"");
+      }
+
+      if((!this.ruleForm.ordinaryAdminAccount) && `ordinaryadministrator` == this.tableName){
 						this.$message.error(`管理账号不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if((!this.ruleForm.mima) && `putongguanliyuan` == this.tableName){
+      }
+
+      if((!this.ruleForm.password) && `ordinaryadministrator` == this.tableName){
 						this.$message.error(`密码不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if((this.ruleForm.mima!=this.ruleForm.mima2) && `putongguanliyuan` == this.tableName){
+      }
+
+      if((this.ruleForm.password!=this.ruleForm.password2) && `ordinaryadministrator` == this.tableName){
 						this.$message.error(`两次密码输入不一致`);
 						return
-					}
-					if((!this.ruleForm.guanlixingming) && `putongguanliyuan` == this.tableName){
+      }
+
+      if((!this.ruleForm.ordinaryAdminName) && `ordinaryadministrator` == this.tableName){
 						this.$message.error(`管理姓名不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if((!this.ruleForm.nianling) && `putongguanliyuan` == this.tableName){
+      }
+
+      if((!this.ruleForm.age) && `ordinaryadministrator` == this.tableName){
 						this.$message.error(`年龄不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					if((!this.ruleForm.lianxidianhua) && `putongguanliyuan` == this.tableName){
+      }
+
+      if((!this.ruleForm.phone) && `ordinaryadministrator` == this.tableName){
 						this.$message.error(`联系电话不能为空`);
 						return
-					}
-					
-					
-					
-					
-					
-					
-					if(`putongguanliyuan` == this.tableName && this.ruleForm.lianxidianhua&&(!this.$validate.isMobile(this.ruleForm.lianxidianhua))){
+      }
+
+      if(`ordinaryadministrator` == this.tableName && this.ruleForm.phone&&(!this.$validate.isMobile(this.ruleForm.phone))){
 						this.$message.error(`联系电话应输入手机格式`);
 						return
-					}
-					
-					
-					
-					
-            if(this.ruleForm.touxiang!=null) {
-                this.ruleForm.touxiang = this.ruleForm.touxiang.replace(new RegExp(this.$base.url,"g"),"");
-            }
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-				
-			
+      }
+
+      if(this.ruleForm.avatar!=null) {
+                this.ruleForm.avatar = this.ruleForm.avatar.replace(new RegExp(this.$base.url,"g"),"");
+      }
+
 			this.$http({
 				url: url,
 				method: "post",
