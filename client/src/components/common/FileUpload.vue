@@ -2,19 +2,19 @@
   <div>
     <!-- 上传文件组件 -->
     <el-upload
-      ref="upload"
-      :action="getActionUrl"
-      list-type="picture-card"
-      :multiple="multiple"
-      :limit="limit"
-      :headers="myHeaders"
-      :file-list="fileList"
-      :on-exceed="handleExceed"
-      :on-preview="handleUploadPreview"
-      :on-remove="handleRemove"
-      :on-success="handleUploadSuccess"
-      :on-error="handleUploadErr"
-      :before-upload="handleBeforeUpload"
+        ref="upload"
+        :action="getActionUrl"
+        list-type="picture-card"
+        :multiple="multiple"
+        :limit="limit"
+        :headers="myHeaders"
+        :file-list="fileList"
+        :on-exceed="handleExceed"
+        :on-preview="handleUploadPreview"
+        :on-remove="handleRemove"
+        :on-success="handleUploadSuccess"
+        :on-error="handleUploadErr"
+        :before-upload="handleBeforeUpload"
     >
       <i class="el-icon-plus"></i>
       <div slot="tip" class="el-upload__tip" style="color:#838fa1;">{{tip}}</div>
@@ -80,7 +80,7 @@ export default {
       }
     },
     handleBeforeUpload(file) {
-	
+
     },
     // 上传文件成功后执行
     handleUploadSuccess(res, file, fileList) {
@@ -119,9 +119,9 @@ export default {
       let _this = this;
       fileList.forEach(function(item, index) {
         var url = item.url.split("?")[0];
-	if(!url.startsWith("http")) {
-	  url = _this.$base.url+url
-	}
+        if(!url.startsWith("http")) {
+          url = _this.$base.url + "/" + url
+        }
         var name = item.name;
         var file = {
           name: name,

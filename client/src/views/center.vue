@@ -117,10 +117,10 @@ export default {
   },
   methods: {
     clientAvatarUploadChange(fileUrls) {
-        this.ruleForm.touxiang = fileUrls;
+        this.ruleForm.avatar = fileUrls;
     },
     ordinaryAdminAvatarUploadChange(fileUrls) {
-        this.ruleForm.touxiang = fileUrls;
+        this.ruleForm.avatar = fileUrls;
     },
     onUpdateHandler() {
       if((!this.ruleForm.account)&& 'client'==this.flag){
