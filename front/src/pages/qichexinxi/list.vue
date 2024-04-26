@@ -31,7 +31,7 @@
 
           <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
             <el-form-item :style='{"margin":"0 10px"}'>
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block">取车时间</div>
+              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial, font-size:16px">取车时间</div>
               <el-date-picker
                   v-model="pickupDate"
                   type="date"
@@ -50,7 +50,7 @@
 
           <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
             <el-form-item :style='{"margin":"0 10px"}'>
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block">还车时间</div>
+              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial, font-size:16px">还车时间</div>
               <el-date-picker
                   v-model="pickupDate"
                   type="date"
@@ -71,7 +71,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车牌号
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车牌号
           </div>
           <el-input v-model="formSearch.chepaihao" placeholder="车牌号" clearable="true" ></el-input>
         </el-form-item>
@@ -79,7 +79,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>汽车类型
+               :style='{"width":"auto","padding":"0 10px 0px 30px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>汽车类型
           </div>
           <el-select v-model="formSearch.qicheleibie" placeholder="请选择汽车类型" :clearable="true"  >
             <el-option v-for="(item, index) in qicheleibieOptions" :key="index" :label="item" :value="item"></el-option>
@@ -89,11 +89,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车辆品牌
-<!--          </div>-->
-<!--          <el-input v-model="formSearch.cheliangpinpai" placeholder="车辆品牌" clearable></el-input>-->
-<!--        </el-form-item>-->
-<!--        -->
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车辆品牌
           </div>
           <el-select v-model="formSearch.cheliangpinpai" placeholder="车辆品牌" :clearable="true">
             <el-option v-for="(item, index) in cheliangpinpaiOptions" :key="index" :label="item" :value="item"></el-option>
@@ -103,7 +99,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>价格
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>价格
           </div>
           <el-select v-model="formSearch.jiage" placeholder="请选择价格" :clearable="true">
             <el-option v-for="(item, index) in jiageOptions" :key="index" :label="item" :value="item"></el-option>
@@ -112,7 +108,7 @@
         <el-form-item :style='{"margin":"0 10px"}'>
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>排挡
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>排挡
           </div>
           <el-select v-model="formSearch.paidang" placeholder="请选择排挡" :clearable="true">
             <el-option v-for="(item, index) in paidangOptions" :key="index" :label="item" :value="item"></el-option>
@@ -121,7 +117,7 @@
         <el-form-item :style='{"margin":"0 10px"}'>
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>座位
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>座位
           </div>
           <el-select v-model="formSearch.zuowei" placeholder="请选择座位" :clearable="true">
             <el-option v-for="(item, index) in zuoweiOptions" :key="index" :label="item" :value="item"></el-option>
@@ -130,7 +126,7 @@
         <el-form-item :style='{"margin":"0 10px"}'>
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>状态
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>状态
           </div>
           <el-select v-model="formSearch.zhuangtai" placeholder="请选择状态" :clearable="true">
             <el-option v-for="(item, index) in zhuangtaiOptions" :key="index" :label="item" :value="item"></el-option>
@@ -310,11 +306,11 @@ export default {
       curFenlei: '全部',
       isPlain: false,
       indexQueryCondition: '',
-      qicheleibieOptions: [],
+      qicheleibieOptions: ["轿车","SUV","MPV","越野车"],
       cheliangpinpaiOptions:[],
-      jiageOptions:[],
+      jiageOptions:["五万以下","五到十万","十到二十万","二十万到三十万","三十万以上"],
       paidangOptions:[],
-      zuoweiOptions:[],
+      zuoweiOptions:["二座","五座","七座"],
       zhuangtaiOptions: [],
       timeRange: []
     }
