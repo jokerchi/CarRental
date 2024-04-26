@@ -76,6 +76,19 @@ export default {
 
   },
   created() {
+    const storedRole = this.$storage.get("role");
+    const storedToken = this.$storage.get("Token");
+    const storedSessionTable = this.$storage.get("sessionTable");
+    const storedAdminName = this.$storage.get("adminName");
+
+    if (storedRole && storedToken && storedSessionTable && storedAdminName) {
+      // 如果存在用户信息，则直接进行自动登录
+      this.rulesForm.username = storedAdminName; // 设置用户名
+      this.rulesForm.role = storedRole;
+      this.tableName = storedSessionTable;
+      // 执行登录方法
+      this.login();
+    }
     this.getRandCode()
   },
   destroyed() { },
