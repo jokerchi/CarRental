@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.CarRentalOrderDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.CarRentalOrderEntity" id="carRentalOrderMap">
+        <result property="orderNumber" column="order_number"/>
+        <result property="carNumber" column="car_number"/>
+        <result property="carBrand" column="car_brand"/>
+        <result property="dailyPrice" column="daily_price"/>
+        <result property="leaseTerm" column="lease_term"/>
+        <result property="totalPrice" column="total_price"/>
+        <result property="startDate" column="start_date"/>
+        <result property="remark" column="remark"/>
+        <result property="clientAccount" column="client_account"/>
+        <result property="clientName" column="client_name"/>
+        <result property="phone" column="phone"/>
+        <result property="idCard" column="id_card"/>
+        <result property="administratorAccount" column="administrator_account"/>
+        <result property="administratorName" column="administrator_name"/>
+        <result property="isReviewed" column="is_reviewed"/>
+        <result property="reviewReply" column="review_reply"/>
+        <result property="isPay" column="is_pay"/>
+    </resultMap>
+
+    <select id="selectListVO"
+            resultType="com.entity.CarRentalOrderEntity" >
+        SELECT * FROM carrentalorder  carrentalorder
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectVO"
+            resultType="com.entity.CarRentalOrderEntity" >
+        SELECT  carrentalorder.* FROM carrentalorder  carrentalorder
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectListView"
+            resultType="com.entity.view.CarRentalOrderView" >
+
+        SELECT  carrentalorder.* FROM carrentalorder  carrentalorder
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectView"
+            resultType="com.entity.view.CarRentalOrderView" >
+        SELECT * FROM carrentalorder  carrentalorder <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+
+</mapper>

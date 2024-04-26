@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ReturnCarInfoDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ReturnCarInfoEntity" id="returnCarInfoMap">
+        <result property="orderNumber" column="order_number"/>
+        <result property="carNumber" column="car_number"/>
+        <result property="carBrand" column="car_brand"/>
+        <result property="returnDate" column="return_date"/>
+        <result property="returnRemarks" column="return_remarks"/>
+        <result property="clientAccount" column="client_account"/>
+        <result property="clientName" column="client_name"/>
+        <result property="phone" column="phone"/>
+        <result property="idCard" column="id_card"/>
+        <result property="adminAccount" column="admin_account"/>
+        <result property="adminName" column="admin_name"/>
+        <result property="crossUserId" column="cross_user_id"/>
+        <result property="crossRefId" column="cross_ref_id"/>
+        <result property="isReviewed" column="is_reviewed"/>
+        <result property="reviewReply" column="review_reply"/>
+    </resultMap>
+
+    <select id="selectListVO"
+            resultType="com.entity.ReturnCarInfoEntity" >
+        SELECT * FROM returncarinfo  returncarinfo
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectVO"
+            resultType="com.entity.ReturnCarInfoEntity" >
+        SELECT  returncarinfo.* FROM returncarinfo  returncarinfo
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectListView"
+            resultType="com.entity.view.ReturnCarInfoView" >
+
+        SELECT  returncarinfo.* FROM returncarinfo  returncarinfo
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectView"
+            resultType="com.entity.view.ReturnCarInfoView" >
+        SELECT * FROM returncarinfo  returncarinfo <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+
+</mapper>
