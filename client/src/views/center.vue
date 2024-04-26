@@ -8,75 +8,75 @@
       label-width="80px"
     >  
      <el-row>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='yonghu'"  label="账号" prop="zhanghao">
-          <el-input v-model="ruleForm.zhanghao" readonly              placeholder="账号" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='client'"  label="账号" prop="account">
+          <el-input v-model="ruleForm.account" readonly              placeholder="账号" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='yonghu'"  label="姓名" prop="xingming">
-          <el-input v-model="ruleForm.xingming"               placeholder="姓名" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='client'"  label="姓名" prop="name">
+          <el-input v-model="ruleForm.name"               placeholder="姓名" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='yonghu'"  label="年龄" prop="nianling">
-          <el-input v-model="ruleForm.nianling"               placeholder="年龄" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='client'"  label="年龄" prop="age">
+          <el-input v-model="ruleForm.age"               placeholder="年龄" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='yonghu'"  label="性别" prop="xingbie">
-          <el-select v-model="ruleForm.xingbie"  placeholder="请选择性别">
+        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='client'"  label="性别" prop="gender">
+          <el-select v-model="ruleForm.gender"  placeholder="请选择性别">
             <el-option
-                v-for="(item,index) in yonghuxingbieOptions"
+                v-for="(item,index) in clientGenderOptions"
                 v-bind:key="index"
                 :label="item"
                 :value="item">
             </el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='yonghu'"  label="身份证" prop="shenfenzheng">
-          <el-input v-model="ruleForm.shenfenzheng"               placeholder="身份证" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='client'"  label="身份证" prop="idCard">
+          <el-input v-model="ruleForm.idCard"               placeholder="身份证" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='yonghu'"  label="手机" prop="shouji">
-          <el-input v-model="ruleForm.shouji"               placeholder="手机" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='client'"  label="手机" prop="phone">
+          <el-input v-model="ruleForm.phone"               placeholder="手机" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='yonghu'" label="头像" prop="touxiang">
+        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='client'" label="头像" prop="avatar">
           <file-upload
           tip="点击上传头像"
           action="file/upload"
           :limit="3"
           :multiple="true"
-          :fileUrls="ruleForm.touxiang?ruleForm.touxiang:''"
-          @change="yonghutouxiangUploadChange"
+          :fileUrls="ruleForm.avatar?ruleForm.avatar:''"
+          @change="clientAvatarUploadChange"
           ></file-upload>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='putongguanliyuan'"  label="管理账号" prop="guanlizhanghao">
-          <el-input v-model="ruleForm.guanlizhanghao" readonly              placeholder="管理账号" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='ordinaryadministrator'"  label="管理账号" prop="ordinaryAdminAccount">
+          <el-input v-model="ruleForm.ordinaryAdminAccount" readonly              placeholder="管理账号" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='putongguanliyuan'"  label="管理姓名" prop="guanlixingming">
-          <el-input v-model="ruleForm.guanlixingming"               placeholder="管理姓名" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='ordinaryadministrator'"  label="管理姓名" prop="ordinaryAdminName">
+          <el-input v-model="ruleForm.ordinaryAdminName"               placeholder="管理姓名" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='putongguanliyuan'"  label="性别" prop="xingbie">
-          <el-select v-model="ruleForm.xingbie"  placeholder="请选择性别">
+        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='ordinaryadministrator'"  label="性别" prop="gender">
+          <el-select v-model="ruleForm.gender"  placeholder="请选择性别">
             <el-option
-                v-for="(item,index) in putongguanliyuanxingbieOptions"
+                v-for="(item,index) in ordinaryAdminGenderOptions"
                 v-bind:key="index"
                 :label="item"
                 :value="item">
             </el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='putongguanliyuan'"  label="年龄" prop="nianling">
-          <el-input v-model="ruleForm.nianling"               placeholder="年龄" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='ordinaryadministrator'"  label="年龄" prop="age">
+          <el-input v-model="ruleForm.age"               placeholder="年龄" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='putongguanliyuan'"  label="联系电话" prop="lianxidianhua">
-          <el-input v-model="ruleForm.lianxidianhua"               placeholder="联系电话" clearable></el-input>
+        <el-form-item :style='{"margin":"0 0 20px 0"}'   v-if="flag=='ordinaryadministrator'"  label="联系电话" prop="phone">
+          <el-input v-model="ruleForm.phone"               placeholder="联系电话" clearable></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='putongguanliyuan'" label="头像" prop="touxiang">
+        <el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='ordinaryadministrator'" label="头像" prop="avatar">
           <file-upload
           tip="点击上传头像"
           action="file/upload"
           :limit="3"
           :multiple="true"
-          :fileUrls="ruleForm.touxiang?ruleForm.touxiang:''"
-          @change="putongguanliyuantouxiangUploadChange"
+          :fileUrls="ruleForm.avatar?ruleForm.avatar:''"
+          @change="ordinaryAdminAvatarUploadChange"
           ></file-upload>
         </el-form-item>
-		<el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='users'" label="用户名" prop="username">
-			<el-input v-model="ruleForm.username" placeholder="用户名"></el-input>
+		<el-form-item :style='{"margin":"0 0 20px 0"}' v-if="flag=='superadministrator'" label="用户名" prop="superAdminAccount">
+			<el-input v-model="ruleForm.superAdminAccount" placeholder="用户名"></el-input>
 		</el-form-item>
 		<el-form-item :style='{"padding":"0","margin":"0"}'>
 			<el-button :style='{"border":"0","cursor":"pointer","padding":"0","margin":"0 20px 0 0","outline":"none","color":"rgba(255, 255, 255, 1)","borderRadius":"4px","background":"#337ab7","width":"128px","lineHeight":"40px","fontSize":"14px","height":"40px"}' type="primary" @click="onUpdateHandler">修 改</el-button>
@@ -95,8 +95,8 @@ export default {
       ruleForm: {},
       flag: '',
       usersFlag: false,
-      yonghuxingbieOptions: [],
-      putongguanliyuanxingbieOptions: [],
+      clientGenderOptions: [],
+      ordinaryAdminGenderOptions: [],
     };
   },
   mounted() {
@@ -112,76 +112,76 @@ export default {
         this.$message.error(data.msg);
       }
     });
-    this.yonghuxingbieOptions = "男,女".split(',')
-    this.putongguanliyuanxingbieOptions = "男,女".split(',')
+    this.clientGenderOptions = "男,女".split(',')
+    this.ordinaryAdminGenderOptions = "男,女".split(',')
   },
   methods: {
-    yonghutouxiangUploadChange(fileUrls) {
+    clientAvatarUploadChange(fileUrls) {
         this.ruleForm.touxiang = fileUrls;
     },
-    putongguanliyuantouxiangUploadChange(fileUrls) {
+    ordinaryAdminAvatarUploadChange(fileUrls) {
         this.ruleForm.touxiang = fileUrls;
     },
     onUpdateHandler() {
-      if((!this.ruleForm.zhanghao)&& 'yonghu'==this.flag){
+      if((!this.ruleForm.account)&& 'client'==this.flag){
         this.$message.error('账号不能为空');
         return
       }
-      if((!this.ruleForm.mima)&& 'yonghu'==this.flag){
+      if((!this.ruleForm.password)&& 'client'==this.flag){
         this.$message.error('密码不能为空');
         return
       }
-      if((!this.ruleForm.xingming)&& 'yonghu'==this.flag){
+      if((!this.ruleForm.name)&& 'client'==this.flag){
         this.$message.error('姓名不能为空');
         return
       }
-      if( 'yonghu' ==this.flag && this.ruleForm.nianling&&(!isIntNumer(this.ruleForm.nianling))){
+      if( 'client' ==this.flag && this.ruleForm.age&&(!isIntNumer(this.ruleForm.age))){
        this.$message.error(`年龄应输入整数`);
         return
       }
-      if((!this.ruleForm.shenfenzheng)&& 'yonghu'==this.flag){
+      if((!this.ruleForm.idCard)&& 'client'==this.flag){
         this.$message.error('身份证不能为空');
         return
       }
-      if( 'yonghu' ==this.flag && this.ruleForm.shenfenzheng&&(!checkIdCard(this.ruleForm.shenfenzheng))){
+      if( 'client' ==this.flag && this.ruleForm.idCard&&(!checkIdCard(this.ruleForm.idCard))){
         this.$message.error(`身份证应输入身份证格式`);
         return
       }
-      if( 'yonghu' ==this.flag && this.ruleForm.shouji&&(!isMobile(this.ruleForm.shouji))){
+      if( 'client' ==this.flag && this.ruleForm.phone&&(!isMobile(this.ruleForm.phone))){
         this.$message.error(`手机应输入手机格式`);
         return
       }
-        if(this.ruleForm.touxiang!=null) {
-                this.ruleForm.touxiang = this.ruleForm.touxiang.replace(new RegExp(this.$base.url,"g"),"");
+        if(this.ruleForm.avatar!=null) {
+                this.ruleForm.avatar = this.ruleForm.avatar.replace(new RegExp(this.$base.url,"g"),"");
         }
-      if((!this.ruleForm.guanlizhanghao)&& 'putongguanliyuan'==this.flag){
+      if((!this.ruleForm.ordinaryAdminAccount)&& 'ordinaryadministrator'==this.flag){
         this.$message.error('管理账号不能为空');
         return
       }
-      if((!this.ruleForm.mima)&& 'putongguanliyuan'==this.flag){
+      if((!this.ruleForm.password)&& 'ordinaryadministrator'==this.flag){
         this.$message.error('密码不能为空');
         return
       }
-      if((!this.ruleForm.guanlixingming)&& 'putongguanliyuan'==this.flag){
+      if((!this.ruleForm.ordinaryAdminName)&& 'ordinaryadministrator'==this.flag){
         this.$message.error('管理姓名不能为空');
         return
       }
-      if((!this.ruleForm.nianling)&& 'putongguanliyuan'==this.flag){
+      if((!this.ruleForm.age)&& 'ordinaryadministrator'==this.flag){
         this.$message.error('年龄不能为空');
         return
       }
-      if((!this.ruleForm.lianxidianhua)&& 'putongguanliyuan'==this.flag){
+      if((!this.ruleForm.phone)&& 'ordinaryadministrator'==this.flag){
         this.$message.error('联系电话不能为空');
         return
       }
-      if( 'putongguanliyuan' ==this.flag && this.ruleForm.lianxidianhua&&(!isMobile(this.ruleForm.lianxidianhua))){
+      if( 'ordinaryadministrator' ==this.flag && this.ruleForm.phone&&(!isMobile(this.ruleForm.phone))){
         this.$message.error(`联系电话应输入手机格式`);
         return
       }
-        if(this.ruleForm.touxiang!=null) {
-                this.ruleForm.touxiang = this.ruleForm.touxiang.replace(new RegExp(this.$base.url,"g"),"");
+        if(this.ruleForm.avatar!=null) {
+                this.ruleForm.avatar = this.ruleForm.avatar.replace(new RegExp(this.$base.url,"g"),"");
         }
-      if('users'==this.flag && this.ruleForm.username.trim().length<1) {
+      if('superadministrator'==this.flag && this.ruleForm.superAdminAccount.trim().length<1) {
 	this.$message.error(`用户名不能为空`);
         return	
       }
