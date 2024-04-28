@@ -22,7 +22,7 @@
 
           <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
             <el-form-item :style='{"margin":"0 10px"}'>
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial, font-size:16px">取车时间</div>
+              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">取车时间</div>
               <el-date-picker
                   v-model="pickupDate"
                   type="date"
@@ -41,7 +41,7 @@
 
           <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
             <el-form-item :style='{"margin":"0 10px"}'>
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial, font-size:16px">还车时间</div>
+              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">还车时间</div>
               <el-date-picker
                   v-model="pickupDate"
                   type="date"
@@ -70,7 +70,7 @@
 
 
           <div class="lable" v-if="true"
-
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车辆型号
           </div>
           <el-select v-model="formSearch.carModel" placeholder="请选择车辆型号" :clearable="true"  >
             <el-option v-for="(item, index) in carModelOptions" :key="index" :label="item" :value="item"></el-option>
@@ -80,7 +80,7 @@
 
 
           <div class="lable" v-if="true"
-
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车辆品牌
           </div>
           <el-select v-model="formSearch.carBrand" placeholder="车辆品牌" :clearable="true">
             <el-option v-for="(item, index) in carBrandOptions" :key="index" :label="item" :value="item"></el-option>

@@ -23,9 +23,9 @@ import putongguanliyuanAdd from '../pages/putongguanliyuan/add'
 import qicheleibieList from '../pages/qicheleibie/list'
 import qicheleibieDetail from '../pages/qicheleibie/detail'
 import qicheleibieAdd from '../pages/qicheleibie/add'
-import qichexinxiList from '../pages/qichexinxi/list'
-import qichexinxiDetail from '../pages/qichexinxi/detail'
-import qichexinxiAdd from '../pages/qichexinxi/add'
+import carinfoList from '../pages/qichexinxi/list'
+import carinfoDetail from '../pages/qichexinxi/detail'
+import carinfoAdd from '../pages/qichexinxi/add'
 import zuchedingdanList from '../pages/zuchedingdan/list'
 import zuchedingdanDetail from '../pages/zuchedingdan/detail'
 import zuchedingdanAdd from '../pages/zuchedingdan/add'
@@ -122,29 +122,18 @@ export default new VueRouter({
 					path: 'putongguanliyuanAdd',
 					component: putongguanliyuanAdd
 				},
+
 				{
-					path: 'qicheleibie',
-					component: qicheleibieList
+					path: 'carinfo',
+					component: carinfoList
 				},
 				{
-					path: 'qicheleibieDetail',
-					component: qicheleibieDetail
+					path: 'carinfoDetail',
+					component: carinfoDetail
 				},
 				{
-					path: 'qicheleibieAdd',
-					component: qicheleibieAdd
-				},
-				{
-					path: 'qichexinxi',
-					component: qichexinxiList
-				},
-				{
-					path: 'qichexinxiDetail',
-					component: qichexinxiDetail
-				},
-				{
-					path: 'qichexinxiAdd',
-					component: qichexinxiAdd
+					path: 'carinfoAdd',
+					component: carinfoAdd
 				},
 				{
 					path: 'zuchedingdan',
