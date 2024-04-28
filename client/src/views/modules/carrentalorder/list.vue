@@ -6,32 +6,28 @@
 				<el-row :style='{"padding":"10px","borderRadius":"3px","background":"#fff","display":"block"}' >
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
 						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">车牌号</label>
-						<el-input v-model="searchForm.chepaihao" placeholder="车牌号" clearable></el-input>
+						<el-input v-model="searchForm.carNumber" placeholder="车牌号" clearable></el-input>
 					</div>
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
 						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">车辆品牌</label>
-						<el-input v-model="searchForm.cheliangpinpai" placeholder="车辆品牌" clearable></el-input>
-					</div>
-					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
-						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">汽车类别</label>
-						<el-input v-model="searchForm.qicheleibie" placeholder="汽车类别" clearable></el-input>
+						<el-input v-model="searchForm.carBrand" placeholder="车辆品牌" clearable></el-input>
 					</div>
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
 						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">姓名</label>
-						<el-input v-model="searchForm.xingming" placeholder="姓名" clearable></el-input>
+						<el-input v-model="searchForm.clientName" placeholder="姓名" clearable></el-input>
 					</div>
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}' class="select">
 						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">是否通过</label>
-						<el-select  @change="sfshChange" clearable v-model="searchForm.sfsh" placeholder="是否通过">
-							<el-option v-for="(item,index) in sfshOptions" v-bind:key="index" :label="item" :value="item"></el-option>
+						<el-select  @change="isReviewedChange" clearable v-model="searchForm.isReviewed" placeholder="是否通过">
+							<el-option v-for="(item,index) in isReviewedOptions" v-bind:key="index" :label="item" :value="item"></el-option>
 						</el-select>
 					</div>
 					<el-button :style='{"border":"1px solid #5494cb","cursor":"pointer","padding":"0 34px","outline":"none","margin":"0 0px 0 10px","color":"#fff","borderRadius":"4px","background":"-webkit-linear-gradient(top,#66a4d8,#337ab7)","width":"auto","fontSize":"14px","height":"40px"}' type="success" @click="search()">查询</el-button>
 				</el-row>
 
 				<el-row :style='{"margin":"20px 0 20px 0","display":"flex"}'>
-					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(64, 158, 255, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('zuchedingdan','新增')" type="success" @click="addOrUpdateHandler()">新增</el-button>
-					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(255, 0, 0, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('zuchedingdan','删除')" :disabled="dataListSelections.length <= 0" type="danger" @click="deleteHandler()">删除</el-button>
+					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(64, 158, 255, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('carrentalorder','新增')" type="success" @click="addOrUpdateHandler()">新增</el-button>
+					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(255, 0, 0, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('carrentalorder','删除')" :disabled="dataListSelections.length <= 0" type="danger" @click="deleteHandler()">删除</el-button>
 
 
 
@@ -43,141 +39,134 @@
 				<el-table class="tables"
 					:stripe='false'
 					:style='{"padding":"0","borderColor":"#eee","borderRadius":"5px","borderWidth":"1px 0 0 1px","background":"#fff","width":"100%","borderStyle":"solid"}' 
-					v-if="isAuth('zuchedingdan','查看')"
+					v-if="isAuth('carrentalorder','查看')"
 					:data="dataList"
 					v-loading="dataListLoading"
 				@selection-change="selectionChangeHandler">
 					<el-table-column :resizable='true' type="selection" align="center" width="50"></el-table-column>
 					<el-table-column :resizable='true' :sortable='false' label="索引" type="index" width="50" />
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="dingdanbianhao"
+						prop="orderNumber"
 					label="订单编号">
 						<template slot-scope="scope">
-							{{scope.row.dingdanbianhao}}
+							{{scope.row.orderNumber}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="chepaihao"
+						prop="carNumber"
 					label="车牌号">
 						<template slot-scope="scope">
-							{{scope.row.chepaihao}}
+							{{scope.row.carNumber}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="cheliangpinpai"
+						prop="carBrand"
 					label="车辆品牌">
 						<template slot-scope="scope">
-							{{scope.row.cheliangpinpai}}
+							{{scope.row.carBrand}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="qicheleibie"
-					label="汽车类别">
-						<template slot-scope="scope">
-							{{scope.row.qicheleibie}}
-						</template>
-					</el-table-column>
-					<el-table-column :resizable='true' :sortable='false'  
-						prop="jiage"
+						prop="dailyPrice"
 					label="价格">
 						<template slot-scope="scope">
-							{{scope.row.jiage}}
+							{{scope.row.dailyPrice}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="zuqi"
+						prop="leaseTerm"
 					label="租期">
 						<template slot-scope="scope">
-							{{scope.row.zuqi}}
+							{{scope.row.leaseTerm}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="zongjia"
+						prop="totalPrice"
 					label="总价">
 						<template slot-scope="scope">
-							{{scope.row.zongjia}}
+							{{scope.row.totalPrice}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="chuzuriqi"
+						prop="startDate"
 					label="出租日期">
 						<template slot-scope="scope">
-							{{scope.row.chuzuriqi}}
+							{{scope.row.startDate}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="zhanghao"
+						prop="clientAccount"
 					label="账号">
 						<template slot-scope="scope">
-							{{scope.row.zhanghao}}
+							{{scope.row.clientAccount}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="xingming"
+						prop="clientName"
 					label="姓名">
 						<template slot-scope="scope">
-							{{scope.row.xingming}}
+							{{scope.row.clientName}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="shouji"
+						prop="phone"
 					label="手机">
 						<template slot-scope="scope">
-							{{scope.row.shouji}}
+							{{scope.row.phone}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="shenfenzheng"
+						prop="idCard"
 					label="身份证">
 						<template slot-scope="scope">
-							{{scope.row.shenfenzheng}}
+							{{scope.row.idCard}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="guanlizhanghao"
+						prop="administratorAccount"
 					label="管理账号">
 						<template slot-scope="scope">
-							{{scope.row.guanlizhanghao}}
+							{{scope.row.administratorAccount}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="guanlixingming"
+						prop="administratorName"
 					label="管理姓名">
 						<template slot-scope="scope">
-							{{scope.row.guanlixingming}}
+							{{scope.row.administratorName}}
 						</template>
 					</el-table-column>
-					<el-table-column :resizable='true' :sortable='false' prop="ispay" label="是否支付">
+					<el-table-column :resizable='true' :sortable='false' prop="isPay" label="是否支付">
 						<template slot-scope="scope">
-							<span style="margin-right:10px">{{scope.row.ispay=='已支付'?'已支付':'未支付'}}</span>
-							<el-button v-if="scope.row.ispay!='已支付' && isAuth('zuchedingdan','支付') " type="text" size="small" @click="payHandler(scope.row)">支付</el-button>
+							<span style="margin-right:10px">{{scope.row.isPay=='已支付'?'已支付':'未支付'}}</span>
+							<el-button v-if="scope.row.isPay!='已支付' && isAuth('carrentalorder','支付') " type="text" size="small" @click="payHandler(scope.row)">支付</el-button>
 						</template>
 					</el-table-column>
-					<el-table-column :resizable='true' :sortable='false' prop="shhf" label="审核回复"></el-table-column>
-					<el-table-column :resizable='true' :sortable='false' prop="sfsh" label="审核状态">
+					<el-table-column :resizable='true' :sortable='false' prop="reviewReply" label="审核回复"></el-table-column>
+					<el-table-column :resizable='true' :sortable='false' prop="isReviewed" label="审核状态">
 						<template slot-scope="scope">
-							<span style="margin-right:10px" v-if="scope.row.sfsh=='是'">通过</span>
-							<span style="margin-right:10px" v-if="scope.row.sfsh=='否'">未通过</span>
-							<span style="margin-right:10px" v-if="scope.row.sfsh=='待审核'">待审核</span>
+							<span style="margin-right:10px" v-if="scope.row.isReviewed=='是'">通过</span>
+							<span style="margin-right:10px" v-if="scope.row.isReviewed=='否'">未通过</span>
+							<span style="margin-right:10px" v-if="scope.row.isReviewed=='待审核'">待审核</span>
 						</template>
 					</el-table-column>
-					<el-table-column :resizable='true' :sortable='false' v-if="isAuth('zuchedingdan','审核')" prop="sfsh" label="审核">
+					<el-table-column :resizable='true' :sortable='false' v-if="isAuth('carrentalorder','审核')" prop="isReviewed" label="审核">
 						<template slot-scope="scope">
 							<el-button  type="text" size="small" @click="shDialog(scope.row)">审核</el-button>
 						</template>
 					</el-table-column>
 					<el-table-column width="300" label="操作">
 						<template slot-scope="scope">
-							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('zuchedingdan','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if="isAuth('zuchedingdan','归还汽车')" type="success" size="mini" @click="haichexinxiCrossAddOrUpdateHandler(scope.row,'cross','是','[1]','你已归还')">归还汽车</el-button>
-							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if="isAuth('zuchedingdan','取消订单')" type="success" size="mini" @click="quxiaodingdanCrossAddOrUpdateHandler(scope.row,'cross','是','[1]','你已取消')">取消订单</el-button>
-							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('zuchedingdan','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('carrentalorder','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if="isAuth('carrentalorder','归还汽车')" type="success" size="mini" @click="returncarinfoCrossAddOrUpdateHandler(scope.row,'cross','是','[1]','你已归还')">归还汽车</el-button>
+							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if="isAuth('carrentalorder','取消订单')" type="success" size="mini" @click="cancelorderCrossAddOrUpdateHandler(scope.row,'cross','是','[1]','你已取消')">取消订单</el-button>
+							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('carrentalorder','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
 
 
 
 
-							<el-button :style='{"border":"0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/68bd264a8e4341c6aa5409f871d590d0.png) #d9534f no-repeat 5px 8px","width":"auto","fontSize":"14px","height":"32px"}' v-if="isAuth('zuchedingdan','删除') " type="danger" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+							<el-button :style='{"border":"0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/68bd264a8e4341c6aa5409f871d590d0.png) #d9534f no-repeat 5px 8px","width":"auto","fontSize":"14px","height":"32px"}' v-if="isAuth('carrentalorder','删除') " type="danger" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
 						</template>
 					</el-table-column>
 				</el-table>
@@ -201,20 +190,20 @@
 		<!-- 添加/修改页面  将父组件的search方法传递给子组件-->
 		<add-or-update v-if="addOrUpdateFlag" :parent="this" ref="addOrUpdate"></add-or-update>
 
-		<haichexinxi-cross-add-or-update v-if="haichexinxiCrossAddOrUpdateFlag" :parent="this" ref="haichexinxiCrossaddOrUpdate"></haichexinxi-cross-add-or-update>
-		<quxiaodingdan-cross-add-or-update v-if="quxiaodingdanCrossAddOrUpdateFlag" :parent="this" ref="quxiaodingdanCrossaddOrUpdate"></quxiaodingdan-cross-add-or-update>
+		<returncarinfo-cross-add-or-update v-if="returncarinfoCrossAddOrUpdateFlag" :parent="this" ref="returncarinfoCrossaddOrUpdate"></returncarinfo-cross-add-or-update>
+		<cancelorder-cross-add-or-update v-if="cancelorderCrossAddOrUpdateFlag" :parent="this" ref="cancelorderCrossaddOrUpdate"></cancelorder-cross-add-or-update>
 
-		<el-dialog title="审核" :visible.sync="sfshVisiable" width="50%">
+		<el-dialog title="审核" :visible.sync="isReviewedVisiable" width="50%">
 			<el-form ref="form" :model="form" label-width="80px">
 				<el-form-item label="审核状态">
-					<el-select v-model="shForm.sfsh" placeholder="审核状态">
+					<el-select v-model="shForm.isReviewed" placeholder="审核状态">
 						<el-option label="通过" value="是"></el-option>
 						<el-option label="不通过" value="否"></el-option>
 						<el-option label="待审核" value="待审核"></el-option>
 					</el-select>
 				</el-form-item>
 				<el-form-item label="内容">
-					<el-input type="textarea" :rows="8" v-model="shForm.shhf"></el-input>
+					<el-input type="textarea" :rows="8" v-model="shForm.reviewReply"></el-input>
 				</el-form-item>
 			</el-form>
 			<span slot="footer" class="dialog-footer">
@@ -231,8 +220,8 @@
 <script>
 import axios from 'axios'
 import AddOrUpdate from "./add-or-update";
-import haichexinxiCrossAddOrUpdate from "../haichexinxi/add-or-update";
-import quxiaodingdanCrossAddOrUpdate from "../quxiaodingdan/add-or-update";
+import returncarinfoCrossAddOrUpdate from "../returncarinfo/add-or-update";
+import cancelorderCrossAddOrUpdate from "../cancelorder/add-or-update";
 export default {
   data() {
     return {
@@ -247,7 +236,7 @@ export default {
       dataListLoading: false,
       dataListSelections: [],
       showFlag: true,
-      sfshVisiable: false,
+      isReviewedVisiable: false,
       shForm: {},
       chartVisiable: false,
       chartVisiable1: false,
@@ -256,8 +245,8 @@ export default {
       chartVisiable4: false,
       chartVisiable5: false,
       addOrUpdateFlag:false,
-      haichexinxiCrossAddOrUpdateFlag: false,
-      quxiaodingdanCrossAddOrUpdateFlag: false,
+      returncarinfoCrossAddOrUpdateFlag: false,
+      cancelorderCrossAddOrUpdateFlag: false,
       layouts: ["total","prev","pager","next","sizes","jumper"],
 
     };
@@ -276,8 +265,8 @@ export default {
   },
   components: {
     AddOrUpdate,
-    haichexinxiCrossAddOrUpdate,
-    quxiaodingdanCrossAddOrUpdate,
+    returncarinfoCrossAddOrUpdate,
+    cancelorderCrossAddOrUpdate,
   },
   methods: {
 
@@ -300,8 +289,8 @@ export default {
       // this.contents.pageEachNum = 10
     },
 
-    haichexinxiCrossAddOrUpdateHandler(row,type,crossOptAudit,statusColumnName,tips,statusColumnValue){
-	if(crossOptAudit=='是'&&row.sfsh!='是') {
+    returncarinfoCrossAddOrUpdateHandler(row,type,crossOptAudit,statusColumnName,tips,statusColumnValue){
+	if(crossOptAudit=='是'&&row.isReviewed!='是') {
 	    this.$message({
 	      message: "请审核通过后再操作",
 	      type: "success",
@@ -313,9 +302,9 @@ export default {
 	}
       this.showFlag = false;
       this.addOrUpdateFlag = false;
-      this.haichexinxiCrossAddOrUpdateFlag = true;
+      this.returncarinfoCrossAddOrUpdateFlag = true;
       this.$storage.set('crossObj',row);
-      this.$storage.set('crossTable','zuchedingdan');
+      this.$storage.set('crossTable','carrentalorder');
       this.$storage.set('statusColumnName',statusColumnName);
       this.$storage.set('statusColumnValue',statusColumnValue);
       this.$storage.set('tips',tips);
@@ -332,17 +321,17 @@ export default {
 		      }
 		    });
 		      this.showFlag = true;
-		      this.haichexinxiCrossAddOrUpdateFlag = false;
+		      this.returncarinfoCrossAddOrUpdateFlag = false;
 			return;
 		  }
 		}
 	}
       this.$nextTick(() => {
-      this.$refs.haichexinxiCrossaddOrUpdate.init(row.id,type);
+      this.$refs.returncarinfoCrossaddOrUpdate.init(row.id,type);
       });
     },
-    quxiaodingdanCrossAddOrUpdateHandler(row,type,crossOptAudit,statusColumnName,tips,statusColumnValue){
-	if(crossOptAudit=='是'&&row.sfsh!='是') {
+    cancelorderCrossAddOrUpdateHandler(row,type,crossOptAudit,statusColumnName,tips,statusColumnValue){
+	if(crossOptAudit=='是'&&row.isReviewed!='是') {
 	    this.$message({
 	      message: "请审核通过后再操作",
 	      type: "success",
@@ -354,9 +343,9 @@ export default {
 	}
       this.showFlag = false;
       this.addOrUpdateFlag = false;
-      this.quxiaodingdanCrossAddOrUpdateFlag = true;
+      this.cancelorderCrossAddOrUpdateFlag = true;
       this.$storage.set('crossObj',row);
-      this.$storage.set('crossTable','zuchedingdan');
+      this.$storage.set('crossTable','carrentalorder');
       this.$storage.set('statusColumnName',statusColumnName);
       this.$storage.set('statusColumnValue',statusColumnValue);
       this.$storage.set('tips',tips);
@@ -373,17 +362,17 @@ export default {
 		      }
 		    });
 		      this.showFlag = true;
-		      this.quxiaodingdanCrossAddOrUpdateFlag = false;
+		      this.cancelorderCrossAddOrUpdateFlag = false;
 			return;
 		  }
 		}
 	}
       this.$nextTick(() => {
-      this.$refs.quxiaodingdanCrossaddOrUpdate.init(row.id,type);
+      this.$refs.cancelorderCrossaddOrUpdate.init(row.id,type);
       });
     },
     payHandler(row){
-      this.$storage.set('paytable','zuchedingdan');
+      this.$storage.set('paytable','carrentalorder');
       this.$storage.set('payObject',row);
       this.$router.push('pay');
     },
@@ -395,7 +384,7 @@ export default {
 
 
     init () {
-        this.sfshOptions = "是,否,待审核".split(',');
+        this.isReviewedOptions = "是,否,待审核".split(',');
     },
     search() {
       this.pageIndex = 1;
@@ -411,74 +400,71 @@ export default {
         sort: 'id',
         order: 'desc',
       }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-           if(this.searchForm.chepaihao!='' && this.searchForm.chepaihao!=undefined){
-            params['chepaihao'] = '%' + this.searchForm.chepaihao + '%'
+           if(this.searchForm.carNumber!='' && this.searchForm.carNumber!=undefined){
+            params['carNumber'] = '%' + this.searchForm.carNumber + '%'
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-           if(this.searchForm.cheliangpinpai!='' && this.searchForm.cheliangpinpai!=undefined){
-            params['cheliangpinpai'] = '%' + this.searchForm.cheliangpinpai + '%'
+           if(this.searchForm.carBrand!='' && this.searchForm.carBrand!=undefined){
+            params['carBrand'] = '%' + this.searchForm.carBrand + '%'
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-           if(this.searchForm.qicheleibie!='' && this.searchForm.qicheleibie!=undefined){
-            params['qicheleibie'] = '%' + this.searchForm.qicheleibie + '%'
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+           if(this.searchForm.clientName!='' && this.searchForm.clientName!=undefined){
+            params['clientName'] = '%' + this.searchForm.clientName + '%'
           }
-           if(this.searchForm.xingming!='' && this.searchForm.xingming!=undefined){
-            params['xingming'] = '%' + this.searchForm.xingming + '%'
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
-          }
-          if(this.searchForm.sfsh!='' && this.searchForm.sfsh!=undefined){
-            params['sfsh'] = this.searchForm.sfsh
+          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
+            params['isReviewed'] = this.searchForm.isReviewed
           }
       this.$http({
-        url: "zuchedingdan/page",
+        url: "carrentalorder/page",
         method: "get",
         params: params
       }).then(({ data }) => {
@@ -521,27 +507,25 @@ export default {
     },
     // 审核窗口
     shDialog(row){
-      this.sfshVisiable = !this.sfshVisiable;
+      this.isReviewedVisiable = !this.isReviewedVisiable;
       if(row){
         this.shForm = {
-          dingdanbianhao: row.dingdanbianhao,
-          chepaihao: row.chepaihao,
-          cheliangpinpai: row.cheliangpinpai,
-          qicheleibie: row.qicheleibie,
-          jiage: row.jiage,
-          zuqi: row.zuqi,
-          zongjia: row.zongjia,
-          chuzuriqi: row.chuzuriqi,
-          beizhu: row.beizhu,
-          zhanghao: row.zhanghao,
-          xingming: row.xingming,
-          shouji: row.shouji,
-          shenfenzheng: row.shenfenzheng,
-          guanlizhanghao: row.guanlizhanghao,
-          guanlixingming: row.guanlixingming,
-          sfsh: row.sfsh,
-          shhf: row.shhf,
-          ispay: row.ispay,
+          orderNumber: row.orderNumber,
+          carNumber: row.carNumber,
+          carBrand: row.carBrand,
+          dailyPrice: row.dailyPrice,
+          leaseTerm: row.leaseTerm,
+          totalPrice: row.totalPrice,
+          startDate: row.startDate,
+          clientAccount: row.clientAccount,
+          clientName: row.clientName,
+          phone: row.phone,
+          idCard: row.idCard,
+          administratorAccount: row.administratorAccount,
+          administratorName: row.administratorName,
+          isReviewed: row.isReviewed,
+          reviewReply: row.reviewReply,
+          isPay: row.isPay,
           id: row.id
         }
       }
@@ -554,7 +538,7 @@ export default {
         type: "warning"
       }).then(() => {
         this.$http({
-          url: "zuchedingdan/update",
+          url: "carrentalorder/update",
           method: "post",
           data: this.shForm
         }).then(({ data }) => {
@@ -591,7 +575,7 @@ export default {
         type: "warning"
       }).then(() => {
         this.$http({
-          url: "zuchedingdan/delete",
+          url: "carrentalorder/delete",
           method: "post",
           data: ids
         }).then(({ data }) => {

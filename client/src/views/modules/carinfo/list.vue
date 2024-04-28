@@ -5,19 +5,25 @@
 			<el-form class="center-form-pv" :style='{"margin":"0 0 30px"}' :inline="true" :model="searchForm">
 				<el-row :style='{"padding":"10px","borderRadius":"3px","background":"#fff","display":"block"}' >
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
-						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">标题</label>
-						<el-input v-model="searchForm.title" placeholder="标题" clearable></el-input>
+						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">车牌号</label>
+						<el-input v-model="searchForm.carNumber" placeholder="车牌号" clearable></el-input>
+					</div>
+					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
+						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">车辆品牌</label>
+						<el-input v-model="searchForm.carBrand" placeholder="车辆品牌" clearable></el-input>
+					</div>
+					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}' class="select" label="状态" prop="status">
+						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">状态</label>
+						<el-select  @change="statusChange" clearable v-model="searchForm.status" placeholder="请选择状态">
+							<el-option v-for="(item,index) in statusOptions" v-bind:key="index" :label="item" :value="item"></el-option>
+						</el-select>
 					</div>
 					<el-button :style='{"border":"1px solid #5494cb","cursor":"pointer","padding":"0 34px","outline":"none","margin":"0 0px 0 10px","color":"#fff","borderRadius":"4px","background":"-webkit-linear-gradient(top,#66a4d8,#337ab7)","width":"auto","fontSize":"14px","height":"40px"}' type="success" @click="search()">查询</el-button>
 				</el-row>
 
 				<el-row :style='{"margin":"20px 0 20px 0","display":"flex"}'>
-					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(64, 158, 255, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('systemintro','新增')" type="success" @click="addOrUpdateHandler()">新增</el-button>
-					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(255, 0, 0, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('systemintro','删除')" :disabled="dataListSelections.length <= 0" type="danger" @click="deleteHandler()">删除</el-button>
-
-
-
-
+					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(64, 158, 255, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('carinfo','新增')" type="success" @click="addOrUpdateHandler()">新增</el-button>
+					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(255, 0, 0, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('carinfo','删除')" :disabled="dataListSelections.length <= 0" type="danger" @click="deleteHandler()">删除</el-button>
 				</el-row>
 			</el-form>
 			
@@ -25,63 +31,137 @@
 				<el-table class="tables"
 					:stripe='false'
 					:style='{"padding":"0","borderColor":"#eee","borderRadius":"5px","borderWidth":"1px 0 0 1px","background":"#fff","width":"100%","borderStyle":"solid"}' 
-					v-if="isAuth('systemintro','查看')"
+					v-if="isAuth('carinfo','查看')"
 					:data="dataList"
 					v-loading="dataListLoading"
 				@selection-change="selectionChangeHandler">
 					<el-table-column :resizable='true' type="selection" align="center" width="50"></el-table-column>
 					<el-table-column :resizable='true' :sortable='false' label="索引" type="index" width="50" />
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="title"
-					label="标题">
+						prop="carNumber"
+					label="车牌号">
 						<template slot-scope="scope">
-							{{scope.row.title}}
+							{{scope.row.carNumber}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'
+						prop="carModel"
+					label="车辆型号">
+						<template slot-scope="scope">
+							{{scope.row.carModel}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="subtitle"
-					label="副标题">
+						prop="carBrand"
+					label="车辆品牌">
 						<template slot-scope="scope">
-							{{scope.row.subtitle}}
+							{{scope.row.carBrand}}
 						</template>
 					</el-table-column>
-					<el-table-column :resizable='true' :sortable='false' prop="picture1" width="200" label="图片1">
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="price"
+					label="价格">
 						<template slot-scope="scope">
-							<div v-if="scope.row.picture1">
-								<img v-if="scope.row.picture1.substring(0,4)=='http'" :src="scope.row.picture1.split(',')[0]" width="100" height="100">
-								<img v-else :src="$base.url+scope.row.picture1.split(',')[0]" width="100" height="100">
+							{{scope.row.price}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="color"
+					label="颜色">
+						<template slot-scope="scope">
+							{{scope.row.color}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="status"
+					label="状态">
+						<template slot-scope="scope">
+							{{scope.row.status}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="transimissionType"
+					label="换挡方式">
+						<template slot-scope="scope">
+							{{scope.row.transimissionType}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false' prop="carImage" width="200" label="车辆照片">
+						<template slot-scope="scope">
+							<div v-if="scope.row.carImage">
+								<img v-if="scope.row.carImage.substring(0,4)=='http'" :src="scope.row.carImage.split(',')[0]" width="100" height="100">
+								<img v-else :src="$base.url+scope.row.carImage.split(',')[0]" width="100" height="100">
 							</div>
 							<div v-else>无图片</div>
 						</template>
 					</el-table-column>
-					<el-table-column :resizable='true' :sortable='false' prop="picture2" width="200" label="图片2">
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="seatNumber"
+					label="座位数">
 						<template slot-scope="scope">
-							<div v-if="scope.row.picture2">
-								<img v-if="scope.row.picture2.substring(0,4)=='http'" :src="scope.row.picture2.split(',')[0]" width="100" height="100">
-								<img v-else :src="$base.url+scope.row.picture2.split(',')[0]" width="100" height="100">
-							</div>
-							<div v-else>无图片</div>
+							{{scope.row.seatNumber}}
 						</template>
 					</el-table-column>
-					<el-table-column :resizable='true' :sortable='false' prop="picture3" width="200" label="图片3">
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="displacement"
+					label="汽车排量">
 						<template slot-scope="scope">
-							<div v-if="scope.row.picture3">
-								<img v-if="scope.row.picture3.substring(0,4)=='http'" :src="scope.row.picture3.split(',')[0]" width="100" height="100">
-								<img v-else :src="$base.url+scope.row.picture3.split(',')[0]" width="100" height="100">
-							</div>
-							<div v-else>无图片</div>
+							{{scope.row.displacement}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="carPrice"
+					label="汽车价格">
+						<template slot-scope="scope">
+							{{scope.row.carPrice}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="productionYear"
+					label="出厂年份">
+						<template slot-scope="scope">
+							{{scope.row.productionYear}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="registrationDate"
+					label="登记日期">
+						<template slot-scope="scope">
+							{{scope.row.registrationDate}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="ordinaryAdminAccount"
+					label="管理账号">
+						<template slot-scope="scope">
+							{{scope.row.ordinaryAdminAccount}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="ordinaryAdminName"
+					label="管理姓名">
+						<template slot-scope="scope">
+							{{scope.row.ordinaryAdminName}}
+						</template>
+					</el-table-column>
+					<el-table-column :resizable='true' :sortable='false'  
+						prop="clickNum"
+					label="点击次数">
+						<template slot-scope="scope">
+							{{scope.row.clickNum}}
 						</template>
 					</el-table-column>
 					<el-table-column width="300" label="操作">
 						<template slot-scope="scope">
-							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('systemintro','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('systemintro','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('carinfo','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if="isAuth('carinfo','租赁汽车')" type="success" size="mini" @click="carrentalorderCrossAddOrUpdateHandler(scope.row,'cross','','status','该车辆已出租','已出租,未出租'.split(',')[0])">租赁汽车</el-button>
+							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('carinfo','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
 
 
 
 
-							<el-button :style='{"border":"0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/68bd264a8e4341c6aa5409f871d590d0.png) #d9534f no-repeat 5px 8px","width":"auto","fontSize":"14px","height":"32px"}' v-if="isAuth('systemintro','删除') " type="danger" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+							<el-button :style='{"border":"0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/68bd264a8e4341c6aa5409f871d590d0.png) #d9534f no-repeat 5px 8px","width":"auto","fontSize":"14px","height":"32px"}' v-if="isAuth('carinfo','删除') " type="danger" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
 						</template>
 					</el-table-column>
 				</el-table>
@@ -105,6 +185,7 @@
 		<!-- 添加/修改页面  将父组件的search方法传递给子组件-->
 		<add-or-update v-if="addOrUpdateFlag" :parent="this" ref="addOrUpdate"></add-or-update>
 
+		<carrentalorder-cross-add-or-update v-if="carrentalorderCrossAddOrUpdateFlag" :parent="this" ref="carrentalorderCrossaddOrUpdate"></carrentalorder-cross-add-or-update>
 
 
 
@@ -115,6 +196,7 @@
 <script>
 import axios from 'axios'
 import AddOrUpdate from "./add-or-update";
+import carrentalorderCrossAddOrUpdate from "../carrentalorder/add-or-update";
 export default {
   data() {
     return {
@@ -129,7 +211,7 @@ export default {
       dataListLoading: false,
       dataListSelections: [],
       showFlag: true,
-      sfshVisiable: false,
+      isReviewedVisiable: false,
       shForm: {},
       chartVisiable: false,
       chartVisiable1: false,
@@ -138,6 +220,7 @@ export default {
       chartVisiable4: false,
       chartVisiable5: false,
       addOrUpdateFlag:false,
+      carrentalorderCrossAddOrUpdateFlag: false,
       layouts: ["total","prev","pager","next","sizes","jumper"],
 
     };
@@ -156,6 +239,7 @@ export default {
   },
   components: {
     AddOrUpdate,
+    carrentalorderCrossAddOrUpdate,
   },
   methods: {
 
@@ -178,14 +262,40 @@ export default {
       // this.contents.pageEachNum = 10
     },
 
-
-
-
-
-
-
+    carrentalorderCrossAddOrUpdateHandler(row,type,crossOptAudit,statusColumnName,tips,statusColumnValue){
+      this.showFlag = false;
+      this.addOrUpdateFlag = false;
+      this.carrentalorderCrossAddOrUpdateFlag = true;
+      this.$storage.set('crossObj',row);
+      this.$storage.set('crossTable','carinfo');
+      this.$storage.set('statusColumnName',statusColumnName);
+      this.$storage.set('statusColumnValue',statusColumnValue);
+      this.$storage.set('tips',tips);
+	if(statusColumnName!=''&&!statusColumnName.startsWith("[")) {
+		var obj = this.$storage.getObj('crossObj');
+		for (var o in obj){
+		  if(o==statusColumnName && obj[o]==statusColumnValue){
+		    this.$message({
+		      message: tips,
+		      type: "success",
+		      duration: 1500,
+		      onClose: () => {
+			this.getDataList();
+		      }
+		    });
+		      this.showFlag = true;
+		      this.carrentalorderCrossAddOrUpdateFlag = false;
+			return;
+		  }
+		}
+	}
+      this.$nextTick(() => {
+      this.$refs.carrentalorderCrossaddOrUpdate.init(row.id,type);
+      });
+    },
 
     init () {
+          this.statusOptions = "已出租,未出租".split(',')
     },
     search() {
       this.pageIndex = 1;
@@ -201,11 +311,17 @@ export default {
         sort: 'id',
         order: 'desc',
       }
-           if(this.searchForm.title!='' && this.searchForm.title!=undefined){
-            params['title'] = '%' + this.searchForm.title + '%'
+           if(this.searchForm.carNumber!='' && this.searchForm.carNumber!=undefined){
+            params['carNumber'] = '%' + this.searchForm.carNumber + '%'
+          }
+           if(this.searchForm.carBrand!='' && this.searchForm.carBrand!=undefined){
+            params['carBrand'] = '%' + this.searchForm.carBrand + '%'
+          }
+           if(this.searchForm.status!='' && this.searchForm.status!=undefined){
+            params['status'] = this.searchForm.status
           }
       this.$http({
-        url: "systemintro/page",
+        url: "carinfo/page",
         method: "get",
         params: params
       }).then(({ data }) => {
@@ -263,7 +379,7 @@ export default {
         type: "warning"
       }).then(() => {
         this.$http({
-          url: "systemintro/delete",
+          url: "carinfo/delete",
           method: "post",
           data: ids
         }).then(({ data }) => {
