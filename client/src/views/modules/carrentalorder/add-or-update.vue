@@ -9,63 +9,90 @@
 			label-width="80px"
 		>
 			<template >
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理账号" prop="ordinaryAdminAccount">
-					<el-input v-model="ruleForm.ordinaryAdminAccount" placeholder="管理账号" clearable  :readonly="ro.ordinaryAdminAccount"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'" label="订单编号" prop="orderNumber">
+					<el-input v-model="ruleForm.orderNumber" placeholder="订单编号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理账号" prop="ordinaryAdminAccount">
-					<el-input v-model="ruleForm.ordinaryAdminAccount" placeholder="管理账号" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-else-if="ruleForm.orderNumber" label="订单编号" prop="orderNumber">
+					<el-input v-model="ruleForm.orderNumber" placeholder="订单编号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="密码" prop="password">
-					<el-input v-model="ruleForm.password" placeholder="密码" clearable  :readonly="ro.password"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车牌号" prop="carNumber">
+					<el-input v-model="ruleForm.carNumber" placeholder="车牌号" clearable  :readonly="ro.carNumber"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="密码" prop="password">
-					<el-input v-model="ruleForm.password" placeholder="密码" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车牌号" prop="carNumber">
+					<el-input v-model="ruleForm.carNumber" placeholder="车牌号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理姓名" prop="ordinaryAdminName">
-					<el-input v-model="ruleForm.ordinaryAdminName" placeholder="管理姓名" clearable  :readonly="ro.ordinaryAdminName"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车辆品牌" prop="carBrand">
+					<el-input v-model="ruleForm.carBrand" placeholder="车辆品牌" clearable  :readonly="ro.carBrand"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理姓名" prop="ordinaryAdminName">
-					<el-input v-model="ruleForm.ordinaryAdminName" placeholder="管理姓名" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车辆品牌" prop="carBrand">
+					<el-input v-model="ruleForm.carBrand" placeholder="车辆品牌" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="select" v-if="type!='info'"  label="性别" prop="gender">
-					<el-select :disabled="ro.gender" v-model="ruleForm.gender" placeholder="请选择性别" >
-						<el-option
-							v-for="(item,index) in genderOptions"
-							v-bind:key="index"
-							:label="item"
-							:value="item">
-						</el-option>
-					</el-select>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="价格" prop="dailyPrice">
+					<el-input v-model="ruleForm.dailyPrice" placeholder="价格" clearable  :readonly="ro.dailyPrice"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="性别" prop="gender">
-					<el-input v-model="ruleForm.gender"
-						placeholder="性别" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="价格" prop="dailyPrice">
+					<el-input v-model="ruleForm.dailyPrice" placeholder="价格" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="年龄" prop="age">
-					<el-input v-model="ruleForm.age" placeholder="年龄" clearable  :readonly="ro.age"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="租期" prop="leaseTerm">
+					<el-input v-model="ruleForm.leaseTerm" placeholder="租期" clearable  :readonly="ro.leaseTerm"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="年龄" prop="age">
-					<el-input v-model="ruleForm.age" placeholder="年龄" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="租期" prop="leaseTerm">
+					<el-input v-model="ruleForm.leaseTerm" placeholder="租期" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="联系电话" prop="phone">
-					<el-input v-model="ruleForm.phone" placeholder="联系电话" clearable  :readonly="ro.phone"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="总价" prop="totalPrice">
+					<el-input v-model="totalPrice" placeholder="总价" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="联系电话" prop="phone">
-					<el-input v-model="ruleForm.phone" placeholder="联系电话" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-else-if="ruleForm.totalPrice" label="总价" prop="totalPrice">
+					<el-input v-model="ruleForm.totalPrice" placeholder="总价" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-if="type!='info' && !ro.avatar" label="头像" prop="avatar">
-					<file-upload
-						tip="点击上传头像"
-						action="file/upload"
-						:limit="3"
-						:multiple="true"
-						:fileUrls="ruleForm.avatar?ruleForm.avatar:''"
-						@change="avatarUploadChange"
-					></file-upload>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="date" v-if="type!='info'" label="出租日期" prop="startDate">
+					<el-date-picker
+						format="yyyy 年 MM 月 dd 日"
+						value-format="yyyy-MM-dd"
+						v-model="ruleForm.startDate"
+						type="date"
+						:readonly="ro.startDate"
+						placeholder="出租日期"
+					></el-date-picker> 
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-else-if="ruleForm.avatar" label="头像" prop="avatar">
-					<img v-if="ruleForm.avatar.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.avatar.split(',')[0]" width="100" height="100">
-					<img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.avatar.split(',')" :src="$base.url+item" width="100" height="100">
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-else-if="ruleForm.startDate" label="出租日期" prop="startDate">
+					<el-input v-model="ruleForm.startDate" placeholder="出租日期" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="账号" prop="clientAccount">
+					<el-input v-model="ruleForm.clientAccount" placeholder="账号" clearable  :readonly="ro.clientAccount"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="账号" prop="clientAccount">
+					<el-input v-model="ruleForm.clientAccount" placeholder="账号" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="姓名" prop="clientName">
+					<el-input v-model="ruleForm.clientName" placeholder="姓名" clearable  :readonly="ro.clientName"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="姓名" prop="clientName">
+					<el-input v-model="ruleForm.clientName" placeholder="姓名" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="手机" prop="phone">
+					<el-input v-model="ruleForm.phone" placeholder="手机" clearable  :readonly="ro.phone"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="手机" prop="phone">
+					<el-input v-model="ruleForm.phone" placeholder="手机" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="身份证" prop="idCard">
+					<el-input v-model="ruleForm.idCard" placeholder="身份证" clearable  :readonly="ro.idCard"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="身份证" prop="idCard">
+					<el-input v-model="ruleForm.idCard" placeholder="身份证" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理账号" prop="administratorAccount">
+					<el-input v-model="ruleForm.administratorAccount" placeholder="管理账号" clearable  :readonly="ro.administratorAccount"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理账号" prop="administratorAccount">
+					<el-input v-model="ruleForm.administratorAccount" placeholder="管理账号" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理姓名" prop="administratorName">
+					<el-input v-model="ruleForm.administratorName" placeholder="管理姓名" clearable  :readonly="ro.administratorName"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理姓名" prop="administratorName">
+					<el-input v-model="ruleForm.administratorName" placeholder="管理姓名" readonly></el-input>
 				</el-form-item>
 			</template>
 			<el-form-item :style='{"padding":"0","margin":"0"}' class="btn">
@@ -153,48 +180,80 @@ export default {
 			
 			
 			ro:{
-				ordinaryAdminAccount : false,
-				password : false,
-				ordinaryAdminName : false,
-				gender : false,
-				age : false,
-				phone : false,
-				avatar : false,
+        orderNumber : false,
+        carNumber : false,
+        carBrand : false,
+        dailyPrice : false,
+        leaseTerm : false,
+        totalPrice : false,
+        startDate : false,
+        clientAccount : false,
+        clientName : false,
+        phone : false,
+        idCard : false,
+        administratorAccount : false,
+        administratorName : false,
+				isReviewed : false,
+				reviewReply : false,
+				isPay : false,
 			},
 			
 			
 			ruleForm: {
-        ordinaryAdminAccount: '',
-        password: '',
-        ordinaryAdminName: '',
-        gender: '',
-        age: '',
+        orderNumber: this.getUUID(),
+        carNumber: '',
+        carBrand: '',
+        dailyPrice: '',
+        leaseTerm: '',
+        totalPrice: '',
+        startDate: '',
+        clientAccount: '',
+        clientName: '',
         phone: '',
-        avatar: '',
+        idCard: '',
+        administratorAccount: '',
+        administratorName: '',
+        reviewReply: '',
 			},
 		
-			genderOptions: [],
 			
 			rules: {
-        ordinaryAdminAccount: [
-					{ required: true, message: '管理账号不能为空', trigger: 'blur' },
+        orderNumber: [
 				],
-        password: [
-					{ required: true, message: '密码不能为空', trigger: 'blur' },
+        carNumber: [
 				],
-        ordinaryAdminName: [
-					{ required: true, message: '管理姓名不能为空', trigger: 'blur' },
+        carBrand: [
 				],
-        gender: [
+        dailyPrice: [
+					{ validator: validateNumber, trigger: 'blur' },
 				],
-        age: [
-					{ required: true, message: '年龄不能为空', trigger: 'blur' },
+        leaseTerm: [
+					{ required: true, message: '租期不能为空', trigger: 'blur' },
+					{ validator: validateIntNumber, trigger: 'blur' },
+				],
+        totalPrice: [
+					{ validator: validateNumber, trigger: 'blur' },
+				],
+        startDate: [
+				],
+        clientAccount: [
+				],
+        clientName: [
 				],
         phone: [
-					{ required: true, message: '联系电话不能为空', trigger: 'blur' },
 					{ validator: validateMobile, trigger: 'blur' },
 				],
-        avatar: [
+        idCard: [
+				],
+        administratorAccount: [
+				],
+        administratorName: [
+				],
+        isReviewed: [
+				],
+        reviewReply: [
+				],
+        isPay: [
 				],
 			}
 		};
@@ -203,9 +262,15 @@ export default {
 	computed: {
 
 
+    totalPrice:{
+			get: function () {
+				return 1*this.ruleForm.dailyPrice*this.ruleForm.leaseTerm
+			}
+		},
 
 	},
 	created() {
+		this.ruleForm.startDate = this.getCurDate()
 	},
 	methods: {
 		
@@ -227,29 +292,59 @@ export default {
 			}else if(this.type=='cross'){
 				var obj = this.$storage.getObj('crossObj');
 				for (var o in obj){
-						if(o=='ordinaryAdminAccount'){
-							this.ruleForm.ordinaryAdminAccount = obj[o];
-							this.ro.ordinaryAdminAccount = true;
+						if(o=='orderNumber'){
+							this.ruleForm.orderNumber = obj[o];
+							this.ro.orderNumber = true;
 							continue;
 						}
-						if(o=='password'){
-							this.ruleForm.password = obj[o];
-							this.ro.password = true;
+						if(o=='carNumber'){
+							this.ruleForm.carNumber = obj[o];
+							this.ro.carNumber = true;
 							continue;
 						}
-						if(o=='ordinaryAdminName'){
-							this.ruleForm.ordinaryAdminName = obj[o];
-							this.ro.ordinaryAdminName = true;
+						if(o=='carBrand'){
+							this.ruleForm.carBrand = obj[o];
+							this.ro.carBrand = true;
 							continue;
 						}
-						if(o=='gender'){
-							this.ruleForm.gender = obj[o];
-							this.ro.gender = true;
+						if(o=='qicheleibie'){
+							this.ruleForm.qicheleibie = obj[o];
+							this.ro.qicheleibie = true;
 							continue;
 						}
-						if(o=='age'){
-							this.ruleForm.age = obj[o];
-							this.ro.age = true;
+						if(o=='dailyPrice'){
+							this.ruleForm.dailyPrice = obj[o];
+							this.ro.dailyPrice = true;
+							continue;
+						}
+						if(o=='leaseTerm'){
+							this.ruleForm.leaseTerm = obj[o];
+							this.ro.leaseTerm = true;
+							continue;
+						}
+						if(o=='totalPrice'){
+							this.ruleForm.totalPrice = obj[o];
+							this.ro.totalPrice = true;
+							continue;
+						}
+						if(o=='startDate'){
+							this.ruleForm.startDate = obj[o];
+							this.ro.startDate = true;
+							continue;
+						}
+						if(o=='beizhu'){
+							this.ruleForm.beizhu = obj[o];
+							this.ro.beizhu = true;
+							continue;
+						}
+						if(o=='clientAccount'){
+							this.ruleForm.clientAccount = obj[o];
+							this.ro.clientAccount = true;
+							continue;
+						}
+						if(o=='clientName'){
+							this.ruleForm.clientName = obj[o];
+							this.ro.clientName = true;
 							continue;
 						}
 						if(o=='phone'){
@@ -257,15 +352,24 @@ export default {
 							this.ro.phone = true;
 							continue;
 						}
-						if(o=='avatar'){
-							this.ruleForm.avatar = obj[o];
-							this.ro.avatar = true;
+						if(o=='idCard'){
+							this.ruleForm.idCard = obj[o];
+							this.ro.idCard = true;
+							continue;
+						}
+						if(o=='administratorAccount'){
+							this.ruleForm.administratorAccount = obj[o];
+							this.ro.administratorAccount = true;
+							continue;
+						}
+						if(o=='administratorName'){
+							this.ruleForm.administratorName = obj[o];
+							this.ro.administratorName = true;
 							continue;
 						}
 				}
 			}
-			
-			
+
 			// 获取用户信息
 			this.$http({
 				url: `${this.$storage.get('sessionTable')}/session`,
@@ -274,25 +378,41 @@ export default {
 				if (data && data.code === 0) {
 					
 					var json = data.data;
+					if(((json.clientAccount!=''&&json.clientAccount) || json.clientAccount==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.clientAccount = json.clientAccount
+						this.ro.clientAccount = true;
+					}
+					if(((json.clientName!=''&&json.clientName) || json.clientName==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.clientName = json.clientName
+						this.ro.clientName = true;
+					}
+					if(((json.phone!=''&&json.phone) || json.phone==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.phone = json.phone
+						this.ro.phone = true;
+					}
+					if(((json.idCard!=''&&json.idCard) || json.idCard==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.idCard = json.idCard
+						this.ro.idCard = true;
+					}
 				} else {
 					this.$message.error(data.msg);
 				}
 			});
 			
-            this.genderOptions = "男,女".split(',')
 			
 		},
     // 多级联动参数
 
     info(id) {
       this.$http({
-        url: `ordinaryadministrator/info/${id}`,
+        url: `carrentalorder/info/${id}`,
         method: "get"
       }).then(({ data }) => {
         if (data && data.code === 0) {
         this.ruleForm = data.data;
         //解决前台上传图片后台不显示的问题
         let reg=new RegExp('../../../upload','g')//g代表全部
+        this.ruleForm.beizhu = this.ruleForm.beizhu.replace(reg,'../../../springboot1ma2x/upload');
         } else {
           this.$message.error(data.msg);
         }
@@ -302,9 +422,43 @@ export default {
 
     // 提交
     onSubmit() {
-	if(this.ruleForm.avatar!=null) {
-		this.ruleForm.avatar = this.ruleForm.avatar.replace(new RegExp(this.$base.url,"g"),"");
-	}
+        this.ruleForm.totalPrice = this.totalPrice
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var objcross = this.$storage.getObj('crossObj');
 
@@ -349,7 +503,7 @@ var objcross = this.$storage.getObj('crossObj');
 				crossrefid:this.ruleForm.crossrefid,
 			} 
 			this.$http({ 
-				url: "ordinaryadministrator/page",
+				url: "carrentalorder/page",
 				method: "get", 
 				params: params 
 			}).then(({ 
@@ -361,7 +515,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       return false;
 				       } else {
 					 this.$http({
-					   url: `ordinaryadministrator/${!this.ruleForm.id ? "save" : "update"}`,
+					   url: `carrentalorder/${!this.ruleForm.id ? "save" : "update"}`,
 					   method: "post",
 					   data: this.ruleForm
 					 }).then(({ data }) => {
@@ -373,7 +527,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       onClose: () => {
 						 this.parent.showFlag = true;
 						 this.parent.addOrUpdateFlag = false;
-						 this.parent.ordinaryadministratorCrossAddOrUpdateFlag = false;
+						 this.parent.carrentalorderCrossAddOrUpdateFlag = false;
 						 this.parent.search();
 						 this.parent.contentStyleChange();
 					       }
@@ -389,7 +543,7 @@ var objcross = this.$storage.getObj('crossObj');
 			});
 		 } else {
 			 this.$http({
-			   url: `ordinaryadministrator/${!this.ruleForm.id ? "save" : "update"}`,
+			   url: `carrentalorder/${!this.ruleForm.id ? "save" : "update"}`,
 			   method: "post",
 			   data: this.ruleForm
 			 }).then(({ data }) => {
@@ -401,7 +555,7 @@ var objcross = this.$storage.getObj('crossObj');
 			       onClose: () => {
 				 this.parent.showFlag = true;
 				 this.parent.addOrUpdateFlag = false;
-				 this.parent.ordinaryadministratorCrossAddOrUpdateFlag = false;
+				 this.parent.carrentalorderCrossAddOrUpdateFlag = false;
 				 this.parent.search();
 				 this.parent.contentStyleChange();
 			       }
@@ -422,11 +576,8 @@ var objcross = this.$storage.getObj('crossObj');
     back() {
       this.parent.showFlag = true;
       this.parent.addOrUpdateFlag = false;
-      this.parent.ordinaryadministratorCrossAddOrUpdateFlag = false;
+      this.parent.carrentalorderCrossAddOrUpdateFlag = false;
       this.parent.contentStyleChange();
-    },
-    avatarUploadChange(fileUrls) {
-	    this.ruleForm.avatar = fileUrls;
     },
   }
 };

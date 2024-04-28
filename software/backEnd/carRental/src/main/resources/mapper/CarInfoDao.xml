@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.CarInfoDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.CarInfoEntity" id="carInfoMap">
+        <result property="carNumber" column="car_number"/>
+        <result property="carModel" column="car_model"/>
+        <result property="carBrand" column="car_brand"/>
+        <result property="price" column="price"/>
+        <result property="color" column="color"/>
+        <result property="status" column="status"/>
+        <result property="transmissionType" column="transmission_type"/>
+        <result property="carImage" column="car_image"/>
+        <result property="seatNumber" column="seat_number"/>
+        <result property="displacement" column="displacement"/>
+        <result property="carPrice" column="car_price"/>
+        <result property="productionYear" column="production_year"/>
+        <result property="registrationDate" column="registration_date"/>
+        <result property="carDescription" column="car_description"/>
+        <result property="ordinaryAdminAccount" column="ordinary_admin_account"/>
+        <result property="ordinaryAdminName" column="ordinary_admin_name"/>
+        <result property="clickTime" column="click_time"/>
+        <result property="clickNum" column="click_num"/>
+    </resultMap>
+
+    <select id="selectListVO"
+            resultType="com.entity.CarInfoEntity" >
+        SELECT * FROM carinfo  carinfo
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectVO"
+            resultType="com.entity.CarInfoEntity" >
+        SELECT  carinfo.* FROM carinfo  carinfo
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectListView"
+            resultType="com.entity.view.CarInfoView" >
+
+        SELECT  carinfo.* FROM carinfo  carinfo
+        <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+    <select id="selectView"
+            resultType="com.entity.view.CarInfoView" >
+        SELECT * FROM carinfo  carinfo <where> 1=1 ${ew.sqlSegment}</where>
+    </select>
+
+
+</mapper>

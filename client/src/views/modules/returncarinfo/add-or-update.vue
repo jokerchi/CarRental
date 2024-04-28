@@ -9,65 +9,86 @@
 			label-width="80px"
 		>
 			<template >
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理账号" prop="ordinaryAdminAccount">
-					<el-input v-model="ruleForm.ordinaryAdminAccount" placeholder="管理账号" clearable  :readonly="ro.ordinaryAdminAccount"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="订单编号" prop="orderNumber">
+					<el-input v-model="ruleForm.orderNumber" placeholder="订单编号" clearable  :readonly="ro.orderNumber"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理账号" prop="ordinaryAdminAccount">
-					<el-input v-model="ruleForm.ordinaryAdminAccount" placeholder="管理账号" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="订单编号" prop="orderNumber">
+					<el-input v-model="ruleForm.orderNumber" placeholder="订单编号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="密码" prop="password">
-					<el-input v-model="ruleForm.password" placeholder="密码" clearable  :readonly="ro.password"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车牌号" prop="carNumber">
+					<el-input v-model="ruleForm.carNumber" placeholder="车牌号" clearable  :readonly="ro.carNumber"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="密码" prop="password">
-					<el-input v-model="ruleForm.password" placeholder="密码" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车牌号" prop="carNumber">
+					<el-input v-model="ruleForm.carNumber" placeholder="车牌号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理姓名" prop="ordinaryAdminName">
-					<el-input v-model="ruleForm.ordinaryAdminName" placeholder="管理姓名" clearable  :readonly="ro.ordinaryAdminName"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车辆品牌" prop="carBrand">
+					<el-input v-model="ruleForm.carBrand" placeholder="车辆品牌" clearable  :readonly="ro.carBrand"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理姓名" prop="ordinaryAdminName">
-					<el-input v-model="ruleForm.ordinaryAdminName" placeholder="管理姓名" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车辆品牌" prop="carBrand">
+					<el-input v-model="ruleForm.carBrand" placeholder="车辆品牌" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="select" v-if="type!='info'"  label="性别" prop="gender">
-					<el-select :disabled="ro.gender" v-model="ruleForm.gender" placeholder="请选择性别" >
-						<el-option
-							v-for="(item,index) in genderOptions"
-							v-bind:key="index"
-							:label="item"
-							:value="item">
-						</el-option>
-					</el-select>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="date" v-if="type!='info'" label="还车日期" prop="returnDate">
+					<el-date-picker
+						format="yyyy 年 MM 月 dd 日"
+						value-format="yyyy-MM-dd"
+						v-model="ruleForm.returnDate"
+						type="date"
+						:readonly="ro.returnDate"
+						placeholder="还车日期"
+					></el-date-picker> 
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="性别" prop="gender">
-					<el-input v-model="ruleForm.gender"
-						placeholder="性别" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-else-if="ruleForm.returnDate" label="还车日期" prop="returnDate">
+					<el-input v-model="ruleForm.returnDate" placeholder="还车日期" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="年龄" prop="age">
-					<el-input v-model="ruleForm.age" placeholder="年龄" clearable  :readonly="ro.age"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="账号" prop="clientAccount">
+					<el-input v-model="ruleForm.clientAccount" placeholder="账号" clearable  :readonly="ro.clientAccount"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="年龄" prop="age">
-					<el-input v-model="ruleForm.age" placeholder="年龄" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="账号" prop="clientAccount">
+					<el-input v-model="ruleForm.clientAccount" placeholder="账号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="联系电话" prop="phone">
-					<el-input v-model="ruleForm.phone" placeholder="联系电话" clearable  :readonly="ro.phone"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="姓名" prop="clientName">
+					<el-input v-model="ruleForm.clientName" placeholder="姓名" clearable  :readonly="ro.clientName"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="联系电话" prop="phone">
-					<el-input v-model="ruleForm.phone" placeholder="联系电话" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="姓名" prop="clientName">
+					<el-input v-model="ruleForm.clientName" placeholder="姓名" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-if="type!='info' && !ro.avatar" label="头像" prop="avatar">
-					<file-upload
-						tip="点击上传头像"
-						action="file/upload"
-						:limit="3"
-						:multiple="true"
-						:fileUrls="ruleForm.avatar?ruleForm.avatar:''"
-						@change="avatarUploadChange"
-					></file-upload>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="手机" prop="phone">
+					<el-input v-model="ruleForm.phone" placeholder="手机" clearable  :readonly="ro.phone"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-else-if="ruleForm.avatar" label="头像" prop="avatar">
-					<img v-if="ruleForm.avatar.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.avatar.split(',')[0]" width="100" height="100">
-					<img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.avatar.split(',')" :src="$base.url+item" width="100" height="100">
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="手机" prop="phone">
+					<el-input v-model="ruleForm.phone" placeholder="手机" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="身份证" prop="idCard">
+					<el-input v-model="ruleForm.idCard" placeholder="身份证" clearable  :readonly="ro.idCard"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="身份证" prop="idCard">
+					<el-input v-model="ruleForm.idCard" placeholder="身份证" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理账号" prop="adminAccount">
+					<el-input v-model="ruleForm.adminAccount" placeholder="管理账号" clearable  :readonly="ro.adminAccount"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理账号" prop="adminAccount">
+					<el-input v-model="ruleForm.adminAccount" placeholder="管理账号" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理姓名" prop="adminName">
+					<el-input v-model="ruleForm.adminName" placeholder="管理姓名" clearable  :readonly="ro.adminName"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理姓名" prop="adminName">
+					<el-input v-model="ruleForm.adminName" placeholder="管理姓名" readonly></el-input>
 				</el-form-item>
 			</template>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="textarea" v-if="type!='info'" label="还车备注" prop="returnRemarks">
+					<el-input
+					  style="min-width: 200px; max-width: 600px;"
+					  type="textarea"
+					  :rows="8"
+					  placeholder="还车备注"
+					  v-model="ruleForm.returnRemarks" >
+					</el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else-if="ruleForm.returnRemarks" label="还车备注" prop="returnRemarks">
+					<span :style='{"fontSize":"14px","lineHeight":"40px","color":"#333","fontWeight":"500","display":"inline-block"}'>{{ruleForm.returnRemarks}}</span>
+				</el-form-item>
 			<el-form-item :style='{"padding":"0","margin":"0"}' class="btn">
 				<el-button :style='{"border":"0","cursor":"pointer","padding":"0","margin":"0 20px 0 0","outline":"none","color":"rgba(255, 255, 255, 1)","borderRadius":"4px","background":"#337ab7","width":"128px","lineHeight":"40px","fontSize":"14px","height":"40px"}'  v-if="type!='info'" type="primary" class="btn-success" @click="onSubmit">提交</el-button>
 				<el-button :style='{"border":"1px solid #1b5a90","cursor":"pointer","padding":"0","margin":"0","outline":"none","color":"#1b5a90","borderRadius":"4px","background":"rgba(255, 255, 255, 1)","width":"128px","lineHeight":"40px","fontSize":"14px","height":"40px"}' v-if="type!='info'" class="btn-close" @click="back()">取消</el-button>
@@ -153,48 +174,73 @@ export default {
 			
 			
 			ro:{
-				ordinaryAdminAccount : false,
-				password : false,
-				ordinaryAdminName : false,
-				gender : false,
-				age : false,
-				phone : false,
-				avatar : false,
+        orderNumber : false,
+        carNumber : false,
+        carBrand : false,
+        returnDate : false,
+        returnRemarks : false,
+        clientAccount : false,
+        clientName : false,
+        phone : false,
+        idCard : false,
+        adminAccount : false,
+        adminName : false,
+				crossUserId : false,
+				crossRefId : false,
+				isReviewed : false,
+				reviewReply : false,
 			},
 			
 			
 			ruleForm: {
-        ordinaryAdminAccount: '',
-        password: '',
-        ordinaryAdminName: '',
-        gender: '',
-        age: '',
+        orderNumber: '',
+        carNumber: '',
+        carBrand: '',
+        returnDate: '',
+        returnRemarks: '',
+        clientAccount: '',
+        clientName: '',
         phone: '',
-        avatar: '',
+        idCard: '',
+        adminAccount: '',
+        adminName: '',
+        crossUserId: '',
+        crossRefId: '',
+        reviewReply: '',
 			},
 		
-			genderOptions: [],
 			
 			rules: {
-        ordinaryAdminAccount: [
-					{ required: true, message: '管理账号不能为空', trigger: 'blur' },
+        orderNumber: [
 				],
-        password: [
-					{ required: true, message: '密码不能为空', trigger: 'blur' },
+        carNumber: [
 				],
-        ordinaryAdminName: [
-					{ required: true, message: '管理姓名不能为空', trigger: 'blur' },
+        carBrand: [
 				],
-        gender: [
+        returnDate: [
 				],
-        age: [
-					{ required: true, message: '年龄不能为空', trigger: 'blur' },
+        returnRemarks: [
+				],
+        clientAccount: [
+				],
+        clientName: [
 				],
         phone: [
-					{ required: true, message: '联系电话不能为空', trigger: 'blur' },
 					{ validator: validateMobile, trigger: 'blur' },
 				],
-        avatar: [
+        idCard: [
+				],
+        adminAccount: [
+				],
+        adminName: [
+				],
+        crossUserId: [
+				],
+        crossRefId: [
+				],
+        isReviewed: [
+				],
+        reviewReply: [
 				],
 			}
 		};
@@ -206,6 +252,7 @@ export default {
 
 	},
 	created() {
+		this.ruleForm.returnDate = this.getCurDate()
 	},
 	methods: {
 		
@@ -227,29 +274,44 @@ export default {
 			}else if(this.type=='cross'){
 				var obj = this.$storage.getObj('crossObj');
 				for (var o in obj){
-						if(o=='ordinaryAdminAccount'){
-							this.ruleForm.ordinaryAdminAccount = obj[o];
-							this.ro.ordinaryAdminAccount = true;
+						if(o=='orderNumber'){
+							this.ruleForm.orderNumber = obj[o];
+							this.ro.orderNumber = true;
 							continue;
 						}
-						if(o=='password'){
-							this.ruleForm.password = obj[o];
-							this.ro.password = true;
+						if(o=='carNumber'){
+							this.ruleForm.carNumber = obj[o];
+							this.ro.carNumber = true;
 							continue;
 						}
-						if(o=='ordinaryAdminName'){
-							this.ruleForm.ordinaryAdminName = obj[o];
-							this.ro.ordinaryAdminName = true;
+						if(o=='carBrand'){
+							this.ruleForm.carBrand = obj[o];
+							this.ro.carBrand = true;
 							continue;
 						}
-						if(o=='gender'){
-							this.ruleForm.gender = obj[o];
-							this.ro.gender = true;
+						if(o=='qicheleibie'){
+							this.ruleForm.qicheleibie = obj[o];
+							this.ro.qicheleibie = true;
 							continue;
 						}
-						if(o=='age'){
-							this.ruleForm.age = obj[o];
-							this.ro.age = true;
+						if(o=='returnDate'){
+							this.ruleForm.returnDate = obj[o];
+							this.ro.returnDate = true;
+							continue;
+						}
+						if(o=='returnRemarks'){
+							this.ruleForm.returnRemarks = obj[o];
+							this.ro.returnRemarks = true;
+							continue;
+						}
+						if(o=='clientAccount'){
+							this.ruleForm.clientAccount = obj[o];
+							this.ro.clientAccount = true;
+							continue;
+						}
+						if(o=='clientName'){
+							this.ruleForm.clientName = obj[o];
+							this.ro.clientName = true;
 							continue;
 						}
 						if(o=='phone'){
@@ -257,15 +319,34 @@ export default {
 							this.ro.phone = true;
 							continue;
 						}
-						if(o=='avatar'){
-							this.ruleForm.avatar = obj[o];
-							this.ro.avatar = true;
+						if(o=='idCard'){
+							this.ruleForm.idCard = obj[o];
+							this.ro.idCard = true;
+							continue;
+						}
+						if(o=='adminAccount'){
+							this.ruleForm.adminAccount = obj[o];
+							this.ro.adminAccount = true;
+							continue;
+						}
+						if(o=='adminName'){
+							this.ruleForm.adminName = obj[o];
+							this.ro.adminName = true;
+							continue;
+						}
+						if(o=='crossUserId'){
+							this.ruleForm.crossUserId = obj[o];
+							this.ro.crossUserId = true;
+							continue;
+						}
+						if(o=='crossRefId'){
+							this.ruleForm.crossRefId = obj[o];
+							this.ro.crossRefId = true;
 							continue;
 						}
 				}
 			}
-			
-			
+
 			// 获取用户信息
 			this.$http({
 				url: `${this.$storage.get('sessionTable')}/session`,
@@ -274,19 +355,34 @@ export default {
 				if (data && data.code === 0) {
 					
 					var json = data.data;
+					if(((json.clientAccount!=''&&json.clientAccount) || json.clientAccount==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.clientAccount = json.clientAccount
+						this.ro.clientAccount = true;
+					}
+					if(((json.clientName!=''&&json.clientName) || json.clientName==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.clientName = json.clientName
+						this.ro.clientName = true;
+					}
+					if(((json.phone!=''&&json.phone) || json.phone==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.phone = json.phone
+						this.ro.phone = true;
+					}
+					if(((json.idCard!=''&&json.idCard) || json.idCard==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.idCard = json.idCard
+						this.ro.idCard = true;
+					}
 				} else {
 					this.$message.error(data.msg);
 				}
 			});
 			
-            this.genderOptions = "男,女".split(',')
 			
 		},
     // 多级联动参数
 
     info(id) {
       this.$http({
-        url: `ordinaryadministrator/info/${id}`,
+        url: `returncarinfo/info/${id}`,
         method: "get"
       }).then(({ data }) => {
         if (data && data.code === 0) {
@@ -302,15 +398,11 @@ export default {
 
     // 提交
     onSubmit() {
-	if(this.ruleForm.avatar!=null) {
-		this.ruleForm.avatar = this.ruleForm.avatar.replace(new RegExp(this.$base.url,"g"),"");
-	}
-
 var objcross = this.$storage.getObj('crossObj');
 
       //更新跨表属性
-       var crossuserid;
-       var crossrefid;
+       var crossUserId;
+       var crossRefId;
        var crossoptnum;
        if(this.type=='cross'){
                 var statusColumnName = this.$storage.get('statusColumnName');
@@ -330,8 +422,8 @@ var objcross = this.$storage.getObj('crossObj');
                                  data: obj
                                }).then(({ data }) => {});
                        } else {
-                               crossuserid=this.$storage.get('userid');
-                               crossrefid=obj['id'];
+                         crossUserId=this.$storage.get('userid');
+                         crossRefId=obj['id'];
                                crossoptnum=this.$storage.get('statusColumnName');
                                crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
                         }
@@ -339,17 +431,17 @@ var objcross = this.$storage.getObj('crossObj');
         }
        this.$refs["ruleForm"].validate(valid => {
          if (valid) {
-		 if(crossrefid && crossuserid) {
-			 this.ruleForm.crossuserid = crossuserid;
-			 this.ruleForm.crossrefid = crossrefid;
+		 if(crossRefId && crossUserId) {
+			 this.ruleForm.crossUserId = crossUserId;
+			 this.ruleForm.crossRefId = crossRefId;
 			let params = { 
 				page: 1, 
-				limit: 10, 
-				crossuserid:this.ruleForm.crossuserid,
-				crossrefid:this.ruleForm.crossrefid,
+				limit: 10,
+        crossUserId:this.ruleForm.crossUserId,
+        crossRefId:this.ruleForm.crossRefId,
 			} 
 			this.$http({ 
-				url: "ordinaryadministrator/page",
+				url: "returncarinfo/page",
 				method: "get", 
 				params: params 
 			}).then(({ 
@@ -361,7 +453,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       return false;
 				       } else {
 					 this.$http({
-					   url: `ordinaryadministrator/${!this.ruleForm.id ? "save" : "update"}`,
+					   url: `returncarinfo/${!this.ruleForm.id ? "save" : "update"}`,
 					   method: "post",
 					   data: this.ruleForm
 					 }).then(({ data }) => {
@@ -373,7 +465,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       onClose: () => {
 						 this.parent.showFlag = true;
 						 this.parent.addOrUpdateFlag = false;
-						 this.parent.ordinaryadministratorCrossAddOrUpdateFlag = false;
+						 this.parent.returncarinfoCrossAddOrUpdateFlag = false;
 						 this.parent.search();
 						 this.parent.contentStyleChange();
 					       }
@@ -389,7 +481,7 @@ var objcross = this.$storage.getObj('crossObj');
 			});
 		 } else {
 			 this.$http({
-			   url: `ordinaryadministrator/${!this.ruleForm.id ? "save" : "update"}`,
+			   url: `returncarinfo/${!this.ruleForm.id ? "save" : "update"}`,
 			   method: "post",
 			   data: this.ruleForm
 			 }).then(({ data }) => {
@@ -401,7 +493,7 @@ var objcross = this.$storage.getObj('crossObj');
 			       onClose: () => {
 				 this.parent.showFlag = true;
 				 this.parent.addOrUpdateFlag = false;
-				 this.parent.ordinaryadministratorCrossAddOrUpdateFlag = false;
+				 this.parent.returncarinfoCrossAddOrUpdateFlag = false;
 				 this.parent.search();
 				 this.parent.contentStyleChange();
 			       }
@@ -422,11 +514,8 @@ var objcross = this.$storage.getObj('crossObj');
     back() {
       this.parent.showFlag = true;
       this.parent.addOrUpdateFlag = false;
-      this.parent.ordinaryadministratorCrossAddOrUpdateFlag = false;
+      this.parent.returncarinfoCrossAddOrUpdateFlag = false;
       this.parent.contentStyleChange();
-    },
-    avatarUploadChange(fileUrls) {
-	    this.ruleForm.avatar = fileUrls;
     },
   }
 };

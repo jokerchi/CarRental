@@ -124,8 +124,8 @@ export default {
 	},
 	mounted(){
         this.pageFlag = this.$storage.get("pageFlag");
-		let table = this.$storage.get("loginTable");
-		this.tableName = table;
+		    let table = this.$storage.get("loginTable");
+		    this.tableName = table;
         this.clientGenderOptions = "男,女".split(',')
         this.ordinaryAdminGenderOptions = "男,女".split(',')
 	},

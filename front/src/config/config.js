@@ -1,5 +1,5 @@
 export default {
-    baseUrl: 'http://localhost:8080/',
+    baseUrl: 'http://localhost:8080/springboot1ma2x',
     indexNav: [
         {
             name: '首页',
@@ -7,7 +7,7 @@ export default {
         },
         {
             name: '汽车信息',
-            url: '/index/qichexinxi'
+            url: '/index/carinfo'
 
         },
         {

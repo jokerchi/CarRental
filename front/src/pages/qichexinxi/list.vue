@@ -22,7 +22,7 @@
 
           <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
             <el-form-item :style='{"margin":"0 10px"}'>
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block">取车时间</div>
+              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial, font-size:16px">取车时间</div>
               <el-date-picker
                   v-model="pickupDate"
                   type="date"
@@ -41,7 +41,7 @@
 
           <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
             <el-form-item :style='{"margin":"0 10px"}'>
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block">还车时间</div>
+              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial, font-size:16px">还车时间</div>
               <el-date-picker
                   v-model="pickupDate"
                   type="date"
@@ -62,7 +62,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车牌号
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车牌号
           </div>
           <el-input v-model="formSearch.carNumber" placeholder="车牌号" clearable="true" ></el-input>
         </el-form-item>
@@ -70,7 +70,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车辆型号
+
           </div>
           <el-select v-model="formSearch.carModel" placeholder="请选择车辆型号" :clearable="true"  >
             <el-option v-for="(item, index) in carModelOptions" :key="index" :label="item" :value="item"></el-option>
@@ -80,7 +80,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车辆品牌
+
           </div>
           <el-select v-model="formSearch.carBrand" placeholder="车辆品牌" :clearable="true">
             <el-option v-for="(item, index) in carBrandOptions" :key="index" :label="item" :value="item"></el-option>
@@ -90,7 +90,7 @@
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>价格
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>价格
           </div>
           <el-select v-model="formSearch.price" placeholder="请选择价格" :clearable="true">
             <el-option v-for="(item, index) in priceOptions" :key="index" :label="item" :value="item"></el-option>
@@ -99,7 +99,7 @@
         <el-form-item :style='{"margin":"0 10px"}'>
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>排挡
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>排挡
           </div>
           <el-select v-model="formSearch.transmissionType" placeholder="请选择排挡" :clearable="true">
             <el-option v-for="(item, index) in transmissionTypeOptions" :key="index" :label="item" :value="item"></el-option>
@@ -108,7 +108,7 @@
         <el-form-item :style='{"margin":"0 10px"}'>
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>座位
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>座位
           </div>
           <el-select v-model="formSearch.seatNumber" placeholder="请选择座位" :clearable="true">
             <el-option v-for="(item, index) in seatNumberOptions" :key="index" :label="item" :value="item"></el-option>
@@ -117,7 +117,7 @@
         <el-form-item :style='{"margin":"0 10px"}'>
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>状态
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>状态
           </div>
           <el-select v-model="formSearch.status" placeholder="请选择状态" :clearable="true">
             <el-option v-for="(item, index) in statusOptions" :key="index" :label="item" :value="item"></el-option>
@@ -297,12 +297,14 @@ export default {
       curFenlei: '全部',
       isPlain: false,
       indexQueryCondition: '',
-      carModelOptions: [],
-      carBrandOptions:[],
-      priceOptions:[],
-      transmissionTypeOptions:[],
-      seatNumberOptions:[],
-      statusOptions: [],
+
+      qicheleibieOptions: ["轿车","SUV","MPV","越野车"],
+      cheliangpinpaiOptions:[],
+      jiageOptions:["五万以下","五到十万","十到二十万","二十万到三十万","三十万以上"],
+      paidangOptions:[],
+      zuoweiOptions:["二座","五座","七座"],
+      zhuangtaiOptions: [],
+
       timeRange: []
     }
   },
