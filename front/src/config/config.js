@@ -7,7 +7,7 @@ export default {
         },
         {
             name: '汽车信息',
-            url: '/index/qichexinxi'
+            url: '/index/carinfo'
 
         },
         {
