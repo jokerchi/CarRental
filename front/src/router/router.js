@@ -14,15 +14,12 @@ import MyForumList from '../pages/forum/myForumList'
 import Storeup from '../pages/storeup/list'
 import ExcitingActivities from '../pages/news/news-list'
 import NewsDetail from '../pages/news/news-detail'
-import yonghuList from '../pages/yonghu/list'
-import yonghuDetail from '../pages/yonghu/detail'
-import yonghuAdd from '../pages/yonghu/add'
+import clientList from '../pages/client/list'
+import clientDetail from '../pages/client/detail'
+import clientAdd from '../pages/client/add'
 import putongguanliyuanList from '../pages/putongguanliyuan/list'
 import putongguanliyuanDetail from '../pages/putongguanliyuan/detail'
 import putongguanliyuanAdd from '../pages/putongguanliyuan/add'
-import qicheleibieList from '../pages/qicheleibie/list'
-import qicheleibieDetail from '../pages/qicheleibie/detail'
-import qicheleibieAdd from '../pages/qicheleibie/add'
 import carinfoList from '../pages/qichexinxi/list'
 import carinfoDetail from '../pages/qichexinxi/detail'
 import carinfoAdd from '../pages/qichexinxi/add'
@@ -99,16 +96,16 @@ export default new VueRouter({
 					component: NewsDetail
 				},
 				{
-					path: 'yonghu',
-					component: yonghuList
+					path: 'client',
+					component: clientList
 				},
 				{
-					path: 'yonghuDetail',
-					component: yonghuDetail
+					path: 'clientDetail',
+					component: clientDetail
 				},
 				{
-					path: 'yonghuAdd',
-					component: yonghuAdd
+					path: 'clientAdd',
+					component: clientAdd
 				},
 				{
 					path: 'putongguanliyuan',
