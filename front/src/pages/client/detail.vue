@@ -20,29 +20,29 @@
 			<div class="info" :style='{"minHeight":"520px","width":"600px","padding":"0px 0 20px","margin":"0px","float":"left","background":"#fff"}'>
 				<div class="item" :style='{"border":"0px solid #eee","padding":"10px 10px","boxShadow":"1px 2px 6px #8dd2eb","margin":"0 0 10px 0","alignItems":"center","borderRadius":"8px","background":"radial-gradient(circle, rgba(55,170,250,1) 25%, rgba(63,94,251,1) 100%),rgb(63,201,251)","display":"flex","justifyContent":"space-between"}'>
 					<div :style='{"color":"#fff","fontSize":"16px"}'>
-                    {{detail.xingming}}
+                    {{detail.name}}
                     </div>
 				</div>
 
 				<div class="item" :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
 					<div class="lable" :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>账号</div>
-					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.zhanghao}}</div>
+					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.account}}</div>
 				</div>
 				<div class="item" :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
 					<div class="lable" :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>年龄</div>
-					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.nianling}}</div>
+					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.age}}</div>
 				</div>
 				<div class="item" :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
 					<div class="lable" :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>性别</div>
-					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.xingbie}}</div>
+					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.gender}}</div>
 				</div>
 				<div class="item" :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
 					<div class="lable" :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>身份证</div>
-					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.shenfenzheng}}</div>
+					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.idCard}}</div>
 				</div>
 				<div class="item" :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
 					<div class="lable" :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>手机</div>
-					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.shouji}}</div>
+					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.phone}}</div>
 				</div>
 				<div class="btn" :style='{"padding":"10px 0","flexWrap":"wrap","display":"flex"}'>
 				</div>
@@ -63,7 +63,7 @@
     //数据集合
     data() {
       return {
-        tablename: 'yonghu',
+        tablename: 'client',
         baseUrl: '',
         breadcrumbItem: [
           {
@@ -77,7 +77,7 @@
         activeName: 'first',
         total: 1,
         pageSize: 5,
-		pageSizes: [10,20,30,50],
+		    pageSizes: [10,20,30,50],
         totalPage: 1,
         rules: {
           content: [
@@ -100,7 +100,7 @@
           this.$http.get(this.tablename + '/detail/'  + this.detail.id, {}).then(res => {
             if (res.data.code == 0) {
               this.detail = res.data.data;
-              this.title = this.detail.xingming;
+              this.title = this.detail.name;
               this.detailBanner = this.detail.touxiang ? this.detail.touxiang.split(",") : [];
               this.$forceUpdate();
             }

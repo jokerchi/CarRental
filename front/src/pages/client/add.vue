@@ -7,53 +7,53 @@
       :rules="rules"
       label-width="80px"
     >
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="账号" prop="zhanghao">
-            <el-input v-model="ruleForm.zhanghao" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="账号" prop="account">
+            <el-input v-model="ruleForm.account"
                 placeholder="账号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="密码" prop="mima">
-            <el-input v-model="ruleForm.mima" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="密码" prop="password">
+            <el-input v-model="ruleForm.password"
                 placeholder="密码" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="姓名" prop="xingming">
-            <el-input v-model="ruleForm.xingming" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="姓名" prop="name">
+            <el-input v-model="ruleForm.name"
                 placeholder="姓名" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="年龄" prop="nianling">
-            <el-input v-model="ruleForm.nianling" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="年龄" prop="age">
+            <el-input v-model="ruleForm.age"
                 placeholder="年龄" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'  label="性别" prop="xingbie">
-            <el-select v-model="ruleForm.xingbie" placeholder="请选择性别"  >
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'  label="性别" prop="gender">
+            <el-select v-model="ruleForm.gender" placeholder="请选择性别"  >
               <el-option
-                  v-for="(item,index) in xingbieOptions"
+                  v-for="(item,index) in genderOptions"
                   :key="index"
                   :label="item"
                   :value="item">
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="身份证" prop="shenfenzheng">
-            <el-input v-model="ruleForm.shenfenzheng" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="身份证" prop="idCard">
+            <el-input v-model="ruleForm.idCard"
                 placeholder="身份证" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="手机" prop="shouji">
-            <el-input v-model="ruleForm.shouji" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="手机" prop="phone">
+            <el-input v-model="ruleForm.phone"
                 placeholder="手机" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="头像" v-if="type!='cross' || (type=='cross' && !ro.touxiang)" prop="touxiang">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="头像" v-if="type!='cross' || (type=='cross' && !ro.avatar)" prop="avatar">
             <file-upload
             tip="点击上传头像"
             action="file/upload"
             :limit="3"
             :multiple="true"
-            :fileUrls="ruleForm.touxiang?ruleForm.touxiang:''"
-            @change="touxiangUploadChange"
+            :fileUrls="ruleForm.avatar?ruleForm.avatar:''"
+            @change="avatarUploadChange"
             ></file-upload>
           </el-form-item>
-            <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' class="upload" v-else label="头像" prop="touxiang">
-                <img v-if="ruleForm.touxiang.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.touxiang.split(',')[0]" width="100" height="100">
-                <img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.touxiang.split(',')" :src="baseUrl+item" width="100" height="100">
+            <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' class="upload" v-else label="头像" prop="avatar">
+                <img v-if="ruleForm.avatar.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.avatar.split(',')[0]" width="100" height="100">
+                <img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.avatar.split(',')" :src="baseUrl+item" width="100" height="100">
             </el-form-item>
 
       <el-form-item :style='{"padding":"0","margin":"20px 0 20px 0"}'>
@@ -71,51 +71,51 @@
         id: '',
         baseUrl: '',
         ro:{
-            zhanghao : false,
-            mima : false,
-            xingming : false,
-            nianling : false,
-            xingbie : false,
-            shenfenzheng : false,
-            shouji : false,
-            touxiang : false,
+          account : false,
+          password : false,
+          name : false,
+          age : false,
+          gender : false,
+          idCard : false,
+          phone : false,
+          avatar : false,
         },
         type: '',
         userTableName: localStorage.getItem('UserTableName'),
         ruleForm: {
-          zhanghao: '',
-          mima: '',
-          xingming: '',
-          nianling: '',
-          xingbie: '',
-          shenfenzheng: '',
-          shouji: '',
-          touxiang: '',
+          account: '',
+          password: '',
+          name: '',
+          age: '',
+          gender: '',
+          idCard: '',
+          phone: '',
+          avatar: '',
         },
-        xingbieOptions: [],
+        genderOptions: [],
         rules: {
-          zhanghao: [
+          account: [
             { required: true, message: '账号不能为空', trigger: 'blur' },
           ],
-          mima: [
+          password: [
             { required: true, message: '密码不能为空', trigger: 'blur' },
           ],
-          xingming: [
+          name: [
             { required: true, message: '姓名不能为空', trigger: 'blur' },
           ],
-          nianling: [
+          age: [
             { validator: this.$validate.isIntNumer, trigger: 'blur' },
           ],
-          xingbie: [
+          gender: [
           ],
-          shenfenzheng: [
+          idCard: [
             { required: true, message: '身份证不能为空', trigger: 'blur' },
             { validator: this.$validate.isIdCard, trigger: 'blur' },
           ],
-          shouji: [
+          phone: [
             { validator: this.$validate.isMobile, trigger: 'blur' },
           ],
-          touxiang: [
+          avatar: [
           ],
         },
       };
@@ -145,44 +145,44 @@
         if(type=='cross'){
           var obj = JSON.parse(localStorage.getItem('crossObj'));
           for (var o in obj){
-            if(o=='zhanghao'){
-              this.ruleForm.zhanghao = obj[o];
-              this.ro.zhanghao = true;
+            if(o=='account'){
+              this.ruleForm.account = obj[o];
+              this.ro.account = true;
               continue;
             }
-            if(o=='mima'){
-              this.ruleForm.mima = obj[o];
-              this.ro.mima = true;
+            if(o=='password'){
+              this.ruleForm.password = obj[o];
+              this.ro.password = true;
               continue;
             }
-            if(o=='xingming'){
-              this.ruleForm.xingming = obj[o];
-              this.ro.xingming = true;
+            if(o=='name'){
+              this.ruleForm.name = obj[o];
+              this.ro.name = true;
               continue;
             }
-            if(o=='nianling'){
-              this.ruleForm.nianling = obj[o];
-              this.ro.nianling = true;
+            if(o=='age'){
+              this.ruleForm.age = obj[o];
+              this.ro.age = true;
               continue;
             }
-            if(o=='xingbie'){
-              this.ruleForm.xingbie = obj[o];
-              this.ro.xingbie = true;
+            if(o=='gender'){
+              this.ruleForm.gender = obj[o];
+              this.ro.gender = true;
               continue;
             }
-            if(o=='shenfenzheng'){
-              this.ruleForm.shenfenzheng = obj[o];
-              this.ro.shenfenzheng = true;
+            if(o=='idCard'){
+              this.ruleForm.idCard = obj[o];
+              this.ro.idCard = true;
               continue;
             }
-            if(o=='shouji'){
-              this.ruleForm.shouji = obj[o];
-              this.ro.shouji = true;
+            if(o=='phone'){
+              this.ruleForm.phone = obj[o];
+              this.ro.phone = true;
               continue;
             }
-            if(o=='touxiang'){
-              this.ruleForm.touxiang = obj[o].split(",")[0];
-              this.ro.touxiang = true;
+            if(o=='avatar'){
+              this.ruleForm.avatar = obj[o].split(",")[0];
+              this.ro.avatar = true;
               continue;
             }
           }
@@ -193,13 +193,13 @@
             var json = res.data.data;
           }
         });
-        this.xingbieOptions = "男,女".split(',')
+        this.genderOptions = "男,女".split(',')
       },
 
     // 多级联动参数
       // 多级联动参数
       info(id) {
-        this.$http.get('yonghu/detail/${id}', {emulateJSON: true}).then(res => {
+        this.$http.get('client/detail/${id}', {emulateJSON: true}).then(res => {
           if (res.data.code == 0) {
             this.ruleForm = res.data.data;
           }
@@ -209,8 +209,8 @@
       onSubmit() {
 
         //更新跨表属性
-        var cross_userId;
-        var cross_ref_id;
+        var crossUserId;
+        var crossRefId;
         var crossoptnum;
         this.$refs["ruleForm"].validate(valid => {
           if(valid) {
@@ -228,23 +228,23 @@
                          var table = localStorage.getItem('crossTable');
                          this.$http.post(table+'/update', obj).then(res => {});
                      } else {
-                            crossuserid=Number(localStorage.getItem('userid'));
-                            crossrefid=obj['id'];
+                       crossUserId=Number(localStorage.getItem('userid'));
+                       crossRefId=obj['id'];
                             crossoptnum=localStorage.getItem('statusColumnName');
                             crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
                      }
                  }
             }
-            if(crossrefid && crossuserid) {
-                 this.ruleForm.crossuserid=crossuserid;
-                 this.ruleForm.crossrefid=crossrefid;
+            if(crossRefId && crossUserId) {
+                 this.ruleForm.crossUserId=crossUserId;
+                 this.ruleForm.crossRefId=crossRefId;
                  var params = {
                      page: 1,
                      limit: 10,
-                     crossuserid:crossuserid,
-                     crossrefid:crossrefid,
+                   crossUserId:crossUserId,
+                   crossRefId:crossRefId,
                  }
-                 this.$http.get('yonghu/list', {
+                 this.$http.get('client/list', {
                   params: params
                  }).then(res => {
                      if(res.data.data.total>=crossoptnum) {
@@ -258,7 +258,7 @@
                          // 跨表计算
 
 
-                          this.$http.post('yonghu/add', this.ruleForm).then(res => {
+                          this.$http.post('client/add', this.ruleForm).then(res => {
                               if (res.data.code == 0) {
                                   this.$message({
                                       message: '操作成功',
@@ -281,7 +281,7 @@
              } else {
 
 
-                  this.$http.post('yonghu/add', this.ruleForm).then(res => {
+                  this.$http.post('client/add', this.ruleForm).then(res => {
                      if (res.data.code == 0) {
                           this.$message({
                               message: '操作成功',
@@ -311,8 +311,8 @@
       back() {
         this.$router.go(-1);
       },
-      touxiangUploadChange(fileUrls) {
-          this.ruleForm.touxiang = fileUrls.replace(new RegExp(this.$config.baseUrl,"g"),"");;
+      avatarUploadChange(fileUrls) {
+          this.ruleForm.avatar = fileUrls.replace(new RegExp(this.$config.baseUrl,"g"),"");;
       },
     }
   };
