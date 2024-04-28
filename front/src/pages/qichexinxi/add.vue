@@ -10,40 +10,40 @@
     >
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="车牌号" prop="chepaihao">
-        <el-input v-model="ruleForm.chepaihao"
+          label="车牌号" prop="carNumber">
+        <el-input v-model="ruleForm.carNumber"
                   placeholder="车牌号" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="车辆类型" pro="cheliangleixing">
-        <el-input v-model="ruleForm.cheliangleixing"
-                  placeholder="车辆类型" clearable></el-input>
+          label="车辆型号" pro="carModel">
+        <el-input v-model="ruleForm.carModel"
+                  placeholder="车辆型号" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="车辆品牌" prop="cheliangpinpai">
-        <el-input v-model="ruleForm.cheliangpinpai"
+          label="车辆品牌" prop="carBrand">
+        <el-input v-model="ruleForm.carBrand"
                   placeholder="车辆品牌" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="价格" prop="jiage">
-        <el-input v-model="ruleForm.jiage"
+          label="价格" prop="price">
+        <el-input v-model="ruleForm.price"
                   placeholder="价格" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="颜色" prop="yanse">
-        <el-input v-model="ruleForm.yanse"
+          label="颜色" prop="color">
+        <el-input v-model="ruleForm.color"
                   placeholder="颜色" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="状态" prop="zhuangtai">
-        <el-select v-model="ruleForm.zhuangtai" placeholder="请选择状态">
+          label="状态" prop="status">
+        <el-select v-model="ruleForm.status" placeholder="请选择状态">
           <el-option
-              v-for="(item,index) in zhuangtaiOptions"
+              v-for="(item,index) in statusOptions"
               :key="index"
               :label="item"
               :value="item">
@@ -52,10 +52,10 @@
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="换挡方式" prop="huandangfangshi">
-        <el-select v-model="ruleForm.huandangfangshi" placeholder="请选择换挡方式">
+          label="换挡方式" prop="transmissionType">
+        <el-select v-model="ruleForm.transmissionType" placeholder="请选择换挡方式">
           <el-option
-              v-for="(item,index) in huandangfangshiOptions"
+              v-for="(item,index) in transmissionTypeOptions"
               :key="index"
               :label="item"
               :value="item">
@@ -64,77 +64,77 @@
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="车辆照片" v-if="type!='cross' || (type=='cross' && !ro.cheliangzhaopian)" prop="cheliangzhaopian">
+          label="车辆照片" v-if="type!='cross' || (type=='cross' && !ro.carImage)" prop="carImage">
         <file-upload
             tip="点击上传车辆照片"
             action="file/upload"
             :limit="3"
             :multiple="true"
-            :fileUrls="ruleForm.cheliangzhaopian?ruleForm.cheliangzhaopian:''"
-            @change="cheliangzhaopianUploadChange"
+            :fileUrls="ruleForm.carImage?ruleForm.carImage:''"
+            @change="carImageUploadChange"
         ></file-upload>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          class="upload" v-else label="车辆照片" prop="cheliangzhaopian">
-        <img v-if="ruleForm.cheliangzhaopian.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;"
-             v-bind:key="index" :src="ruleForm.cheliangzhaopian.split(',')[0]" width="100" height="100">
+          class="upload" v-else label="车辆照片" prop="carImage">
+        <img v-if="ruleForm.carImage.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;"
+             v-bind:key="index" :src="ruleForm.carImage.split(',')[0]" width="100" height="100">
         <img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index"
-             v-for="(item,index) in ruleForm.cheliangzhaopian.split(',')" :src="baseUrl+item" width="100" height="100">
+             v-for="(item,index) in ruleForm.carImage.split(',')" :src="baseUrl+item" width="100" height="100">
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="座位数" prop="zuoweishu">
-        <el-input v-model="ruleForm.zuoweishu"
+          label="座位数" prop="seatNumber">
+        <el-input v-model="ruleForm.seatNumber"
                   placeholder="座位数" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="汽车排量" prop="qichepailiang">
-        <el-input v-model="ruleForm.qichepailiang"
+          label="汽车排量" prop="displacement">
+        <el-input v-model="ruleForm.displacement"
                   placeholder="汽车排量" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="汽车价格" prop="qichejiage">
-        <el-input v-model="ruleForm.qichejiage"
+          label="汽车价格" prop="carPrice">
+        <el-input v-model="ruleForm.carPrice"
                   placeholder="汽车价格" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="出厂年份" prop="chuchangnianfen">
-        <el-input v-model="ruleForm.chuchangnianfen"
+          label="出厂年份" prop="productionYear">
+        <el-input v-model="ruleForm.productionYear"
                   placeholder="出厂年份" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="登记日期" prop="dengjiriqi">
+          label="登记日期" prop="registrationDate">
         <el-date-picker
             format="yyyy 年 MM 月 dd 日"
             value-format="yyyy-MM-dd"
-            v-model="ruleForm.dengjiriqi"
+            v-model="ruleForm.registrationDate"
             type="date"
             placeholder="登记日期">
         </el-date-picker>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="管理账号" prop="guanlizhanghao">
-        <el-input v-model="ruleForm.guanlizhanghao"
+          label="管理账号" prop="ordinaryAdminAccount">
+        <el-input v-model="ruleForm.ordinaryAdminAccount"
                   placeholder="管理账号" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="管理姓名" prop="guanlixingming">
-        <el-input v-model="ruleForm.guanlixingming"
+          label="管理姓名" prop="ordinaryAdminName">
+        <el-input v-model="ruleForm.ordinaryAdminName"
                   placeholder="管理姓名" clearable></el-input>
       </el-form-item>
       <el-form-item
           :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'
-          label="汽车简介" prop="qichejianjie">
+          label="汽车简介" prop="carDescription">
         <editor
             :style='{"minHeight":"300px","padding":"0","margin":"0","borderColor":"#ccc","backgroundColor":"#f9f9f9","borderRadius":"0","borderWidth":"0","width":"100%","borderStyle":"solid","height":"auto"}'
-            v-model="ruleForm.qichejianjie"
+            v-model="ruleForm.carDescription"
             class="editor"
             action="file/upload">
         </editor>
@@ -161,79 +161,79 @@ export default {
       id: '',
       baseUrl: '',
       ro: {
-        chepaihao: false,
-        cheliangleixing: false,
-        cheliangpinpai: false,
-        jiage: false,
-        yanse: false,
-        zhuangtai: false,
-        huandangfangshi: false,
-        cheliangzhaopian: false,
-        zuoweishu: false,
-        qichepailiang: false,
-        qichejiage: false,
-        chuchangnianfen: false,
-        dengjiriqi: false,
-        qichejianjie: false,
-        guanlizhanghao: false,
-        guanlixingming: false,
-        clicktime: false,
-        clicknum: false,
+        carNumber: false,
+        carModel: false,
+        carBrand: false,
+        price: false,
+        color: false,
+        status: false,
+        transmissionType: false,
+        carImage: false,
+        seatNumber: false,
+        displacement: false,
+        carPrice: false,
+        productionYear: false,
+        registrationDate: false,
+        carDescription: false,
+        ordinaryAdminAccount: false,
+        ordinaryAdminName: false,
+        clickTime: false,
+        clickNum: false,
       },
       type: '',
       userTableName: localStorage.getItem('UserTableName'),
       ruleForm: {
-        chepaihao: '',
-        cheliangleixing: '',
-        cheliangpinpai: '',
-        jiage: '',
-        yanse: '',
-        zhuangtai: '未出租',
-        huandangfangshi: '',
-        cheliangzhaopian: '',
-        zuoweishu: '',
-        qichepailiang: '',
-        qichejiage: '',
-        chuchangnianfen: '',
-        dengjiriqi: '',
-        qichejianjie: '',
-        guanlizhanghao: '',
-        guanlixingming: '',
-        clicktime: '',
-        clicknum: '',
+        carNumber: '',
+        carModel: '',
+        carBrand: '',
+        price: '',
+        color: '',
+        status: '未出租',
+        transmissionType: '',
+        carImage: '',
+        seatNumber: '',
+        displacement: '',
+        carPrice: '',
+        productionYear: '',
+        registrationDate: '',
+        carDescription: '',
+        ordinaryAdminAccount: '',
+        ordinaryAdminName: '',
+        clickTime: '',
+        clickNum: '',
       },
-      qicheleixingOptions: [],
-      zhuangtaiOptions: [],
-      huandangfangshiOptions: [],
+      carModelOptions: [],
+      statusOptions: [],
+      transmissionTypeOptions: [],
       rules: {
-        chepaihao: [
+        carNumber: [
           {required: true, message: '车牌号不能为空', trigger: 'blur'},
         ],
-        cheliangleixing: [],
-        cheliangpinpai: [
+        carModel: [],
+        carBrand: [
           {required: true, message: '车辆品牌不能为空', trigger: 'blur'},
         ],
-        jiage: [
+        price: [
           {validator: this.$validate.isNumber, trigger: 'blur'},
         ],
-        yanse: [],
-        zhuangtai: [],
-        huandangfangshi: [],
-        cheliangzhaopian: [],
-        zuoweishu: [
+        color: [],
+        status: [],
+        transmissionType: [],
+        carImage: [],
+        seatNumber: [
           {validator: this.$validate.isIntNumer, trigger: 'blur'},
         ],
-        qichepailiang: [],
-        qichejiage: [
+        displacement: [],
+        carPrice: [
           {validator: this.$validate.isNumber, trigger: 'blur'},
         ],
-        chuchangnianfen: [],
-        dengjiriqi: [],
-        qichejianjie: [],
-        guanlizhanghao: [],
-        guanlixingming: [],
-        clicktime: [],
-        clicknum: [
+        productionYear: [],
+        registrationDate: [],
+        carDescription: [],
+        ordinaryAdminAccount: [],
+        ordinaryAdminName: [],
+        clickTime: [],
+        clickNum: [
           {validator: this.$validate.isIntNumer, trigger: 'blur'},
         ],
       },
@@ -245,7 +245,7 @@ export default {
     let type = this.$route.query.type ? this.$route.query.type : '';
     this.init(type);
     this.baseUrl = this.$config.baseUrl;
-    this.ruleForm.dengjiriqi = this.getCurDate()
+    this.ruleForm.registrationDate = this.getCurDate()
   },
   methods: {
     getMakeZero(s) {
@@ -261,94 +261,94 @@ export default {
       if (type == 'cross') {
         var obj = JSON.parse(localStorage.getItem('crossObj'));
         for (var o in obj) {
-          if (o == 'chepaihao') {
-            this.ruleForm.chepaihao = obj[o];
-            this.ro.chepaihao = true;
+          if (o == 'carNumber') {
+            this.ruleForm.carNumber = obj[o];
+            this.ro.carNumber = true;
             continue;
           }
-          if (o == 'cheliangleixing') {
-            this.ruleForm.cheliangleixing = obj[o];
-            this.ro.cheliangleixing = true;
+          if (o == 'carModel') {
+            this.ruleForm.carModel = obj[o];
+            this.ro.carModel = true;
             continue;
           }
-          if (o == 'cheliangpinpai') {
-            this.ruleForm.cheliangpinpai = obj[o];
-            this.ro.cheliangpinpai = true;
+          if (o == 'carBrand') {
+            this.ruleForm.carBrand = obj[o];
+            this.ro.carBrand = true;
             continue;
           }
-          if (o == 'jiage') {
-            this.ruleForm.jiage = obj[o];
-            this.ro.jiage = true;
+          if (o == 'price') {
+            this.ruleForm.price = obj[o];
+            this.ro.price = true;
             continue;
           }
-          if (o == 'yanse') {
-            this.ruleForm.yanse = obj[o];
-            this.ro.yanse = true;
+          if (o == 'color') {
+            this.ruleForm.color = obj[o];
+            this.ro.color = true;
             continue;
           }
-          if (o == 'zhuangtai') {
-            this.ruleForm.zhuangtai = obj[o];
-            this.ro.zhuangtai = true;
+          if (o == 'status') {
+            this.ruleForm.status = obj[o];
+            this.ro.status = true;
             continue;
           }
-          if (o == 'huandangfangshi') {
-            this.ruleForm.huandangfangshi = obj[o];
-            this.ro.huandangfangshi = true;
+          if (o == 'transmissionType') {
+            this.ruleForm.transmissionType = obj[o];
+            this.ro.transmissionType = true;
             continue;
           }
-          if (o == 'cheliangzhaopian') {
-            this.ruleForm.cheliangzhaopian = obj[o].split(",")[0];
-            this.ro.cheliangzhaopian = true;
+          if (o == 'carImage') {
+            this.ruleForm.carImage = obj[o].split(",")[0];
+            this.ro.carImage = true;
             continue;
           }
-          if (o == 'zuoweishu') {
-            this.ruleForm.zuoweishu = obj[o];
-            this.ro.zuoweishu = true;
+          if (o == 'seatNumber') {
+            this.ruleForm.seatNumber = obj[o];
+            this.ro.seatNumber = true;
             continue;
           }
-          if (o == 'qichepailiang') {
-            this.ruleForm.qichepailiang = obj[o];
-            this.ro.qichepailiang = true;
+          if (o == 'displacement') {
+            this.ruleForm.displacement = obj[o];
+            this.ro.displacement = true;
             continue;
           }
-          if (o == 'qichejiage') {
-            this.ruleForm.qichejiage = obj[o];
-            this.ro.qichejiage = true;
+          if (o == 'carPrice') {
+            this.ruleForm.carPrice = obj[o];
+            this.ro.carPrice = true;
             continue;
           }
-          if (o == 'chuchangnianfen') {
-            this.ruleForm.chuchangnianfen = obj[o];
-            this.ro.chuchangnianfen = true;
+          if (o == 'productionYear') {
+            this.ruleForm.productionYear = obj[o];
+            this.ro.productionYear = true;
             continue;
           }
-          if (o == 'dengjiriqi') {
-            this.ruleForm.dengjiriqi = obj[o];
-            this.ro.dengjiriqi = true;
+          if (o == 'registrationDate') {
+            this.ruleForm.registrationDate = obj[o];
+            this.ro.registrationDate = true;
             continue;
           }
-          if (o == 'qichejianjie') {
-            this.ruleForm.qichejianjie = obj[o];
-            this.ro.qichejianjie = true;
+          if (o == 'carDescription') {
+            this.ruleForm.carDescription = obj[o];
+            this.ro.carDescription = true;
             continue;
           }
-          if (o == 'guanlizhanghao') {
-            this.ruleForm.guanlizhanghao = obj[o];
-            this.ro.guanlizhanghao = true;
+          if (o == 'ordinaryAdminAccount') {
+            this.ruleForm.ordinaryAdminAccount = obj[o];
+            this.ro.ordinaryAdminAccount = true;
             continue;
           }
-          if (o == 'guanlixingming') {
-            this.ruleForm.guanlixingming = obj[o];
-            this.ro.guanlixingming = true;
+          if (o == 'ordinaryAdminName') {
+            this.ruleForm.ordinaryAdminName = obj[o];
+            this.ro.ordinaryAdminName = true;
             continue;
           }
-          if (o == 'clicktime') {
-            this.ruleForm.clicktime = obj[o];
-            this.ro.clicktime = true;
+          if (o == 'clickTime') {
+            this.ruleForm.clickTime = obj[o];
+            this.ro.clickTime = true;
             continue;
           }
-          if (o == 'clicknum') {
-            this.ruleForm.clicknum = obj[o];
-            this.ro.clicknum = true;
+          if (o == 'clickNum') {
+            this.ruleForm.clickNum = obj[o];
+            this.ro.clickNum = true;
             continue;
           }
         }
@@ -357,28 +357,22 @@ export default {
       this.$http.get(this.userTableName + '/session', {emulateJSON: true}).then(res => {
         if (res.data.code == 0) {
           var json = res.data.data;
-          if ((json.guanlizhanghao != '' && json.guanlizhanghao) || json.guanlizhanghao == 0) {
-            this.ruleForm.guanlizhanghao = json.guanlizhanghao
+          if ((json.ordinaryAdminAccount != '' && json.ordinaryAdminAccount) || json.ordinaryAdminAccount == 0) {
+            this.ruleForm.ordinaryAdminAccount = json.ordinaryAdminAccount
           }
-          if ((json.guanlixingming != '' && json.guanlixingming) || json.guanlixingming == 0) {
-            this.ruleForm.guanlixingming = json.guanlixingming
+          if ((json.ordinaryAdminName != '' && json.ordinaryAdminName) || json.ordinaryAdminName == 0) {
+            this.ruleForm.ordinaryAdminName = json.ordinaryAdminName
           }
         }
       });
-      //汽车类别注释掉
-      // this.$http.get('option/qicheleibie/qicheleibie', {emulateJSON: true}).then(res => {
-      //   if (res.data.code == 0) {
-      //     this.qicheleibieOptions = res.data.data;
-      //   }
-      // });
-      this.zhuangtaiOptions = "已出租,未出租".split(',')
-      this.huandangfangshiOptions = "手动挡,自动挡".split(',')
+      this.statusOptions = "已出租,未出租".split(',')
+      this.transmissionTypeOptions = "手动挡,自动挡".split(',')
     },
 
     // 多级联动参数
     // 多级联动参数
     info(id) {
-      this.$http.get('qichexinxi/detail/${id}', {emulateJSON: true}).then(res => {
+      this.$http.get('carinfo/detail/${id}', {emulateJSON: true}).then(res => {
         if (res.data.code == 0) {
           this.ruleForm = res.data.data;
         }
@@ -388,8 +382,8 @@ export default {
     onSubmit() {
 
       //更新跨表属性
-      var crossuserid;
-      var crossrefid;
+      var crossUserId;
+      var crossRefId;
       var crossoptnum;
       this.$refs["ruleForm"].validate(valid => {
         if (valid) {
@@ -408,23 +402,23 @@ export default {
                 this.$http.post(table + '/update', obj).then(res => {
                 });
               } else {
-                crossuserid = Number(localStorage.getItem('userid'));
-                crossrefid = obj['id'];
+                crossUserId = Number(localStorage.getItem('userid'));
+                crossRefId = obj['id'];
                 crossoptnum = localStorage.getItem('statusColumnName');
                 crossoptnum = crossoptnum.replace(/\[/, "").replace(/\]/, "");
               }
             }
           }
-          if (crossrefid && crossuserid) {
-            this.ruleForm.crossuserid = crossuserid;
-            this.ruleForm.crossrefid = crossrefid;
+          if (crossRefId && crossUserId) {
+            this.ruleForm.crossUserId = crossUserId;
+            this.ruleForm.crossRefId = crossRefId;
             var params = {
               page: 1,
               limit: 10,
-              crossuserid: crossuserid,
-              crossrefid: crossrefid,
+              crossuserid: crossUserId,
+              crossrefid: crossRefId,
             }
-            this.$http.get('qichexinxi/list', {
+            this.$http.get('carinfo/list', {
               params: params
             }).then(res => {
               if (res.data.data.total >= crossoptnum) {
@@ -438,7 +432,7 @@ export default {
                 // 跨表计算
 
 
-                this.$http.post('qichexinxi/add', this.ruleForm).then(res => {
+                this.$http.post('carinfo/add', this.ruleForm).then(res => {
                   if (res.data.code == 0) {
                     this.$message({
                       message: '操作成功',
@@ -461,7 +455,7 @@ export default {
           } else {
 
 
-            this.$http.post('qichexinxi/add', this.ruleForm).then(res => {
+            this.$http.post('carinfo/add', this.ruleForm).then(res => {
               if (res.data.code == 0) {
                 this.$message({
                   message: '操作成功',
@@ -491,8 +485,8 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    cheliangzhaopianUploadChange(fileUrls) {
-      this.ruleForm.cheliangzhaopian = fileUrls.replace(new RegExp(this.$config.baseUrl, "g"), "");
+    carImageUploadChange(fileUrls) {
+      this.ruleForm.carImage = fileUrls.replace(new RegExp(this.$config.baseUrl, "g"), "");
 
     },
   }

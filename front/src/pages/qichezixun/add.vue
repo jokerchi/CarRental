@@ -212,8 +212,8 @@
       onSubmit() {
 
         //更新跨表属性
-        var crossuserid;
-        var crossrefid;
+        var cross_userId;
+        var cross_ref_id;
         var crossoptnum;
         this.$refs["ruleForm"].validate(valid => {
           if(valid) {

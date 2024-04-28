@@ -39,13 +39,13 @@
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="管理账号" prop="guanlizhanghao">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="管理账号" prop="ordinaryAdminAccount">
             <el-input v-model="sessionForm.guanlizhanghao" placeholder="管理账号" readonly></el-input>
           </el-form-item>
           <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="密码" prop="mima">
             <el-input type="password" v-model="sessionForm.mima" placeholder="密码"></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="管理姓名" prop="guanlixingming">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="管理姓名" prop="ordinaryAdminName">
             <el-input v-model="sessionForm.guanlixingming" placeholder="管理姓名" ></el-input>
           </el-form-item>
           <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="性别">

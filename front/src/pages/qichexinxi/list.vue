@@ -14,15 +14,6 @@
 
     <div class="list-preview"
          :style='{"width":"1200px","margin":"10px auto","position":"relative","flexWrap":"wrap","background":"none","display":"flex"}'>
-<!--      <div class="category-1"-->
-<!--           :style='{"width":"100%","padding":"10px","background":"none","display":"flex","height":"auto","order":"1"}'>-->
-<!--        <div class="item" :class="swiperIndex == '-1' ? 'active' : ''" @click="getList(1, '全部')" :plain="isPlain">全部-->
-<!--        </div>-->
-<!--        <div class="item" :class="swiperIndex == index ? 'active' : ''" v-for="(item, index) in fenlei" :key="index"-->
-<!--             @click="getList(1, item, 'btn' + index)" :ref="'btn' + index" plain>{{ item }}-->
-<!--        </div>-->
-<!--      </div>-->
-
 
       <el-form :inline="true" :model="formSearch" class="list-form-pv"
                :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
@@ -73,16 +64,16 @@
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车牌号
           </div>
-          <el-input v-model="formSearch.chepaihao" placeholder="车牌号" clearable="true" ></el-input>
+          <el-input v-model="formSearch.carNumber" placeholder="车牌号" clearable="true" ></el-input>
         </el-form-item>
         <el-form-item :style='{"margin":"0 10px"}'>
 
 
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>汽车类型
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车辆型号
           </div>
-          <el-select v-model="formSearch.qicheleibie" placeholder="请选择汽车类型" :clearable="true"  >
-            <el-option v-for="(item, index) in qicheleibieOptions" :key="index" :label="item" :value="item"></el-option>
+          <el-select v-model="formSearch.carModel" placeholder="请选择车辆型号" :clearable="true"  >
+            <el-option v-for="(item, index) in carModelOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item :style='{"margin":"0 10px"}'>
@@ -90,13 +81,9 @@
 
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车辆品牌
-<!--          </div>-->
-<!--          <el-input v-model="formSearch.cheliangpinpai" placeholder="车辆品牌" clearable></el-input>-->
-<!--        </el-form-item>-->
-<!--        -->
           </div>
-          <el-select v-model="formSearch.cheliangpinpai" placeholder="车辆品牌" :clearable="true">
-            <el-option v-for="(item, index) in cheliangpinpaiOptions" :key="index" :label="item" :value="item"></el-option>
+          <el-select v-model="formSearch.carBrand" placeholder="车辆品牌" :clearable="true">
+            <el-option v-for="(item, index) in carBrandOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item :style='{"margin":"0 10px"}'>
@@ -105,8 +92,8 @@
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>价格
           </div>
-          <el-select v-model="formSearch.jiage" placeholder="请选择价格" :clearable="true">
-            <el-option v-for="(item, index) in jiageOptions" :key="index" :label="item" :value="item"></el-option>
+          <el-select v-model="formSearch.price" placeholder="请选择价格" :clearable="true">
+            <el-option v-for="(item, index) in priceOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item :style='{"margin":"0 10px"}'>
@@ -114,8 +101,8 @@
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>排挡
           </div>
-          <el-select v-model="formSearch.paidang" placeholder="请选择排挡" :clearable="true">
-            <el-option v-for="(item, index) in paidangOptions" :key="index" :label="item" :value="item"></el-option>
+          <el-select v-model="formSearch.transmissionType" placeholder="请选择排挡" :clearable="true">
+            <el-option v-for="(item, index) in transmissionTypeOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item :style='{"margin":"0 10px"}'>
@@ -123,8 +110,8 @@
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>座位
           </div>
-          <el-select v-model="formSearch.zuowei" placeholder="请选择座位" :clearable="true">
-            <el-option v-for="(item, index) in zuoweiOptions" :key="index" :label="item" :value="item"></el-option>
+          <el-select v-model="formSearch.seatNumber" placeholder="请选择座位" :clearable="true">
+            <el-option v-for="(item, index) in seatNumberOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item :style='{"margin":"0 10px"}'>
@@ -132,8 +119,8 @@
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>状态
           </div>
-          <el-select v-model="formSearch.zhuangtai" placeholder="请选择状态" :clearable="true">
-            <el-option v-for="(item, index) in zhuangtaiOptions" :key="index" :label="item" :value="item"></el-option>
+          <el-select v-model="formSearch.status" placeholder="请选择状态" :clearable="true">
+            <el-option v-for="(item, index) in statusOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
         <el-button v-if=" true "
@@ -142,9 +129,9 @@
                                                                     :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}'
                                                                     class="el-icon-search"></i>查询
         </el-button>
-        <el-button v-if="isAuth('qichexinxi','新增')"
+        <el-button v-if="isAuth('carinfo','新增')"
                    :style='{"cursor":"pointer","border":"1px solid #db961f","padding":"0px 15px","boxShadow":"1px 1px 3px #f8a412","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#f8a412","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}'
-                   type="primary" @click="add('/index/qichexinxiAdd')"><i v-if="true"
+                   type="primary" @click="add('/index/carinfoAdd')"><i v-if="true"
                                                                           :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}'
                                                                           class="el-icon-circle-plus-outline"></i>添加
         </el-button>
@@ -159,42 +146,42 @@
               v-for="(item, index) in dataList" :key="index" @click="toDetail(item)" class="list-item animation-box">
             <img
                 :style='{"cursor":"pointer","width":"100%","objectFit":"cover","borderRadius":"8px","display":"block","height":"274px"}'
-                v-if="item.cheliangzhaopian && item.cheliangzhaopian.substr(0,4)=='http'" :src="item.cheliangzhaopian"
+                v-if="item.carImage && item.carImage.substr(0,4)=='http'" :src="item.carImage"
                 class="image"/>
             <img
                 :style='{"cursor":"pointer","width":"100%","objectFit":"cover","borderRadius":"8px","display":"block","height":"274px"}'
-                v-else :src="baseUrl + (item.cheliangzhaopian?item.cheliangzhaopian.split(',')[0]:'')" class="image"/>
+                v-else :src="baseUrl + (item.carImage?item.carImage.split(',')[0]:'')" class="image"/>
             <div v-if="item.price"
                  :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","color":"red","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px"}'
                  class="price"><span :style='{"fontSize":"12px"}'>￥</span>{{ item.price }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">车牌号:{{ item.chepaihao }}
+                class="name ">车牌号:{{ item.carNumber }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">汽车类型:{{ item.qicheleibie }}
+                class="name ">车辆型号:{{ item.carModel }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">车辆品牌:{{ item.cheliangpinpai }}
+                class="name ">车辆品牌:{{ item.carBrand }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">价格:{{ item.jiage }}
+                class="name ">价格:{{ item.price }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">排挡:{{ item.paidang }}
+                class="name ">排挡:{{ item.transmissionType }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">座位:{{ item.zuowei }}
+                class="name ">座位:{{ item.seatNumber }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">状态:{{ item.zhuangtai }}
+                class="name ">状态:{{ item.status }}
             </div>
           </div>
         </div>
@@ -215,34 +202,34 @@
                @click="toDetail(item)">
             <img
                 :style='{"cursor":"pointer","width":"100%","objectFit":"cover","borderRadius":"8px","display":"block","height":"150px"}'
-                :src="baseUrl + (item.cheliangzhaopian?item.cheliangzhaopian.split(',')[0]:'')" alt="">
+                :src="baseUrl + (item.carImage?item.carImage.split(',')[0]:'')" alt="">
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">车牌号:{{ item.chepaihao }}
+                class="name ">车牌号:{{ item.carNumber }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">汽车类型:{{ item.qicheleibie }}
+                class="name ">汽车类型:{{ item.carModel }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">车辆品牌:{{ item.cheliangpinpai }}
+                class="name ">车辆品牌:{{ item.carBrand }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">价格:{{ item.jiage }}
+                class="name ">价格:{{ item.price }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">排挡:{{ item.paidang }}
+                class="name ">排挡:{{ item.transmissionType }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">座位:{{ item.zuowei }}
+                class="name ">座位:{{ item.seatNumber }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">状态:{{ item.zhuangtai }}
+                class="name ">状态:{{ item.status }}
             </div>
             <!--<div :style='{"padding":"0 10px","lineHeight":"12px","fontSize":"14px","color":"#999","textAlign":"right"}'>2022-02-02</div>-->
           </div>
@@ -292,13 +279,13 @@ export default {
         }
       ],
       formSearch: {
-        chepaihao: '',
-        qicheleibie: '',
-        cheliangpinpai: '',
-        zhuangtai: '',
-        jiage:'',
-        paidang:'',
-        zuowei:'',
+        carNumber: '',
+        carModel: '',
+        carBrand: '',
+        status: '',
+        price:'',
+        transmissionType:'',
+        seatNumber:'',
       },
       fenlei: [],
       hotList: [],
@@ -310,24 +297,24 @@ export default {
       curFenlei: '全部',
       isPlain: false,
       indexQueryCondition: '',
-      qicheleibieOptions: [],
-      cheliangpinpaiOptions:[],
-      jiageOptions:[],
-      paidangOptions:[],
-      zuoweiOptions:[],
-      zhuangtaiOptions: [],
+      carModelOptions: [],
+      carBrandOptions:[],
+      priceOptions:[],
+      transmissionTypeOptions:[],
+      seatNumberOptions:[],
+      statusOptions: [],
       timeRange: []
     }
   },
   created() {
     this.indexQueryCondition = this.$route.query.indexQueryCondition ? this.$route.query.indexQueryCondition : '';
     this.baseUrl = this.$config.baseUrl;
-    this.$http.get('option/qicheleibie/qicheleibie').then(res => {
+    this.$http.get('option/carModel/carModel').then(res => {
       if (res.data.code == 0) {
-        this.qicheleibieOptions = res.data.data;
+        this.carModelOptions = res.data.data;
       }
     });
-    this.zhuangtaiOptions = '已出租,未出租'.split(',');
+    this.statusOptions = '已出租,未出租'.split(',');
     this.getFenlei();
     this.getList(1, '全部');
     this.getHotList();
@@ -339,7 +326,7 @@ export default {
     },
     getHotList() {
       let autoSortUrl = "";
-      autoSortUrl = "qichexinxi/autoSort";
+      autoSortUrl = "carinfo/autoSort";
       this.$http.get(autoSortUrl, {
         params: {
           page: 1,
@@ -352,7 +339,7 @@ export default {
       })
     },
     getFenlei() {
-      this.$http.get('option/qicheleibie/qicheleibie').then(res => {
+      this.$http.get('option/carModel/carModel').then(res => {
         if (res.data.code == 0) {
           this.fenlei = res.data.data;
         }
@@ -374,12 +361,12 @@ export default {
       }
       let params = {page, limit: this.pageSize};
       let searchWhere = {};
-      if (this.formSearch.chepaihao != '') searchWhere.chepaihao = '%' + this.formSearch.chepaihao + '%';
-      if (this.formSearch.qicheleibie != '') searchWhere.qicheleibie = this.formSearch.qicheleibie;
-      if (this.formSearch.cheliangpinpai != '') searchWhere.cheliangpinpai = '%' + this.formSearch.cheliangpinpai + '%';
-      if (this.formSearch.zhuangtai != '') searchWhere.zhuangtai = this.formSearch.zhuangtai;
-      if (this.curFenlei != '全部') searchWhere.qicheleibie = this.curFenlei;
-      this.$http.get('qichexinxi/list', {params: Object.assign(params, searchWhere)}).then(res => {
+      if (this.formSearch.carNumber != '') searchWhere.carNumber = '%' + this.formSearch.carNumber + '%';
+      if (this.formSearch.carModel != '') searchWhere.carModel = this.formSearch.carModel;
+      if (this.formSearch.carBrand != '') searchWhere.carBrand = '%' + this.formSearch.carBrand + '%';
+      if (this.formSearch.status != '') searchWhere.status = this.formSearch.status;
+      if (this.curFenlei != '全部') searchWhere.carModel = this.curFenlei;
+      this.$http.get('carinfo/list', {params: Object.assign(params, searchWhere)}).then(res => {
         if (res.data.code == 0) {
           this.dataList = res.data.data.list;
           this.total = res.data.data.total;
@@ -400,7 +387,7 @@ export default {
       this.getList(page, this.curFenlei);
     },
     toDetail(item) {
-      this.$router.push({path: '/index/qichexinxiDetail', query: {detailObj: JSON.stringify(item)}});
+      this.$router.push({path: '/index/carinfoDetail', query: {detailObj: JSON.stringify(item)}});
     },
   }
 }

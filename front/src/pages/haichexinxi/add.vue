@@ -11,7 +11,7 @@
             <el-input v-model="ruleForm.dingdanbianhao" 
                 placeholder="订单编号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="车牌号" prop="chepaihao">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="车牌号" prop="carBrand">
             <el-input v-model="ruleForm.chepaihao" 
                 placeholder="车牌号" clearable ></el-input>
           </el-form-item>
@@ -48,11 +48,11 @@
             <el-input v-model="ruleForm.shenfenzheng" 
                 placeholder="身份证" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理账号" prop="guanlizhanghao">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理账号" prop="ordinaryAdminAccount">
             <el-input v-model="ruleForm.guanlizhanghao" 
                 placeholder="管理账号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理姓名" prop="guanlixingming">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理姓名" prop="ordinaryAdminName">
             <el-input v-model="ruleForm.guanlixingming" 
                 placeholder="管理姓名" clearable ></el-input>
           </el-form-item>
@@ -283,8 +283,8 @@
       onSubmit() {
 
         //更新跨表属性
-        var crossuserid;
-        var crossrefid;
+        var cross_userId;
+        var cross_ref_id;
         var crossoptnum;
         this.$refs["ruleForm"].validate(valid => {
           if(valid) {

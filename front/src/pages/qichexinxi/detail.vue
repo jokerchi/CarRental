@@ -31,7 +31,7 @@
           <div class="item"
                :style='{"border":"0px solid #eee","padding":"10px 10px","boxShadow":"1px 2px 6px #8dd2eb","margin":"0 0 10px 0","alignItems":"center","borderRadius":"8px","background":"radial-gradient(circle, rgba(55,170,250,1) 25%, rgba(63,94,251,1) 100%),rgb(63,201,251)","display":"flex","justifyContent":"space-between"}'>
             <div :style='{"color":"#fff","fontSize":"16px"}'>
-              {{ detail.chepaihao }}
+              {{ detail.carNumber }}
             </div>
             <div @click="storeup(1)" v-show="!isStoreup"
                  :style='{"cursor":"pointer","padding":"0","borderRadius":"30%","background":"none"}'><i v-if="true"
@@ -53,20 +53,10 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.cheliangxinghao }}
+              {{ detail.carModel }}
             </div>
           </div>
-          <div class="item"
-               :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
-            <div class="lable"
-                 :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>
-              汽车类别
-            </div>
-            <div
-                :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.qicheleibie }}
-            </div>
-          </div>
+
           <div class="item"
                :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
             <div class="lable"
@@ -75,7 +65,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.cheliangpinpai }}
+              {{ detail.carBrand }}
             </div>
           </div>
           <div class="item"
@@ -86,7 +76,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.jiage }}
+              {{ detail.price }}
             </div>
           </div>
           <div class="item"
@@ -97,7 +87,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.yanse }}
+              {{ detail.color }}
             </div>
           </div>
           <div class="item"
@@ -108,7 +98,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.zhuangtai }}
+              {{ detail.status }}
             </div>
           </div>
           <div class="item"
@@ -119,7 +109,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.huandangfangshi }}
+              {{ detail.transmissionType }}
             </div>
           </div>
           <div class="item"
@@ -130,7 +120,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.zuoweishu }}
+              {{ detail.seatNumber }}
             </div>
           </div>
           <div class="item"
@@ -141,7 +131,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.qichepailiang }}
+              {{ detail.displacement }}
             </div>
           </div>
           <div class="item"
@@ -152,7 +142,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.qichejiage }}
+              {{ detail.carPrice }}
             </div>
           </div>
           <div class="item"
@@ -163,7 +153,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.chuchangnianfen }}
+              {{ detail.productionYear }}
             </div>
           </div>
           <div class="item"
@@ -174,7 +164,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.dengjiriqi }}
+              {{ detail.registrationDate }}
             </div>
           </div>
           <div class="item"
@@ -185,7 +175,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.guanlizhanghao }}
+              {{ detail.ordinaryAdminAccount }}
             </div>
           </div>
           <div class="item"
@@ -196,7 +186,7 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.guanlixingming }}
+              {{ detail.ordinaryAdminName }}
             </div>
           </div>
           <div class="item"
@@ -207,14 +197,14 @@
             </div>
             <div
                 :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>
-              {{ detail.clicknum }}
+              {{ detail.clickNum }}
             </div>
           </div>
           <div class="btn" :style='{"padding":"10px 0","flexWrap":"wrap","display":"flex"}'>
             <el-button
                 :style='{"border":"0","cursor":"pointer","padding":"0 10px","margin":"0 5px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(64, 158, 255, 1)","width":"auto","lineHeight":"40px","fontSize":"14px","height":"40px"}'
-                v-if="isAuth('qichexinxi','租赁汽车')"
-                @click="onAcross('zuchedingdan','','zhuangtai','该车辆已出租','已出租,未出租'.split(',')[0])" type="warning">租赁汽车
+                v-if="isAuth('carinfo','租赁汽车')"
+                @click="onAcross('carrentalorder','','status','该车辆已出租','已出租,未出租'.split(',')[0])" type="warning">租赁汽车
             </el-button>
           </div>
         </div>
@@ -232,15 +222,13 @@
                  @click="toDetail(item)">
               <img
                   :style='{"cursor":"pointer","width":"100%","objectFit":"cover","borderRadius":"8px","display":"block","height":"150px"}'
-                  :src="baseUrl + (item.cheliangzhaopian?item.cheliangzhaopian.split(',')[0]:'')" alt="">
+                  :src="baseUrl + (item.carImage?item.carImage.split(',')[0]:'')" alt="">
               <div :style='{"padding":"4px 5px 0","lineHeight":"32px","fontSize":"14px","color":"#666"}'>
-                {{ item.chepaihao }}
+                {{ item.carNumber }}
               </div>
+
               <div :style='{"padding":"4px 5px 0","lineHeight":"32px","fontSize":"14px","color":"#666"}'>
-                {{ item.qicheleibie }}
-              </div>
-              <div :style='{"padding":"4px 5px 0","lineHeight":"32px","fontSize":"14px","color":"#666"}'>
-                {{ item.zhuangtai }}
+                {{ item.status }}
               </div>
               <!-- <div :style='{"padding":"0 5px","lineHeight":"12px","fontSize":"12px","color":"#999","textAlign":"right"}'>2022-02-02</div> -->
             </div>
@@ -253,7 +241,7 @@
                :style='{"border":"1px solid #dfdfdf","minHeight":"350px","boxShadow":"1px 2px 3px #eee","padding":"16px","borderRadius":"16px","background":"#FFF"}'
                v-model="activeName" type="border-card">
         <el-tab-pane label="汽车简介" name="first">
-          <div v-html="detail.qichejianjie"></div>
+          <div v-html="detail.carDescription"></div>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -267,7 +255,7 @@ export default {
   //数据集合
   data() {
     return {
-      tablename: 'qichexinxi',
+      tableName: 'carinfo',
       baseUrl: '',
       breadcrumbItem: [
         {
@@ -292,13 +280,13 @@ export default {
       storeupParams: {
         name: '',
         picture: '',
-        refid: 0,
-        tablename: 'qichexinxi',
+        refId: 0,
+        tableName: 'carinfo',
         userid: localStorage.getItem('userid')
       },
       isStoreup: false,
       storeupInfo: {},
-      buynumber: 1,
+      buyNumber: 1,
     }
   },
   created() {
@@ -312,13 +300,13 @@ export default {
         this.detail = JSON.parse(this.$route.query.detailObj);
       }
       if (this.$route.query.storeupObj) {
-        this.detail.id = JSON.parse(this.$route.query.storeupObj).refid;
+        this.detail.id = JSON.parse(this.$route.query.storeUpObj).refid;
       }
-      this.$http.get(this.tablename + '/detail/' + this.detail.id, {}).then(res => {
+      this.$http.get(this.tableName + '/detail/' + this.detail.id, {}).then(res => {
         if (res.data.code == 0) {
           this.detail = res.data.data;
-          this.title = this.detail.chepaihao;
-          this.detailBanner = this.detail.cheliangzhaopian ? this.detail.cheliangzhaopian.split(",") : [];
+          this.title = this.detail.carNumber;
+          this.detailBanner = this.detail.carImage ? this.detail.carImage.split(",") : [];
           this.$forceUpdate();
         }
       });
@@ -328,14 +316,14 @@ export default {
 
     },
     toDetail(item) {
-      this.$router.push({path: '/index/qichexinxiDetail', query: {detailObj: JSON.stringify(item)}});
+      this.$router.push({path: '/index/carinfoDetail', query: {detailObj: JSON.stringify(item)}});
       this.init();
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     },
     getHotList() {
       let autoSortUrl = "";
-      autoSortUrl = "qichexinxi/autoSort";
+      autoSortUrl = "carinfo/autoSort";
       this.$http.get(autoSortUrl, {
         params: {
           page: 1,
@@ -348,7 +336,7 @@ export default {
       })
     },
     onAcross(acrossTable, crossOptAudit, statusColumnName, tips, statusColumnValue) {
-      localStorage.setItem('crossTable', `qichexinxi`);
+      localStorage.setItem('crossTable', `carinfo`);
       localStorage.setItem('crossObj', JSON.stringify(this.detail));
       localStorage.setItem('statusColumnName', statusColumnName);
       localStorage.setItem('statusColumnValue', statusColumnValue);
@@ -408,7 +396,7 @@ export default {
             limit: 1,
             type: 1,
             refid: this.detail.id,
-            tablename: 'qichexinxi',
+            tablename: 'carinfo',
             userid: localStorage.getItem('userid')
           }
         }).then(res => {
