@@ -11,19 +11,16 @@ import UpdatePassword from '@/views/update-password'
 import pay from '@/views/pay'
 import register from '@/views/register'
 import center from '@/views/center'
-import news from '@/views/modules/news/list'
+import excitingactivities from '@/views/modules/excitingactivities/list'
 import qichezixun from '@/views/modules/qichezixun/list'
 import aboutus from '@/views/modules/aboutus/list'
 import ordinaryadministrator from '@/views/modules/ordinaryadministrator/list'
-import haichexinxi from '@/views/modules/haichexinxi/list'
+import returncarinfo from '@/views/modules/returncarinfo/list'
 import forum from '@/views/modules/forum/list'
-import qicheleibie from '@/views/modules/qicheleibie/list'
-import quxiaodingdan from '@/views/modules/quxiaodingdan/list'
-import systemintro from '@/views/modules/systemintro/list'
+import cancelorder from '@/views/modules/cancelorder/list'
 import client from '@/views/modules/client/list'
-import qichexinxi from '@/views/modules/qichexinxi/list'
-import messages from '@/views/modules/messages/list'
-import zuchedingdan from '@/views/modules/zuchedingdan/list'
+import carinfo from '@/views/modules/carinfo/list'
+import carrentalorder from '@/views/modules/carrentalorder/list'
 import config from '@/views/modules/config/list'
 
 
@@ -55,9 +52,9 @@ const routes = [{
       meta: {icon:'', title:'center'}
     }
       ,{
-	path: '/news',
+	path: '/excitingactivities',
         name: '公告信息',
-        component: news
+        component: excitingactivities
       }
       ,{
 	path: '/qichezixun',
@@ -75,9 +72,9 @@ const routes = [{
         component: ordinaryadministrator
       }
       ,{
-	path: '/haichexinxi',
+	path: '/returncarinfo',
         name: '还车信息',
-        component: haichexinxi
+        component: returncarinfo
       }
       ,{
 	path: '/forum',
@@ -85,19 +82,9 @@ const routes = [{
         component: forum
       }
       ,{
-	path: '/qicheleibie',
-        name: '汽车类别',
-        component: qicheleibie
-      }
-      ,{
-	path: '/quxiaodingdan',
+	path: '/cancelorder',
         name: '取消订单',
-        component: quxiaodingdan
-      }
-      ,{
-	path: '/systemintro',
-        name: '系统简介',
-        component: systemintro
+        component: cancelorder
       }
       ,{
 	path: '/client',
@@ -105,19 +92,14 @@ const routes = [{
         component: client
       }
       ,{
-	path: '/qichexinxi',
+	path: '/carinfo',
         name: '汽车信息',
-        component: qichexinxi
+        component: carinfo
       }
       ,{
-	path: '/messages',
-        name: '留言板管理',
-        component: messages
-      }
-      ,{
-	path: '/zuchedingdan',
+	path: '/carrentalorder',
         name: '租车订单',
-        component: zuchedingdan
+        component: carrentalorder
       }
       ,{
 	path: '/config',

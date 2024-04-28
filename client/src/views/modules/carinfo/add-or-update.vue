@@ -9,152 +9,138 @@
 			label-width="80px"
 		>
 			<template >
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车牌号" prop="chepaihao">
-					<el-input v-model="ruleForm.chepaihao" placeholder="车牌号" clearable  :readonly="ro.chepaihao"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车牌号" prop="carNumber">
+					<el-input v-model="ruleForm.carNumber" placeholder="车牌号" clearable  :readonly="ro.carNumber"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车牌号" prop="chepaihao">
-					<el-input v-model="ruleForm.chepaihao" placeholder="车牌号" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车牌号" prop="carNumber">
+					<el-input v-model="ruleForm.carNumber" placeholder="车牌号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车辆型号" prop="cheliangxinghao">
-					<el-input v-model="ruleForm.cheliangxinghao" placeholder="车辆型号" clearable  :readonly="ro.cheliangxinghao"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车辆型号" prop="carModel">
+					<el-input v-model="ruleForm.carModel" placeholder="车辆型号" clearable  :readonly="ro.carModel"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车辆型号" prop="cheliangxinghao">
-					<el-input v-model="ruleForm.cheliangxinghao" placeholder="车辆型号" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车辆型号" prop="carModel">
+					<el-input v-model="ruleForm.carModel" placeholder="车辆型号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="select" v-if="type!='info'"  label="汽车类别" prop="qicheleibie">
-					<el-select :disabled="ro.qicheleibie" v-model="ruleForm.qicheleibie" placeholder="请选择汽车类别" >
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车辆品牌" prop="carBrand">
+					<el-input v-model="ruleForm.carBrand" placeholder="车辆品牌" clearable  :readonly="ro.carBrand"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车辆品牌" prop="carBrand">
+					<el-input v-model="ruleForm.carBrand" placeholder="车辆品牌" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="价格" prop="price">
+					<el-input v-model="ruleForm.price" placeholder="价格" clearable  :readonly="ro.price"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="价格" prop="price">
+					<el-input v-model="ruleForm.price" placeholder="价格" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="颜色" prop="color">
+					<el-input v-model="ruleForm.color" placeholder="颜色" clearable  :readonly="ro.color"></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="颜色" prop="color">
+					<el-input v-model="ruleForm.color" placeholder="颜色" readonly></el-input>
+				</el-form-item>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="select" v-if="type!='info'"  label="状态" prop="status">
+					<el-select :disabled="ro.status" v-model="ruleForm.status" placeholder="请选择状态" >
 						<el-option
-							v-for="(item,index) in qicheleibieOptions"
+							v-for="(item,index) in statusOptions"
 							v-bind:key="index"
 							:label="item"
 							:value="item">
 						</el-option>
 					</el-select>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="汽车类别" prop="qicheleibie">
-					<el-input v-model="ruleForm.qicheleibie"
-						placeholder="汽车类别" readonly></el-input>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="车辆品牌" prop="cheliangpinpai">
-					<el-input v-model="ruleForm.cheliangpinpai" placeholder="车辆品牌" clearable  :readonly="ro.cheliangpinpai"></el-input>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="车辆品牌" prop="cheliangpinpai">
-					<el-input v-model="ruleForm.cheliangpinpai" placeholder="车辆品牌" readonly></el-input>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="价格" prop="jiage">
-					<el-input v-model="ruleForm.jiage" placeholder="价格" clearable  :readonly="ro.jiage"></el-input>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="价格" prop="jiage">
-					<el-input v-model="ruleForm.jiage" placeholder="价格" readonly></el-input>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="颜色" prop="yanse">
-					<el-input v-model="ruleForm.yanse" placeholder="颜色" clearable  :readonly="ro.yanse"></el-input>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="颜色" prop="yanse">
-					<el-input v-model="ruleForm.yanse" placeholder="颜色" readonly></el-input>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="select" v-if="type!='info'"  label="状态" prop="zhuangtai">
-					<el-select :disabled="ro.zhuangtai" v-model="ruleForm.zhuangtai" placeholder="请选择状态" >
-						<el-option
-							v-for="(item,index) in zhuangtaiOptions"
-							v-bind:key="index"
-							:label="item"
-							:value="item">
-						</el-option>
-					</el-select>
-				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="状态" prop="zhuangtai">
-					<el-input v-model="ruleForm.zhuangtai"
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="状态" prop="status">
+					<el-input v-model="ruleForm.status"
 						placeholder="状态" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="select" v-if="type!='info'"  label="换挡方式" prop="huandangfangshi">
-					<el-select :disabled="ro.huandangfangshi" v-model="ruleForm.huandangfangshi" placeholder="请选择换挡方式" >
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="select" v-if="type!='info'"  label="换挡方式" prop="transmissionType">
+					<el-select :disabled="ro.transmissionType" v-model="ruleForm.transmissionType" placeholder="请选择换挡方式" >
 						<el-option
-							v-for="(item,index) in huandangfangshiOptions"
+							v-for="(item,index) in transmissionTypeOptions"
 							v-bind:key="index"
 							:label="item"
 							:value="item">
 						</el-option>
 					</el-select>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="换挡方式" prop="huandangfangshi">
-					<el-input v-model="ruleForm.huandangfangshi"
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="换挡方式" prop="transmissionType">
+					<el-input v-model="ruleForm.transmissionType"
 						placeholder="换挡方式" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-if="type!='info' && !ro.cheliangzhaopian" label="车辆照片" prop="cheliangzhaopian">
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-if="type!='info' && !ro.carImage" label="车辆照片" prop="carImage">
 					<file-upload
 						tip="点击上传车辆照片"
 						action="file/upload"
 						:limit="3"
 						:multiple="true"
-						:fileUrls="ruleForm.cheliangzhaopian?ruleForm.cheliangzhaopian:''"
-						@change="cheliangzhaopianUploadChange"
+						:fileUrls="ruleForm.carImage?ruleForm.carImage:''"
+						@change="carImageUploadChange"
 					></file-upload>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-else-if="ruleForm.cheliangzhaopian" label="车辆照片" prop="cheliangzhaopian">
-					<img v-if="ruleForm.cheliangzhaopian.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.cheliangzhaopian.split(',')[0]" width="100" height="100">
-					<img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.cheliangzhaopian.split(',')" :src="$base.url+item" width="100" height="100">
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="upload" v-else-if="ruleForm.carImage" label="车辆照片" prop="carImage">
+					<img v-if="ruleForm.carImage.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.carImage.split(',')[0]" width="100" height="100">
+					<img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.carImage.split(',')" :src="$base.url+item" width="100" height="100">
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="座位数" prop="zuoweishu">
-					<el-input v-model="ruleForm.zuoweishu" placeholder="座位数" clearable  :readonly="ro.zuoweishu"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="座位数" prop="seatNumber">
+					<el-input v-model="ruleForm.seatNumber" placeholder="座位数" clearable  :readonly="ro.seatNumber"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="座位数" prop="zuoweishu">
-					<el-input v-model="ruleForm.zuoweishu" placeholder="座位数" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="座位数" prop="seatNumber">
+					<el-input v-model="ruleForm.seatNumber" placeholder="座位数" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="汽车排量" prop="qichepailiang">
-					<el-input v-model="ruleForm.qichepailiang" placeholder="汽车排量" clearable  :readonly="ro.qichepailiang"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="汽车排量" prop="displacement">
+					<el-input v-model="ruleForm.displacement" placeholder="汽车排量" clearable  :readonly="ro.displacement"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="汽车排量" prop="qichepailiang">
-					<el-input v-model="ruleForm.qichepailiang" placeholder="汽车排量" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="汽车排量" prop="displacement">
+					<el-input v-model="ruleForm.displacement" placeholder="汽车排量" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="汽车价格" prop="qichejiage">
-					<el-input v-model="ruleForm.qichejiage" placeholder="汽车价格" clearable  :readonly="ro.qichejiage"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="汽车价格" prop="carPrice">
+					<el-input v-model="ruleForm.carPrice" placeholder="汽车价格" clearable  :readonly="ro.carPrice"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="汽车价格" prop="qichejiage">
-					<el-input v-model="ruleForm.qichejiage" placeholder="汽车价格" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="汽车价格" prop="carPrice">
+					<el-input v-model="ruleForm.carPrice" placeholder="汽车价格" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="出厂年份" prop="chuchangnianfen">
-					<el-input v-model="ruleForm.chuchangnianfen" placeholder="出厂年份" clearable  :readonly="ro.chuchangnianfen"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="出厂年份" prop="productionYear">
+					<el-input v-model="ruleForm.productionYear" placeholder="出厂年份" clearable  :readonly="ro.productionYear"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="出厂年份" prop="chuchangnianfen">
-					<el-input v-model="ruleForm.chuchangnianfen" placeholder="出厂年份" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="出厂年份" prop="productionYear">
+					<el-input v-model="ruleForm.productionYear" placeholder="出厂年份" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="date" v-if="type!='info'" label="登记日期" prop="dengjiriqi">
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="date" v-if="type!='info'" label="登记日期" prop="registrationDate">
 					<el-date-picker
 						format="yyyy 年 MM 月 dd 日"
 						value-format="yyyy-MM-dd"
-						v-model="ruleForm.dengjiriqi" 
+						v-model="ruleForm.registrationDate"
 						type="date"
-						:readonly="ro.dengjiriqi"
+						:readonly="ro.registrationDate"
 						placeholder="登记日期"
 					></el-date-picker> 
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-else-if="ruleForm.dengjiriqi" label="登记日期" prop="dengjiriqi">
-					<el-input v-model="ruleForm.dengjiriqi" placeholder="登记日期" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-else-if="ruleForm.registrationDate" label="登记日期" prop="registrationDate">
+					<el-input v-model="ruleForm.registrationDate" placeholder="登记日期" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理账号" prop="guanlizhanghao">
-					<el-input v-model="ruleForm.guanlizhanghao" placeholder="管理账号" clearable  :readonly="ro.guanlizhanghao"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理账号" prop="ordinaryAdminAccount">
+					<el-input v-model="ruleForm.ordinaryAdminAccount" placeholder="管理账号" clearable  :readonly="ro.ordinaryAdminAccount"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理账号" prop="guanlizhanghao">
-					<el-input v-model="ruleForm.guanlizhanghao" placeholder="管理账号" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理账号" prop="ordinaryAdminAccount">
+					<el-input v-model="ruleForm.ordinaryAdminAccount" placeholder="管理账号" readonly></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理姓名" prop="guanlixingming">
-					<el-input v-model="ruleForm.guanlixingming" placeholder="管理姓名" clearable  :readonly="ro.guanlixingming"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="管理姓名" prop="ordinaryAdminName">
+					<el-input v-model="ruleForm.ordinaryAdminName" placeholder="管理姓名" clearable  :readonly="ro.ordinaryAdminName"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理姓名" prop="guanlixingming">
-					<el-input v-model="ruleForm.guanlixingming" placeholder="管理姓名" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="管理姓名" prop="ordinaryAdminName">
+					<el-input v-model="ruleForm.ordinaryAdminName" placeholder="管理姓名" readonly></el-input>
 				</el-form-item>
 			</template>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-if="type!='info'"  label="汽车简介" prop="qichejianjie">
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-if="type!='info'"  label="汽车简介" prop="carDescription">
 					<editor 
 						style="min-width: 200px; max-width: 600px;"
-						v-model="ruleForm.qichejianjie" 
+						v-model="ruleForm.carDescription"
 						class="editor" 
 						action="file/upload">
 					</editor>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else-if="ruleForm.qichejianjie" label="汽车简介" prop="qichejianjie">
-                    <span :style='{"fontSize":"14px","lineHeight":"40px","color":"#333","fontWeight":"500","display":"inline-block"}' v-html="ruleForm.qichejianjie"></span>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else-if="ruleForm.carDescription" label="汽车简介" prop="carDescription">
+                    <span :style='{"fontSize":"14px","lineHeight":"40px","color":"#333","fontWeight":"500","display":"inline-block"}' v-html="ruleForm.carDescription"></span>
                 </el-form-item>
 			<el-form-item :style='{"padding":"0","margin":"0"}' class="btn">
 				<el-button :style='{"border":"0","cursor":"pointer","padding":"0","margin":"0 20px 0 0","outline":"none","color":"rgba(255, 255, 255, 1)","borderRadius":"4px","background":"#337ab7","width":"128px","lineHeight":"40px","fontSize":"14px","height":"40px"}'  v-if="type!='info'" type="primary" class="btn-success" @click="onSubmit">提交</el-button>
@@ -241,96 +227,91 @@ export default {
 			
 			
 			ro:{
-				chepaihao : false,
-				cheliangxinghao : false,
-				qicheleibie : false,
-				cheliangpinpai : false,
-				jiage : false,
-				yanse : false,
-				zhuangtai : false,
-				huandangfangshi : false,
-				cheliangzhaopian : false,
-				zuoweishu : false,
-				qichepailiang : false,
-				qichejiage : false,
-				chuchangnianfen : false,
-				dengjiriqi : false,
-				qichejianjie : false,
-				guanlizhanghao : false,
-				guanlixingming : false,
-				clicktime : false,
-				clicknum : false,
+        carNumber : false,
+        carModel : false,
+        carBrand : false,
+        price : false,
+        color : false,
+        status : false,
+        transmissionType : false,
+        carImage : false,
+        seatNumber : false,
+        displacement : false,
+        carPrice : false,
+        productionYear : false,
+        registrationDate : false,
+        carDescription : false,
+        ordinaryAdminAccount : false,
+        ordinaryAdminName : false,
+				clickTime : false,
+				clickNum : false,
 			},
 			
 			
 			ruleForm: {
-				chepaihao: '',
-				cheliangxinghao: '',
-				qicheleibie: '',
-				cheliangpinpai: '',
-				jiage: '',
-				yanse: '',
-				zhuangtai: '未出租',
-				huandangfangshi: '',
-				cheliangzhaopian: '',
-				zuoweishu: '',
-				qichepailiang: '',
-				qichejiage: '',
-				chuchangnianfen: '',
-				dengjiriqi: '',
-				qichejianjie: '',
-				guanlizhanghao: '',
-				guanlixingming: '',
-				clicktime: '',
+        carNumber: '',
+        carModel: '',
+        carBrand: '',
+        price: '',
+        color: '',
+        status: '未出租',
+        transmissionType: '',
+        carImage: '',
+        seatNumber: '',
+        displacement: '',
+        carPrice: '',
+        productionYear: '',
+        registrationDate: '',
+        carDescription: '',
+        ordinaryAdminAccount: '',
+        ordinaryAdminName: '',
+        clickTime: '',
 			},
-		
-			qicheleibieOptions: [],
-			zhuangtaiOptions: [],
-			huandangfangshiOptions: [],
+
+      statusOptions: [],
+      transmissionTypeOptions: [],
 			
 			rules: {
-				chepaihao: [
+        carNumber: [
 					{ required: true, message: '车牌号不能为空', trigger: 'blur' },
 				],
-				cheliangxinghao: [
+        carModel: [
 				],
-				qicheleibie: [
-				],
-				cheliangpinpai: [
+        carBrand: [
 					{ required: true, message: '车辆品牌不能为空', trigger: 'blur' },
 				],
-				jiage: [
+        price: [
 					{ validator: validateNumber, trigger: 'blur' },
 				],
-				yanse: [
+        color: [
 				],
-				zhuangtai: [
+        status: [
 				],
-				huandangfangshi: [
+        transmissionType: [
 				],
-				cheliangzhaopian: [
+        carImage: [
 				],
-				zuoweishu: [
+        seatNumber: [
 					{ validator: validateIntNumber, trigger: 'blur' },
 				],
-				qichepailiang: [
+        displacement: [
 				],
-				qichejiage: [
+        carPrice: [
 					{ validator: validateNumber, trigger: 'blur' },
 				],
-				chuchangnianfen: [
+        productionYear: [
 				],
-				dengjiriqi: [
+        registrationDate: [
 				],
-				qichejianjie: [
+        carDescription: [
 				],
-				guanlizhanghao: [
+        ordinaryAdminAccount: [
 				],
-				guanlixingming: [
+        ordinaryAdminName: [
 				],
-				clicktime: [
+        clickTime: [
 				],
-				clicknum: [
+        clickNum: [
 					{ validator: validateIntNumber, trigger: 'blur' },
 				],
 			}
@@ -343,7 +324,7 @@ export default {
 
 	},
 	created() {
-		this.ruleForm.dengjiriqi = this.getCurDate()
+		this.ruleForm.registrationDate = this.getCurDate()
 	},
 	methods: {
 		
@@ -365,14 +346,14 @@ export default {
 			}else if(this.type=='cross'){
 				var obj = this.$storage.getObj('crossObj');
 				for (var o in obj){
-						if(o=='chepaihao'){
-							this.ruleForm.chepaihao = obj[o];
-							this.ro.chepaihao = true;
+						if(o=='carNumber'){
+							this.ruleForm.carNumber = obj[o];
+							this.ro.carNumber = true;
 							continue;
 						}
-						if(o=='cheliangxinghao'){
-							this.ruleForm.cheliangxinghao = obj[o];
-							this.ro.cheliangxinghao = true;
+						if(o=='carModel'){
+							this.ruleForm.carModel = obj[o];
+							this.ro.carModel = true;
 							continue;
 						}
 						if(o=='qicheleibie'){
@@ -380,108 +361,88 @@ export default {
 							this.ro.qicheleibie = true;
 							continue;
 						}
-						if(o=='cheliangpinpai'){
-							this.ruleForm.cheliangpinpai = obj[o];
-							this.ro.cheliangpinpai = true;
+						if(o=='carBrand'){
+							this.ruleForm.carBrand = obj[o];
+							this.ro.carBrand = true;
 							continue;
 						}
-						if(o=='jiage'){
-							this.ruleForm.jiage = obj[o];
-							this.ro.jiage = true;
+						if(o=='price'){
+							this.ruleForm.price = obj[o];
+							this.ro.price = true;
 							continue;
 						}
-						if(o=='yanse'){
-							this.ruleForm.yanse = obj[o];
-							this.ro.yanse = true;
+						if(o=='color'){
+							this.ruleForm.color = obj[o];
+							this.ro.color = true;
 							continue;
 						}
-						if(o=='zhuangtai'){
-							this.ruleForm.zhuangtai = obj[o];
-							this.ro.zhuangtai = true;
+						if(o=='status'){
+							this.ruleForm.status = obj[o];
+							this.ro.status = true;
 							continue;
 						}
-						if(o=='huandangfangshi'){
-							this.ruleForm.huandangfangshi = obj[o];
-							this.ro.huandangfangshi = true;
+						if(o=='transmissionType'){
+							this.ruleForm.transmissionType = obj[o];
+							this.ro.transmissionType = true;
 							continue;
 						}
-						if(o=='cheliangzhaopian'){
-							this.ruleForm.cheliangzhaopian = obj[o];
-							this.ro.cheliangzhaopian = true;
+						if(o=='carImage'){
+							this.ruleForm.carImage = obj[o];
+							this.ro.carImage = true;
 							continue;
 						}
-						if(o=='zuoweishu'){
-							this.ruleForm.zuoweishu = obj[o];
-							this.ro.zuoweishu = true;
+						if(o=='seatNumber'){
+							this.ruleForm.seatNumber = obj[o];
+							this.ro.seatNumber = true;
 							continue;
 						}
-						if(o=='qichepailiang'){
-							this.ruleForm.qichepailiang = obj[o];
-							this.ro.qichepailiang = true;
+						if(o=='displacement'){
+							this.ruleForm.displacement = obj[o];
+							this.ro.displacement = true;
 							continue;
 						}
-						if(o=='qichejiage'){
-							this.ruleForm.qichejiage = obj[o];
-							this.ro.qichejiage = true;
+						if(o=='carPrice'){
+							this.ruleForm.carPrice = obj[o];
+							this.ro.carPrice = true;
 							continue;
 						}
-						if(o=='chuchangnianfen'){
-							this.ruleForm.chuchangnianfen = obj[o];
-							this.ro.chuchangnianfen = true;
+						if(o=='productionYear'){
+							this.ruleForm.productionYear = obj[o];
+							this.ro.productionYear = true;
 							continue;
 						}
-						if(o=='dengjiriqi'){
-							this.ruleForm.dengjiriqi = obj[o];
-							this.ro.dengjiriqi = true;
+						if(o=='registrationDate'){
+							this.ruleForm.registrationDate = obj[o];
+							this.ro.registrationDate = true;
 							continue;
 						}
-						if(o=='qichejianjie'){
-							this.ruleForm.qichejianjie = obj[o];
-							this.ro.qichejianjie = true;
+						if(o=='carDescription'){
+							this.ruleForm.carDescription = obj[o];
+							this.ro.carDescription = true;
 							continue;
 						}
-						if(o=='guanlizhanghao'){
-							this.ruleForm.guanlizhanghao = obj[o];
-							this.ro.guanlizhanghao = true;
+						if(o=='ordinaryAdminAccount'){
+							this.ruleForm.ordinaryAdminAccount = obj[o];
+							this.ro.ordinaryAdminAccount = true;
 							continue;
 						}
-						if(o=='guanlixingming'){
-							this.ruleForm.guanlixingming = obj[o];
-							this.ro.guanlixingming = true;
+						if(o=='ordinaryAdminName'){
+							this.ruleForm.ordinaryAdminName = obj[o];
+							this.ro.ordinaryAdminName = true;
 							continue;
 						}
-						if(o=='clicktime'){
-							this.ruleForm.clicktime = obj[o];
-							this.ro.clicktime = true;
+						if(o=='clickTime'){
+							this.ruleForm.clickTime = obj[o];
+							this.ro.clickTime = true;
 							continue;
 						}
-						if(o=='clicknum'){
-							this.ruleForm.clicknum = obj[o];
-							this.ro.clicknum = true;
+						if(o=='clickNum'){
+							this.ruleForm.clickNum = obj[o];
+							this.ro.clickNum = true;
 							continue;
 						}
 				}
-				
-
-
-
-
-
-
-
-				this.ruleForm.zhuangtai='未出租'
-
-
-
-
-
-
-
-
-
-
-
-
+				this.ruleForm.status='未出租'
 			}
 			
 			
@@ -493,45 +454,34 @@ export default {
 				if (data && data.code === 0) {
 					
 					var json = data.data;
-					if(((json.guanlizhanghao!=''&&json.guanlizhanghao) || json.guanlizhanghao==0) && this.$storage.get("role")!="管理员"){
-						this.ruleForm.guanlizhanghao = json.guanlizhanghao
-						this.ro.guanlizhanghao = true;
+					if(((json.ordinaryAdminAccount!=''&&json.ordinaryAdminAccount) || json.ordinaryAdminAccount==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.ordinaryAdminAccount = json.ordinaryAdminAccount
+						this.ro.ordinaryAdminAccount = true;
 					}
-					if(((json.guanlixingming!=''&&json.guanlixingming) || json.guanlixingming==0) && this.$storage.get("role")!="管理员"){
-						this.ruleForm.guanlixingming = json.guanlixingming
-						this.ro.guanlixingming = true;
+					if(((json.ordinaryAdminName!=''&&json.ordinaryAdminName) || json.ordinaryAdminName==0) && this.$storage.get("role")!="管理员"){
+						this.ruleForm.ordinaryAdminName = json.ordinaryAdminName
+						this.ro.ordinaryAdminName = true;
 					}
 				} else {
 					this.$message.error(data.msg);
 				}
 			});
-			
-            this.$http({
-				url: `option/qicheleibie/qicheleibie`,
-				method: "get"
-            }).then(({ data }) => {
-				if (data && data.code === 0) {
-					this.qicheleibieOptions = data.data;
-				} else {
-					this.$message.error(data.msg);
-				}
-            });
-            this.zhuangtaiOptions = "已出租,未出租".split(',')
-            this.huandangfangshiOptions = "手动挡,自动挡".split(',')
+            this.statusOptions = "已出租,未出租".split(',')
+            this.transmissionTypeOptions = "手动挡,自动挡".split(',')
 			
 		},
     // 多级联动参数
 
     info(id) {
       this.$http({
-        url: `qichexinxi/info/${id}`,
+        url: `carinfo/info/${id}`,
         method: "get"
       }).then(({ data }) => {
         if (data && data.code === 0) {
         this.ruleForm = data.data;
         //解决前台上传图片后台不显示的问题
         let reg=new RegExp('../../../upload','g')//g代表全部
-        this.ruleForm.qichejianjie = this.ruleForm.qichejianjie.replace(reg,'../../../springboot1ma2x/upload');
+        this.ruleForm.carDescription = this.ruleForm.carDescription.replace(reg,'../../../springboot1ma2x/upload');
         } else {
           this.$message.error(data.msg);
         }
@@ -541,48 +491,9 @@ export default {
 
     // 提交
     onSubmit() {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	if(this.ruleForm.cheliangzhaopian!=null) {
-		this.ruleForm.cheliangzhaopian = this.ruleForm.cheliangzhaopian.replace(new RegExp(this.$base.url,"g"),"");
+	if(this.ruleForm.carImage!=null) {
+		this.ruleForm.carImage = this.ruleForm.carImage.replace(new RegExp(this.$base.url,"g"),"");
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var objcross = this.$storage.getObj('crossObj');
 
       //更新跨表属性
@@ -626,7 +537,7 @@ var objcross = this.$storage.getObj('crossObj');
 				crossrefid:this.ruleForm.crossrefid,
 			} 
 			this.$http({ 
-				url: "qichexinxi/page", 
+				url: "carinfo/page",
 				method: "get", 
 				params: params 
 			}).then(({ 
@@ -638,7 +549,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       return false;
 				       } else {
 					 this.$http({
-					   url: `qichexinxi/${!this.ruleForm.id ? "save" : "update"}`,
+					   url: `carinfo/${!this.ruleForm.id ? "save" : "update"}`,
 					   method: "post",
 					   data: this.ruleForm
 					 }).then(({ data }) => {
@@ -650,7 +561,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       onClose: () => {
 						 this.parent.showFlag = true;
 						 this.parent.addOrUpdateFlag = false;
-						 this.parent.qichexinxiCrossAddOrUpdateFlag = false;
+						 this.parent.carinfoCrossAddOrUpdateFlag = false;
 						 this.parent.search();
 						 this.parent.contentStyleChange();
 					       }
@@ -666,7 +577,7 @@ var objcross = this.$storage.getObj('crossObj');
 			});
 		 } else {
 			 this.$http({
-			   url: `qichexinxi/${!this.ruleForm.id ? "save" : "update"}`,
+			   url: `carinfo/${!this.ruleForm.id ? "save" : "update"}`,
 			   method: "post",
 			   data: this.ruleForm
 			 }).then(({ data }) => {
@@ -678,7 +589,7 @@ var objcross = this.$storage.getObj('crossObj');
 			       onClose: () => {
 				 this.parent.showFlag = true;
 				 this.parent.addOrUpdateFlag = false;
-				 this.parent.qichexinxiCrossAddOrUpdateFlag = false;
+				 this.parent.carinfoCrossAddOrUpdateFlag = false;
 				 this.parent.search();
 				 this.parent.contentStyleChange();
 			       }
@@ -699,11 +610,11 @@ var objcross = this.$storage.getObj('crossObj');
     back() {
       this.parent.showFlag = true;
       this.parent.addOrUpdateFlag = false;
-      this.parent.qichexinxiCrossAddOrUpdateFlag = false;
+      this.parent.carinfoCrossAddOrUpdateFlag = false;
       this.parent.contentStyleChange();
     },
-    cheliangzhaopianUploadChange(fileUrls) {
-	    this.ruleForm.cheliangzhaopian = fileUrls;
+    carImageUploadChange(fileUrls) {
+	    this.ruleForm.carImage = fileUrls;
     },
   }
 };
