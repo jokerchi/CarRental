@@ -12,12 +12,9 @@
         </el-radio-group>
       </el-form-item>
       <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="内容" prop="content">
-        <quill-editor ref="myTextEditor"
-          v-model="form.content"
-          :config="editorOption"
-          @ready="onEditorReady($event)">
-        </quill-editor>
-      </el-form-item>
+        <textarea
+          v-model="form.content" placeholder="请输入内容..." style="width: 100%;height: 200px; border: 1px solid #ccc; border-radius: 4px; padding: 10px;font-family:Arial;"></textarea>
+    </el-form-item>
       <el-form-item :style='{"padding":"0","margin":"20px 0 20px 0"}'>
         <el-button :style='{"border":"0","cursor":"pointer","padding":"0","boxShadow":"1px 2px 6px #52a1db","margin":"0 20px 0 0","color":"rgba(255, 255, 255, 1)","outline":"none","borderRadius":"30%","background":"radial-gradient(circle, rgba(128,184,246,1) 0%, rgba(36,153,251,1) 100%)","width":"128px","lineHeight":"40px","fontSize":"14px","height":"40px"}' type="primary" @click="submitForm('form')">{{this.isEdit ? '修改' : '发布帖子'}} </el-button>
         <el-button :style='{"border":"1px solid #bbb","cursor":"pointer","padding":"0","boxShadow":"1px 2px 6px #ccc","margin":"0","color":"#999","outline":"none","borderRadius":"30%","background":"#fff","width":"128px","lineHeight":"40px","fontSize":"14px","height":"40px"}' @click="resetForm('form')">重置</el-button>
@@ -39,26 +36,26 @@
           userId: localStorage.getItem('userId'),
           userName: localStorage.getItem('userName')
         },
-        editorOption: {
-          modules: {
-            toolbar: [
-              ["bold", "italic", "underline", "strike"],
-              ["blockquote", "code-block"],
-              [{ header: 1 }, { header: 2 }],
-              [{ list: "ordered" }, { list: "bullet" }],
-              [{ script: "sub" }, { script: "super" }],
-              [{ indent: "-1" }, { indent: "+1" }],
-              [{ direction: "rtl" }],
-              [{ size: ["small", false, "large", "huge"] }],
-              [{ header: [1, 2, 3, 4, 5, 6, false] }],
-              [{ color: [] }, { background: [] }],
-              [{ font: [] }],
-              [{ align: [] }],
-              ["clean"],
-              ["image", "video"]
-            ]
-          }
-        },
+        // editorOption: {
+        //   modules: {
+        //     toolbar: [
+        //       ["bold", "italic", "underline", "strike"],
+        //       ["blockquote", "code-block"],
+        //       [{ header: 1 }, { header: 2 }],
+        //       [{ list: "ordered" }, { list: "bullet" }],
+        //       [{ script: "sub" }, { script: "super" }],
+        //       [{ indent: "-1" }, { indent: "+1" }],
+        //       [{ direction: "rtl" }],
+        //       [{ size: ["small", false, "large", "huge"] }],
+        //       [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        //       [{ color: [] }, { background: [] }],
+        //       [{ font: [] }],
+        //       [{ align: [] }],
+        //       ["clean"],
+        //       ["image", "video"]
+        //     ]
+        //   }
+        // },
         isEdit: false,
         rules: {
           title: [
