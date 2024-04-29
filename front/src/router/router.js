@@ -17,12 +17,12 @@ import NewsDetail from '../pages/news/news-detail'
 import clientList from '../pages/client/list'
 import clientDetail from '../pages/client/detail'
 import clientAdd from '../pages/client/add'
-import putongguanliyuanList from '../pages/ordinaryadministrator/list'
-import putongguanliyuanDetail from '../pages/ordinaryadministrator/detail'
-import putongguanliyuanAdd from '../pages/ordinaryadministrator/add'
-import carinfoList from '../pages/qichexinxi/list'
-import carinfoDetail from '../pages/qichexinxi/detail'
-import carinfoAdd from '../pages/qichexinxi/add'
+import ordinaryadministratorList from '../pages/ordinaryadministrator/list'
+import ordinaryadministratorDetail from '../pages/ordinaryadministrator/detail'
+import ordinaryadministratorAdd from '../pages/ordinaryadministrator/add'
+import carinfoList from '../pages/carinfo/list'
+import carinfoDetail from '../pages/carinfo/detail'
+import carinfoAdd from '../pages/carinfo/add'
 import zuchedingdanList from '../pages/zuchedingdan/list'
 import zuchedingdanDetail from '../pages/zuchedingdan/detail'
 import zuchedingdanAdd from '../pages/zuchedingdan/add'
@@ -108,16 +108,16 @@ export default new VueRouter({
 					component: clientAdd
 				},
 				{
-					path: 'putongguanliyuan',
-					component: putongguanliyuanList
+					path: 'ordinaryadministrator',
+					component: ordinaryadministratorList
 				},
 				{
-					path: 'putongguanliyuanDetail',
-					component: putongguanliyuanDetail
+					path: 'ordinaryadministratorDetail',
+					component: ordinaryadministratorDetail
 				},
 				{
-					path: 'putongguanliyuanAdd',
-					component: putongguanliyuanAdd
+					path: 'ordinaryadministratorAdd',
+					component: ordinaryadministratorAdd
 				},
 
 				{
