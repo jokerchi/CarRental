@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <div
         :style='{"padding":"12px","boxShadow":"0 0px 6px #999","margin":"0px auto","borderColor":"#fff","borderRadius":"0px","background":"linear-gradient(180deg, #eee 0%, #fff 32%, #eee 100%)","borderWidth":"1px 0 1px 0","width":"100%","borderStyle":"solid"}'
@@ -8,7 +7,6 @@
         <el-breadcrumb-item>首页</el-breadcrumb-item>
         <el-breadcrumb-item v-for="(item, index) in breadcrumbItem" :key="index">{{ item.name }}</el-breadcrumb-item>
       </el-breadcrumb>
-
     </div>
 
 
@@ -17,128 +15,124 @@
 
       <el-form :inline="true" :model="formSearch" class="list-form-pv"
                :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
-        <el-form-item :style='{"margin":"0 10px"}'>
-
-
-          <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
-            <el-form-item :style='{"margin":"0 10px"}'>
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">取车时间</div>
-              <el-date-picker
+          <div style="display: flex">
+            <el-form :inline="true" :model="formSearch" class="list-form-pv"
+                     :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"auto","height":"auto","order":"2"}'>
+              <el-form-item :style='{"margin":"0 30px 0 10px"}'>
+                <div class="label"
+                     style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">
+                  取车时间
+                </div>
+                <el-date-picker
                   v-model="pickupDate"
                   type="date"
                   placeholder="选择日期"
                   :clearable="false"
-                  style="width:150px;margin-right:10px"
-              ></el-date-picker>
-              <el-select v-model="pickupHour" placeholder="时" style="width:150px;margin-right:5px">
-                <el-option v-for="hour in hours" :key="hour" :label="hour" :value="hour"></el-option>
-              </el-select>
-              <el-select v-model="pickupMinute" placeholder="分" style="width:80px;margin-right:5px">
-                <el-option v-for="minute in minutes" :key="minute" :label="minute" :value="minute"></el-option>
-              </el-select>
-            </el-form-item>
-          </el-form>
+                  style="width:150px;margin-right:10px">
+                </el-date-picker>
+                <el-select v-model="pickupHour" placeholder="时" style="width:150px;margin-right:5px">
+                  <el-option v-for="hour in hours" :key="hour" :label="hour" :value="hour"></el-option>
+                </el-select>
+                <el-select v-model="pickupMinute" placeholder="分" style="width:80px;margin-right:5px">
+                  <el-option v-for="minute in minutes" :key="minute" :label="minute" :value="minute"></el-option>
+                </el-select>
+              </el-form-item>
+            </el-form>
 
-          <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
-            <el-form-item :style='{"margin":"0 10px"}'>
-
-              <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">还车时间</div>
-
-              <el-date-picker
-                  v-model="pickupDate"
-                  type="date"
-                  placeholder="选择日期"
-                  :clearable="false"
-                  style="width:150px;margin-right:10px"
-              ></el-date-picker>
-              <el-select v-model="pickupHour" placeholder="时" style="width:150px;margin-right:5px">
-                <el-option v-for="hour in hours" :key="hour" :label="hour" :value="hour"></el-option>
-              </el-select>
-              <el-select v-model="pickupMinute" placeholder="分" style="width:80px;margin-right:5px">
-                <el-option v-for="minute in minutes" :key="minute" :label="minute" :value="minute"></el-option>
-              </el-select>
-            </el-form-item>
-          </el-form>
-
-
-
-
-          <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车牌号
+            <el-form :inline="true" :model="formSearch" class="list-form-pv"
+                     :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"auto","height":"auto","order":"2"}'>
+              <el-form-item :style='{"margin":"0 10px"}'>
+                <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">还车时间</div>
+                  <el-date-picker
+                      v-model="pickupDate"
+                      type="date"
+                      placeholder="选择日期"
+                      :clearable="false"
+                      style="width:150px;margin-right:10px"
+                  ></el-date-picker>
+                  <el-select v-model="pickupHour" placeholder="时" style="width:150px;margin-right:5px">
+                    <el-option v-for="hour in hours" :key="hour" :label="hour" :value="hour"></el-option>
+                  </el-select>
+                  <el-select v-model="pickupMinute" placeholder="分" style="width:80px;margin-right:5px">
+                    <el-option v-for="minute in minutes" :key="minute" :label="minute" :value="minute"></el-option>
+                  </el-select>
+              </el-form-item>
+            </el-form>
           </div>
-          <el-input v-model="formSearch.carNumber" placeholder="车牌号" clearable="true" ></el-input>
+
+        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
+          <div class="lable" v-if="true"
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
+            车牌号
+          </div>
+          <el-input v-model="formSearch.carNumber" placeholder="车牌号" clearable="true"></el-input>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 10px"}'>
 
-
-
+        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车辆型号
-
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
+            车辆型号
           </div>
-          <el-select v-model="formSearch.carModel" placeholder="请选择车辆型号" :clearable="true"  >
+          <el-select v-model="formSearch.carModel" placeholder="请选择车辆型号" :clearable="true">
             <el-option v-for="(item, index) in carModelOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 10px"}'>
 
-
+        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>车辆品牌
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
+            车辆品牌
           </div>
           <el-select v-model="formSearch.carBrand" placeholder="车辆品牌" :clearable="true">
             <el-option v-for="(item, index) in carBrandOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 10px"}'> -->
-          <el-form-item :style='{"margin":"0 10px"}'>
-  <div class="label">车辆型号</div>
-  <el-select v-model="formSearch.carModel" placeholder="请选择车辆型号" :clearable="true">
-    <el-option v-for="(item, index) in carModelOptions" :key="index" :label="item" :value="item"></el-option>
-  </el-select>
-</el-form-item>
-<el-form-item :style='{"margin":"0 10px"}'>
-  <div class="label">车辆品牌</div>
-  <el-select v-model="formSearch.carBrand" placeholder="车辆品牌" :clearable="true">
-    <el-option v-for="(item, index) in carBrandOptions" :key="index" :label="item" :value="item"></el-option>
-  </el-select>
-</el-form-item>
 
-
+        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>价格
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
+            价格
           </div>
           <el-select v-model="formSearch.price" placeholder="请选择价格" :clearable="true">
             <el-option v-for="(item, index) in priceOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 10px"}'>
 
+
+        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>排挡
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
+            换挡方式
           </div>
-          <el-select v-model="formSearch.transmissionType" placeholder="请选择排挡" :clearable="true">
-            <el-option v-for="(item, index) in transmissionTypeOptions" :key="index" :label="item" :value="item"></el-option>
+          <el-select v-model="formSearch.transmissionType" placeholder="请选择换挡方式" :clearable="true">
+            <el-option v-for="(item, index) in transmissionTypeOptions" :key="index" :label="item"
+                       :value="item"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 10px"}'>
 
+
+        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>座位
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
+            座位
           </div>
           <el-select v-model="formSearch.seatNumber" placeholder="请选择座位" :clearable="true">
             <el-option v-for="(item, index) in seatNumberOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item :style='{"margin":"0 10px"}'>
 
+
+        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>状态
+               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
+            状态
           </div>
           <el-select v-model="formSearch.status" placeholder="请选择状态" :clearable="true">
             <el-option v-for="(item, index) in statusOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
+
+
         <el-button v-if=" true "
                    :style='{"cursor":"pointer","border":"1px solid #21a63d","padding":"0px 15px","boxShadow":"1px 1px 3px #21a63d","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#25bd45","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}'
                    type="primary" @click="getList(1, curFenlei)"><i v-if="true"
@@ -148,8 +142,8 @@
         <el-button v-if="isAuth('carinfo','新增')"
                    :style='{"cursor":"pointer","border":"1px solid #db961f","padding":"0px 15px","boxShadow":"1px 1px 3px #f8a412","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#f8a412","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}'
                    type="primary" @click="add('/index/carinfoAdd')"><i v-if="true"
-                                                                          :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}'
-                                                                          class="el-icon-circle-plus-outline"></i>添加
+                                                                       :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}'
+                                                                       class="el-icon-circle-plus-outline"></i>添加
         </el-button>
       </el-form>
 
@@ -189,7 +183,7 @@
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">排挡:{{ item.transmissionType }}
+                class="name ">换挡方式:{{ item.transmissionType }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
@@ -237,7 +231,7 @@
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
-                class="name ">排挡:{{ item.transmissionType }}
+                class="name ">换挡方式:{{ item.transmissionType }}
             </div>
             <div
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
@@ -247,7 +241,6 @@
                 :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}'
                 class="name ">状态:{{ item.status }}
             </div>
-            <!--<div :style='{"padding":"0 10px","lineHeight":"12px","fontSize":"14px","color":"#999","textAlign":"right"}'>2022-02-02</div>-->
           </div>
         </div>
       </div>
@@ -314,11 +307,11 @@ export default {
       isPlain: false,
       indexQueryCondition: '',
 
-      carModelOptions: ["轿车","SUV","MPV","越野车"],
+      carModelOptions: [],
       carBrandOptions:[],
       priceOptions:["五万以下","五到十万","十到二十万","二十万到三十万","三十万以上"],
       transmissionTypeOptions:[],
-      seatNumberOptions:["二座","五座","七座"],
+      seatNumberOptions:[],
       statusOptions: [],
 
       timeRange: []
@@ -327,15 +320,14 @@ export default {
   created() {
     this.indexQueryCondition = this.$route.query.indexQueryCondition ? this.$route.query.indexQueryCondition : '';
     this.baseUrl = this.$config.baseUrl;
-    this.$http.get('option/carModel/carModel').then(res => {
-      if (res.data.code == 0) {
-        this.carModelOptions = res.data.data;
-      }
-    });
     this.statusOptions = '已出租,未出租'.split(',');
     this.getFenlei();
     this.getList(1, '全部');
     this.getHotList();
+    this.fetchCarBrands();
+    this.fetchCarModel();
+    this.fetchCarTransmissionType();
+    this.fetchSeatNumber();
   },
   //方法集合
   methods: {
@@ -382,6 +374,7 @@ export default {
       if (this.formSearch.carNumber != '') searchWhere.carNumber = '%' + this.formSearch.carNumber + '%';
       if (this.formSearch.carModel != '') searchWhere.carModel = this.formSearch.carModel;
       if (this.formSearch.carBrand != '') searchWhere.carBrand = '%' + this.formSearch.carBrand + '%';
+      if (this.formSearch.seatNumber != '') searchWhere.seatNumber = this.formSearch.seatNumber;
       if (this.formSearch.status != '') searchWhere.status = this.formSearch.status;
       if (this.curFenlei != '全部') searchWhere.carModel = this.curFenlei;
       this.$http.get('carinfo/list', {params: Object.assign(params, searchWhere)}).then(res => {
@@ -406,6 +399,86 @@ export default {
     },
     toDetail(item) {
       this.$router.push({path: '/index/carinfoDetail', query: {detailObj: JSON.stringify(item)}});
+    },
+    fetchCarBrands(){
+      this.$http.get('carinfo/lists').then(res => {
+        if (res.data.code === 0) {
+          // 提取汽车信息中的品牌信息
+          const carList = res.data.data;
+          const brandSet = new Set();
+          carList.forEach(car => {
+            brandSet.add(car.carBrand);
+          });
+          // 将提取到的品牌信息存储在carBrandOptions中
+          this.carBrandOptions = Array.from(brandSet);
+        } else {
+          // 处理接口请求失败的情况
+          console.error('Failed to fetch car information');
+        }
+      }).catch(error => {
+        // 处理接口请求错误的情况
+        console.error('Error fetching car information:', error);
+      });
+    },
+    fetchCarModel(){
+      this.$http.get('carinfo/lists').then(res => {
+        if (res.data.code === 0) {
+          // 提取汽车信息中的型号信息
+          const carList = res.data.data;
+          const carModelSet = new Set();
+          carList.forEach(car => {
+            carModelSet.add(car.carModel);
+          });
+          // 将提取到的型号信息存储在carModelOptions中
+          this.carModelOptions = Array.from(carModelSet);
+        } else {
+          // 处理接口请求失败的情况
+          console.error('Failed to fetch car information');
+        }
+      }).catch(error => {
+        // 处理接口请求错误的情况
+        console.error('Error fetching car information:', error);
+      });
+    },
+    fetchCarTransmissionType(){
+      this.$http.get('carinfo/lists').then(res => {
+        if (res.data.code === 0) {
+          // 提取汽车信息中的换挡方式信息
+          const carList = res.data.data;
+          const carTransmissionTypeSet = new Set();
+          carList.forEach(car => {
+            carTransmissionTypeSet.add(car.transmissionType);
+          });
+          // 将提取到的型号信息存储在transmissionTypeOptions中
+          this.transmissionTypeOptions = Array.from(carTransmissionTypeSet);
+        } else {
+          // 处理接口请求失败的情况
+          console.error('Failed to fetch car information');
+        }
+      }).catch(error => {
+        // 处理接口请求错误的情况
+        console.error('Error fetching car information:', error);
+      });
+    },
+    fetchSeatNumber(){
+      this.$http.get('carinfo/lists').then(res => {
+        if (res.data.code === 0) {
+          // 提取汽车信息中的座位数方式信息
+          const carList = res.data.data;
+          const seatNumberSet = new Set();
+          carList.forEach(car => {
+            seatNumberSet.add(car.seatNumber);
+          });
+          // 将提取到的型号信息存储在seatNumberOptions中
+          this.seatNumberOptions = Array.from(seatNumberSet);
+        } else {
+          // 处理接口请求失败的情况
+          console.error('Failed to fetch car information');
+        }
+      }).catch(error => {
+        // 处理接口请求错误的情况
+        console.error('Error fetching car information:', error);
+      });
     },
   }
 }
