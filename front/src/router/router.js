@@ -26,15 +26,12 @@ import carinfoAdd from '../pages/carinfo/add'
 import carrentalorderList from '../pages/carrentalorder/list'
 import carrentalorderDetail from '../pages/carrentalorder/detail'
 import carrentalorderAdd from '../pages/carrentalorder/add'
-import quxiaodingdanList from '../pages/quxiaodingdan/list'
-import quxiaodingdanDetail from '../pages/quxiaodingdan/detail'
-import quxiaodingdanAdd from '../pages/quxiaodingdan/add'
-import haichexinxiList from '../pages/haichexinxi/list'
-import haichexinxiDetail from '../pages/haichexinxi/detail'
-import haichexinxiAdd from '../pages/haichexinxi/add'
-import qichezixunList from '../pages/qichezixun/list'
-import qichezixunDetail from '../pages/qichezixun/detail'
-import qichezixunAdd from '../pages/qichezixun/add'
+import cancelorderList from '../pages/cancelorder/list'
+import cancelorderDetail from '../pages/cancelorder/detail'
+import cancelorderAdd from '../pages/cancelorder/add'
+import returncarinfoList from '../pages/returncarinfo/list'
+import returncarinfoDetail from '../pages/returncarinfo/detail'
+import returncarinfoAdd from '../pages/returncarinfo/add'
 import aboutusList from '../pages/aboutus/list'
 import aboutusDetail from '../pages/aboutus/detail'
 import aboutusAdd from '../pages/aboutus/add'
@@ -145,40 +142,28 @@ export default new VueRouter({
 					component: carrentalorderAdd
 				},
 				{
-					path: 'quxiaodingdan',
-					component: quxiaodingdanList
+					path: 'cancelorder',
+					component: cancelorderList
 				},
 				{
-					path: 'quxiaodingdanDetail',
-					component: quxiaodingdanDetail
+					path: 'cancelorderDetail',
+					component: cancelorderDetail
 				},
 				{
-					path: 'quxiaodingdanAdd',
-					component: quxiaodingdanAdd
+					path: 'cancelorderAdd',
+					component: cancelorderAdd
 				},
 				{
-					path: 'haichexinxi',
-					component: haichexinxiList
+					path: 'returncarinfo',
+					component: returncarinfoList
 				},
 				{
-					path: 'haichexinxiDetail',
-					component: haichexinxiDetail
+					path: 'returncarinfoDetail',
+					component: returncarinfoDetail
 				},
 				{
-					path: 'haichexinxiAdd',
-					component: haichexinxiAdd
-				},
-				{
-					path: 'qichezixun',
-					component: qichezixunList
-				},
-				{
-					path: 'qichezixunDetail',
-					component: qichezixunDetail
-				},
-				{
-					path: 'qichezixunAdd',
-					component: qichezixunAdd
+					path: 'returncarinfoAdd',
+					component: returncarinfoAdd
 				},
 				{
 					path: 'aboutus',

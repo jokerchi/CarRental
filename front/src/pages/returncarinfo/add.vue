@@ -7,61 +7,57 @@
       :rules="rules"
       label-width="80px"
     >
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="订单编号" prop="dingdanbianhao">
-            <el-input v-model="ruleForm.dingdanbianhao" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="订单编号" prop="orderNumber">
+            <el-input v-model="ruleForm.orderNumber"
                 placeholder="订单编号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="车牌号" prop="carBrand">
-            <el-input v-model="ruleForm.chepaihao" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="车牌号" prop="carNumber">
+            <el-input v-model="ruleForm.carNumber"
                 placeholder="车牌号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="车辆品牌" prop="cheliangpinpai">
-            <el-input v-model="ruleForm.cheliangpinpai" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="车辆品牌" prop="carBrand">
+            <el-input v-model="ruleForm.carBrand"
                 placeholder="车辆品牌" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="汽车类别" prop="qicheleibie">
-            <el-input v-model="ruleForm.qicheleibie" 
-                placeholder="汽车类别" clearable ></el-input>
-          </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="还车日期" prop="haicheriqi" >
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="还车日期" prop="returnDate" >
               <el-date-picker
                   format="yyyy 年 MM 月 dd 日"
                   value-format="yyyy-MM-dd"
-                  v-model="ruleForm.haicheriqi" 
+                  v-model="ruleForm.returnDate"
                   type="date"
                   placeholder="还车日期">
               </el-date-picker> 
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="账号" prop="zhanghao">
-            <el-input v-model="ruleForm.zhanghao" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="账号" prop="clientAccount">
+            <el-input v-model="ruleForm.clientAccount"
                 placeholder="账号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="姓名" prop="xingming">
-            <el-input v-model="ruleForm.xingming" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="姓名" prop="clientName">
+            <el-input v-model="ruleForm.clientName"
                 placeholder="姓名" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="手机" prop="shouji">
-            <el-input v-model="ruleForm.shouji" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="手机" prop="phone">
+            <el-input v-model="ruleForm.phone"
                 placeholder="手机" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="身份证" prop="shenfenzheng">
-            <el-input v-model="ruleForm.shenfenzheng" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="身份证" prop="idCard">
+            <el-input v-model="ruleForm.idCard"
                 placeholder="身份证" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理账号" prop="ordinaryAdminAccount">
-            <el-input v-model="ruleForm.guanlizhanghao" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理账号" prop="adminAccount">
+            <el-input v-model="ruleForm.adminAccount"
                 placeholder="管理账号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理姓名" prop="ordinaryAdminName">
-            <el-input v-model="ruleForm.guanlixingming" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理姓名" prop="adminName">
+            <el-input v-model="ruleForm.adminName"
                 placeholder="管理姓名" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="还车备注" prop="haichebeizhu">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="还车备注" prop="returnRemarks">
             <el-input
               type="textarea"
               :rows="8"
               placeholder="还车备注"
-              v-model="ruleForm.haichebeizhu">
+              v-model="ruleForm.returnRemarks">
             </el-input>
           </el-form-item>
 
@@ -80,74 +76,70 @@
         id: '',
         baseUrl: '',
         ro:{
-            dingdanbianhao : false,
-            chepaihao : false,
-            cheliangpinpai : false,
-            qicheleibie : false,
-            haicheriqi : false,
-            haichebeizhu : false,
-            zhanghao : false,
-            xingming : false,
-            shouji : false,
-            shenfenzheng : false,
-            guanlizhanghao : false,
-            guanlixingming : false,
-            crossuserid : false,
-            crossrefid : false,
-            sfsh : false,
-            shhf : false,
+          orderNumber : false,
+          carNumber : false,
+          carBrand : false,
+          returnDate : false,
+          returnRemarks : false,
+          clientAccount : false,
+          clientName : false,
+          phone : false,
+          idCard : false,
+          adminAccount : false,
+          adminName : false,
+          crossUserId : false,
+          crossRefId : false,
+          isReviewed : false,
+          reviewReply : false,
         },
         type: '',
         userTableName: localStorage.getItem('UserTableName'),
         ruleForm: {
-          dingdanbianhao: '',
-          chepaihao: '',
-          cheliangpinpai: '',
-          qicheleibie: '',
-          haicheriqi: '',
-          haichebeizhu: '',
-          zhanghao: '',
-          xingming: '',
-          shouji: '',
-          shenfenzheng: '',
-          guanlizhanghao: '',
-          guanlixingming: '',
-          crossuserid: '',
-          crossrefid: '',
+          orderNumber: '',
+          carNumber: '',
+          carBrand: '',
+          returnDate: '',
+          returnRemarks: '',
+          clientAccount: '',
+          clientName: '',
+          phone: '',
+          idCard: '',
+          adminAccount: '',
+          adminName: '',
+          crossUserId: '',
+          crossRefId: '',
         },
         rules: {
-          dingdanbianhao: [
+          orderNumber: [
           ],
-          chepaihao: [
+          carNumber: [
           ],
-          cheliangpinpai: [
+          carBrand: [
           ],
-          qicheleibie: [
+          returnDate: [
           ],
-          haicheriqi: [
+          returnRemarks: [
           ],
-          haichebeizhu: [
+          clientAccount: [
           ],
-          zhanghao: [
+          clientName: [
           ],
-          xingming: [
-          ],
-          shouji: [
+          phone: [
             { validator: this.$validate.isMobile, trigger: 'blur' },
           ],
-          shenfenzheng: [
+          idCard: [
           ],
-          guanlizhanghao: [
+          adminAccount: [
           ],
-          guanlixingming: [
+          adminName: [
           ],
-          crossuserid: [
+          crossUserId: [
           ],
-          crossrefid: [
+          crossRefId: [
           ],
-          sfsh: [
+          isReviewed: [
           ],
-          shhf: [
+          reviewReply: [
           ],
         },
       };
@@ -162,7 +154,7 @@
       let type = this.$route.query.type ? this.$route.query.type : '';
       this.init(type);
       this.baseUrl = this.$config.baseUrl;
-      this.ruleForm.haicheriqi = this.getCurDate()
+      this.ruleForm.returnDate = this.getCurDate()
     },
     methods: {
       getMakeZero(s) {
@@ -178,19 +170,19 @@
         if(type=='cross'){
           var obj = JSON.parse(localStorage.getItem('crossObj'));
           for (var o in obj){
-            if(o=='dingdanbianhao'){
-              this.ruleForm.dingdanbianhao = obj[o];
-              this.ro.dingdanbianhao = true;
+            if(o=='orderNumber'){
+              this.ruleForm.orderNumber = obj[o];
+              this.ro.orderNumber = true;
               continue;
             }
-            if(o=='chepaihao'){
-              this.ruleForm.chepaihao = obj[o];
-              this.ro.chepaihao = true;
+            if(o=='carNumber'){
+              this.ruleForm.carNumber = obj[o];
+              this.ro.carNumber = true;
               continue;
             }
-            if(o=='cheliangpinpai'){
-              this.ruleForm.cheliangpinpai = obj[o];
-              this.ro.cheliangpinpai = true;
+            if(o=='carBrand'){
+              this.ruleForm.carBrand = obj[o];
+              this.ro.carBrand = true;
               continue;
             }
             if(o=='qicheleibie'){
@@ -198,54 +190,54 @@
               this.ro.qicheleibie = true;
               continue;
             }
-            if(o=='haicheriqi'){
-              this.ruleForm.haicheriqi = obj[o];
-              this.ro.haicheriqi = true;
+            if(o=='returnDate'){
+              this.ruleForm.returnDate = obj[o];
+              this.ro.returnDate = true;
               continue;
             }
-            if(o=='haichebeizhu'){
-              this.ruleForm.haichebeizhu = obj[o];
-              this.ro.haichebeizhu = true;
+            if(o=='returnRemarks'){
+              this.ruleForm.returnRemarks = obj[o];
+              this.ro.returnRemarks = true;
               continue;
             }
-            if(o=='zhanghao'){
-              this.ruleForm.zhanghao = obj[o];
-              this.ro.zhanghao = true;
+            if(o=='clientAccount'){
+              this.ruleForm.clientAccount = obj[o];
+              this.ro.clientAccount = true;
               continue;
             }
-            if(o=='xingming'){
-              this.ruleForm.xingming = obj[o];
-              this.ro.xingming = true;
+            if(o=='clientName'){
+              this.ruleForm.clientName = obj[o];
+              this.ro.clientName = true;
               continue;
             }
-            if(o=='shouji'){
-              this.ruleForm.shouji = obj[o];
-              this.ro.shouji = true;
+            if(o=='phone'){
+              this.ruleForm.phone = obj[o];
+              this.ro.phone = true;
               continue;
             }
-            if(o=='shenfenzheng'){
-              this.ruleForm.shenfenzheng = obj[o];
-              this.ro.shenfenzheng = true;
+            if(o=='idCard'){
+              this.ruleForm.idCard = obj[o];
+              this.ro.idCard = true;
               continue;
             }
-            if(o=='guanlizhanghao'){
-              this.ruleForm.guanlizhanghao = obj[o];
-              this.ro.guanlizhanghao = true;
+            if(o=='adminAccount'){
+              this.ruleForm.adminAccount = obj[o];
+              this.ro.adminAccount = true;
               continue;
             }
-            if(o=='guanlixingming'){
-              this.ruleForm.guanlixingming = obj[o];
-              this.ro.guanlixingming = true;
+            if(o=='adminName'){
+              this.ruleForm.adminName = obj[o];
+              this.ro.adminName = true;
               continue;
             }
-            if(o=='crossuserid'){
-              this.ruleForm.crossuserid = obj[o];
-              this.ro.crossuserid = true;
+            if(o=='crossUserId'){
+              this.ruleForm.crossUserId = obj[o];
+              this.ro.crossUserId = true;
               continue;
             }
-            if(o=='crossrefid'){
-              this.ruleForm.crossrefid = obj[o];
-              this.ro.crossrefid = true;
+            if(o=='crossRefId'){
+              this.ruleForm.crossRefId = obj[o];
+              this.ro.crossRefId = true;
               continue;
             }
           }
@@ -254,17 +246,17 @@
         this.$http.get(this.userTableName + '/session', {emulateJSON: true}).then(res => {
           if (res.data.code == 0) {
             var json = res.data.data;
-            if((json.zhanghao!=''&&json.zhanghao) || json.zhanghao==0){
-                this.ruleForm.zhanghao = json.zhanghao
+            if((json.clientAccount!=''&&json.clientAccount) || json.clientAccount==0){
+                this.ruleForm.clientAccount = json.clientAccount
             }
-            if((json.xingming!=''&&json.xingming) || json.xingming==0){
-                this.ruleForm.xingming = json.xingming
+            if((json.clientName!=''&&json.clientName) || json.clientName==0){
+                this.ruleForm.clientName = json.clientName
             }
-            if((json.shouji!=''&&json.shouji) || json.shouji==0){
-                this.ruleForm.shouji = json.shouji
+            if((json.phone!=''&&json.phone) || json.phone==0){
+                this.ruleForm.phone = json.phone
             }
-            if((json.shenfenzheng!=''&&json.shenfenzheng) || json.shenfenzheng==0){
-                this.ruleForm.shenfenzheng = json.shenfenzheng
+            if((json.idCard!=''&&json.idCard) || json.idCard==0){
+                this.ruleForm.idCard = json.idCard
             }
           }
         });
@@ -273,7 +265,7 @@
     // 多级联动参数
       // 多级联动参数
       info(id) {
-        this.$http.get('haichexinxi/detail/${id}', {emulateJSON: true}).then(res => {
+        this.$http.get('returncarinfo/detail/${id}', {emulateJSON: true}).then(res => {
           if (res.data.code == 0) {
             this.ruleForm = res.data.data;
           }
@@ -283,8 +275,8 @@
       onSubmit() {
 
         //更新跨表属性
-        var cross_userId;
-        var cross_ref_id;
+        var crossUserId;
+        var crossRefId;
         var crossoptnum;
         this.$refs["ruleForm"].validate(valid => {
           if(valid) {
@@ -302,23 +294,23 @@
                          var table = localStorage.getItem('crossTable');
                          this.$http.post(table+'/update', obj).then(res => {});
                      } else {
-                            crossuserid=Number(localStorage.getItem('userid'));
-                            crossrefid=obj['id'];
+                       crossUserId=Number(localStorage.getItem('userid'));
+                       crossRefId=obj['id'];
                             crossoptnum=localStorage.getItem('statusColumnName');
                             crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
                      }
                  }
             }
-            if(crossrefid && crossuserid) {
-                 this.ruleForm.crossuserid=crossuserid;
-                 this.ruleForm.crossrefid=crossrefid;
+            if(crossRefId && crossUserId) {
+                 this.ruleForm.crossUserId=crossUserId;
+                 this.ruleForm.crossRefId=crossRefId;
                  var params = {
                      page: 1,
                      limit: 10,
-                     crossuserid:crossuserid,
-                     crossrefid:crossrefid,
+                   crossUserId:crossUserId,
+                   crossRefId:crossRefId,
                  }
-                 this.$http.get('haichexinxi/list', {
+                 this.$http.get('returncarinfo/list', {
                   params: params
                  }).then(res => {
                      if(res.data.data.total>=crossoptnum) {
@@ -332,7 +324,7 @@
                          // 跨表计算
 
 
-                          this.$http.post('haichexinxi/add', this.ruleForm).then(res => {
+                          this.$http.post('returncarinfo/add', this.ruleForm).then(res => {
                               if (res.data.code == 0) {
                                   this.$message({
                                       message: '操作成功',
@@ -355,7 +347,7 @@
              } else {
 
 
-                  this.$http.post('haichexinxi/add', this.ruleForm).then(res => {
+                  this.$http.post('returncarinfo/add', this.ruleForm).then(res => {
                      if (res.data.code == 0) {
                           this.$message({
                               message: '操作成功',

@@ -11,10 +11,6 @@ export default {
 
         },
         {
-            name: '汽车资讯',
-            url: '/index/qichezixun'
-        },
-        {
             name: '租车论坛',
             url: '/index/forum'
         }, 
