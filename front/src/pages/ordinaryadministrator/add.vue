@@ -8,48 +8,48 @@
       label-width="80px"
     >
           <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理账号" prop="ordinaryAdminAccount">
-            <el-input v-model="ruleForm.guanlizhanghao" 
+            <el-input v-model="ruleForm.ordinaryAdminAccount"
                 placeholder="管理账号" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="密码" prop="mima">
-            <el-input v-model="ruleForm.mima" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="密码" prop="password">
+            <el-input v-model="ruleForm.password"
                 placeholder="密码" clearable ></el-input>
           </el-form-item>
           <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="管理姓名" prop="ordinaryAdminName">
-            <el-input v-model="ruleForm.guanlixingming" 
+            <el-input v-model="ruleForm.ordinaryAdminName"
                 placeholder="管理姓名" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'  label="性别" prop="xingbie">
-            <el-select v-model="ruleForm.xingbie" placeholder="请选择性别"  >
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}'  label="性别" prop="gender">
+            <el-select v-model="ruleForm.gender" placeholder="请选择性别"  >
               <el-option
-                  v-for="(item,index) in xingbieOptions"
+                  v-for="(item,index) in genderOptions"
                   :key="index"
                   :label="item"
                   :value="item">
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="年龄" prop="nianling">
-            <el-input v-model="ruleForm.nianling" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="年龄" prop="age">
+            <el-input v-model="ruleForm.age"
                 placeholder="年龄" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="联系电话" prop="lianxidianhua">
-            <el-input v-model="ruleForm.lianxidianhua" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="联系电话" prop="phone">
+            <el-input v-model="ruleForm.phone"
                 placeholder="联系电话" clearable ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="头像" v-if="type!='cross' || (type=='cross' && !ro.touxiang)" prop="touxiang">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="头像" v-if="type!='cross' || (type=='cross' && !ro.avatar)" prop="avatar">
             <file-upload
             tip="点击上传头像"
             action="file/upload"
             :limit="3"
             :multiple="true"
-            :fileUrls="ruleForm.touxiang?ruleForm.touxiang:''"
-            @change="touxiangUploadChange"
+            :fileUrls="ruleForm.avatar?ruleForm.avatar:''"
+            @change="avatarUploadChange"
             ></file-upload>
           </el-form-item>
-            <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' class="upload" v-else label="头像" prop="touxiang">
-                <img v-if="ruleForm.touxiang.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.touxiang.split(',')[0]" width="100" height="100">
-                <img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.touxiang.split(',')" :src="baseUrl+item" width="100" height="100">
+            <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' class="upload" v-else label="头像" prop="avatar">
+                <img v-if="ruleForm.avatar.substring(0,4)=='http'" class="upload-img" style="margin-right:20px;" v-bind:key="index" :src="ruleForm.avatar.split(',')[0]" width="100" height="100">
+                <img v-else class="upload-img" style="margin-right:20px;" v-bind:key="index" v-for="(item,index) in ruleForm.avatar.split(',')" :src="baseUrl+item" width="100" height="100">
             </el-form-item>
 
       <el-form-item :style='{"padding":"0","margin":"20px 0 20px 0"}'>
@@ -67,46 +67,46 @@
         id: '',
         baseUrl: '',
         ro:{
-            guanlizhanghao : false,
-            mima : false,
-            guanlixingming : false,
-            xingbie : false,
-            nianling : false,
-            lianxidianhua : false,
-            touxiang : false,
+          ordinaryAdminAccount : false,
+          password : false,
+          ordinaryAdminName : false,
+          gender : false,
+          age : false,
+          phone : false,
+          avatar : false,
         },
         type: '',
         userTableName: localStorage.getItem('UserTableName'),
         ruleForm: {
-          guanlizhanghao: '',
-          mima: '',
-          guanlixingming: '',
-          xingbie: '',
-          nianling: '',
-          lianxidianhua: '',
-          touxiang: '',
+          ordinaryAdminAccount: '',
+          password: '',
+          ordinaryAdminName: '',
+          gender: '',
+          age: '',
+          phone: '',
+          avatar: '',
         },
-        xingbieOptions: [],
+        genderOptions: [],
         rules: {
-          guanlizhanghao: [
+          ordinaryAdminAccount: [
             { required: true, message: '管理账号不能为空', trigger: 'blur' },
           ],
-          mima: [
+          password: [
             { required: true, message: '密码不能为空', trigger: 'blur' },
           ],
-          guanlixingming: [
+          ordinaryAdminName: [
             { required: true, message: '管理姓名不能为空', trigger: 'blur' },
           ],
-          xingbie: [
+          gender: [
           ],
-          nianling: [
+          age: [
             { required: true, message: '年龄不能为空', trigger: 'blur' },
           ],
-          lianxidianhua: [
+          phone: [
             { required: true, message: '联系电话不能为空', trigger: 'blur' },
             { validator: this.$validate.isMobile, trigger: 'blur' },
           ],
-          touxiang: [
+          avatar: [
           ],
         },
       };
@@ -136,39 +136,39 @@
         if(type=='cross'){
           var obj = JSON.parse(localStorage.getItem('crossObj'));
           for (var o in obj){
-            if(o=='guanlizhanghao'){
-              this.ruleForm.guanlizhanghao = obj[o];
-              this.ro.guanlizhanghao = true;
+            if(o=='ordinaryAdminAccount'){
+              this.ruleForm.ordinaryAdminAccount = obj[o];
+              this.ro.ordinaryAdminAccount = true;
               continue;
             }
-            if(o=='mima'){
-              this.ruleForm.mima = obj[o];
-              this.ro.mima = true;
+            if(o=='password'){
+              this.ruleForm.password = obj[o];
+              this.ro.password = true;
               continue;
             }
-            if(o=='guanlixingming'){
-              this.ruleForm.guanlixingming = obj[o];
-              this.ro.guanlixingming = true;
+            if(o=='ordinaryAdminName'){
+              this.ruleForm.ordinaryAdminName = obj[o];
+              this.ro.ordinaryAdminName = true;
               continue;
             }
-            if(o=='xingbie'){
-              this.ruleForm.xingbie = obj[o];
-              this.ro.xingbie = true;
+            if(o=='gender'){
+              this.ruleForm.gender = obj[o];
+              this.ro.gender = true;
               continue;
             }
-            if(o=='nianling'){
-              this.ruleForm.nianling = obj[o];
-              this.ro.nianling = true;
+            if(o=='age'){
+              this.ruleForm.age = obj[o];
+              this.ro.age = true;
               continue;
             }
-            if(o=='lianxidianhua'){
-              this.ruleForm.lianxidianhua = obj[o];
-              this.ro.lianxidianhua = true;
+            if(o=='phone'){
+              this.ruleForm.phone = obj[o];
+              this.ro.phone = true;
               continue;
             }
-            if(o=='touxiang'){
-              this.ruleForm.touxiang = obj[o].split(",")[0];
-              this.ro.touxiang = true;
+            if(o=='avatar'){
+              this.ruleForm.avatar = obj[o].split(",")[0];
+              this.ro.avatar = true;
               continue;
             }
           }
@@ -179,13 +179,13 @@
             var json = res.data.data;
           }
         });
-        this.xingbieOptions = "男,女".split(',')
+        this.genderOptions = "男,女".split(',')
       },
 
     // 多级联动参数
       // 多级联动参数
       info(id) {
-        this.$http.get('putongguanliyuan/detail/${id}', {emulateJSON: true}).then(res => {
+        this.$http.get('ordinaryadministrator/detail/${id}', {emulateJSON: true}).then(res => {
           if (res.data.code == 0) {
             this.ruleForm = res.data.data;
           }
@@ -195,8 +195,8 @@
       onSubmit() {
 
         //更新跨表属性
-        var cross_userId;
-        var cross_ref_id;
+        var crossUserId;
+        var crossRefId;
         var crossoptnum;
         this.$refs["ruleForm"].validate(valid => {
           if(valid) {
@@ -214,23 +214,23 @@
                          var table = localStorage.getItem('crossTable');
                          this.$http.post(table+'/update', obj).then(res => {});
                      } else {
-                            crossuserid=Number(localStorage.getItem('userid'));
-                            crossrefid=obj['id'];
+                       crossUserId=Number(localStorage.getItem('userid'));
+                       crossRefId=obj['id'];
                             crossoptnum=localStorage.getItem('statusColumnName');
                             crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
                      }
                  }
             }
-            if(crossrefid && crossuserid) {
-                 this.ruleForm.crossuserid=crossuserid;
-                 this.ruleForm.crossrefid=crossrefid;
+            if(crossRefId && crossUserId) {
+                 this.ruleForm.crossUserId=crossUserId;
+                 this.ruleForm.crossRefId=crossRefId;
                  var params = {
                      page: 1,
                      limit: 10,
-                     crossuserid:crossuserid,
-                     crossrefid:crossrefid,
+                   crossUserId:crossUserId,
+                   crossRefId:crossRefId,
                  }
-                 this.$http.get('putongguanliyuan/list', {
+                 this.$http.get('ordinaryadministrator/list', {
                   params: params
                  }).then(res => {
                      if(res.data.data.total>=crossoptnum) {
@@ -244,7 +244,7 @@
                          // 跨表计算
 
 
-                          this.$http.post('putongguanliyuan/add', this.ruleForm).then(res => {
+                          this.$http.post('ordinaryadministrator/add', this.ruleForm).then(res => {
                               if (res.data.code == 0) {
                                   this.$message({
                                       message: '操作成功',
@@ -267,7 +267,7 @@
              } else {
 
 
-                  this.$http.post('putongguanliyuan/add', this.ruleForm).then(res => {
+                  this.$http.post('ordinaryadministrator/add', this.ruleForm).then(res => {
                      if (res.data.code == 0) {
                           this.$message({
                               message: '操作成功',
@@ -297,8 +297,8 @@
       back() {
         this.$router.go(-1);
       },
-      touxiangUploadChange(fileUrls) {
-          this.ruleForm.touxiang = fileUrls.replace(new RegExp(this.$config.baseUrl,"g"),"");;
+      avatarUploadChange(fileUrls) {
+          this.ruleForm.avatar = fileUrls.replace(new RegExp(this.$config.baseUrl,"g"),"");;
       },
     }
   };
