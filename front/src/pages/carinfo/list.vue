@@ -314,12 +314,12 @@ export default {
       isPlain: false,
       indexQueryCondition: '',
 
-      qicheleibieOptions: ["轿车","SUV","MPV","越野车"],
-      cheliangpinpaiOptions:[],
-      jiageOptions:["五万以下","五到十万","十到二十万","二十万到三十万","三十万以上"],
-      paidangOptions:[],
-      zuoweiOptions:["二座","五座","七座"],
-      zhuangtaiOptions: [],
+      carModelOptions: ["轿车","SUV","MPV","越野车"],
+      carBrandOptions:[],
+      priceOptions:["五万以下","五到十万","十到二十万","二十万到三十万","三十万以上"],
+      transmissionTypeOptions:[],
+      seatNumberOptions:["二座","五座","七座"],
+      statusOptions: [],
 
       timeRange: []
     }

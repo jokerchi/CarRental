@@ -7,7 +7,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["新增", "查看", "修改", "删除"],
                 "menu": "用户",
                 "menuJump": "列表",
-                "tableName": "yonghu"
+                "tableName": "client"
             }], "menu": "用户管理"
         }, {
             "child": [{
@@ -15,23 +15,15 @@ export function isAuth(tableName, key) {
                 "buttons": ["新增", "查看", "修改", "删除"],
                 "menu": "普通管理员",
                 "menuJump": "列表",
-                "tableName": "putongguanliyuan"
+                "tableName": "ordinaryadministrator"
             }], "menu": "普通管理员管理"
-        }, {
-            "child": [{
-                "appFrontIcon": "cuIcon-vip",
-                "buttons": ["新增", "查看", "修改", "删除"],
-                "menu": "汽车类别",
-                "menuJump": "列表",
-                "tableName": "qicheleibie"
-            }], "menu": "汽车类别管理"
         }, {
             "child": [{
                 "appFrontIcon": "cuIcon-explore",
                 "buttons": ["查看", "修改", "删除"],
                 "menu": "汽车信息",
                 "menuJump": "列表",
-                "tableName": "qichexinxi"
+                "tableName": "carinfo"
             }], "menu": "汽车信息管理"
         }, {
             "child": [{
@@ -39,7 +31,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除"],
                 "menu": "租车订单",
                 "menuJump": "列表",
-                "tableName": "zuchedingdan"
+                "tableName": "carrentalorder"
             }], "menu": "租车订单管理"
         }, {
             "child": [{
@@ -47,7 +39,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除"],
                 "menu": "取消订单",
                 "menuJump": "列表",
-                "tableName": "quxiaodingdan"
+                "tableName": "cancelorder"
             }], "menu": "取消订单管理"
         }, {
             "child": [{
@@ -55,17 +47,9 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除"],
                 "menu": "还车信息",
                 "menuJump": "列表",
-                "tableName": "haichexinxi"
+                "tableName": "returncarinfo"
             }], "menu": "还车信息管理"
-        }, {
-            "child": [{
-                "appFrontIcon": "cuIcon-medal",
-                "buttons": ["新增", "查看", "修改", "删除"],
-                "menu": "汽车资讯",
-                "menuJump": "列表",
-                "tableName": "qichezixun"
-            }], "menu": "汽车资讯管理"
-        }, {
+        },{
             "child": [{
                 "appFrontIcon": "cuIcon-vipcard",
                 "buttons": ["查看", "修改", "回复", "删除"],
@@ -91,16 +75,11 @@ export function isAuth(tableName, key) {
                 "menu": "轮播图管理",
                 "tableName": "config"
             }, {
-                "appFrontIcon": "cuIcon-pic",
-                "buttons": ["查看", "修改"],
-                "menu": "系统简介",
-                "tableName": "systemintro"
-            }, {
                 "appFrontIcon": "cuIcon-news",
                 "buttons": ["新增", "查看", "修改", "删除"],
                 "menu": "公告信息",
-                "tableName": "news"
-            }], "menu": "系统管理"
+                "tableName": "excitingactivities"
+            }], "menu": "精彩活动"
         }],
         "frontMenu": [{
             "child": [{
@@ -108,7 +87,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "租赁汽车"],
                 "menu": "汽车信息列表",
                 "menuJump": "列表",
-                "tableName": "qichexinxi"
+                "tableName": "carinfo"
             }], "menu": "汽车信息模块"
         }, {
             "child": [{
@@ -124,7 +103,7 @@ export function isAuth(tableName, key) {
         "hasFrontLogin": "否",
         "hasFrontRegister": "否",
         "roleName": "管理员",
-        "tableName": "users"
+        "tableName": "superadministrator"
     }, {
         "backMenu": [{
             "child": [{
@@ -132,7 +111,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除", "支付", "归还汽车", "取消订单"],
                 "menu": "租车订单",
                 "menuJump": "列表",
-                "tableName": "zuchedingdan"
+                "tableName": "carrentalorder"
             }], "menu": "租车订单管理"
         }, {
             "child": [{
@@ -140,7 +119,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除"],
                 "menu": "取消订单",
                 "menuJump": "列表",
-                "tableName": "quxiaodingdan"
+                "tableName": "cancelorder"
             }], "menu": "取消订单管理"
         }, {
             "child": [{
@@ -148,7 +127,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["删除", "查看"],
                 "menu": "还车信息",
                 "menuJump": "列表",
-                "tableName": "haichexinxi"
+                "tableName": "returncarinfo"
             }], "menu": "还车信息管理"
         }],
         "frontMenu": [{
@@ -157,7 +136,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "租赁汽车"],
                 "menu": "汽车信息列表",
                 "menuJump": "列表",
-                "tableName": "qichexinxi"
+                "tableName": "carinfo"
             }], "menu": "汽车信息模块"
         }, {
             "child": [{
@@ -173,7 +152,7 @@ export function isAuth(tableName, key) {
         "hasFrontLogin": "是",
         "hasFrontRegister": "是",
         "roleName": "用户",
-        "tableName": "yonghu"
+        "tableName": "client"
     }, {
         "backMenu": [{
             "child": [{
@@ -181,7 +160,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["新增", "查看", "修改", "删除"],
                 "menu": "汽车信息",
                 "menuJump": "列表",
-                "tableName": "qichexinxi"
+                "tableName": "carinfo"
             }], "menu": "汽车信息管理"
         }, {
             "child": [{
@@ -189,7 +168,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除", "审核"],
                 "menu": "租车订单",
                 "menuJump": "列表",
-                "tableName": "zuchedingdan"
+                "tableName": "carrentalorder"
             }], "menu": "租车订单管理"
         }, {
             "child": [{
@@ -197,7 +176,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除", "审核", "支付"],
                 "menu": "取消订单",
                 "menuJump": "列表",
-                "tableName": "quxiaodingdan"
+                "tableName": "cancelorder"
             }], "menu": "取消订单管理"
         }, {
             "child": [{
@@ -205,7 +184,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "删除", "审核"],
                 "menu": "还车信息",
                 "menuJump": "列表",
-                "tableName": "haichexinxi"
+                "tableName": "returncarinfo"
             }], "menu": "还车信息管理"
         }, {
             "child": [{
@@ -222,7 +201,7 @@ export function isAuth(tableName, key) {
                 "buttons": ["查看", "租赁汽车"],
                 "menu": "汽车信息列表",
                 "menuJump": "列表",
-                "tableName": "qichexinxi"
+                "tableName": "carinfo"
             }], "menu": "汽车信息模块"
         }, {
             "child": [{
@@ -238,7 +217,7 @@ export function isAuth(tableName, key) {
         "hasFrontLogin": "否",
         "hasFrontRegister": "否",
         "roleName": "普通管理员",
-        "tableName": "putongguanliyuan"
+        "tableName": "ordinaryadministrator"
     }];
   for(let i=0;i<menus.length;i++){
     if(menus[i].tableName==role){

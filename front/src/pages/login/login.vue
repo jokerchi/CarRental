@@ -57,19 +57,11 @@ export default {
           }], "menu": "普通管理员管理"
         }, {
           "child": [{
-            "appFrontIcon": "cuIcon-vip",
-            "buttons": ["新增", "查看", "修改", "删除"],
-            "menu": "汽车类别",
-            "menuJump": "列表",
-            "tableName": "qicheleibie"
-          }], "menu": "汽车类别管理"
-        }, {
-          "child": [{
             "appFrontIcon": "cuIcon-explore",
             "buttons": ["查看", "修改", "删除"],
             "menu": "汽车信息",
             "menuJump": "列表",
-            "tableName": "qichexinxi"
+            "tableName": "carinfo"
           }], "menu": "汽车信息管理"
         }, {
           "child": [{
@@ -97,14 +89,6 @@ export default {
           }], "menu": "还车信息管理"
         }, {
           "child": [{
-            "appFrontIcon": "cuIcon-medal",
-            "buttons": ["新增", "查看", "修改", "删除"],
-            "menu": "汽车资讯",
-            "menuJump": "列表",
-            "tableName": "qichezixun"
-          }], "menu": "汽车资讯管理"
-        }, {
-          "child": [{
             "appFrontIcon": "cuIcon-vipcard",
             "buttons": ["查看", "修改", "回复", "删除"],
             "menu": "留言板管理",
@@ -129,11 +113,6 @@ export default {
             "menu": "轮播图管理",
             "tableName": "config"
           }, {
-            "appFrontIcon": "cuIcon-pic",
-            "buttons": ["查看", "修改"],
-            "menu": "系统简介",
-            "tableName": "systemintro"
-          }, {
             "appFrontIcon": "cuIcon-news",
             "buttons": ["新增", "查看", "修改", "删除"],
             "menu": "公告信息",
@@ -146,16 +125,8 @@ export default {
             "buttons": ["查看", "租赁汽车"],
             "menu": "汽车信息列表",
             "menuJump": "列表",
-            "tableName": "qichexinxi"
+            "tableName": "carinfo"
           }], "menu": "汽车信息模块"
-        }, {
-          "child": [{
-            "appFrontIcon": "cuIcon-paint",
-            "buttons": ["查看"],
-            "menu": "汽车资讯列表",
-            "menuJump": "列表",
-            "tableName": "qichezixun"
-          }], "menu": "汽车资讯模块"
         }],
         "hasBackLogin": "是",
         "hasBackRegister": "否",
@@ -195,16 +166,8 @@ export default {
             "buttons": ["查看", "租赁汽车"],
             "menu": "汽车信息列表",
             "menuJump": "列表",
-            "tableName": "qichexinxi"
+            "tableName": "carinfo"
           }], "menu": "汽车信息模块"
-        }, {
-          "child": [{
-            "appFrontIcon": "cuIcon-paint",
-            "buttons": ["查看"],
-            "menu": "汽车资讯列表",
-            "menuJump": "列表",
-            "tableName": "qichezixun"
-          }], "menu": "汽车资讯模块"
         }],
         "hasBackLogin": "是",
         "hasBackRegister": "否",
@@ -219,7 +182,7 @@ export default {
             "buttons": ["新增", "查看", "修改", "删除"],
             "menu": "汽车信息",
             "menuJump": "列表",
-            "tableName": "qichexinxi"
+            "tableName": "carinfo"
           }], "menu": "汽车信息管理"
         }, {
           "child": [{
@@ -245,14 +208,6 @@ export default {
             "menuJump": "列表",
             "tableName": "returncarinfo"
           }], "menu": "还车信息管理"
-        }, {
-          "child": [{
-            "appFrontIcon": "cuIcon-medal",
-            "buttons": ["新增", "查看", "修改", "删除"],
-            "menu": "汽车资讯",
-            "menuJump": "列表",
-            "tableName": "qichezixun"
-          }], "menu": "汽车资讯管理"
         }],
         "frontMenu": [{
           "child": [{
@@ -260,16 +215,8 @@ export default {
             "buttons": ["查看", "租赁汽车"],
             "menu": "汽车信息列表",
             "menuJump": "列表",
-            "tableName": "qichexinxi"
+            "tableName": "carinfo"
           }], "menu": "汽车信息模块"
-        }, {
-          "child": [{
-            "appFrontIcon": "cuIcon-paint",
-            "buttons": ["查看"],
-            "menu": "汽车资讯列表",
-            "menuJump": "列表",
-            "tableName": "qichezixun"
-          }], "menu": "汽车资讯模块"
         }],
         "hasBackLogin": "是",
         "hasBackRegister": "是",
