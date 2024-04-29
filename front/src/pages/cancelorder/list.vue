@@ -12,48 +12,33 @@
 	
     <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
       <el-form-item :style='{"margin":"0 10px"}'>
-	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>标题</div>
-        <el-input v-model="formSearch.biaoti" placeholder="标题" clearable></el-input>
+	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车牌号</div>
+        <el-input v-model="formSearch.carNumber" placeholder="车牌号" clearable></el-input>
       </el-form-item>
       <el-form-item :style='{"margin":"0 10px"}'>
-	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>简介</div>
-        <el-input v-model="formSearch.jianjie" placeholder="简介" clearable></el-input>
+	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>车辆品牌</div>
+        <el-input v-model="formSearch.carBrand" placeholder="车辆品牌" clearable></el-input>
       </el-form-item>
       <el-form-item :style='{"margin":"0 10px"}'>
-	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>发布人</div>
-        <el-input v-model="formSearch.faburen" placeholder="发布人" clearable></el-input>
+	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>姓名</div>
+        <el-input v-model="formSearch.clientName" placeholder="姓名" clearable></el-input>
       </el-form-item>
-	  <el-button v-if=" true " :style='{"cursor":"pointer","border":"1px solid #21a63d","padding":"0px 15px","boxShadow":"1px 1px 3px #21a63d","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#25bd45","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="getList(1, curFenlei)"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-search"></i>查询</el-button>
-	  <el-button v-if="isAuth('qichezixun','新增')" :style='{"cursor":"pointer","border":"1px solid #db961f","padding":"0px 15px","boxShadow":"1px 1px 3px #f8a412","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#f8a412","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="add('/index/qichezixunAdd')"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-circle-plus-outline"></i>添加</el-button>
+	  <el-button v-if=" true " :style='{"cursor":"pointer","border":"1px solid #21a63d","padding":"0px 15px","boxShadow":"1px 1px 3px #21a63d","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#25bd45","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="getList(1, curClassify)"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-search"></i>查询</el-button>
+	  <el-button v-if="isAuth('cancelorder','新增')" :style='{"cursor":"pointer","border":"1px solid #db961f","padding":"0px 15px","boxShadow":"1px 1px 3px #f8a412","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#f8a412","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="add('/index/cancelorderAdd')"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-circle-plus-outline"></i>添加</el-button>
     </el-form>
 
 	<div class="list" :style='{"width":"100%","margin":"0 0 10px","background":"none","order":"3"}'>
 		<!-- 样式一 -->
 		<div class="list1 index-pv1" :style='{"border":"1px solid #dfdfdf","padding":"20px 10px","margin":"16px 0 0 0","borderRadius":"16px","flexWrap":"wrap","background":"#fff","display":"flex","width":"1200px","height":"auto"}'>
 			<div :style='{"margin":"0 1% 20px 1%","borderRadius":"8px","background":"none","display":"inline-block","width":"23%","position":"relative","height":"auto"}' v-for="(item, index) in dataList" :key="index" @click="toDetail(item)" class="list-item animation-box">
-				<img :style='{"cursor":"pointer","width":"100%","objectFit":"cover","borderRadius":"8px","display":"block","height":"274px"}' v-if="item.fengmian && item.fengmian.substr(0,4)=='http'" :src="item.fengmian" class="image" />
-				<img :style='{"cursor":"pointer","width":"100%","objectFit":"cover","borderRadius":"8px","display":"block","height":"274px"}' v-else :src="baseUrl + (item.fengmian?item.fengmian.split(',')[0]:'')" class="image" />
 				<div v-if="item.price" :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","color":"red","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px"}' class="price"><span :style='{"fontSize":"12px"}'>￥</span>{{item.price}}</div>
-				<div :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}' class="name ">{{item.biaoti}}</div>
-				<div :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}' class="name ">{{item.faburen}}</div>
+				<div :style='{"padding":"0 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"radial-gradient(circle, rgba(250,250,250,1) 0%, rgba(220,230,250,0.5) 100%)","lineHeight":"30px","fontSize":"14px","textOverflow":"ellipsis"}' class="name ">{{item.carNumber}}</div>
 			</div>
 		</div>
 		
 		<!-- 样式二 -->
 	</div>
 
-	<!-- 热门信息 -->
-	<div class="hot" :style='{"width":"100%","margin":"20px 0 0 0","borderRadius":"8px 8px 0 0","background":"none","height":"auto","order":"5"}'>
-	  <div :style='{"padding":"0 20px","color":"#fff","borderRadius":"8px 8px 0 0","background":"radial-gradient(circle, rgba(63,201,251,1) 50%, rgba(63,94,251,1) 100%),rgb(63,201,251)","width":"100%","lineHeight":"44px","fontSize":"14px"}'>热门信息</div>
-	  <div :style='{"border":"1px solid #dfdfdf","padding":"20px","boxShadow":"1px 2px 3px #eee,inset 0px 16px 16px 0px #eee","borderRadius":"0 0 8px 8px","background":"#fff","display":"flex","width":"100%","justifyContent":"space-between","height":"auto"}'>
-	    <div v-for="item in hotList" :key="item" :style='{"width":"23%","background":"#fff","height":"auto"}' @click="toDetail(item)">
-	      <img :style='{"cursor":"pointer","width":"100%","objectFit":"cover","borderRadius":"8px","display":"block","height":"150px"}' :src="baseUrl + (item.fengmian?item.fengmian.split(',')[0]:'')" alt="">
-	      <div :style='{"cursor":"pointer","padding":"0 10px","whiteSpace":"nowrap","overflow":"hidden","color":"#666","lineHeight":"32px","fontSize":"14px","textOverflow":"ellipsis"}'>{{item.biaoti}}</div>
-	      <div :style='{"cursor":"pointer","padding":"0 10px","whiteSpace":"nowrap","overflow":"hidden","color":"#666","lineHeight":"32px","fontSize":"14px","textOverflow":"ellipsis"}'>{{item.faburen}}</div>
-	      <!--<div :style='{"padding":"0 10px","lineHeight":"12px","fontSize":"14px","color":"#999","textAlign":"right"}'>2022-02-02</div>-->
-	    </div>
-	  </div>
-	</div>
 	
 	<el-pagination
 	  background
@@ -82,26 +67,25 @@
     data() {
       return {
 	    layouts: '',
-		swiperIndex: -1,
+		  swiperIndex: -1,
         baseUrl: '',
         breadcrumbItem: [
           {
-            name: '汽车资讯'
+            name: '取消订单'
           }
         ],
         formSearch: {
-          biaoti: '',
-          jianjie: '',
-          faburen: '',
+          carNumber: '',
+          carBrand: '',
+          clientName: '',
         },
-        fenlei: [],
-        hotList: [],
+        classify: [],
         dataList: [],
         total: 1,
         pageSize: 10,
 		pageSizes: [10,20,30,50],
         totalPage: 1,
-        curFenlei: '全部',
+        curClassify: '全部',
         isPlain: false,
         indexQueryCondition: '',
         timeRange: []
@@ -110,36 +94,24 @@
     created() {
       this.indexQueryCondition = this.$route.query.indexQueryCondition ? this.$route.query.indexQueryCondition : '';
       this.baseUrl = this.$config.baseUrl;
-      this.getFenlei();
+      this.getClassify();
       this.getList(1, '全部');
-      this.getHotList();
     },
     //方法集合
     methods: {
       add(path) {
         this.$router.push({path: path});
       },
-      getHotList() {
-        let autoSortUrl = "";
-        autoSortUrl = "qichezixun/autoSort";
-          this.$http.get(autoSortUrl, {params: {
-              page: 1,
-              limit: 4,
-          }}).then(res => {
-              if (res.data.code == 0) {
-                  this.hotList = res.data.data.list;
-              }
-          })
+      getClassify() {
       },
-      getFenlei() {
-      },
-      getList(page, fenlei, ref = '') {
+      getList(page, classify, ref = '') {
         let params = {page, limit: this.pageSize};
         let searchWhere = {};
-        if (this.formSearch.biaoti != '') searchWhere.biaoti = '%' + this.formSearch.biaoti + '%';
-        if (this.formSearch.jianjie != '') searchWhere.jianjie = '%' + this.formSearch.jianjie + '%';
-        if (this.formSearch.faburen != '') searchWhere.faburen = '%' + this.formSearch.faburen + '%';
-        this.$http.get('qichezixun/list', {params: Object.assign(params, searchWhere)}).then(res => {
+        if (this.formSearch.carNumber != '') searchWhere.carNumber = '%' + this.formSearch.carNumber + '%';
+        if (this.formSearch.carBrand != '') searchWhere.carBrand = '%' + this.formSearch.carBrand + '%';
+        if (this.formSearch.clientName != '') searchWhere.clientName = '%' + this.formSearch.clientName + '%';
+	      params['isReviewed'] = '是';
+        this.$http.get('cancelorder/list', {params: Object.assign(params, searchWhere)}).then(res => {
           if (res.data.code == 0) {
             this.dataList = res.data.data.list;
             this.total = res.data.data.total;
@@ -160,7 +132,7 @@
         this.getList(page);
       },
       toDetail(item) {
-        this.$router.push({path: '/index/qichezixunDetail', query: {detailObj: JSON.stringify(item)}});
+        this.$router.push({path: '/index/cancelorderDetail', query: {detailObj: JSON.stringify(item)}});
       },
     }
   }
