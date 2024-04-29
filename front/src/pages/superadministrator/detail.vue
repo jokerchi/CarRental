@@ -25,7 +25,7 @@
 
 				<div class="item" :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
 					<div class="lable" :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>用户名</div>
-					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.username}}</div>
+					<div  :style='{"width":"498px","padding":"8px 10px 0","fontSize":"14px","lineHeight":"24px","color":"#999","height":"auto"}'>{{detail.superAdminAccount}}</div>
 				</div>
 				<div class="item" :style='{"border":"1px solid #dfdfdf","padding":"0px 10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)","display":"flex","justifyContent":"spaceBetween"}'>
 					<div class="lable" :style='{"width":"120px","padding":"0 10px","fontSize":"14px","lineHeight":"40px","color":"#666","textAlign":"right"}'>角色</div>
@@ -50,7 +50,7 @@
     //数据集合
     data() {
       return {
-        tablename: 'users',
+        tableName: 'users',
         baseUrl: '',
         breadcrumbItem: [
           {
@@ -64,7 +64,7 @@
         activeName: 'first',
         total: 1,
         pageSize: 5,
-		pageSizes: [10,20,30,50],
+		    pageSizes: [10,20,30,50],
         totalPage: 1,
         rules: {
           content: [
@@ -84,7 +84,7 @@
           if(this.$route.query.detailObj) {
             this.detail = JSON.parse(this.$route.query.detailObj);
           }
-          this.$http.get(this.tablename + '/detail/'  + this.detail.id, {}).then(res => {
+          this.$http.get(this.tableName + '/detail/'  + this.detail.id, {}).then(res => {
             if (res.data.code == 0) {
               this.detail = res.data.data;
               this.$forceUpdate();

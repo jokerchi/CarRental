@@ -7,8 +7,8 @@
       :rules="rules"
       label-width="80px"
     >
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="用户名" prop="username">
-            <el-input v-model="ruleForm.username" 
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="用户名" prop="superAdminAccount">
+            <el-input v-model="ruleForm.superAdminAccount"
                 placeholder="用户名" clearable ></el-input>
           </el-form-item>
           <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 8px 0","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' label="密码" prop="password">
@@ -35,19 +35,19 @@
         id: '',
         baseUrl: '',
         ro:{
-            username : false,
+          superAdminAccount : false,
             password : false,
             role : false,
         },
         type: '',
         userTableName: localStorage.getItem('UserTableName'),
         ruleForm: {
-          username: '',
+          superAdminAccount: '',
           password: '',
           role: '',
         },
         rules: {
-          username: [
+          superAdminAccount: [
             { required: true, message: '用户名不能为空', trigger: 'blur' },
           ],
           password: [
@@ -83,9 +83,9 @@
         if(type=='cross'){
           var obj = JSON.parse(localStorage.getItem('crossObj'));
           for (var o in obj){
-            if(o=='username'){
-              this.ruleForm.username = obj[o];
-              this.ro.username = true;
+            if(o=='superAdminAccount'){
+              this.ruleForm.superAdminAccount = obj[o];
+              this.ro.superAdminAccount = true;
               continue;
             }
             if(o=='password'){
@@ -105,7 +105,7 @@
     // 多级联动参数
       // 多级联动参数
       info(id) {
-        this.$http.get('users/detail/${id}', {emulateJSON: true}).then(res => {
+        this.$http.get('superadministrator/detail/${id}', {emulateJSON: true}).then(res => {
           if (res.data.code == 0) {
             this.ruleForm = res.data.data;
           }
@@ -115,8 +115,8 @@
       onSubmit() {
 
         //更新跨表属性
-        var cross_userId;
-        var cross_ref_id;
+        var crossUserId;
+        var crossRefId;
         var crossoptnum;
         this.$refs["ruleForm"].validate(valid => {
           if(valid) {
@@ -134,23 +134,23 @@
                          var table = localStorage.getItem('crossTable');
                          this.$http.post(table+'/update', obj).then(res => {});
                      } else {
-                            crossuserid=Number(localStorage.getItem('userid'));
-                            crossrefid=obj['id'];
+                       crossUserId=Number(localStorage.getItem('userid'));
+                       crossRefId=obj['id'];
                             crossoptnum=localStorage.getItem('statusColumnName');
                             crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
                      }
                  }
             }
-            if(crossrefid && crossuserid) {
-                 this.ruleForm.crossuserid=crossuserid;
-                 this.ruleForm.crossrefid=crossrefid;
+            if(crossRefId && crossUserId) {
+                 this.ruleForm.crossUserId=crossUserId;
+                 this.ruleForm.crossRefId=crossRefId;
                  var params = {
                      page: 1,
                      limit: 10,
-                     crossuserid:crossuserid,
-                     crossrefid:crossrefid,
+                   crossUserId:crossUserId,
+                   crossRefId:crossRefId,
                  }
-                 this.$http.get('users/list', {
+                 this.$http.get('superadministrator/list', {
                   params: params
                  }).then(res => {
                      if(res.data.data.total>=crossoptnum) {
@@ -164,7 +164,7 @@
                          // 跨表计算
 
 
-                          this.$http.post('users/add', this.ruleForm).then(res => {
+                          this.$http.post('superadministrator/add', this.ruleForm).then(res => {
                               if (res.data.code == 0) {
                                   this.$message({
                                       message: '操作成功',
@@ -187,7 +187,7 @@
              } else {
 
 
-                  this.$http.post('users/add', this.ruleForm).then(res => {
+                  this.$http.post('superadministrator/add', this.ruleForm).then(res => {
                      if (res.data.code == 0) {
                           this.$message({
                               message: '操作成功',

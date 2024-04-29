@@ -13,10 +13,10 @@
     <el-form :inline="true" :model="formSearch" class="list-form-pv" :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
       <el-form-item :style='{"margin":"0 10px"}'>
 	    <div class="lable" v-if="true" :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block"}'>用户名</div>
-        <el-input v-model="formSearch.username" placeholder="用户名" clearable></el-input>
+        <el-input v-model="formSearch.superAdminAccount" placeholder="用户名" clearable></el-input>
       </el-form-item>
-	  <el-button v-if=" true " :style='{"cursor":"pointer","border":"1px solid #21a63d","padding":"0px 15px","boxShadow":"1px 1px 3px #21a63d","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#25bd45","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="getList(1, curFenlei)"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-search"></i>查询</el-button>
-	  <el-button v-if="isAuth('users','新增')" :style='{"cursor":"pointer","border":"1px solid #db961f","padding":"0px 15px","boxShadow":"1px 1px 3px #f8a412","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#f8a412","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="add('/index/usersAdd')"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-circle-plus-outline"></i>添加</el-button>
+	  <el-button v-if=" true " :style='{"cursor":"pointer","border":"1px solid #21a63d","padding":"0px 15px","boxShadow":"1px 1px 3px #21a63d","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#25bd45","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="getList(1, curClassify)"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-search"></i>查询</el-button>
+	  <el-button v-if="isAuth('superadministrator','新增')" :style='{"cursor":"pointer","border":"1px solid #db961f","padding":"0px 15px","boxShadow":"1px 1px 3px #f8a412","margin":"0px 10px 0 0","color":"#fff","outline":"none","borderRadius":"4px","background":"#f8a412","width":"auto","fontSize":"14px","lineHeight":"40px","height":"40px"}' type="primary" @click="add('/index/superadministratorAdd')"><i v-if="true" :style='{"color":"#fff","margin":"0 10px 0 0","fontSize":"14px"}' class="el-icon-circle-plus-outline"></i>添加</el-button>
     </el-form>
 
 	<div class="list" :style='{"width":"100%","margin":"0 0 10px","background":"none","order":"3"}'>
@@ -66,15 +66,15 @@
           }
         ],
         formSearch: {
-          username: '',
+          superAdminAccount: '',
         },
-        fenlei: [],
+        classify: [],
         dataList: [],
         total: 1,
         pageSize: 10,
 		pageSizes: [10,20,30,50],
         totalPage: 1,
-        curFenlei: '全部',
+        curClassify: '全部',
         isPlain: false,
         indexQueryCondition: '',
         timeRange: []
@@ -83,7 +83,7 @@
     created() {
       this.indexQueryCondition = this.$route.query.indexQueryCondition ? this.$route.query.indexQueryCondition : '';
       this.baseUrl = this.$config.baseUrl;
-      this.getFenlei();
+      this.getClassify();
       this.getList(1, '全部');
     },
     //方法集合
@@ -91,13 +91,13 @@
       add(path) {
         this.$router.push({path: path});
       },
-      getFenlei() {
+      getClassify() {
       },
-      getList(page, fenlei, ref = '') {
+      getList(page, classify, ref = '') {
         let params = {page, limit: this.pageSize};
         let searchWhere = {};
-        if (this.formSearch.username != '') searchWhere.username = '%' + this.formSearch.username + '%';
-        this.$http.get('users/list', {params: Object.assign(params, searchWhere)}).then(res => {
+        if (this.formSearch.superAdminAccount != '') searchWhere.superAdminAccount = '%' + this.formSearch.superAdminAccount + '%';
+        this.$http.get('superadministrator/list', {params: Object.assign(params, searchWhere)}).then(res => {
           if (res.data.code == 0) {
             this.dataList = res.data.data.list;
             this.total = res.data.data.total;
@@ -118,7 +118,7 @@
         this.getList(page);
       },
       toDetail(item) {
-        this.$router.push({path: '/index/usersDetail', query: {detailObj: JSON.stringify(item)}});
+        this.$router.push({path: '/index/superadministratorDetail', query: {detailObj: JSON.stringify(item)}});
       },
     }
   }
