@@ -42,12 +42,11 @@
 
   <!-- 样式一 -->
 	<div class="list list1 index-pv1" :style='{"width":"100%","padding":"0 10px","background":"#fff","height":"auto"}'>
-		<div :style='{"margin":"10px","borderRadius":"8px","background":"none","display":"inline-block","width":"274px","position":"relative","height":"auto"}' v-for="(item,index) in qichexinxiRecommend" :key="index" @click="toDetail('carinfoDetail', item)" class="list-item animation-box">
-			<img :style='{"cursor":"pointer","boxShadow":"1px 1px 1px #ddd","objectFit":"cover","borderRadius":"8px","display":"block","width":"274px","height":"274px"}' v-if="preHttp(item.cheliangzhaopian)" :src="item.cheliangzhaopian.split(',')[0]" alt="" />
-			<img :style='{"cursor":"pointer","boxShadow":"1px 1px 1px #ddd","objectFit":"cover","borderRadius":"8px","display":"block","width":"274px","height":"274px"}' v-else :src="baseUrl + (item.cheliangzhaopian?item.cheliangzhaopian.split(',')[0]:'')" alt="" />
-			<div class="name line1" :style='{"cursor":"pointer","padding":"4px 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"#f5f5f5","lineHeight":"24px","fontSize":"14px","textOverflow":"ellipsis"}'>{{item.chepaihao}}</div>
-			<div class="name line1" :style='{"cursor":"pointer","padding":"4px 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"#f5f5f5","lineHeight":"24px","fontSize":"14px","textOverflow":"ellipsis"}'>{{item.qicheleibie}}</div>
-			<div class="name line1" :style='{"cursor":"pointer","padding":"4px 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"#f5f5f5","lineHeight":"24px","fontSize":"14px","textOverflow":"ellipsis"}'>状态:{{item.zhuangtai}}</div>
+		<div :style='{"margin":"10px","borderRadius":"8px","background":"none","display":"inline-block","width":"274px","position":"relative","height":"auto"}' v-for="(item,index) in carinfoRecommend" :key="index" @click="toDetail('carinfoDetail', item)" class="list-item animation-box">
+			<img :style='{"cursor":"pointer","boxShadow":"1px 1px 1px #ddd","objectFit":"cover","borderRadius":"8px","display":"block","width":"274px","height":"274px"}' v-if="preHttp(item.carImage)" :src="item.carImage.split(',')[0]" alt="" />
+			<img :style='{"cursor":"pointer","boxShadow":"1px 1px 1px #ddd","objectFit":"cover","borderRadius":"8px","display":"block","width":"274px","height":"274px"}' v-else :src="baseUrl + (item.carImage?item.carImage.split(',')[0]:'')" alt="" />
+			<div class="name line1" :style='{"cursor":"pointer","padding":"4px 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"#f5f5f5","lineHeight":"24px","fontSize":"14px","textOverflow":"ellipsis"}'>{{item.carNumber}}</div>
+			<div class="name line1" :style='{"cursor":"pointer","padding":"4px 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"#f5f5f5","lineHeight":"24px","fontSize":"14px","textOverflow":"ellipsis"}'>状态:{{item.status}}</div>
 		</div>
 	</div>
 	
@@ -59,7 +58,7 @@
 	
 	
 	
-	<div @click="moreBtn('qichexinxi')" :style='{"border":"1px solid #89c2f9","cursor":"pointer","boxShadow":"0px 4px 1px #c7d3de,inset 0px 0px 56px 0px #a0cbf7","margin":"20px auto","borderRadius":"30%","textAlign":"center","left":"47%","background":"#fff","display":"block","width":"120px","lineHeight":"36px","position":"absolute"}'>
+	<div @click="moreBtn('carinfo')" :style='{"border":"1px solid #89c2f9","cursor":"pointer","boxShadow":"0px 4px 1px #c7d3de,inset 0px 0px 56px 0px #a0cbf7","margin":"20px auto","borderRadius":"30%","textAlign":"center","left":"47%","background":"#fff","display":"block","width":"120px","lineHeight":"36px","position":"absolute"}'>
 		<span :style='{"color":"#0583fc","fontSize":"14px"}'>查看更多</span>
 		<i v-if="true" :style='{"color":"#0583fc","fontSize":"14px"}' class="el-icon-d-arrow-right"></i>
 	</div>
@@ -211,7 +210,7 @@
         aboutUsDetail: {},
         systemIntroductionDetail: {},
         newsList: [],
-        qichexinxiRecommend: [],
+        carinfoRecommend: [],
         qichezixunRecommend: [],
 
       }
@@ -256,13 +255,13 @@
 		},
 		getList() {
           let autoSortUrl = "";
-          autoSortUrl = "qichexinxi/autoSort";
+          autoSortUrl = "carinfo/autoSort";
 			this.$http.get(autoSortUrl, {params: {
 				page: 1,
 				limit: 8,
 			}}).then(res => {
 				if (res.data.code == 0) {
-					this.qichexinxiRecommend = res.data.data.list;
+					this.carinfoRecommend = res.data.data.list;
 					
 					
 					// 商品列表样式五

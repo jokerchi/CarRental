@@ -220,11 +220,6 @@
               this.ro.carBrand = true;
               continue;
             }
-            if(o=='qicheleibie'){
-              this.ruleForm.qicheleibie = obj[o];
-              this.ro.qicheleibie = true;
-              continue;
-            }
             if(o=='price'){
               this.ruleForm.price = obj[o];
               this.ro.price = true;
