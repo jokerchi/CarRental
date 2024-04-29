@@ -23,9 +23,9 @@ import ordinaryadministratorAdd from '../pages/ordinaryadministrator/add'
 import carinfoList from '../pages/carinfo/list'
 import carinfoDetail from '../pages/carinfo/detail'
 import carinfoAdd from '../pages/carinfo/add'
-import zuchedingdanList from '../pages/zuchedingdan/list'
-import zuchedingdanDetail from '../pages/zuchedingdan/detail'
-import zuchedingdanAdd from '../pages/zuchedingdan/add'
+import carrentalorderList from '../pages/carrentalorder/list'
+import carrentalorderDetail from '../pages/carrentalorder/detail'
+import carrentalorderAdd from '../pages/carrentalorder/add'
 import quxiaodingdanList from '../pages/quxiaodingdan/list'
 import quxiaodingdanDetail from '../pages/quxiaodingdan/detail'
 import quxiaodingdanAdd from '../pages/quxiaodingdan/add'
@@ -133,16 +133,16 @@ export default new VueRouter({
 					component: carinfoAdd
 				},
 				{
-					path: 'zuchedingdan',
-					component: zuchedingdanList
+					path: 'carrentalorder',
+					component: carrentalorderList
 				},
 				{
-					path: 'zuchedingdanDetail',
-					component: zuchedingdanDetail
+					path: 'carrentalorderDetail',
+					component: carrentalorderDetail
 				},
 				{
-					path: 'zuchedingdanAdd',
-					component: zuchedingdanAdd
+					path: 'carrentalorderAdd',
+					component: carrentalorderAdd
 				},
 				{
 					path: 'quxiaodingdan',
