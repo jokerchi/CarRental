@@ -15,51 +15,6 @@
 
       <el-form :inline="true" :model="formSearch" class="list-form-pv"
                :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"100%","height":"auto","order":"2"}'>
-          <div style="display: flex">
-            <el-form :inline="true" :model="formSearch" class="list-form-pv"
-                     :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"auto","height":"auto","order":"2"}'>
-              <el-form-item :style='{"margin":"0 30px 0 10px"}'>
-                <div class="label"
-                     style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">
-                  取车时间
-                </div>
-                <el-date-picker
-                  v-model="pickupDate"
-                  type="date"
-                  placeholder="选择日期"
-                  :clearable="false"
-                  style="width:150px;margin-right:10px">
-                </el-date-picker>
-                <el-select v-model="pickupHour" placeholder="时" style="width:150px;margin-right:5px">
-                  <el-option v-for="hour in hours" :key="hour" :label="hour" :value="hour"></el-option>
-                </el-select>
-                <el-select v-model="pickupMinute" placeholder="分" style="width:80px;margin-right:5px">
-                  <el-option v-for="minute in minutes" :key="minute" :label="minute" :value="minute"></el-option>
-                </el-select>
-              </el-form-item>
-            </el-form>
-
-            <el-form :inline="true" :model="formSearch" class="list-form-pv"
-                     :style='{"padding":"10px","alignItems":"center","flexWrap":"wrap","background":"none","display":"flex","width":"auto","height":"auto","order":"2"}'>
-              <el-form-item :style='{"margin":"0 10px"}'>
-                <div class="label" style="width:auto;padding:0 10px;line-height:42px;display:inline-block;font-family:Arial;font-size:16px">还车时间</div>
-                  <el-date-picker
-                      v-model="pickupDate"
-                      type="date"
-                      placeholder="选择日期"
-                      :clearable="false"
-                      style="width:150px;margin-right:10px"
-                  ></el-date-picker>
-                  <el-select v-model="pickupHour" placeholder="时" style="width:150px;margin-right:5px">
-                    <el-option v-for="hour in hours" :key="hour" :label="hour" :value="hour"></el-option>
-                  </el-select>
-                  <el-select v-model="pickupMinute" placeholder="分" style="width:80px;margin-right:5px">
-                    <el-option v-for="minute in minutes" :key="minute" :label="minute" :value="minute"></el-option>
-                  </el-select>
-              </el-form-item>
-            </el-form>
-          </div>
-
         <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
