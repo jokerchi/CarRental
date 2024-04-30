@@ -111,8 +111,8 @@
       onSubmit() {
 
         //更新跨表属性
-        var cross_userId;
-        var cross_ref_id;
+        var crossUserId;
+        var crossRefId;
         var crossoptnum;
         this.$refs["ruleForm"].validate(valid => {
           if(valid) {
@@ -130,21 +130,21 @@
                          var table = localStorage.getItem('crossTable');
                          this.$http.post(table+'/update', obj).then(res => {});
                      } else {
-                            crossuserid=Number(localStorage.getItem('userid'));
-                            crossrefid=obj['id'];
+                       crossUserId=Number(localStorage.getItem('userid'));
+                       crossRefId=obj['id'];
                             crossoptnum=localStorage.getItem('statusColumnName');
                             crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
                      }
                  }
             }
-            if(crossrefid && crossuserid) {
-                 this.ruleForm.crossuserid=crossuserid;
-                 this.ruleForm.crossrefid=crossrefid;
+            if(crossRefId && crossUserId) {
+                 this.ruleForm.crossUserId=crossUserId;
+                 this.ruleForm.crossRefId=crossRefId;
                  var params = {
                      page: 1,
                      limit: 10,
-                     crossuserid:crossuserid,
-                     crossrefid:crossrefid,
+                   crossUserId:crossUserId,
+                   crossRefId:crossRefId,
                  }
                  this.$http.get('config/list', {
                   params: params

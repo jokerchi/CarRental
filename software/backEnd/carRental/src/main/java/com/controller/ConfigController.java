@@ -37,6 +37,7 @@ public class ConfigController {
     @IgnoreAuth
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params,ConfigEntity config){
+        System.out.println("wdwdwdwdwd");
         EntityWrapper<ConfigEntity> ew = new EntityWrapper<ConfigEntity>();
         PageUtils page = configService.queryPage(params, MPUtil.sort(MPUtil.between(MPUtil.likeOrEq(ew, config), params), params));
         return R.ok().put("data", page);
