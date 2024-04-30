@@ -9,11 +9,11 @@
 			label-width="80px"
 		>
 			<template >
-				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="用户名" prop="username">
-					<el-input v-model="ruleForm.username" placeholder="用户名" clearable  :readonly="ro.username"></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="用户名" prop="superAdminAccount">
+					<el-input v-model="ruleForm.superAdminAccount" placeholder="用户名" clearable  :readonly="ro.superAdminAccount"></el-input>
 				</el-form-item>
-				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="用户名" prop="username">
-					<el-input v-model="ruleForm.username" placeholder="用户名" readonly></el-input>
+				<el-form-item :style='{"margin":"0 0 20px 0"}' v-else class="input" label="用户名" prop="superAdminAccount">
+					<el-input v-model="ruleForm.superAdminAccount" placeholder="用户名" readonly></el-input>
 				</el-form-item>
 				<el-form-item :style='{"margin":"0 0 20px 0"}' class="input" v-if="type!='info'"  label="密码" prop="password">
 					<el-input v-model="ruleForm.password" placeholder="密码" clearable  :readonly="ro.password"></el-input>
@@ -107,20 +107,20 @@ export default {
 			
 			
 			ro:{
-				username : false,
+        superAdminAccount : false,
 				password : false,
 				role : false,
 			},
 			
 			
 			ruleForm: {
-				username: '',
+        superAdminAccount: '',
 				password: '',
 			},
 		
 			
 			rules: {
-				username: [
+        superAdminAccount: [
 					{ required: true, message: '用户名不能为空', trigger: 'blur' },
 				],
 				password: [
@@ -159,9 +159,9 @@ export default {
 			}else if(this.type=='cross'){
 				var obj = this.$storage.getObj('crossObj');
 				for (var o in obj){
-						if(o=='username'){
-							this.ruleForm.username = obj[o];
-							this.ro.username = true;
+						if(o=='superAdminAccount'){
+							this.ruleForm.superAdminAccount = obj[o];
+							this.ro.superAdminAccount = true;
 							continue;
 						}
 						if(o=='password'){
@@ -189,7 +189,7 @@ export default {
 
     info(id) {
       this.$http({
-        url: `users/info/${id}`,
+        url: `superadministrator/info/${id}`,
         method: "get"
       }).then(({ data }) => {
         if (data && data.code === 0) {
@@ -215,8 +215,8 @@ export default {
 var objcross = this.$storage.getObj('crossObj');
 
       //更新跨表属性
-       var crossuserid;
-       var crossrefid;
+       var crossUserId;
+       var crossRefId;
        var crossoptnum;
        if(this.type=='cross'){
                 var statusColumnName = this.$storage.get('statusColumnName');
@@ -236,8 +236,8 @@ var objcross = this.$storage.getObj('crossObj');
                                  data: obj
                                }).then(({ data }) => {});
                        } else {
-                               crossuserid=this.$storage.get('userid');
-                               crossrefid=obj['id'];
+                         crossUserId=this.$storage.get('userid');
+                         crossRefId=obj['id'];
                                crossoptnum=this.$storage.get('statusColumnName');
                                crossoptnum=crossoptnum.replace(/\[/,"").replace(/\]/,"");
                         }
@@ -245,17 +245,17 @@ var objcross = this.$storage.getObj('crossObj');
         }
        this.$refs["ruleForm"].validate(valid => {
          if (valid) {
-		 if(crossrefid && crossuserid) {
-			 this.ruleForm.crossuserid = crossuserid;
-			 this.ruleForm.crossrefid = crossrefid;
+		 if(crossRefId && crossUserId) {
+			 this.ruleForm.crossUserId = crossUserId;
+			 this.ruleForm.crossRefId = crossRefId;
 			let params = { 
 				page: 1, 
-				limit: 10, 
-				crossuserid:this.ruleForm.crossuserid,
-				crossrefid:this.ruleForm.crossrefid,
+				limit: 10,
+        crossUserId:this.ruleForm.crossUserId,
+        crossRefId:this.ruleForm.crossRefId,
 			} 
 			this.$http({ 
-				url: "users/page", 
+				url: "superadministrator/page",
 				method: "get", 
 				params: params 
 			}).then(({ 
@@ -267,7 +267,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       return false;
 				       } else {
 					 this.$http({
-					   url: `users/${!this.ruleForm.id ? "save" : "update"}`,
+					   url: `superadministrator/${!this.ruleForm.id ? "save" : "update"}`,
 					   method: "post",
 					   data: this.ruleForm
 					 }).then(({ data }) => {
@@ -279,7 +279,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       onClose: () => {
 						 this.parent.showFlag = true;
 						 this.parent.addOrUpdateFlag = false;
-						 this.parent.usersCrossAddOrUpdateFlag = false;
+						 this.parent.superadministratorCrossAddOrUpdateFlag = false;
 						 this.parent.search();
 						 this.parent.contentStyleChange();
 					       }
@@ -295,7 +295,7 @@ var objcross = this.$storage.getObj('crossObj');
 			});
 		 } else {
 			 this.$http({
-			   url: `users/${!this.ruleForm.id ? "save" : "update"}`,
+			   url: `superadministrator/${!this.ruleForm.id ? "save" : "update"}`,
 			   method: "post",
 			   data: this.ruleForm
 			 }).then(({ data }) => {
@@ -307,7 +307,7 @@ var objcross = this.$storage.getObj('crossObj');
 			       onClose: () => {
 				 this.parent.showFlag = true;
 				 this.parent.addOrUpdateFlag = false;
-				 this.parent.usersCrossAddOrUpdateFlag = false;
+				 this.parent.superadministratorCrossAddOrUpdateFlag = false;
 				 this.parent.search();
 				 this.parent.contentStyleChange();
 			       }
@@ -328,7 +328,7 @@ var objcross = this.$storage.getObj('crossObj');
     back() {
       this.parent.showFlag = true;
       this.parent.addOrUpdateFlag = false;
-      this.parent.usersCrossAddOrUpdateFlag = false;
+      this.parent.superadministratorCrossAddOrUpdateFlag = false;
       this.parent.contentStyleChange();
     },
   }

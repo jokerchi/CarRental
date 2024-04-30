@@ -6,14 +6,14 @@
 				<el-row :style='{"padding":"10px","borderRadius":"3px","background":"#fff","display":"block"}' >
 					<div :style='{"margin":"0 10px 0 0","display":"inline-block"}'>
 						<label :style='{"margin":"0 10px 0 0","color":"#666","display":"inline-block","lineHeight":"40px","fontSize":"14px","fontWeight":"500","height":"40px"}' class="item-label">用户名</label>
-						<el-input v-model="searchForm.username" placeholder="用户名" clearable></el-input>
+						<el-input v-model="searchForm.superAdminAccount" placeholder="用户名" clearable></el-input>
 					</div>
 					<el-button :style='{"border":"1px solid #5494cb","cursor":"pointer","padding":"0 34px","outline":"none","margin":"0 0px 0 10px","color":"#fff","borderRadius":"4px","background":"-webkit-linear-gradient(top,#66a4d8,#337ab7)","width":"auto","fontSize":"14px","height":"40px"}' type="success" @click="search()">查询</el-button>
 				</el-row>
 
 				<el-row :style='{"margin":"20px 0 20px 0","display":"flex"}'>
-					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(64, 158, 255, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('users','新增')" type="success" @click="addOrUpdateHandler()">新增</el-button>
-					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(255, 0, 0, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('users','删除')" :disabled="dataListSelections.length <= 0" type="danger" @click="deleteHandler()">删除</el-button>
+					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(64, 158, 255, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('superadministrator','新增')" type="success" @click="addOrUpdateHandler()">新增</el-button>
+					<el-button :style='{"border":"0","cursor":"pointer","padding":"0 24px","margin":"0 10px 0 0","outline":"none","color":"#fff","borderRadius":"4px","background":"rgba(255, 0, 0, 1)","width":"auto","fontSize":"14px","height":"40px"}' v-if="isAuth('superadministrator','删除')" :disabled="dataListSelections.length <= 0" type="danger" @click="deleteHandler()">删除</el-button>
 
 
 
@@ -25,17 +25,17 @@
 				<el-table class="tables"
 					:stripe='false'
 					:style='{"padding":"0","borderColor":"#eee","borderRadius":"5px","borderWidth":"1px 0 0 1px","background":"#fff","width":"100%","borderStyle":"solid"}' 
-					v-if="isAuth('users','查看')"
+					v-if="isAuth('superadministrator','查看')"
 					:data="dataList"
 					v-loading="dataListLoading"
 				@selection-change="selectionChangeHandler">
 					<el-table-column :resizable='true' type="selection" align="center" width="50"></el-table-column>
 					<el-table-column :resizable='true' :sortable='false' label="索引" type="index" width="50" />
 					<el-table-column :resizable='true' :sortable='false'  
-						prop="username"
+						prop="superAdminAccount"
 					label="用户名">
 						<template slot-scope="scope">
-							{{scope.row.username}}
+							{{scope.row.superAdminAccount}}
 						</template>
 					</el-table-column>
 					<el-table-column :resizable='true' :sortable='false'  
@@ -54,14 +54,14 @@
 					</el-table-column>
 					<el-table-column width="300" label="操作">
 						<template slot-scope="scope">
-							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('users','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
-							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('users','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
+							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('superadministrator','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
+							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('superadministrator','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
 
 
 
 
-							<el-button :style='{"border":"0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/68bd264a8e4341c6aa5409f871d590d0.png) #d9534f no-repeat 5px 8px","width":"auto","fontSize":"14px","height":"32px"}' v-if="isAuth('users','删除') " type="danger" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
+							<el-button :style='{"border":"0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/68bd264a8e4341c6aa5409f871d590d0.png) #d9534f no-repeat 5px 8px","width":"auto","fontSize":"14px","height":"32px"}' v-if="isAuth('superadministrator','删除') " type="danger" size="mini" @click="deleteHandler(scope.row.id)">删除</el-button>
 						</template>
 					</el-table-column>
 				</el-table>
@@ -181,11 +181,11 @@ export default {
         sort: 'id',
         order: 'desc',
       }
-           if(this.searchForm.username!='' && this.searchForm.username!=undefined){
-            params['username'] = '%' + this.searchForm.username + '%'
+           if(this.searchForm.superAdminAccount!='' && this.searchForm.superAdminAccount!=undefined){
+            params['superAdminAccount'] = '%' + this.searchForm.superAdminAccount + '%'
           }
       this.$http({
-        url: "users/page",
+        url: "superadministrator/page",
         method: "get",
         params: params
       }).then(({ data }) => {
@@ -243,7 +243,7 @@ export default {
         type: "warning"
       }).then(() => {
         this.$http({
-          url: "users/delete",
+          url: "superadministrator/delete",
           method: "post",
           data: ids
         }).then(({ data }) => {
