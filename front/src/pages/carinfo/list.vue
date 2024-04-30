@@ -43,16 +43,6 @@
           </el-select>
         </el-form-item>
 
-        <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
-          <div class="lable" v-if="true"
-               :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
-            价格
-          </div>
-          <el-select v-model="formSearch.price" placeholder="请选择价格" :clearable="true">
-            <el-option v-for="(item, index) in priceOptions" :key="index" :label="item" :value="item"></el-option>
-          </el-select>
-        </el-form-item>
-
 
         <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
@@ -60,8 +50,7 @@
             换挡方式
           </div>
           <el-select v-model="formSearch.transmissionType" placeholder="请选择换挡方式" :clearable="true">
-            <el-option v-for="(item, index) in transmissionTypeOptions" :key="index" :label="item"
-                       :value="item"></el-option>
+            <el-option v-for="(item, index) in transmissionTypeOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
 
@@ -69,9 +58,9 @@
         <el-form-item :style='{"margin":"0 10px", "margin-bottom":"10px"}'>
           <div class="lable" v-if="true"
                :style='{"width":"auto","padding":"0 10px","lineHeight":"42px","display":"inline-block","font-family":"Arial","font-size":"16px"}'>
-            座位
+            座位数
           </div>
-          <el-select v-model="formSearch.seatNumber" placeholder="请选择座位" :clearable="true">
+          <el-select v-model="formSearch.seatNumber" placeholder="请选择座位数" :clearable="true">
             <el-option v-for="(item, index) in seatNumberOptions" :key="index" :label="item" :value="item"></el-option>
           </el-select>
         </el-form-item>
@@ -264,7 +253,6 @@ export default {
 
       carModelOptions: [],
       carBrandOptions:[],
-      priceOptions:["五万以下","五到十万","十到二十万","二十万到三十万","三十万以上"],
       transmissionTypeOptions:[],
       seatNumberOptions:[],
       statusOptions: [],
@@ -330,6 +318,7 @@ export default {
       if (this.formSearch.carModel != '') searchWhere.carModel = this.formSearch.carModel;
       if (this.formSearch.carBrand != '') searchWhere.carBrand = '%' + this.formSearch.carBrand + '%';
       if (this.formSearch.seatNumber != '') searchWhere.seatNumber = this.formSearch.seatNumber;
+      if (this.formSearch.transmissionType != '') searchWhere.transmissionType = '%' + this.formSearch.transmissionType + '%';
       if (this.formSearch.status != '') searchWhere.status = this.formSearch.status;
       if (this.curFenlei != '全部') searchWhere.carModel = this.curFenlei;
       this.$http.get('carinfo/list', {params: Object.assign(params, searchWhere)}).then(res => {
