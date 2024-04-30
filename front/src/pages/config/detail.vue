@@ -46,7 +46,7 @@
     //数据集合
     data() {
       return {
-        tablename: 'config',
+        tableName: 'config',
         baseUrl: '',
         breadcrumbItem: [
           {
@@ -80,7 +80,7 @@
           if(this.$route.query.detailObj) {
             this.detail = JSON.parse(this.$route.query.detailObj);
           }
-          this.$http.get(this.tablename + '/detail/'  + this.detail.id, {}).then(res => {
+          this.$http.get(this.tableName + '/detail/'  + this.detail.id, {}).then(res => {
             if (res.data.code == 0) {
               this.detail = res.data.data;
               this.$forceUpdate();
