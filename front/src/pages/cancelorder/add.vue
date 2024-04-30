@@ -265,12 +265,12 @@
               this.ro.idCard = true;
               continue;
             }
-            if(o=='administratorAccount'){
+            if(o=='ordinaryAdminAccount'){
               this.ruleForm.administratorAccount = obj[o];
               this.ro.administratorAccount = true;
               continue;
             }
-            if(o=='administratorName'){
+            if(o=='ordinaryAdminName'){
               this.ruleForm.administratorName = obj[o];
               this.ro.administratorName = true;
               continue;
@@ -291,11 +291,11 @@
         this.$http.get(this.userTableName + '/session', {emulateJSON: true}).then(res => {
           if (res.data.code == 0) {
             var json = res.data.data;
-            if((json.clientAccount!=''&&json.clientAccount) || json.clientAccount==0){
-                this.ruleForm.clientAccount = json.clientAccount
+            if((json.account!=''&&json.account) || json.account==0){
+                this.ruleForm.clientAccount = json.account
             }
-            if((json.clientName!=''&&json.clientName) || json.clientName==0){
-                this.ruleForm.clientName = json.clientName
+            if((json.name!=''&&json.name) || json.name==0){
+                this.ruleForm.clientName = json.name
             }
             if((json.phone!=''&&json.phone) || json.phone==0){
                 this.ruleForm.phone = json.phone

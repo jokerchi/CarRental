@@ -330,12 +330,7 @@ export default {
 							this.ro.carBrand = true;
 							continue;
 						}
-						if(o=='qicheleibie'){
-							this.ruleForm.qicheleibie = obj[o];
-							this.ro.qicheleibie = true;
-							continue;
-						}
-						if(o=='price'){
+						if(o=='dailyPrice'){
 							this.ruleForm.price = obj[o];
 							this.ro.price = true;
 							continue;
@@ -401,30 +396,7 @@ export default {
 							continue;
 						}
 				}
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			}
-			
-			
 			// 获取用户信息
 			this.$http({
 				url: `${this.$storage.get('sessionTable')}/session`,
@@ -460,7 +432,7 @@ export default {
 
     info(id) {
       this.$http({
-        url: `quxiaodingdan/info/${id}`,
+        url: `cancelorder/info/${id}`,
         method: "get"
       }).then(({ data }) => {
         if (data && data.code === 0) {
@@ -561,7 +533,7 @@ var objcross = this.$storage.getObj('crossObj');
         crossRefId:this.ruleForm.crossRefId,
 			} 
 			this.$http({ 
-				url: "quxiaodingdan/page", 
+				url: "cancelorder/page",
 				method: "get", 
 				params: params 
 			}).then(({ 
@@ -573,7 +545,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       return false;
 				       } else {
 					 this.$http({
-					   url: `quxiaodingdan/${!this.ruleForm.id ? "save" : "update"}`,
+					   url: `cancelorder/${!this.ruleForm.id ? "save" : "update"}`,
 					   method: "post",
 					   data: this.ruleForm
 					 }).then(({ data }) => {
@@ -585,7 +557,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       onClose: () => {
 						 this.parent.showFlag = true;
 						 this.parent.addOrUpdateFlag = false;
-						 this.parent.quxiaodingdanCrossAddOrUpdateFlag = false;
+						 this.parent.cancelorderCrossAddOrUpdateFlag = false;
 						 this.parent.search();
 						 this.parent.contentStyleChange();
 					       }
@@ -601,7 +573,7 @@ var objcross = this.$storage.getObj('crossObj');
 			});
 		 } else {
 			 this.$http({
-			   url: `quxiaodingdan/${!this.ruleForm.id ? "save" : "update"}`,
+			   url: `cancelorder/${!this.ruleForm.id ? "save" : "update"}`,
 			   method: "post",
 			   data: this.ruleForm
 			 }).then(({ data }) => {
@@ -613,7 +585,7 @@ var objcross = this.$storage.getObj('crossObj');
 			       onClose: () => {
 				 this.parent.showFlag = true;
 				 this.parent.addOrUpdateFlag = false;
-				 this.parent.quxiaodingdanCrossAddOrUpdateFlag = false;
+				 this.parent.cancelorderCrossAddOrUpdateFlag = false;
 				 this.parent.search();
 				 this.parent.contentStyleChange();
 			       }
@@ -634,7 +606,7 @@ var objcross = this.$storage.getObj('crossObj');
     back() {
       this.parent.showFlag = true;
       this.parent.addOrUpdateFlag = false;
-      this.parent.quxiaodingdanCrossAddOrUpdateFlag = false;
+      this.parent.cancelorderCrossAddOrUpdateFlag = false;
       this.parent.contentStyleChange();
     },
   }

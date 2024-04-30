@@ -50,8 +50,8 @@
         form: {
           content: '',
           parentId: '',
-          userId: localStorage.getItem('userId'),
-          userName: localStorage.getItem('userName'),
+          userId: localStorage.getItem('userid'),
+          userName: localStorage.getItem('username'),
           avatarUrl: '',
         },
         rules: {
