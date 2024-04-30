@@ -77,11 +77,6 @@ export default {
       this.$refs["ruleForm"].validate(valid => {
         if (valid) {
           var password = "";
-          if (this.user.mima) {
-            password = this.user.mima;
-          } else if (this.user.password) {
-            password = this.user.password;
-          }
           if (this.user.password) {
             password = this.user.password;
           } else if (this.user.password) {
@@ -96,7 +91,6 @@ export default {
             return;
           }
           this.user.password = this.ruleForm.newpassword;
-          this.user.mima = this.ruleForm.newpassword;
           this.$http({
             url: `${this.$storage.get("sessionTable")}/update`,
             method: "post",

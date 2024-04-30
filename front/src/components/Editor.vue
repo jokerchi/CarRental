@@ -99,7 +99,7 @@ export default {
   computed: {
     // 计算属性的 getter
     getActionUrl: function() {
-      return this.baseUrl + '/' + this.action;
+      return this.baseUrl + this.action;
     }
   },
   methods: {

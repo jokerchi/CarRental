@@ -112,7 +112,7 @@ public class SuperAdministratorController {
      */
     @RequestMapping("/session")
     public R getCurrUser(HttpServletRequest request){
-        Long id = (Long)request.getSession().getAttribute("user_id");
+        Long id = (Long)request.getSession().getAttribute("userId");
         SuperAdministratorEntity superAdmin = superAdministratorService.selectById(id);
         return R.ok().put("data", superAdmin);
     }
