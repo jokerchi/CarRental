@@ -86,7 +86,7 @@ export default {
         cancelButtonText: "取消",
         type: "warning"
       }).then(() => {
-        this.obj.ispay = "已支付";
+        this.obj.isPay = "已支付";
         this.$http({
           url: `${this.table}/update`,
           method: "post",

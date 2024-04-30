@@ -33,7 +33,7 @@
           isDone: '开放',
           content: '',
           parentId: 0,
-          userId: localStorage.getItem('userId'),
+          userId: localStorage.getItem('userid'),
           userName: localStorage.getItem('userName')
         },
         // editorOption: {

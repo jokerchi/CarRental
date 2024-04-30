@@ -289,11 +289,6 @@ export default {
 							this.ro.carBrand = true;
 							continue;
 						}
-						if(o=='qicheleibie'){
-							this.ruleForm.qicheleibie = obj[o];
-							this.ro.qicheleibie = true;
-							continue;
-						}
 						if(o=='returnDate'){
 							this.ruleForm.returnDate = obj[o];
 							this.ro.returnDate = true;
@@ -324,12 +319,12 @@ export default {
 							this.ro.idCard = true;
 							continue;
 						}
-						if(o=='adminAccount'){
+						if(o=='administratorAccount'){
 							this.ruleForm.adminAccount = obj[o];
 							this.ro.adminAccount = true;
 							continue;
 						}
-						if(o=='adminName'){
+						if(o=='administratorName'){
 							this.ruleForm.adminName = obj[o];
 							this.ro.adminName = true;
 							continue;

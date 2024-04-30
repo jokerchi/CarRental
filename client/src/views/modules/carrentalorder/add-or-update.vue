@@ -307,11 +307,6 @@ export default {
 							this.ro.carBrand = true;
 							continue;
 						}
-						if(o=='qicheleibie'){
-							this.ruleForm.qicheleibie = obj[o];
-							this.ro.qicheleibie = true;
-							continue;
-						}
 						if(o=='dailyPrice'){
 							this.ruleForm.dailyPrice = obj[o];
 							this.ro.dailyPrice = true;
@@ -423,43 +418,6 @@ export default {
     // 提交
     onSubmit() {
         this.ruleForm.totalPrice = this.totalPrice
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var objcross = this.$storage.getObj('crossObj');
 
       //更新跨表属性
