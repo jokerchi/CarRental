@@ -209,4 +209,13 @@ public class CarInfoEntity<T> implements Serializable {
     public void setAddTime(Date addTime) {
         this.addTime = addTime;
     }
+
+    @Override
+    public String toString() {
+        return "CarInfo{" +
+                "id=" + id +
+                ", carNumber='" + carNumber + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

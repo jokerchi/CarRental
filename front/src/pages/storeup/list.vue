@@ -69,7 +69,7 @@
           this.$router.push('/index/center')
       },
       getStoreupList(page) {
-        let params = {page, limit: this.pageSize, type: this.storeupType, userid: localStorage.getItem('userid'),sort:"addtime",order:"desc"};
+        let params = {page, limit: this.pageSize, type: this.storeupType, userid: localStorage.getItem('userid'),sort:"add_time",order:"desc"};
         let searchWhere = {};
         if (this.formSearch.name != '') searchWhere.name = '%' + this.formSearch.name + '%';
         this.$http.get('storeup/list', {params: Object.assign(params, searchWhere)}).then(res => {

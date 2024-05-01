@@ -22,4 +22,5 @@ public interface CarInfoService extends IService<CarInfoEntity> {
     CarInfoView selectView(@Param("ew") Wrapper<CarInfoEntity> wrapper);
 
     PageUtils queryPage(Map<String, Object> params,Wrapper<CarInfoEntity> wrapper);
+
 }

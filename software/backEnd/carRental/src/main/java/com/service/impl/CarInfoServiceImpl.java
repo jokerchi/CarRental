@@ -10,6 +10,7 @@ import com.entity.view.CarInfoView;
 import com.service.CarInfoService;
 import com.utils.PageUtils;
 import com.utils.Query;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.Map;
 
 @Service("carInfoService")
 public class CarInfoServiceImpl extends ServiceImpl<CarInfoDao, CarInfoEntity> implements CarInfoService {
+
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         Page<CarInfoEntity> page = this.selectPage(

@@ -49,15 +49,7 @@ const menu = {
                     "menuJump": "列表",
                     "tableName": "returncarinfo"
                 }], "menu": "还车信息管理"
-            }, {
-                "child": [{
-                    "appFrontIcon": "cuIcon-medal",
-                    "buttons": ["新增", "查看", "修改", "删除"],
-                    "menu": "汽车资讯",
-                    "menuJump": "列表",
-                    "tableName": "qichezixun"
-                }], "menu": "汽车资讯管理"
-            }, {
+            },  {
                 "child": [{
                     "appFrontIcon": "cuIcon-group",
                     "buttons": ["查看", "修改", "删除"],
@@ -90,14 +82,6 @@ const menu = {
                     "menuJump": "列表",
                     "tableName": "carinfo"
                 }], "menu": "汽车信息模块"
-            }, {
-                "child": [{
-                    "appFrontIcon": "cuIcon-paint",
-                    "buttons": ["查看"],
-                    "menu": "汽车资讯列表",
-                    "menuJump": "列表",
-                    "tableName": "qichezixun"
-                }], "menu": "汽车资讯模块"
             }],
             "hasBackLogin": "是",
             "hasBackRegister": "否",
@@ -139,14 +123,6 @@ const menu = {
                     "menuJump": "列表",
                     "tableName": "carinfo"
                 }], "menu": "汽车信息模块"
-            }, {
-                "child": [{
-                    "appFrontIcon": "cuIcon-paint",
-                    "buttons": ["查看"],
-                    "menu": "汽车资讯列表",
-                    "menuJump": "列表",
-                    "tableName": "qichezixun"
-                }], "menu": "汽车资讯模块"
             }],
             "hasBackLogin": "是",
             "hasBackRegister": "否",
@@ -187,14 +163,6 @@ const menu = {
                     "menuJump": "列表",
                     "tableName": "returncarinfo"
                 }], "menu": "还车信息管理"
-            }, {
-                "child": [{
-                    "appFrontIcon": "cuIcon-medal",
-                    "buttons": ["新增", "查看", "修改", "删除"],
-                    "menu": "汽车资讯",
-                    "menuJump": "列表",
-                    "tableName": "qichezixun"
-                }], "menu": "汽车资讯管理"
             }],
             "frontMenu": [{
                 "child": [{
@@ -204,14 +172,6 @@ const menu = {
                     "menuJump": "列表",
                     "tableName": "carinfo"
                 }], "menu": "汽车信息模块"
-            }, {
-                "child": [{
-                    "appFrontIcon": "cuIcon-paint",
-                    "buttons": ["查看"],
-                    "menu": "汽车资讯列表",
-                    "menuJump": "列表",
-                    "tableName": "qichezixun"
-                }], "menu": "汽车资讯模块"
             }],
             "hasBackLogin": "是",
             "hasBackRegister": "是",

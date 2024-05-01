@@ -232,7 +232,7 @@ export default {
 
     info(id) {
       this.$http({
-        url: `news/info/${id}`,
+        url: `excitingactivities/info/${id}`,
         method: "get"
       }).then(({ data }) => {
         if (data && data.code === 0) {
@@ -304,7 +304,7 @@ var objcross = this.$storage.getObj('crossObj');
 				crossrefid:this.ruleForm.crossrefid,
 			} 
 			this.$http({ 
-				url: "news/page", 
+				url: "excitingactivities/page",
 				method: "get", 
 				params: params 
 			}).then(({ 
@@ -316,7 +316,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       return false;
 				       } else {
 					 this.$http({
-					   url: `news/${!this.ruleForm.id ? "save" : "update"}`,
+					   url: `excitingactivities/${!this.ruleForm.id ? "save" : "update"}`,
 					   method: "post",
 					   data: this.ruleForm
 					 }).then(({ data }) => {
@@ -328,7 +328,7 @@ var objcross = this.$storage.getObj('crossObj');
 					       onClose: () => {
 						 this.parent.showFlag = true;
 						 this.parent.addOrUpdateFlag = false;
-						 this.parent.newsCrossAddOrUpdateFlag = false;
+						 this.parent.excitingactivitiesCrossAddOrUpdateFlag = false;
 						 this.parent.search();
 						 this.parent.contentStyleChange();
 					       }
@@ -344,7 +344,7 @@ var objcross = this.$storage.getObj('crossObj');
 			});
 		 } else {
 			 this.$http({
-			   url: `news/${!this.ruleForm.id ? "save" : "update"}`,
+			   url: `excitingactivities/${!this.ruleForm.id ? "save" : "update"}`,
 			   method: "post",
 			   data: this.ruleForm
 			 }).then(({ data }) => {
@@ -356,7 +356,7 @@ var objcross = this.$storage.getObj('crossObj');
 			       onClose: () => {
 				 this.parent.showFlag = true;
 				 this.parent.addOrUpdateFlag = false;
-				 this.parent.newsCrossAddOrUpdateFlag = false;
+				 this.parent.excitingactivitiesCrossAddOrUpdateFlag = false;
 				 this.parent.search();
 				 this.parent.contentStyleChange();
 			       }
@@ -377,7 +377,7 @@ var objcross = this.$storage.getObj('crossObj');
     back() {
       this.parent.showFlag = true;
       this.parent.addOrUpdateFlag = false;
-      this.parent.newsCrossAddOrUpdateFlag = false;
+      this.parent.excitingactivitiesCrossAddOrUpdateFlag = false;
       this.parent.contentStyleChange();
     },
     pictureUploadChange(fileUrls) {

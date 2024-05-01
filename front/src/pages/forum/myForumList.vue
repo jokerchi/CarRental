@@ -65,7 +65,7 @@
           this.$router.push('/index/center')
       },
       getMyForumList(page) {
-        this.$http.get('forum/list', {params: {page, limit: this.pageSize, parentId: 0, sort: 'addTime', order: 'desc'}}).then(res => {
+        this.$http.get('forum/list', {params: {page, limit: this.pageSize, parentId: 0, sort: 'add_time', order: 'desc'}}).then(res => {
           if (res.data.code == 0) {
             this.tableData = res.data.data.list;
             this.total = res.data.data.total;

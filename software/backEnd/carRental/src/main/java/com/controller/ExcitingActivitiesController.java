@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/excitingActivities")
+@RequestMapping("/excitingactivities")
 public class ExcitingActivitiesController {
     @Autowired
     private ExcitingActivitiesService excitingActivitiesService;

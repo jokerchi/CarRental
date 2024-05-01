@@ -205,6 +205,7 @@ export default {
       showFlag: true,
       isReviewedVisiable: false,
       shForm: {},
+      statusForm: {},
       chartVisiable: false,
       chartVisiable1: false,
       chartVisiable2: false,
@@ -239,25 +240,7 @@ export default {
     // 分页
     contentPageStyleChange(){
       let arr = []
-
-      // if(this.contents.pageTotal) arr.push('total')
-      // if(this.contents.pageSizes) arr.push('sizes')
-      // if(this.contents.pagePrevNext){
-      //   arr.push('prev')
-      //   if(this.contents.pagePager) arr.push('pager')
-      //   arr.push('next')
-      // }
-      // if(this.contents.pageJumper) arr.push('jumper')
-      // this.layouts = arr.join()
-      // this.contents.pageEachNum = 10
     },
-
-
-
-
-
-
-
 
     init () {
         this.isReviewedOptions = "是,否,待审核".split(',');
@@ -276,14 +259,8 @@ export default {
         sort: 'id',
         order: 'desc',
       }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
            if(this.searchForm.carNumber!='' && this.searchForm.carNumber!=undefined){
             params['carNumber'] = '%' + this.searchForm.carNumber + '%'
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
           }
            if(this.searchForm.carBrand!='' && this.searchForm.carBrand!=undefined){
             params['carBrand'] = '%' + this.searchForm.carBrand + '%'
@@ -291,50 +268,8 @@ export default {
           if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
             params['isReviewed'] = this.searchForm.isReviewed
           }
-           if(this.searchForm.qicheleibie!='' && this.searchForm.qicheleibie!=undefined){
-            params['qicheleibie'] = '%' + this.searchForm.qicheleibie + '%'
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
            if(this.searchForm.clientName!='' && this.searchForm.clientName!=undefined){
             params['clientName'] = '%' + this.searchForm.clientName + '%'
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
-          }
-          if(this.searchForm.isReviewed!='' && this.searchForm.isReviewed!=undefined){
-            params['isReviewed'] = this.searchForm.isReviewed
           }
       this.$http({
         url: "returncarinfo/page",
@@ -400,6 +335,8 @@ export default {
           reviewReply: row.reviewReply,
           id: row.id
         }
+
+
       }
     },
     // 审核
@@ -421,13 +358,44 @@ export default {
               duration: 1500,
               onClose: () => {
                 this.getDataList();
-                this.shDialog()
+                this.shDialog();
+                this.updateStatus();
               }
             });
           } else {
             this.$message.error(data.msg);
           }
         });
+      });
+    },
+    updateStatus(){
+      this.statusForm = {
+        carNumber: this.shForm['carNumber'],
+        carBrand: this.shForm['carBrand'],
+        ordinaryAdminAccount: this.shForm['adminAccount'],
+        ordinaryAdminName: this.shForm['adminName'],
+      }
+      if (this.shForm['isReviewed']) {
+        if(this.shForm['isReviewed'] === "是"){
+          this.statusForm.status = "未出租";
+        }else if(this.shForm['isReviewed'] === "否"){
+          this.statusForm.status = "已出租";
+        }else{
+          this.statusForm.status = "已出租";
+        }
+      } else {
+        this.statusForm.status = "";
+      }
+
+      this.$http({
+        url: "carinfo/update2",
+        method: "post",
+        data: this.statusForm
+      }).then(({ data }) => {
+        if (data && data.code === 0) {
+        } else {
+          this.$message.error(data.msg);
+        }
       });
     },
     // 下载
