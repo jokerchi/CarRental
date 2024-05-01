@@ -5,68 +5,68 @@
     <el-tabs tab-position="left" :style='{"border":"0","padding":"20px","margin":"0","borderRadius":"0 0 16px 16px","background":"none"}' @tab-click="handleClick">
       <el-tab-pane label="个人中心">
         <el-form class="center-preview-pv" ref="sessionForm" :model="sessionForm" :rules="rules" label-width="80px">
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="账号" prop="zhanghao">
-            <el-input v-model="sessionForm.zhanghao" placeholder="账号" readonly></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="账号" prop="account">
+            <el-input v-model="sessionForm.account" placeholder="账号" readonly></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="密码" prop="mima">
-            <el-input type="password" v-model="sessionForm.mima" placeholder="密码"></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="密码" prop="password">
+            <el-input type="password" v-model="sessionForm.password" placeholder="密码"></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="姓名" prop="xingming">
-            <el-input v-model="sessionForm.xingming" placeholder="姓名" ></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="姓名" prop="name">
+            <el-input v-model="sessionForm.name" placeholder="姓名" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="年龄" prop="nianling">
-            <el-input v-model="sessionForm.nianling" placeholder="年龄" ></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="年龄" prop="age">
+            <el-input v-model="sessionForm.age" placeholder="年龄" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="性别">
-            <el-select v-model="sessionForm.xingbie" placeholder="请选择性别" >
-              <el-option v-for="(item, index) in dynamicProp.xingbie" :key="index" :label="item" :value="item"></el-option>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="性别">
+            <el-select v-model="sessionForm.gender" placeholder="请选择性别" >
+              <el-option v-for="(item, index) in dynamicProp.gender" :key="index" :label="item" :value="item"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="身份证" prop="shenfenzheng">
-            <el-input v-model="sessionForm.shenfenzheng" placeholder="身份证" ></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="身份证" prop="idCard">
+            <el-input v-model="sessionForm.idCard" placeholder="身份证" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="手机" prop="shouji">
-            <el-input v-model="sessionForm.shouji" placeholder="手机" ></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="手机" prop="phone">
+            <el-input v-model="sessionForm.phone" placeholder="手机" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='yonghu'" label="头像">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='client'" label="头像">
             <el-upload
               class="avatar-uploader"
               :action="uploadUrl"
               :headers="headers"
               :show-file-list="false"
-              :on-success="yonghutouxiangHandleAvatarSuccess">
-              <img :style='{"border":"1px dashed #999","cursor":"pointer","color":"#999","borderRadius":"6px","textAlign":"center","background":"#f9f9f9","width":"200px","fontSize":"32px","lineHeight":"100px","height":"auto"}' v-if="sessionForm.touxiang" :src="baseUrl + sessionForm.touxiang" class="avatar">
+              :on-success="clientavatarHandleAvatarSuccess">
+              <img :style='{"border":"1px dashed #999","cursor":"pointer","color":"#999","borderRadius":"6px","textAlign":"center","background":"#f9f9f9","width":"200px","fontSize":"32px","lineHeight":"100px","height":"auto"}' v-if="sessionForm.avatar" :src="baseUrl + sessionForm.avatar" class="avatar">
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="管理账号" prop="ordinaryAdminAccount">
-            <el-input v-model="sessionForm.guanlizhanghao" placeholder="管理账号" readonly></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='ordinaryadministrator'" label="管理账号" prop="ordinaryAdminAccount">
+            <el-input v-model="sessionForm.ordinaryAdminAccount" placeholder="管理账号" readonly></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="密码" prop="mima">
-            <el-input type="password" v-model="sessionForm.mima" placeholder="密码"></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='ordinaryadministrator'" label="密码" prop="password">
+            <el-input type="password" v-model="sessionForm.password" placeholder="密码"></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="管理姓名" prop="ordinaryAdminName">
-            <el-input v-model="sessionForm.guanlixingming" placeholder="管理姓名" ></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='ordinaryadministrator'" label="管理姓名" prop="ordinaryAdminName">
+            <el-input v-model="sessionForm.ordinaryAdminName" placeholder="管理姓名" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="性别">
-            <el-select v-model="sessionForm.xingbie" placeholder="请选择性别" >
-              <el-option v-for="(item, index) in dynamicProp.xingbie" :key="index" :label="item" :value="item"></el-option>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='ordinaryadministrator'" label="性别">
+            <el-select v-model="sessionForm.gender" placeholder="请选择性别" >
+              <el-option v-for="(item, index) in dynamicProp.gender" :key="index" :label="item" :value="item"></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="年龄" prop="nianling">
-            <el-input v-model="sessionForm.nianling" placeholder="年龄" ></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='ordinaryadministrator'" label="年龄" prop="age">
+            <el-input v-model="sessionForm.age" placeholder="年龄" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="联系电话" prop="lianxidianhua">
-            <el-input v-model="sessionForm.lianxidianhua" placeholder="联系电话" ></el-input>
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='ordinaryadministrator'" label="联系电话" prop="phone">
+            <el-input v-model="sessionForm.phone" placeholder="联系电话" ></el-input>
           </el-form-item>
-          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='putongguanliyuan'" label="头像">
+          <el-form-item :style='{"border":"1px solid #dfdfdf","padding":"10px","boxShadow":"1px 2px 3px #eee","margin":"0 0 10px","borderRadius":"8px","background":"radial-gradient(circle, rgba(246,246,246,1) 0%, rgba(230,230,230,1) 100%)"}' v-if="userTableName=='ordinaryadministrator'" label="头像">
             <el-upload
               class="avatar-uploader"
               :action="uploadUrl"
               :headers="headers"
               :show-file-list="false"
-              :on-success="putongguanliyuantouxiangHandleAvatarSuccess">
-              <img :style='{"border":"1px dashed #999","cursor":"pointer","color":"#999","borderRadius":"6px","textAlign":"center","background":"#f9f9f9","width":"200px","fontSize":"32px","lineHeight":"100px","height":"auto"}' v-if="sessionForm.touxiang" :src="baseUrl + sessionForm.touxiang" class="avatar">
+              :on-success="ordinaryadministratoravatarHandleAvatarSuccess">
+              <img :style='{"border":"1px dashed #999","cursor":"pointer","color":"#999","borderRadius":"6px","textAlign":"center","background":"#f9f9f9","width":"200px","fontSize":"32px","lineHeight":"100px","height":"auto"}' v-if="sessionForm.avatar" :src="baseUrl + sessionForm.avatar" class="avatar">
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
           </el-form-item>
@@ -215,90 +215,90 @@
       }
     },
     created() {
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'zhanghao', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'account', null);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'mima', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'password', null);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'xingming', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'name', null);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'nianling', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'age', null);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'xingbie', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'gender', null);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'shenfenzheng', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'idCard', null);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'shouji', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'phone', null);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.sessionForm, 'touxiang', null);
+      if ('client' == this.userTableName) {
+        this.$set(this.sessionForm, 'avatar', null);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.sessionForm, 'guanlizhanghao', null);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.sessionForm, 'ordinaryAdminAccount', null);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.sessionForm, 'mima', null);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.sessionForm, 'password', null);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.sessionForm, 'guanlixingming', null);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.sessionForm, 'ordinaryAdminName', null);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.sessionForm, 'xingbie', null);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.sessionForm, 'gender', null);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.sessionForm, 'nianling', null);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.sessionForm, 'age', null);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.sessionForm, 'lianxidianhua', null);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.sessionForm, 'phone', null);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.sessionForm, 'touxiang', null);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.sessionForm, 'avatar', null);
       }
 
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.rules, 'zhanghao', [{ required: true, message: '请输入账号', trigger: 'blur' }]);
+      if ('client' == this.userTableName) {
+        this.$set(this.rules, 'account', [{ required: true, message: '请输入账号', trigger: 'blur' }]);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.rules, 'mima', [{ required: true, message: '请输入密码', trigger: 'blur' }]);
+      if ('client' == this.userTableName) {
+        this.$set(this.rules, 'password', [{ required: true, message: '请输入密码', trigger: 'blur' }]);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.rules, 'xingming', [{ required: true, message: '请输入姓名', trigger: 'blur' }]);
+      if ('client' == this.userTableName) {
+        this.$set(this.rules, 'name', [{ required: true, message: '请输入姓名', trigger: 'blur' }]);
       }
-			if ('yonghu' == this.userTableName) {
-        this.$set(this.rules, 'nianling', [{ required: false, validator: this.$validate.isIntNumer, trigger: 'blur' }]);
+			if ('client' == this.userTableName) {
+        this.$set(this.rules, 'age', [{ required: false, validator: this.$validate.isIntNumer, trigger: 'blur' }]);
       }
-      if ('yonghu' == this.userTableName) {
-        this.$set(this.rules, 'shenfenzheng', [{ required: true, message: '请输入身份证', trigger: 'blur' }]);
+      if ('client' == this.userTableName) {
+        this.$set(this.rules, 'idCard', [{ required: true, message: '请输入身份证', trigger: 'blur' }]);
       }
-			if ('yonghu' == this.userTableName) {
-        this.$set(this.rules, 'shenfenzheng', [{ required: false, validator: this.$validate.isIdCard, trigger: 'blur' }]);
+			if ('client' == this.userTableName) {
+        this.$set(this.rules, 'idCard', [{ required: false, validator: this.$validate.isIdCard, trigger: 'blur' }]);
       }
-			if ('yonghu' == this.userTableName) {
-        this.$set(this.rules, 'shouji', [{ required: false, validator: this.$validate.isMobile, trigger: 'blur' }]);
+			if ('client' == this.userTableName) {
+        this.$set(this.rules, 'phone', [{ required: false, validator: this.$validate.isMobile, trigger: 'blur' }]);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.rules, 'guanlizhanghao', [{ required: true, message: '请输入管理账号', trigger: 'blur' }]);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.rules, 'ordinaryAdminAccount', [{ required: true, message: '请输入管理账号', trigger: 'blur' }]);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.rules, 'mima', [{ required: true, message: '请输入密码', trigger: 'blur' }]);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.rules, 'password', [{ required: true, message: '请输入密码', trigger: 'blur' }]);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.rules, 'guanlixingming', [{ required: true, message: '请输入管理姓名', trigger: 'blur' }]);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.rules, 'ordinaryAdminName', [{ required: true, message: '请输入管理姓名', trigger: 'blur' }]);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.rules, 'nianling', [{ required: true, message: '请输入年龄', trigger: 'blur' }]);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.rules, 'age', [{ required: true, message: '请输入年龄', trigger: 'blur' }]);
       }
-      if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.rules, 'lianxidianhua', [{ required: true, message: '请输入联系电话', trigger: 'blur' }]);
+      if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.rules, 'phone', [{ required: true, message: '请输入联系电话', trigger: 'blur' }]);
       }
-			if ('putongguanliyuan' == this.userTableName) {
-        this.$set(this.rules, 'lianxidianhua', [{ required: false, validator: this.$validate.isMobile, trigger: 'blur' }]);
+			if ('ordinaryadministrator' == this.userTableName) {
+        this.$set(this.rules, 'phone', [{ required: false, validator: this.$validate.isMobile, trigger: 'blur' }]);
       }
 
       this.init();
@@ -307,11 +307,11 @@
     //方法集合
     methods: {
       init() {
-        if ('yonghu' == this.userTableName) {
-          this.dynamicProp.xingbie = '男,女'.split(',');
+        if ('client' == this.userTableName) {
+          this.dynamicProp.gender = '男,女'.split(',');
         }
-        if ('putongguanliyuan' == this.userTableName) {
-          this.dynamicProp.xingbie = '男,女'.split(',');
+        if ('ordinaryadministrator' == this.userTableName) {
+          this.dynamicProp.gender = '男,女'.split(',');
         }
       },
       getSession() {
@@ -322,8 +322,8 @@
             if(res.data.data.vip) {
                 localStorage.setItem('vip', res.data.data.vip);
             }
-            if(res.data.data.touxiang) {
-                localStorage.setItem('headportrait', res.data.data.touxiang);
+            if(res.data.data.avatar) {
+                localStorage.setItem('headportrait', res.data.data.avatar);
             } else if(res.data.data.headportrait) {
                 localStorage.setItem('headportrait', res.data.data.headportrait);
             }
@@ -347,17 +347,17 @@
           }
         });
       },
-      yonghutouxiangHandleAvatarSuccess(res, file) {
+      clientavatarHandleAvatarSuccess(res, file) {
         if (res.code == 0) {
-          if ('yonghu' == this.userTableName) {
-            this.sessionForm.touxiang = 'upload/' + res.file;
+          if ('client' == this.userTableName) {
+            this.sessionForm.avatar = 'upload/' + res.file;
           }
         }
       },
-      putongguanliyuantouxiangHandleAvatarSuccess(res, file) {
+      ordinaryadministratoravatarHandleAvatarSuccess(res, file) {
         if (res.code == 0) {
-          if ('putongguanliyuan' == this.userTableName) {
-            this.sessionForm.touxiang = 'upload/' + res.file;
+          if ('ordinaryadministrator' == this.userTableName) {
+            this.sessionForm.avatar = 'upload/' + res.file;
           }
         }
       },

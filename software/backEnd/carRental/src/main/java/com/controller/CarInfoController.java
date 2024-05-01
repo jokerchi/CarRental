@@ -3,6 +3,7 @@ package com.controller;
 import com.annotation.IgnoreAuth;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.dao.CarInfoDao;
 import org.apache.commons.lang3.StringUtils;
 import com.entity.CarInfoEntity;
 import com.entity.view.CarInfoView;
@@ -27,6 +28,9 @@ public class CarInfoController {
 
     @Autowired
     private StoreUpService storeUpService;
+
+    @Autowired //自动注入
+    private CarInfoDao carInfoDao;
 
     /**
      * 后端列表
@@ -130,12 +134,27 @@ public class CarInfoController {
 
 
     /**
-     * 修改
+     * 根据id修改
      */
     @RequestMapping("/update")
     @Transactional
     public R update(@RequestBody CarInfoEntity carInfo, HttpServletRequest request){
         carInfoService.updateById(carInfo);//全部更新
+        return R.ok();
+    }
+
+    /**
+     * 根据车牌号修改汽车信息
+     */
+    @PostMapping("/update2")
+    public R update2(@RequestBody CarInfoEntity carInfo, HttpServletRequest request){
+        System.out.println(carInfo);
+        int i = carInfoDao.updateStatus(carInfo);//更新汽车状态
+        if(i > 0){
+            System.out.println("更新成功");
+        }else{
+            System.out.println("更新失败");
+        }
         return R.ok();
     }
 

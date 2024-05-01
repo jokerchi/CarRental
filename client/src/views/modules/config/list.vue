@@ -43,10 +43,6 @@
 							<el-button :style='{"border":"1px solid #3ca512","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/ca1c191554d24b108bc94f4a2046d636.png) #41b314 no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('config','查看')" type="success" size="mini" @click="addOrUpdateHandler(scope.row.id,'info')">详情</el-button>
 							<el-button :style='{"border":"1px solid #00a0f0","cursor":"pointer","padding":"0 10px 0 24px","margin":"3px 6px 3px 0","outline":"none","color":"#fff","borderRadius":"4px","background":"url(http://codegen.caihongy.cn/20221011/161eb7a46f5d4cd19d68a1386174d662.png) #00aaff no-repeat 5px 8px","width":"auto","fontSize":"12px","height":"32px"}' v-if=" isAuth('config','修改')" type="primary" size="mini" @click="addOrUpdateHandler(scope.row.id)">修改</el-button>
 
-
-
-
-
 						</template>
 					</el-table-column>
 				</el-table>
@@ -69,11 +65,6 @@
 		
 		<!-- 添加/修改页面  将父组件的search方法传递给子组件-->
 		<add-or-update v-if="addOrUpdateFlag" :parent="this" ref="addOrUpdate"></add-or-update>
-
-
-
-
-
 	</div>
 </template>
 
@@ -130,25 +121,7 @@ export default {
     // 分页
     contentPageStyleChange(){
       let arr = []
-
-      // if(this.contents.pageTotal) arr.push('total')
-      // if(this.contents.pageSizes) arr.push('sizes')
-      // if(this.contents.pagePrevNext){
-      //   arr.push('prev')
-      //   if(this.contents.pagePager) arr.push('pager')
-      //   arr.push('next')
-      // }
-      // if(this.contents.pageJumper) arr.push('jumper')
-      // this.layouts = arr.join()
-      // this.contents.pageEachNum = 10
     },
-
-
-
-
-
-
-
 
     init () {
     },

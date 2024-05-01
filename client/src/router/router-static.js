@@ -12,7 +12,6 @@ import pay from '@/views/pay'
 import register from '@/views/register'
 import center from '@/views/center'
 import excitingactivities from '@/views/modules/excitingactivities/list'
-import qichezixun from '@/views/modules/qichezixun/list'
 import aboutus from '@/views/modules/aboutus/list'
 import ordinaryadministrator from '@/views/modules/ordinaryadministrator/list'
 import returncarinfo from '@/views/modules/returncarinfo/list'
@@ -55,11 +54,6 @@ const routes = [{
 	path: '/excitingactivities',
         name: '公告信息',
         component: excitingactivities
-      }
-      ,{
-	path: '/qichezixun',
-        name: '汽车资讯',
-        component: qichezixun
       }
       ,{
 	path: '/aboutus',

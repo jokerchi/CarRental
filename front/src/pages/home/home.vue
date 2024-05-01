@@ -20,20 +20,6 @@
 
 <!-- 汽车信息推荐 & 汽车资讯推荐 -->
 <div class="recommend" :style='{"border":"1px solid #dfdfdf","boxShadow":"1px 2px 3px #eee","margin":"20px 0 80px","overflow":"hidden","borderRadius":"16px","background":"#fff","width":"100%","height":"auto","order":"1"}'>
-  <!-- 一大段废话
-  <div v-if="false" class="idea recommendIdea" :style='{"padding":"20px","flexWrap":"wrap","background":"#efefef","justifyContent":"space-between","display":"flex"}'>
-    <div class="box1" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-    <div class="box2" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-    <div class="box3" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-    <div class="box4" :style='{"width":"20%","background":"#fff","height":"80px"}'></div>
-    <div class="box5" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-    <div class="box6" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-    <div class="box7" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-    <div class="box8" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-    <div class="box9" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-    <div class="box10" :style='{"width":"20%","background":"#fff","display":"none","height":"80px"}'></div>
-  </div>
-  -->
 
     <div class="title" :style='{"width":"100%","margin":"24px 0 24px 0","lineHeight":"1.5","textAlign":"center","background":"url(http://codegen.caihongy.cn/20221027/fc985400d2a2484d8d9e17eb893d2c05.png) no-repeat 240px center,url(http://codegen.caihongy.cn/20221027/6602c4fb09df4bd4881cabfef19d2ed3.png) no-repeat 760px center"}'>
     <span :style='{"fontSize":"24px","color":"#005aad","textShadow":"2px 4px 2px #eee","fontWeight":"bold"}'>汽车信息推荐</span>
@@ -49,15 +35,7 @@
 			<div class="name line1" :style='{"cursor":"pointer","padding":"4px 10px","boxShadow":"1px 1px 1px #ddd","margin":"4px 0 0 0","whiteSpace":"nowrap","overflow":"hidden","color":"#333","borderRadius":"8px","background":"#f5f5f5","lineHeight":"24px","fontSize":"14px","textOverflow":"ellipsis"}'>状态:{{item.status}}</div>
 		</div>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<div @click="moreBtn('carinfo')" :style='{"border":"1px solid #89c2f9","cursor":"pointer","boxShadow":"0px 4px 1px #c7d3de,inset 0px 0px 56px 0px #a0cbf7","margin":"20px auto","borderRadius":"30%","textAlign":"center","left":"47%","background":"#fff","display":"block","width":"120px","lineHeight":"36px","position":"absolute"}'>
 		<span :style='{"color":"#0583fc","fontSize":"14px"}'>查看更多</span>
 		<i v-if="true" :style='{"color":"#0583fc","fontSize":"14px"}' class="el-icon-d-arrow-right"></i>

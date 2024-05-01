@@ -133,9 +133,6 @@ export default {
 	},
 	props: ["parent"],
 	computed: {
-
-
-
 	},
 	created() {
 	},
@@ -175,15 +172,7 @@ export default {
 							continue;
 						}
 				}
-				
-
-
-
 			}
-			
-			
-			
-			
 		},
     // 多级联动参数
 
