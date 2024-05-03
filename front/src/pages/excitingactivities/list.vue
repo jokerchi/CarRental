@@ -24,12 +24,12 @@
 				
 				<!-- 样式五 -->
 		<div class="list5 index-pv1" :style='{"border":"1px solid #dfdfdf","padding":"10px 10px","boxShadow":"1px 2px 3px #eee","margin":"20px 0 0 0","overflow":"hidden","borderRadius":"16px","flexWrap":"wrap","background":"#fff","display":"flex","width":"100%","justifyContent":"space-between","height":"auto"}'>
-			<div :style='{"cursor":"pointer","padding":"10px","boxShadow":"1px 1px 1px #ddd,inset 0px 0px 56px 0px #eee","margin":"10px","borderRadius":"8px","background":"#f5f5f5","display":"flex","width":"569px","height":"auto"}' v-for="item in newsList" :key="item.id" @click="toNewsDetail(item)" class="list-item animation-box">
+			<div :style='{"cursor":"pointer","padding":"10px","boxShadow":"1px 1px 1px #ddd,inset 0px 0px 56px 0px #eee","margin":"10px","borderRadius":"8px","background":"#f5f5f5","display":"flex","width":"569px","height":"auto"}' v-for="item in newsList" :key="item.id" @click="toexcitingactivitiesDetail(item)" class="list-item animation-box">
 				<el-image :style='{"width":"180px","objectFit":"cover","borderRadius":"8px","display":"inline-block","height":"180px"}' :src="baseUrl + item.picture" :fit="fill"></el-image>
 				<div class="item-info" :style='{"width":"400px","padding":"10px","display":"inline-block","height":"auto"}'>
 					<div :style='{"whiteSpace":"nowrap","overflow":"hidden","color":"#333","lineHeight":"32px","fontSize":"14px","textOverflow":"ellipsis","fontWeight":"bold"}' class="title ">{{item.title}}</div>
 					<div :style='{"lineHeight":"24px","fontSize":"14px","overflow":"hidden","color":"#666","textIndent":"2em","height":"120px"}' class="introduction ">{{item.introduction}}</div>
-					<div :style='{"padding":"0 10px","fontSize":"14px","lineHeight":"32px","color":"#fff","background":"#333","display":"none"}' class="tags">新闻动态</div>
+					<div :style='{"padding":"0 10px","fontSize":"14px","lineHeight":"32px","color":"#fff","background":"#333","display":"none"}' class="tags">活动动态</div>
 				</div>
 			</div>
 		</div>
@@ -64,7 +64,7 @@
         baseUrl: this.$config.baseUrl,
         breadcrumbItem: [
           {
-            name: '公告信息'
+            name: '精彩活动'
           }
         ],
         newsList: [],
@@ -84,7 +84,7 @@
         let params = {page, limit: this.pageSize};
         let searchWhere = {};
         if(this.title != '') searchWhere.title = '%' + this.title + '%';
-        this.$http.get('excitingActivities/list', {params: Object.assign(params, searchWhere)}).then(res => {
+        this.$http.get('excitingactivities/list', {params: Object.assign(params, searchWhere)}).then(res => {
           if (res.data.code == 0) {
             this.newsList = res.data.data.list;
             this.total = res.data.data.total;
@@ -102,8 +102,8 @@
       nextClick(page) {
         this.getNewsList(page);
       },
-      toNewsDetail(item) {
-        this.$router.push({path: '/index/newsDetail', query: {detailObj: JSON.stringify(item)}});
+      toexcitingactivitiesDetail(item) {
+        this.$router.push({path: '/index/excitingactivitiesDetail', query: {detailObj: JSON.stringify(item)}});
       }
     }
   }

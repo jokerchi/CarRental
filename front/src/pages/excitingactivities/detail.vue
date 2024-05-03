@@ -1,9 +1,9 @@
 <template>
   <div :style='{"border":"1px solid #dfdfdf","padding":"20px","margin":"20px auto 0","borderRadius":"16px","background":"#fff","width":"1200px","position":"relative"}'>
-    <div class="section-title" :style='{"margin":"0px 0","color":"#2087c3","borderRadius":"8px 8px 0 0","textAlign":"center","background":"url(http://codegen.caihongy.cn/20221029/f414ce6eeb09429c9bc4d3d6643d9bd1.png) no-repeat center top","fontSize":"24px","lineHeight":"150px","fontWeight":"bold"}'>公告信息</div>
+    <div class="section-title" :style='{"margin":"0px 0","color":"#2087c3","borderRadius":"8px 8px 0 0","textAlign":"center","background":"url(http://codegen.caihongy.cn/20221029/f414ce6eeb09429c9bc4d3d6643d9bd1.png) no-repeat center top","fontSize":"24px","lineHeight":"150px","fontWeight":"bold"}'>精彩活动</div>
     <div class="section-content">
       <div class="content-title">{{detail.title}}</div>
-      <div class="content-sub-title">发布时间：{{detail.addtime}}</div>
+      <div class="content-sub-title">发布时间：{{detail.addTime}}</div>
       <el-divider></el-divider>
       <div class="content-detail" v-html="detail.content"></div>
     </div>

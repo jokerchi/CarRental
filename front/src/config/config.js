@@ -16,7 +16,7 @@ export default {
         }, 
         {
             name: '精彩活动',
-            url: '/index/excitingActivities'
+            url: '/index/excitingactivities'
         },
         {
             name: '留言板',

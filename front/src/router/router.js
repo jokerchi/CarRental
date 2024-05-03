@@ -12,8 +12,8 @@ import ForumAdd from '../pages/forum/add'
 import ForumDetail from '../pages/forum/detail'
 import MyForumList from '../pages/forum/myForumList'
 import Storeup from '../pages/storeup/list'
-import ExcitingActivities from '../pages/news/news-list'
-import NewsDetail from '../pages/news/news-detail'
+import excitingactivities from '../pages/excitingactivities/list'
+import excitingactivitiesDetail from '../pages/excitingactivities/detail'
 import clientList from '../pages/client/list'
 import clientDetail from '../pages/client/detail'
 import clientAdd from '../pages/client/add'
@@ -85,12 +85,12 @@ export default new VueRouter({
 					component: Storeup
 				},
 				{
-					path: 'excitingActivities',
-					component: ExcitingActivities
+					path: 'excitingactivities',
+					component: excitingactivities
 				},
 				{
-					path: 'newsDetail',
-					component: NewsDetail
+					path: 'excitingactivitiesDetail',
+					component: excitingactivitiesDetail
 				},
 				{
 					path: 'client',
