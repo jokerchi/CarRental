@@ -117,7 +117,7 @@ export default {
 
 		this.$http({
 			url: `${this.tableName}/login?username=${this.rulesForm.username}&password=${this.rulesForm.password}`,
-			method: "post"
+			method: "get"
 		}).then(({ data }) => {
 			if (data && data.code === 0) {
 				this.$storage.set("Token", data.token);
