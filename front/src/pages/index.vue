@@ -61,6 +61,7 @@ import Vue from 'vue'
 export default {
     data() {
 		return {
+      hostname : '',
       activeIndex: '0',
       roleMenus: [{
         "backMenu": [{
@@ -348,9 +349,10 @@ export default {
 		}
     },
     created() {
-		this.baseUrl = this.$config.baseUrl;
-		this.menuList = this.$config.indexNav;
-		this.getCarousel();
+      this.hostname = window.location.hostname;
+		  this.baseUrl = this.$config.baseUrl;
+		  this.menuList = this.$config.indexNav;
+		  this.getCarousel();
     },
     mounted() {
         this.activeIndex = localStorage.getItem('keyPath') || '0';
@@ -399,7 +401,7 @@ export default {
 			});
 		},
 		goBackend() {
-			window.open(`http://localhost:8082/#/login`, "_blank");
+			window.open(`http://` + this.hostname + `:8082/#/login`, "_blank");
 		},
 		goMenu(path) {
             if (!localStorage.getItem('Token')) {
