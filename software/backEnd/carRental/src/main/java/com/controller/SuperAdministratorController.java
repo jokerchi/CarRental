@@ -31,7 +31,7 @@ public class SuperAdministratorController {
      * 登录
      */
     @IgnoreAuth
-    @PostMapping(value = "/login")
+    @RequestMapping(value = "/login")
     public R login(@RequestParam("username") String super_admin_account, String password, String captcha, HttpServletRequest request) {
         SuperAdministratorEntity super_admin = superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin_account));
         if(super_admin==null || !super_admin.getPassword().equals(password)) {
@@ -45,7 +45,7 @@ public class SuperAdministratorController {
      * 注册
      */
     @IgnoreAuth
-    @PostMapping(value = "/register")
+    @RequestMapping(value = "/register")
     public R register(@RequestBody SuperAdministratorEntity super_admin){
         if(superAdministratorService.selectOne(new EntityWrapper<SuperAdministratorEntity>().eq("super_admin_account", super_admin.getSuperAdminAccount())) !=null) {
             return R.error("用户已存在");
