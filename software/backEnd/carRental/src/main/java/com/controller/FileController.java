@@ -36,30 +36,33 @@ public class FileController {
     @RequestMapping("/upload")
     @IgnoreAuth
     public R upload(@RequestParam("file") MultipartFile file, String type) throws Exception {
-        System.out.println("wdwdwdwdwdwdwd");
         if (file.isEmpty()) {
             throw new EIException("上传文件不能为空");
         }
 
         String fileExt = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")+1);
-        System.out.println(fileExt);
-        File path = new File(ResourceUtils.getURL("classpath:static").getPath());
-        if(!path.exists()) {
-            path = new File("");
+
+        String uploadDir = "/home/backend/static/upload";
+        System.out.println(uploadDir);
+        File uploadPath = new File(uploadDir);
+        if (!uploadPath.exists()) {
+            uploadPath.mkdirs();
+            System.out.println("wdwd");
         }
-        File upload = new File(path.getAbsolutePath(),"/upload/");
-        if(!upload.exists()) {
-            upload.mkdirs();
+        if (uploadPath.exists()) {
+            System.out.println(uploadPath.getAbsolutePath());
         }
+
         String fileName = new Date().getTime()+"."+fileExt;
-        File dest = new File(upload.getAbsolutePath()+"/"+fileName);
+        File dest = new File(uploadPath.getAbsolutePath()+"/"+fileName);
+        System.out.println(uploadPath.getAbsolutePath()+"/"+fileName);
         file.transferTo(dest);
         /**
          * 如果使用idea或者eclipse重启项目，发现之前上传的图片或者文件丢失，将下面一行代码注释打开
          * 请将以下的"D:\\springbootq33sd\\src\\main\\resources\\static\\upload"替换成你本地项目的upload路径，
          * 并且项目路径不能存在中文、空格等特殊字符
          */
-		FileUtils.copyFile(dest, new File("D:\\Java\\CarRental\\software\\backEnd\\carRental\\src\\main\\resources\\static\\upload"+"/"+fileName)); /**修改了路径以后请将该行最前面的//注释去掉**/
+        //FileUtils.copyFile(dest, new File("D:\\Java\\CarRental\\software\\backEnd\\carRental\\src\\main\\resources\\static\\upload"+"/"+fileName)); /**修改了路径以后请将该行最前面的//注释去掉**/
         if(StringUtils.isNotBlank(type) && type.equals("1")) {
             ConfigEntity configEntity = configService.selectOne(new EntityWrapper<ConfigEntity>().eq("name", "faceFile"));
             if(configEntity==null) {
