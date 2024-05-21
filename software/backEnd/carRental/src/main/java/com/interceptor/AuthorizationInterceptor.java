@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 import com.utils.R;
 
 //权限(Token)验证
+
 @Component
 public class AuthorizationInterceptor implements HandlerInterceptor {
     public static final String LOGIN_TOKEN_KEY = "Token";
@@ -52,6 +53,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         /**
          * 不需要验证权限的方法直接放过
          */
+
         if(annotation!=null) {
             return true;
         }
