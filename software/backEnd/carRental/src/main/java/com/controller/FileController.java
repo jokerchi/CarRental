@@ -42,7 +42,7 @@ public class FileController {
 
         String fileExt = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")+1);
 
-        String uploadDir = "/home/backend/static/upload";
+        String uploadDir = "/static/upload";
         System.out.println(uploadDir);
         File uploadPath = new File(uploadDir);
         if (!uploadPath.exists()) {
