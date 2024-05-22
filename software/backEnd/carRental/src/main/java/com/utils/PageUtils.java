@@ -56,6 +56,10 @@ public class PageUtils implements Serializable {
         new PageUtils(page);
     }
 
+    public PageUtils() {
+
+    }
+
     public int getPageSize() {
         return pageSize;
     }
