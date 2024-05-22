@@ -42,6 +42,9 @@ import printJS from 'print-js'
 //MD5
 import md5 from 'js-md5';
 
+import axios from 'axios'
+axios.defaults.withCredentials = true
+
 // 后台地图
 Vue.use(VueAMap)
 VueAMap.initAMapApiLoader({

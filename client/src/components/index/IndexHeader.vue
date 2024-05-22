@@ -51,7 +51,7 @@
 				});
 			},
 			onIndexTap(){
-				window.location.href = `http://localhost:8081/`
+				window.location.href = `http://1.94.169.201:8081/`
 			},
 		}
 	};
