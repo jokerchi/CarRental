@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.controller.AboutUsController;
 import com.entity.AboutUsEntity;
 import com.service.AboutUsService;
 import com.utils.PageUtils;
@@ -50,4 +51,5 @@ public class AboutUsControllerTest {
         assertEquals(0, result.get("code"));
         assertEquals(pageUtils, result.get("data"));
     }
+
 }
